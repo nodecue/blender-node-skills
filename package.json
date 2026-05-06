@@ -1,0 +1,30 @@
+{
+  "name": "@nodecue/geometry-nodes-skill",
+  "version": "0.1.0-alpha.0",
+  "description": "Geometry Nodes skill for NodeCue, Codex, Claude, and other agent workflows.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "nodecue-geometry-nodes-skill": "./bin/install.js"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node tests/install-smoke.js",
+    "pack:dry": "npm pack --dry-run"
+  },
+  "keywords": [
+    "nodecue",
+    "geometry-nodes",
+    "blender",
+    "codex",
+    "agent-skill"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monswag/nodecue-geometry-nodes-skill.git"
+  }
+}

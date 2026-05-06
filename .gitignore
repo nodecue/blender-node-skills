@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+npm-debug.log*
+dist/
+*.tgz
+tmp/
