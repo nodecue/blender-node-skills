@@ -1,21 +1,35 @@
-# NodeCue Geometry Nodes Skill
+# NodeCue Blender Node Skills
 
-Standalone Geometry Nodes skill for NodeCue, Codex, Claude, and other agent workflows.
+Standalone Blender node skills for NodeCue, Codex, Claude, and other agent workflows.
 
-The skill teaches agents how to reason about Geometry Nodes graphs: node identities, sockets, field/data-flow relationships, readback repair, reusable patterns, and teachable frame organization.
+The alpha release includes the Geometry Nodes skill. Shader Nodes and Compositing Nodes are planned as separate skill folders in this same package once they have verified rules and patterns.
+
+The Geometry Nodes skill teaches agents how to reason about node graphs: node identities, sockets, field/data-flow relationships, readback repair, reusable patterns, and teachable frame organization.
 
 ## Install
 
 Default Codex skill install:
 
 ```bash
-npx @nodecue/geometry-nodes-skill install
+npx @nodecue/blender-node-skills install
 ```
 
 Custom skills directory:
 
 ```bash
-npx @nodecue/geometry-nodes-skill install --target /path/to/skills --force
+npx @nodecue/blender-node-skills install --target /path/to/skills --force
+```
+
+Install a specific bundled skill:
+
+```bash
+npx @nodecue/blender-node-skills install --skill geometry-nodes
+```
+
+Install all bundled skills:
+
+```bash
+npx @nodecue/blender-node-skills install --all
 ```
 
 This installs:
@@ -26,12 +40,12 @@ This installs:
 
 ## Contents
 
-- `SKILL.md` - entrypoint and high-level Geometry Nodes rules
-- `SYSTEM_PROMPT.md` - generic Geometry Nodes agent system prompt template
-- `rules/` - node family rules and safety notes
-- `patterns/` - verified graph patterns
-- `evals/` - small validation artifacts
+- `skills/geometry-nodes/SKILL.md` - entrypoint and high-level Geometry Nodes rules
+- `skills/geometry-nodes/SYSTEM_PROMPT.md` - generic Geometry Nodes agent system prompt template
+- `skills/geometry-nodes/rules/` - node family rules and safety notes
+- `skills/geometry-nodes/patterns/` - verified graph patterns
+- `skills/geometry-nodes/evals/` - small validation artifacts
 
 ## Scope
 
-This alpha package covers Geometry Nodes only. Shader Nodes and Compositing Nodes will be separate future skill areas.
+This alpha package covers Geometry Nodes only. The package and installer are intentionally named for Blender node skills so Shader Nodes and Compositing Nodes can be added without changing the repo or npm package again.

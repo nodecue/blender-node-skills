@@ -5,17 +5,26 @@ import path from "node:path";
 import process from "node:process";
 
 const packageRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
-const sourceSkill = path.join(packageRoot, "skills", "geometry-nodes");
+const sourceRoot = path.join(packageRoot, "skills");
+const defaultSkill = "geometry-nodes";
 
 function usage() {
   console.log(`Usage:
-  npx @nodecue/geometry-nodes-skill install [--target <skills-dir>] [--force]
+  npx @nodecue/blender-node-skills install [--target <skills-dir>] [--skill <name>] [--all] [--force]
 
 Defaults:
   --target ~/.codex/skills
+  --skill geometry-nodes
 
 Installs:
-  <target>/geometry-nodes`);
+  <target>/<skill-name>
+
+Available now:
+  geometry-nodes
+
+Reserved future skill areas:
+  shader-nodes
+  compositing-nodes`);
 }
 
 function parseArgs(argv) {
@@ -23,6 +32,8 @@ function parseArgs(argv) {
     command: "install",
     target: path.join(os.homedir(), ".codex", "skills"),
     force: false,
+    skill: defaultSkill,
+    all: false,
   };
   const rest = [...argv];
   if (rest[0] && !rest[0].startsWith("-")) {
@@ -34,8 +45,14 @@ function parseArgs(argv) {
       const value = rest.shift();
       if (!value) throw new Error("--target requires a directory");
       args.target = value;
+    } else if (token === "--skill") {
+      const value = rest.shift();
+      if (!value) throw new Error("--skill requires a skill name");
+      args.skill = value;
     } else if (token === "--force") {
       args.force = true;
+    } else if (token === "--all") {
+      args.all = true;
     } else if (token === "--help" || token === "-h") {
       args.command = "help";
     } else {
@@ -43,6 +60,18 @@ function parseArgs(argv) {
     }
   }
   return args;
+}
+
+function isAvailableSkill(name) {
+  return fs.existsSync(path.join(sourceRoot, name, "SKILL.md"));
+}
+
+function availableSkills() {
+  return fs
+    .readdirSync(sourceRoot, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && isAvailableSkill(entry.name))
+    .map((entry) => entry.name)
+    .sort();
 }
 
 function shouldSkip(name) {
@@ -72,19 +101,28 @@ function main() {
   if (args.command !== "install") {
     throw new Error(`unsupported command: ${args.command}`);
   }
-  if (!fs.existsSync(path.join(sourceSkill, "SKILL.md"))) {
-    throw new Error(`missing bundled skill at ${sourceSkill}`);
+  const skills = args.all ? availableSkills() : [args.skill];
+  if (!skills.length) {
+    throw new Error(`no bundled skills found in ${sourceRoot}`);
+  }
+  for (const skill of skills) {
+    if (!isAvailableSkill(skill)) {
+      throw new Error(`missing bundled skill '${skill}'. Available skills: ${availableSkills().join(", ") || "none"}`);
+    }
   }
   const targetRoot = path.resolve(args.target.replace(/^~(?=$|\/|\\)/, os.homedir()));
-  const dest = path.join(targetRoot, "geometry-nodes");
-  if (fs.existsSync(dest)) {
-    if (!args.force) {
-      throw new Error(`${dest} already exists. Re-run with --force to replace it.`);
+  for (const skill of skills) {
+    const src = path.join(sourceRoot, skill);
+    const dest = path.join(targetRoot, skill);
+    if (fs.existsSync(dest)) {
+      if (!args.force) {
+        throw new Error(`${dest} already exists. Re-run with --force to replace it.`);
+      }
+      fs.rmSync(dest, { recursive: true, force: true });
     }
-    fs.rmSync(dest, { recursive: true, force: true });
+    copyDir(src, dest);
+    console.log(`Installed NodeCue ${skill} skill to ${dest}`);
   }
-  copyDir(sourceSkill, dest);
-  console.log(`Installed NodeCue Geometry Nodes skill to ${dest}`);
 }
 
 try {

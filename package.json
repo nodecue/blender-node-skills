@@ -1,11 +1,11 @@
 {
-  "name": "@nodecue/geometry-nodes-skill",
+  "name": "@nodecue/blender-node-skills",
   "version": "0.1.0-alpha.0",
-  "description": "Geometry Nodes skill for NodeCue, Codex, Claude, and other agent workflows.",
+  "description": "Blender node skills for NodeCue, Codex, Claude, and other agent workflows.",
   "license": "MIT",
   "type": "module",
   "bin": {
-    "nodecue-geometry-nodes-skill": "./bin/install.js"
+    "nodecue-blender-node-skills": "./bin/install.js"
   },
   "files": [
     "bin/",
@@ -19,12 +19,14 @@
   "keywords": [
     "nodecue",
     "geometry-nodes",
+    "shader-nodes",
+    "compositing-nodes",
     "blender",
     "codex",
     "agent-skill"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/monswag/nodecue-geometry-nodes-skill.git"
+    "url": "https://github.com/monswag/nodecue-blender-node-skills.git"
   }
 }

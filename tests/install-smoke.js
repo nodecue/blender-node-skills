@@ -52,3 +52,21 @@ if (forbidden.length) {
 }
 
 console.log(`Install smoke passed: ${installed}`);
+
+const secondTarget = fs.mkdtempSync(path.join(os.tmpdir(), "nodecue-skill-install-all-"));
+const allResult = spawnSync(process.execPath, [installer, "install", "--target", secondTarget, "--all", "--force"], {
+  cwd: repoRoot,
+  encoding: "utf8",
+});
+
+if (allResult.status !== 0) {
+  console.error(allResult.stdout);
+  console.error(allResult.stderr);
+  process.exit(allResult.status ?? 1);
+}
+
+const allInstalled = path.join(secondTarget, "geometry-nodes", "SKILL.md");
+if (!fs.existsSync(allInstalled)) {
+  console.error(`Missing --all install file: ${allInstalled}`);
+  process.exit(1);
+}
