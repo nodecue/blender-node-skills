@@ -53,6 +53,10 @@ Use the `Skill feedback` issue template when an agent gets a Blender node task w
 
 Do not include API keys, private asset-library paths, or unreleasable `.blend` files in public issues.
 
+## Security
+
+The installer writes skill files into the target skills directory and `--force` replaces the destination skill folder. Do not share private prompts, readback JSON, or unreleasable `.blend` files in public issues. See [SECURITY.md](SECURITY.md).
+
 ## Scope
 
 This alpha package covers Geometry Nodes only. The package and installer are intentionally named for Blender node skills so Shader Nodes and Compositing Nodes can be added without changing the repo or npm package again.
