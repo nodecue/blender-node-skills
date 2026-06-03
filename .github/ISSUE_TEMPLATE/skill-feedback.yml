@@ -1,0 +1,61 @@
+name: Skill feedback
+description: Report where a Blender node skill helped, failed, or confused an agent.
+title: "[Skill] "
+labels: ["skill-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for feedback about the standalone skill package, especially when an external agent used the skill with Blender MCP.
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Skill
+      options:
+        - geometry-nodes
+        - shader-nodes planned
+        - compositing-nodes planned
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent / tool
+      placeholder: "Codex, Claude, Pi, NodeCue, other"
+    validations:
+      required: false
+  - type: input
+    id: execution
+    attributes:
+      label: Execution path
+      placeholder: "Official Blender MCP, NodeCue internal agent, direct Blender Python, other"
+    validations:
+      required: false
+  - type: textarea
+    id: prompt
+    attributes:
+      label: Prompt
+      description: Paste the prompt or task that triggered the skill.
+    validations:
+      required: false
+  - type: textarea
+    id: result
+    attributes:
+      label: What happened?
+      description: Describe the graph, explanation, or agent behavior. Mention missing/wrong nodes, socket mistakes, orphan nodes, or unclear guidance.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should the skill have clarified?
+      description: Describe the rule, pattern, or warning that would have helped the agent.
+    validations:
+      required: false
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Attach report snippets, screenshots, readback JSON, or a minimal .blend if you can share it. Do not include secrets or private asset-library paths.
+    validations:
+      required: false

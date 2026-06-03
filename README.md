@@ -47,6 +47,12 @@ This installs:
 
 Runtime system prompts are intentionally not bundled here. Each agent should provide its own behavior instructions, then read this skill as domain knowledge.
 
+## Feedback
+
+Use the `Skill feedback` issue template when an agent gets a Blender node task wrong after reading this package. Useful reports include the prompt, agent/tool name, execution path, generated graph issue, and any readback JSON or screenshots you can share.
+
+Do not include API keys, private asset-library paths, or unreleasable `.blend` files in public issues.
+
 ## Scope
 
 This alpha package covers Geometry Nodes only. The package and installer are intentionally named for Blender node skills so Shader Nodes and Compositing Nodes can be added without changing the repo or npm package again.
