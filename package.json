@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "nodecue-blender-node-skills": "./bin/install.js"
+    "nodecue-blender-node-skills": "bin/install.js"
   },
   "files": [
     "bin/",
@@ -29,6 +29,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/monswag/nodecue-blender-node-skills.git"
+    "url": "git+https://github.com/monswag/nodecue-blender-node-skills.git"
   }
 }
