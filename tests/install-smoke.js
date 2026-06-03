@@ -22,7 +22,6 @@ if (result.status !== 0) {
 const installed = path.join(target, "geometry-nodes");
 const required = [
   "SKILL.md",
-  "SYSTEM_PROMPT.md",
   "rules/node-role-catalog.md",
   "patterns/density-controlled-scatter.md",
 ];

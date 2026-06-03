@@ -41,10 +41,11 @@ This installs:
 ## Contents
 
 - `skills/geometry-nodes/SKILL.md` - entrypoint and high-level Geometry Nodes rules
-- `skills/geometry-nodes/SYSTEM_PROMPT.md` - generic Geometry Nodes agent system prompt template
 - `skills/geometry-nodes/rules/` - node family rules and safety notes
 - `skills/geometry-nodes/patterns/` - verified graph patterns
 - `skills/geometry-nodes/evals/` - small validation artifacts
+
+Runtime system prompts are intentionally not bundled here. Each agent should provide its own behavior instructions, then read this skill as domain knowledge.
 
 ## Scope
 
