@@ -60,3 +60,5 @@ The installer writes skill files into the target skills directory and `--force` 
 ## Scope
 
 This alpha package covers Geometry Nodes only. The package and installer are intentionally named for Blender node skills so Shader Nodes and Compositing Nodes can be added without changing the repo or npm package again.
+
+See [CHANGELOG.md](CHANGELOG.md) for the current alpha package contents.
