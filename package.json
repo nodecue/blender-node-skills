@@ -10,6 +10,8 @@
   "files": [
     "bin/",
     "skills/",
+    "CHANGELOG.md",
+    "SECURITY.md",
     "README.md"
   ],
   "scripts": {
