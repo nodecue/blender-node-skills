@@ -14,6 +14,14 @@ Default Codex skill install:
 npx @nodecue/blender-node-skills install
 ```
 
+If the npm package is not published yet, install from a public checkout:
+
+```bash
+git clone https://github.com/monswag/nodecue-blender-node-skills.git
+cd nodecue-blender-node-skills
+node bin/install.js install
+```
+
 Custom skills directory:
 
 ```bash
