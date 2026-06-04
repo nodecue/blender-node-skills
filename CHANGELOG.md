@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.1
+
+Alpha package metadata update for the first public repository pass.
+
+### Added
+
+- GitHub checkout install fallback for testing before the npm package is published.
+
 ## 0.1.0-alpha.0
 
 Initial alpha package for standalone Blender node skills.

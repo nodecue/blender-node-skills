@@ -1,6 +1,6 @@
 {
   "name": "@nodecue/blender-node-skills",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "Blender node skills for NodeCue, Codex, Claude, and other agent workflows.",
   "license": "MIT",
   "type": "module",

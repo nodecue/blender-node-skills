@@ -5,7 +5,7 @@ Use this before publishing `@nodecue/blender-node-skills` for the first public a
 ## Current Package
 
 - Package: `@nodecue/blender-node-skills`
-- Version: `0.1.0-alpha.0`
+- Version: `0.1.0-alpha.1`
 - Recommended first dist-tag: `alpha`
 - Default installer command after publish:
 
