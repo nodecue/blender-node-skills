@@ -38,6 +38,8 @@ This installs:
 <target>/geometry-nodes/
 ```
 
+First-time npm publishing notes are in [docs/npm-publishing.md](https://github.com/monswag/nodecue-blender-node-skills/blob/main/docs/npm-publishing.md).
+
 ## Contents
 
 - `skills/geometry-nodes/SKILL.md` - entrypoint and high-level Geometry Nodes rules
