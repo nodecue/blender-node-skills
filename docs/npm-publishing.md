@@ -30,6 +30,12 @@ npm pack --dry-run
 npm publish --dry-run --access public --tag alpha
 ```
 
+If the local npm cache has permission issues, rerun the pack check with a temporary cache:
+
+```bash
+npm --cache /private/tmp/nodecue-npm-cache pack --dry-run
+```
+
 The package contents should include only:
 
 - `bin/`
@@ -51,6 +57,18 @@ Run the `Publish npm package` workflow manually:
 4. Run again with `publish=true` and `tag=alpha`.
 
 The workflow intentionally defaults to dry-run. A real publish requires explicitly selecting `publish=true`.
+
+CLI equivalent:
+
+```bash
+gh workflow run publish.yml --repo monswag/nodecue-blender-node-skills -f publish=false -f tag=alpha
+```
+
+After the dry-run workflow passes and `NPM_TOKEN` is configured:
+
+```bash
+gh workflow run publish.yml --repo monswag/nodecue-blender-node-skills -f publish=true -f tag=alpha
+```
 
 ## After Publishing
 
