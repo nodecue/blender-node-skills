@@ -17,8 +17,9 @@ npx @nodecue/blender-node-skills install
 
 - Confirm the `@nodecue` npm scope exists and your npm account can publish public packages under it.
 - If the `@nodecue` npm scope is unavailable, do not silently rename in the workflow. Decide the fallback package name first, then update `package.json`, README install commands, and release docs together.
-- Configure the repository secret `NPM_TOKEN` in GitHub before running a real publish.
-- Keep the GitHub repository private until the dry-run workflow succeeds.
+- Configure the repository secret `NPM_TOKEN` in GitHub before running a real npm publish.
+- The GitHub repository can be made public before npm is published, as long as the README checkout fallback has been verified.
+- Keep npm itself unpublished until the dry-run workflow succeeds.
 
 ## Local Checks
 
