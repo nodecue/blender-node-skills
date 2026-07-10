@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased
+
+The repository is now just the skill plus a plain git-checkout install.
+
+### Changed
+
+- README rewritten around what the skill is for: building Geometry Nodes graphs correctly and teaching through frame annotations. It now states which agents it works with, which combinations were actually tested, that results can still be wrong, and the Blender 5.0+ / Geometry-Nodes-only scope.
+- Install is `git clone` + copy the skill folder into your agent's skills directory.
+
+### Removed
+
+- npm distribution: installer (`bin/install.js`), `package.json`, install smoke test, npm publishing docs and workflows. The npm route was never published and added maintenance surface without helping the target users; it can return later if demand shows.
+- `SECURITY.md` (folded into the README feedback section).
+
 ## 0.1.0-alpha.1
 
 Alpha package metadata update for the first public repository pass.

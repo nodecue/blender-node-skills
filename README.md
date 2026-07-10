@@ -1,74 +1,65 @@
 # NodeCue Blender Node Skills
 
-Standalone Blender node skills for NodeCue, Codex, Claude, and other agent workflows.
+An agent skill that teaches AI coding agents how to **build Blender Geometry Nodes graphs correctly — and explain them so you can learn from the result**.
 
-The alpha release includes the Geometry Nodes skill. Shader Nodes and Compositing Nodes are planned as separate skill folders in this same package once they have verified rules and patterns.
+Point an agent at this skill and ask for a node setup in plain language ("scatter grass on this surface with a density mask"). The agent reads the skill as domain knowledge and builds the actual node graph in Blender: exact node identities and sockets, verified graph patterns, field/data-flow reasoning, and readback-based self-correction. The generated graph carries **teaching annotations** — frames that label each logical block and explain why the nodes are organized that way — so the output is something you can study, not just use.
 
-The Geometry Nodes skill teaches agents how to reason about node graphs: node identities, sockets, field/data-flow relationships, readback repair, reusable patterns, and teachable frame organization.
+This is not a preset library and not a Python snippet generator. It is the knowledge layer that makes a general agent competent at Blender node systems.
+
+## What's Inside
+
+- `skills/geometry-nodes/SKILL.md` — entrypoint: build loop, reliability rules, the Geometry Nodes mental model (data-flow lane vs field lane), and indexes into rules and patterns
+- `skills/geometry-nodes/rules/` — 30+ node-family references with exact `bl_idname` and socket names
+- `skills/geometry-nodes/patterns/` — verified graph patterns (distribution, stitching, displacement, density-controlled scatter, repeat-zone techniques, and more)
+
+## Works With
+
+Any agent that can read skill files and drive Blender:
+
+- **Claude Code / Codex CLI / other agent CLIs** — connect to Blender through the community [blender-mcp](https://github.com/ahujasid/blender-mcp) project (Blender has no official MCP today; if one ships, it becomes the preferred path)
+- **[NodeCue Blender add-on](https://github.com/monswag/NodeCue)** — an in-Blender agent that bundles this same skill and runs with your own API key
+
+## Tested Combinations
+
+What we have actually verified so far:
+
+- Codex CLI + community blender-mcp (with-skill vs no-skill ablation runs)
+- NodeCue built-in agent with OpenRouter models (kimi-k2.6, deepseek-v4-pro), including automated graph-structure checks: required nodes present, geometry trunk reaches Group Output, field drivers reach real consumers, teaching frames present
+
+Claude Code and other MCP-capable agents follow the same path but have not been formally evaluated yet — reports welcome.
 
 ## Install
 
-Default Codex skill install:
-
-```bash
-npx @nodecue/blender-node-skills install
-```
-
-If the npm package is not published yet, install from a public checkout:
-
 ```bash
 git clone https://github.com/monswag/nodecue-blender-node-skills.git
-cd nodecue-blender-node-skills
-node bin/install.js install
 ```
 
-Custom skills directory:
+Copy the skill folder into your agent's skills directory:
 
 ```bash
-npx @nodecue/blender-node-skills install --target /path/to/skills --force
+# Claude Code
+cp -r nodecue-blender-node-skills/skills/geometry-nodes ~/.claude/skills/
+
+# Codex
+cp -r nodecue-blender-node-skills/skills/geometry-nodes ~/.codex/skills/
 ```
 
-Install a specific bundled skill:
+For other agents, copy `skills/geometry-nodes/` to wherever that agent loads skills from.
 
-```bash
-npx @nodecue/blender-node-skills install --skill geometry-nodes
-```
+Runtime system prompts are intentionally not bundled: each agent brings its own behavior instructions and reads this skill as domain knowledge.
 
-Install all bundled skills:
+## Scope and Accuracy
 
-```bash
-npx @nodecue/blender-node-skills install --all
-```
-
-This installs:
-
-```text
-<target>/geometry-nodes/
-```
-
-First-time npm publishing notes are in [docs/npm-publishing.md](https://github.com/monswag/nodecue-blender-node-skills/blob/main/docs/npm-publishing.md).
-
-## Contents
-
-- `skills/geometry-nodes/SKILL.md` - entrypoint and high-level Geometry Nodes rules
-- `skills/geometry-nodes/rules/` - node family rules and safety notes
-- `skills/geometry-nodes/patterns/` - verified graph patterns
-- `skills/geometry-nodes/evals/` - small validation artifacts
-
-Runtime system prompts are intentionally not bundled here. Each agent should provide its own behavior instructions, then read this skill as domain knowledge.
+- **Geometry Nodes only, Blender 5.0+.** Rules follow the Blender 5.0 manual; most testing happens on 5.1. Node behavior can differ across Blender versions.
+- **Shader Nodes and Compositing Nodes are planned** as sibling skill folders in this same repository once they have verified rules and patterns.
+- **Results can be wrong.** The skill sharply reduces invented node names and broken links, but an LLM-driven build can still produce incorrect graphs or misleading explanations — model quality matters. Inspect the graph in Blender before relying on it, and report failures.
 
 ## Feedback
 
-Use the `Skill feedback` issue template when an agent gets a Blender node task wrong after reading this package. Useful reports include the prompt, agent/tool name, execution path, generated graph issue, and any readback JSON or screenshots you can share.
+Open an issue with the `Skill feedback` template when an agent gets a Blender node task wrong after reading this skill. Useful reports include the prompt, agent/tool name, model, what the graph got wrong, and any readback JSON or screenshots you can share.
 
 Do not include API keys, private asset-library paths, or unreleasable `.blend` files in public issues.
 
-## Security
+## License
 
-The installer writes skill files into the target skills directory and `--force` replaces the destination skill folder. Do not share private prompts, readback JSON, or unreleasable `.blend` files in public issues. See [SECURITY.md](SECURITY.md).
-
-## Scope
-
-This alpha package covers Geometry Nodes only. The package and installer are intentionally named for Blender node skills so Shader Nodes and Compositing Nodes can be added without changing the repo or npm package again.
-
-See [CHANGELOG.md](CHANGELOG.md) for the current alpha package contents.
+MIT — see [LICENSE](LICENSE).
