@@ -1,6 +1,6 @@
 ---
 name: geometry-nodes
-version: "0.4"
+version: "0.5"
 description: Use when an agent must plan, build, modify, explain, or debug Blender Geometry Nodes with exact node identities, socket/link correctness, field/data-flow reasoning, asset node-group reuse, and readback-based repair.
 ---
 
@@ -108,6 +108,11 @@ Map prompt phrases to node roles before editing:
 - "assemble / modules / existing node groups" -> group-node reuse and `Join Geometry` orchestration.
 
 When wording is ambiguous, enumerate competing interpretations, choose one minimal interpretation, and record the assumption. Ask only when one unresolved choice materially changes topology.
+
+## Annotation Language
+1. Write frame labels, teaching notes, and explanations in the language of the user's prompt, unless the user names another language.
+2. Never translate node names, socket names, or `bl_idname` identifiers — keep them exactly as Blender displays them. Translated node names break the user's path from annotation to Blender's UI and to tutorials.
+3. When the annotation language is not English, prefer short bilingual frame labels that pair the concept with its English Blender term, for example `噪声高度控制 — Noise Height Control`. Keep labels short; long labels get clipped in the node editor.
 
 ## Group Input Policy
 | Mode | Use When | Group Input.Geometry |

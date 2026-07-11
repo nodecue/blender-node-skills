@@ -1,3 +1,5 @@
+English | [简体中文](README.zh-CN.md)
+
 # NodeCue Blender Node Skills
 
 An agent skill that teaches AI coding agents how to **build Blender Geometry Nodes graphs correctly — and explain them so you can learn from the result**.
@@ -47,6 +49,10 @@ cp -r nodecue-blender-node-skills/skills/geometry-nodes ~/.codex/skills/
 For other agents, copy `skills/geometry-nodes/` to wherever that agent loads skills from.
 
 Runtime system prompts are intentionally not bundled: each agent brings its own behavior instructions and reads this skill as domain knowledge.
+
+## Annotation Language
+
+Frame annotations and explanations follow the language of your prompt — describe the task in Chinese and you get Chinese teaching notes. Node names, socket names, and other Blender terms always stay in English so annotations map directly to Blender's UI and to mainstream tutorials.
 
 ## Scope and Accuracy
 
