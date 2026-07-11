@@ -18,14 +18,14 @@ This is not a preset library and not a Python snippet generator. It is the knowl
 
 Any agent that can read skill files and drive Blender:
 
-- **Claude Code / Codex CLI / other agent CLIs** — connect to Blender through the community [blender-mcp](https://github.com/ahujasid/blender-mcp) project (Blender has no official MCP today; if one ships, it becomes the preferred path)
+- **Claude Code / Codex CLI / other agent CLIs** — connect to Blender through an MCP server: Blender's official [MCP server](https://www.blender.org/lab/mcp-server/) from Blender Lab (bundled from Blender 5.2 LTS, available as an add-on), or the community [blender-mcp](https://github.com/ahujasid/blender-mcp) project
 - **[NodeCue Blender add-on](https://github.com/monswag/NodeCue)** — an in-Blender agent that bundles this same skill and runs with your own API key
 
 ## Tested Combinations
 
 What we have actually verified so far:
 
-- Codex CLI + community blender-mcp (with-skill vs no-skill ablation runs)
+- Codex CLI + Blender's official MCP server (with-skill vs no-skill ablation runs)
 - NodeCue built-in agent with OpenRouter models (kimi-k2.6, deepseek-v4-pro), including automated graph-structure checks: required nodes present, geometry trunk reaches Group Output, field drivers reach real consumers, teaching frames present
 
 Claude Code and other MCP-capable agents follow the same path but have not been formally evaluated yet — reports welcome.

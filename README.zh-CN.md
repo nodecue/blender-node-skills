@@ -18,14 +18,14 @@
 
 任何能读取 skill 文件并操作 Blender 的 agent：
 
-- **Claude Code / Codex CLI / 其他 agent CLI** — 通过社区的 [blender-mcp](https://github.com/ahujasid/blender-mcp) 项目连接 Blender（Blender 目前没有官方 MCP；如果将来官方发布，则优先使用官方版）
+- **Claude Code / Codex CLI / 其他 agent CLI** — 通过 MCP server 连接 Blender：Blender 官方的 [MCP server](https://www.blender.org/lab/mcp-server/)（Blender Lab 出品，随 Blender 5.2 LTS 内置，也可作为插件安装），或社区的 [blender-mcp](https://github.com/ahujasid/blender-mcp) 项目
 - **[NodeCue Blender 插件](https://github.com/monswag/NodeCue)** — 内置同一套 skill 的 Blender 内 agent，使用你自己的 API key 运行
 
 ## 已测试的组合
 
 目前实际验证过的组合：
 
-- Codex CLI + 社区 blender-mcp（含"有 skill vs 无 skill"对照实验）
+- Codex CLI + Blender 官方 MCP server（含"有 skill vs 无 skill"对照实验）
 - NodeCue 内建 agent + OpenRouter 模型（kimi-k2.6、deepseek-v4-pro），含自动化图结构校验：必需节点齐全、几何主干到达 Group Output、field 驱动接到真实消费端、教学 Frame 存在
 
 Claude Code 及其他支持 MCP 的 agent 走同样的路径，但尚未正式评估——欢迎反馈使用结果。
