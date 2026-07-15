@@ -18,7 +18,7 @@ tags: scatter, density, selection, instance, random
 - `rules/utilities-misc.md`: `FunctionNodeRandomValue`
 - `rules/utilities-math.md`: `FunctionNodeCompare`, `ShaderNodeMapRange`
 - `rules/texture.md`: `ShaderNodeTexNoise`, `ShaderNodeTexVoronoi`
-- `evals/gn_pattern_readbacks.json`: Blender 5.1 readback for `density-controlled-scatter`
+- Blender 5.1 readback captured in the NodeCue dev repo (`tests/golden/skill_evals/gn_pattern_readbacks.json`) for `density-controlled-scatter`
 
 ## Signature
 

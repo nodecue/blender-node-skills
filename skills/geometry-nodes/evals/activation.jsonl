@@ -1,8 +1,0 @@
-{"id":"trigger-001","should_trigger":true,"query":"请帮我在 Blender Geometry Nodes 里做一个根据曲线长度驱动实例缩放的节点组，并列出关键连线。"}
-{"id":"trigger-002","should_trigger":true,"query":"把这个几何节点网络里的 Mesh 转 Curve 再转 Mesh，说明每个转换节点用哪个。"}
-{"id":"trigger-003","should_trigger":true,"query":"调试 Geometry Nodes：为什么 Set Position 后实例位置不对？请按节点和 socket 检查。"}
-{"id":"trigger-004","should_trigger":true,"query":"我需要通过 MCP 在 Blender 里自动搭建一个点云散布到网格面的 geometry nodes 组。"}
-{"id":"no-trigger-001","should_trigger":false,"query":"帮我写一个 Cycles 材质，让金属看起来更旧一些。"}
-{"id":"no-trigger-002","should_trigger":false,"query":"解释一下 Blender 里 Eevee 和 Cycles 渲染器的区别。"}
-{"id":"no-trigger-003","should_trigger":false,"query":"给我一些构图建议，让画面更有电影感。"}
-{"id":"no-trigger-004","should_trigger":false,"query":"写一个 Python 脚本批量重命名对象，不涉及节点系统。"}

@@ -18,7 +18,7 @@ tags: displacement, set position, normal, noise, vector
 - `rules/utilities-vector.md`: `ShaderNodeVectorMath`
 - `rules/utilities-math.md`: `ShaderNodeMapRange`, `ShaderNodeMath`
 - `patterns/normal-projection-removal.md`: verified vector projection chain for tangent-only variants
-- `evals/gn_pattern_readbacks.json`: Blender 5.1 readback for `surface-displacement`
+- Blender 5.1 readback captured in the NodeCue dev repo (`tests/golden/skill_evals/gn_pattern_readbacks.json`) for `surface-displacement`
 
 ## Signature
 

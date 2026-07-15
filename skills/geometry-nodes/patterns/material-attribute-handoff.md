@@ -16,7 +16,7 @@ tags: material, attribute, mask, handoff, selection
 - `rules/attribute.md`: `GeometryNodeCaptureAttribute`, `GeometryNodeStoreNamedAttribute`
 - `rules/color.md`: `ShaderNodeValToRGB` for color mapping from a factor
 - `rules/utilities-math.md`: `FunctionNodeCompare`, `ShaderNodeMapRange`
-- `evals/gn_pattern_readbacks.json`: Blender 5.1 readback for `material-attribute-handoff`
+- Blender 5.1 readback captured in the NodeCue dev repo (`tests/golden/skill_evals/gn_pattern_readbacks.json`) for `material-attribute-handoff`
 
 ## Signature
 
