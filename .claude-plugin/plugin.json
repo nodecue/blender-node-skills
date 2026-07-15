@@ -1,0 +1,16 @@
+{
+  "name": "blender-node-skills",
+  "description": "Teach AI agents to build Blender Geometry Nodes graphs correctly, with teaching annotations you can learn from.",
+  "version": "0.5.0",
+  "author": {
+    "name": "monswag"
+  },
+  "homepage": "https://github.com/monswag/nodecue-blender-node-skills",
+  "license": "MIT",
+  "keywords": [
+    "blender",
+    "geometry-nodes",
+    "mcp",
+    "skill"
+  ]
+}

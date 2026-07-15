@@ -2,12 +2,16 @@
 
 ## Unreleased
 
-The repository is now just the skill plus a plain git-checkout install.
+### Added
+
+- The repository is now a Claude Code plugin marketplace: `/plugin marketplace add monswag/nodecue-blender-node-skills` then `/plugin install blender-node-skills@nodecue` installs the skill without a terminal. Codex and other agents keep the clone-and-copy path.
+- Chinese README (`README.zh-CN.md`) with a language switcher.
+- SKILL.md v0.5: annotation-language rule (follow the prompt language, never translate Blender terms, prefer short bilingual frame labels).
 
 ### Changed
 
 - README rewritten around what the skill is for: building Geometry Nodes graphs correctly and teaching through frame annotations. It now states which agents it works with, which combinations were actually tested, that results can still be wrong, and the Blender 5.0+ / Geometry-Nodes-only scope.
-- Install is `git clone` + copy the skill folder into your agent's skills directory.
+- Install paths are the Claude Code plugin marketplace or `git clone` + copy; the repository content is just the skill.
 
 ### Removed
 

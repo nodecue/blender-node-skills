@@ -32,21 +32,20 @@ Claude Code and other MCP-capable agents follow the same path but have not been 
 
 ## Install
 
+**Claude Code** — this repository doubles as a plugin marketplace; install from inside Claude Code, no terminal needed:
+
+```text
+/plugin marketplace add monswag/nodecue-blender-node-skills
+/plugin install blender-node-skills@nodecue
+```
+
+**Codex and other agents** — clone and copy the skill folder into the agent's skills directory:
+
 ```bash
 git clone https://github.com/monswag/nodecue-blender-node-skills.git
+cp -r nodecue-blender-node-skills/skills/geometry-nodes ~/.codex/skills/   # Codex
+# or wherever your agent loads skills from
 ```
-
-Copy the skill folder into your agent's skills directory:
-
-```bash
-# Claude Code
-cp -r nodecue-blender-node-skills/skills/geometry-nodes ~/.claude/skills/
-
-# Codex
-cp -r nodecue-blender-node-skills/skills/geometry-nodes ~/.codex/skills/
-```
-
-For other agents, copy `skills/geometry-nodes/` to wherever that agent loads skills from.
 
 Runtime system prompts are intentionally not bundled: each agent brings its own behavior instructions and reads this skill as domain knowledge.
 

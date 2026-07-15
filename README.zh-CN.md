@@ -32,21 +32,20 @@ Claude Code 及其他支持 MCP 的 agent 走同样的路径，但尚未正式�
 
 ## 安装
 
+**Claude Code** — 本仓库同时是一个 plugin marketplace，在 Claude Code 里两条命令安装，无需终端：
+
+```text
+/plugin marketplace add monswag/nodecue-blender-node-skills
+/plugin install blender-node-skills@nodecue
+```
+
+**Codex 及其他 agent** — 克隆后把 skill 文件夹复制到 agent 的 skills 目录：
+
 ```bash
 git clone https://github.com/monswag/nodecue-blender-node-skills.git
+cp -r nodecue-blender-node-skills/skills/geometry-nodes ~/.codex/skills/   # Codex
+# 其他 agent：复制到它加载 skills 的目录
 ```
-
-把 skill 文件夹复制到你的 agent 的 skills 目录：
-
-```bash
-# Claude Code
-cp -r nodecue-blender-node-skills/skills/geometry-nodes ~/.claude/skills/
-
-# Codex
-cp -r nodecue-blender-node-skills/skills/geometry-nodes ~/.codex/skills/
-```
-
-其他 agent：把 `skills/geometry-nodes/` 复制到该 agent 加载 skills 的目录即可。
 
 skill 有意不捆绑运行时系统提示词：每个 agent 使用自己的行为指令，把这个 skill 当作领域知识来读。
 
