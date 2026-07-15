@@ -2,52 +2,49 @@ English | [简体中文](README.zh-CN.md)
 
 # NodeCue Blender Node Skills
 
-An agent skill that teaches AI coding agents how to **build Blender Geometry Nodes graphs correctly — and explain them so you can learn from the result**.
+An agent skill that teaches AI coding agents to **build Blender Geometry Nodes graphs correctly — and explain them so you can learn from the result**.
 
-Point an agent at this skill and ask for a node setup in plain language ("scatter grass on this surface with a density mask"). The agent reads the skill as domain knowledge and builds the actual node graph in Blender: exact node identities and sockets, verified graph patterns, field/data-flow reasoning, and readback-based self-correction. The generated graph carries **teaching annotations** — frames that label each logical block and explain why the nodes are organized that way — so the output is something you can study, not just use.
+## Why install this?
 
-This is not a preset library and not a Python snippet generator. It is the knowledge layer that makes a general agent competent at Blender node systems.
+Strong models can already produce a valid-looking Geometry Nodes graph without any skill. What they get wrong is everything that makes the graph *usable*: requirements silently dropped, wiring that doesn't actually take effect, no exposed controls, nothing to learn from.
 
-## What's Inside
+We ran the same prompts through the same agent (Codex CLI + Blender MCP), with and without this skill:
 
-- `skills/geometry-nodes/SKILL.md` — entrypoint: build loop, reliability rules, the Geometry Nodes mental model (data-flow lane vs field lane), and indexes into rules and patterns
+| Prompt asked for | Without the skill | With the skill |
+|---|---|---|
+| Grass scatter **with a density mask** | Density mask **silently dropped** — no noise field, `Density Factor` never connected; 0 exposed controls | Noise → `Density Factor` wired; `Density`, `Scale Min`, `Scale Max` exposed; 2 teaching frames |
+| Arc pipe from a curve | Profile curve **never connected** to `Curve to Mesh` — the pipe has no cross-section; 5 nodes, only 2 links | Profile wired; `Pipe Radius` exposed |
+| Noise terrain **with height control** | 0 exposed controls | `Height`, `Noise Scale` exposed |
+
+Both variants pass a naive "graph reaches output" check — the difference only shows when you look at whether the *request* was fulfilled. (Honest caveat: this is an operational ablation, not a lab-clean memory-free experiment; the harness to reproduce it ships in the [NodeCue repo](https://github.com/monswag/NodeCue).)
+
+The skill also enforces the habits that make results learnable: exact `bl_idname` and socket identities instead of guesses, readback-verify-repair after every few nodes, and frame annotations that explain *why* each block is organized that way.
+
+## What's inside
+
+- `skills/geometry-nodes/SKILL.md` — build loop, reliability rules, the Geometry Nodes mental model (data-flow lane vs field lane)
 - `skills/geometry-nodes/rules/` — 30+ node-family references with exact `bl_idname` and socket names
 - `skills/geometry-nodes/patterns/` — verified graph patterns (distribution, stitching, displacement, density-controlled scatter, repeat-zone techniques, and more)
 
-## Works With
-
-Any agent that can read skill files and drive Blender:
-
-- **Claude Code / Codex CLI / other agent CLIs** — connect to Blender through an MCP server: Blender's official [MCP server](https://www.blender.org/lab/mcp-server/) from Blender Lab (bundled from Blender 5.2 LTS, available as an add-on), or the community [blender-mcp](https://github.com/ahujasid/blender-mcp) project
-- **[NodeCue Blender add-on](https://github.com/monswag/NodeCue)** — an in-Blender agent that bundles this same skill and runs with your own API key
-
-## Tested Combinations
-
-What we have actually verified so far:
-
-- Codex CLI + Blender's official MCP server (with-skill vs no-skill ablation runs)
-- NodeCue built-in agent with OpenRouter models (kimi-k2.6, deepseek-v4-pro), including automated graph-structure checks: required nodes present, geometry trunk reaches Group Output, field drivers reach real consumers, teaching frames present
-
-Claude Code and other MCP-capable agents follow the same path but have not been formally evaluated yet — reports welcome.
-
 ## Install
 
-**Claude Code** — this repository doubles as a plugin marketplace; install from inside Claude Code, no terminal needed:
-
-```text
-/plugin marketplace add monswag/nodecue-blender-node-skills
-/plugin install blender-node-skills@nodecue
-```
-
-**Codex and other agents** — clone and copy the skill folder into the agent's skills directory:
+One command, works across Claude Code, Codex, Cursor, and other agents (via the open [skills CLI](https://github.com/vercel-labs/skills)):
 
 ```bash
-git clone https://github.com/monswag/nodecue-blender-node-skills.git
-cp -r nodecue-blender-node-skills/skills/geometry-nodes ~/.codex/skills/   # Codex
-# or wherever your agent loads skills from
+npx skills add monswag/nodecue-blender-node-skills
 ```
 
+Alternatives: Claude Code users can instead run `/plugin marketplace add monswag/nodecue-blender-node-skills` then `/plugin install blender-node-skills@nodecue`; or clone this repo and copy `skills/geometry-nodes/` into your agent's skills directory manually.
+
 Runtime system prompts are intentionally not bundled: each agent brings its own behavior instructions and reads this skill as domain knowledge.
+
+## Connecting to Blender
+
+The skill works with whatever Blender access path your agent has:
+
+- **Blender's official [MCP server](https://www.blender.org/lab/mcp-server/)** from Blender Lab (bundled from Blender 5.2 LTS, available as an add-on) — preferred
+- The community [blender-mcp](https://github.com/ahujasid/blender-mcp) project
+- The **[NodeCue Blender add-on](https://github.com/monswag/NodeCue)** — an in-Blender agent that bundles this same skill and runs with your own API key
 
 ## Annotation Language
 
@@ -56,8 +53,8 @@ Frame annotations and explanations follow the language of your prompt — descri
 ## Scope and Accuracy
 
 - **Geometry Nodes only, Blender 5.0+.** Rules follow the Blender 5.0 manual; most testing happens on 5.1. Node behavior can differ across Blender versions.
-- **Shader Nodes and Compositing Nodes are planned** as sibling skill folders in this same repository once they have verified rules and patterns.
-- **Results can be wrong.** The skill sharply reduces invented node names and broken links, but an LLM-driven build can still produce incorrect graphs or misleading explanations — model quality matters. Inspect the graph in Blender before relying on it, and report failures.
+- **Shader Nodes and Compositing Nodes are planned** as sibling skill folders once they have verified rules and patterns.
+- **Results can still be wrong.** The skill sharply reduces invented node names and dropped requirements, but an LLM-driven build can still produce incorrect graphs or misleading explanations — model quality matters. Inspect the graph in Blender before relying on it, and report failures.
 
 ## Feedback
 
@@ -67,4 +64,4 @@ Do not include API keys, private asset-library paths, or unreleasable `.blend` f
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE). Node behavior in the rules is verified against the [Blender Manual](https://docs.blender.org/manual/en/latest/) (CC-BY-SA 4.0).
