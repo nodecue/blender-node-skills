@@ -18,7 +18,7 @@ We ran the same prompts through the same agent (Codex CLI + Blender MCP), with a
 
 Both variants pass a naive "graph reaches output" check — the difference only shows when you look at whether the *request* was fulfilled. (Honest caveat: this is an operational ablation, not a lab-clean memory-free experiment; the harness to reproduce it ships in the [NodeCue repo](https://github.com/monswag/NodeCue).)
 
-The skill also enforces the habits that make results learnable: exact `bl_idname` and socket identities instead of guesses, readback-verify-repair after every few nodes, and frame annotations that explain *why* each block is organized that way.
+**On top-tier models the gap shifts from correctness to craft.** A comparison on Codex with gpt-5.6 (extra-high reasoning), same prompt both ways, produced correct geometry twice — but without the skill, the prompt had to explicitly demand explanatory frames, the model renamed and labeled every node with explanations (breaking the mapping between the graph, Blender's UI, and tutorials), left a redundant `Realize Instances` in the final graph, and used two extra nodes. With the skill: default node names, all teaching in bilingual frames, a temporary realize used to *verify* the instance count then removed, and a leaner 9-node graph — at the cost of a few more MCP calls. In short, the skill is **standing convention and verification discipline**: the things you would otherwise re-type in every prompt, and the things models skip when you forget to ask.
 
 ## What's inside
 
