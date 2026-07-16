@@ -4,6 +4,8 @@
 
 ### Added
 
+- Real side-by-side screenshots in the "Why install this?" section: same agent (Codex CLI, gpt-5.6, extra-high reasoning), same prompt, with and without the skill (`docs/images/comparison-*.png`). The mid-tier ablation table moves into a collapsed `<details>` section.
+
 - The repository is now a Claude Code plugin marketplace: `/plugin marketplace add monswag/nodecue-blender-node-skills` then `/plugin install blender-node-skills@nodecue` installs the skill without a terminal. Codex and other agents keep the clone-and-copy path.
 - Chinese README (`README.zh-CN.md`) with a language switcher.
 - SKILL.md v0.5: annotation-language rule (follow the prompt language, never translate Blender terms, prefer short bilingual frame labels).

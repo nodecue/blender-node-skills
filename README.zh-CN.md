@@ -6,15 +6,35 @@
 
 ## 为什么要装它？
 
-强模型不装它也能搭出能跑的图。skill 负责的是那些**你本来每次都要在提示词里重复的要求，以及你忘了要求时模型就会跳过的步骤**：
+同一个 agent（Codex CLI，gpt-5.6，extra-high 推理），同一句提示词，通过 Blender MCP 各跑一次——一次要求不借助任何 skill，一次用这个 skill：
+
+> 在场景中添加一个立方体，2米大小，在立方体的顶部4个顶点处分别添加一个高0.2米，直径0.2米的圆锥。并对节点使用frame进行功能性解释。
+
+| 无 skill | 有 skill |
+|---|---|
+| ![无 skill：每个节点都被改名并加了解释标签，成品图里留着多余的 Realize Instances，共 11 个节点](docs/images/comparison-no-skill.png) | ![有 skill：节点保持默认名，4 个双语教学 Frame，共 9 个节点](docs/images/comparison-with-skill.png) |
+
+两次几何结果都是对的——这是个强模型。差异在于图里留下了什么：
+
+- **节点命名**：每个节点都被改名并加上解释性标签（`Cube_2m`、"读取每个顶点的位置"、"Z > 0.99 = 顶部顶点"……）vs. 保持 Blender 默认名（`Position`、`Compare`、`Cone`……）。改名会切断节点图与 Blender 界面、以及任何默认命名教程之间的对照关系。
+- **解释放在哪里**：涂满在各个节点的标签上 vs. 集中收纳进 4 个双语 Frame（"02 顶部四点 — Select Z > 0.99"）。
+- **多余节点**：成品图里留着一个 `Realize Instances` vs. 只在验证数量（4 个圆锥）时临时用一下，随后撤销。
+- **图的大小**：同样的结果，11 个节点 / 11 条连线 vs. 9 个节点 / 9 条连线。
+- **成本**：4 次 MCP 调用（约 4 分 17 秒）vs. 7 次 MCP 调用（约 5 分 46 秒）——多出来的回读-校验-修复循环不是免费的。
+
+在强模型上，skill 带来的不是"能跑 vs. 跑不通"的差距，而是**固化的约定**（默认命名、Frame、双语标签）和**验证纪律**（先检查再宣称完成）——省去了你每次都要在提示词里重申"请用 frame 解释"、并且自己去检查结果对不对。
+
+<details>
+<summary>中档模型的对照实验——这里 skill 能防止需求被静默丢弃</summary>
 
 | 同一 agent，同一提示词 | 无 skill | 有 skill |
 |---|---|---|
 | 草叶散布，**带密度遮罩** | 遮罩被静默丢弃 | Noise → `Density Factor` 正确接线；暴露控制参数 |
 | 沿曲线生成管道 | 截面从未接线——管道没有截面 | 接线正确；暴露 `Pipe Radius` |
-| 可学习的产出 | 解释涂满被改名的节点，或干脆没有 | 节点保持默认名；双语教学 Frame；图更精简 |
 
-数据来自 Codex + Blender MCP 对照实验（复现 harness 在 [NodeCue 仓库](https://github.com/monswag/NodeCue)）；对比截图即将补充。
+数据来自 Codex + Blender MCP 对照实验（复现 harness 在 [NodeCue 仓库](https://github.com/monswag/NodeCue)）。
+
+</details>
 
 ## 安装
 
