@@ -9,6 +9,8 @@
 同一个 agent（Codex CLI，gpt-5.6，extra-high 推理），同一句提示词，通过 Blender MCP 各跑一次——一次要求不借助任何 skill，一次用这个 skill：
 
 > 在场景中添加一个立方体，2米大小，在立方体的顶部4个顶点处分别添加一个高0.2米，直径0.2米的圆锥。并对节点使用frame进行功能性解释。
+>
+> *(英文对照：Add a 2 m cube to the scene. At each of its top 4 vertices, add a cone 0.2 m tall and 0.2 m in diameter. Use frames to give a functional explanation of the nodes.)*
 
 | 无 skill | 有 skill |
 |---|---|
@@ -23,18 +25,6 @@
 - **成本**：4 次 MCP 调用（约 4 分 17 秒）vs. 7 次 MCP 调用（约 5 分 46 秒）——多出来的回读-校验-修复循环不是免费的。
 
 在强模型上，skill 带来的不是"能跑 vs. 跑不通"的差距，而是**固化的约定**（默认命名、Frame、双语标签）和**验证纪律**（先检查再宣称完成）——省去了你每次都要在提示词里重申"请用 frame 解释"、并且自己去检查结果对不对。
-
-<details>
-<summary>中档模型的对照实验——这里 skill 能防止需求被静默丢弃</summary>
-
-| 同一 agent，同一提示词 | 无 skill | 有 skill |
-|---|---|---|
-| 草叶散布，**带密度遮罩** | 遮罩被静默丢弃 | Noise → `Density Factor` 正确接线；暴露控制参数 |
-| 沿曲线生成管道 | 截面从未接线——管道没有截面 | 接线正确；暴露 `Pipe Radius` |
-
-数据来自 Codex + Blender MCP 对照实验（复现 harness 在 [NodeCue 仓库](https://github.com/monswag/NodeCue)）。
-
-</details>
 
 ## 安装
 

@@ -9,6 +9,8 @@ An agent skill that teaches AI coding agents to **build Blender Geometry Nodes g
 Same agent (Codex CLI, gpt-5.6, extra-high reasoning), same prompt, run twice through Blender MCP — once told not to use any skill, once with this skill:
 
 > 在场景中添加一个立方体，2米大小，在立方体的顶部4个顶点处分别添加一个高0.2米，直径0.2米的圆锥。并对节点使用frame进行功能性解释。
+>
+> *(Add a 2 m cube to the scene. At each of its top 4 vertices, add a cone 0.2 m tall and 0.2 m in diameter. Use frames to give a functional explanation of the nodes.)*
 
 | Without the skill | With the skill |
 |---|---|
@@ -23,18 +25,6 @@ The geometry is correct both times — this is a strong model. The difference is
 - **Cost**: 4 MCP calls (~4m17s) vs. 7 MCP calls (~5m46s) — the extra readback-verify-repair loop isn't free.
 
 On a strong model, the skill isn't the difference between working and broken. It's standing convention (default names, frames, bilingual labels) and verification discipline (check before claiming done) instead of you re-typing "please explain with frames" and re-checking the result yourself, every time.
-
-<details>
-<summary>Mid-tier model ablation — here requirements get silently dropped without the skill</summary>
-
-| Same agent, same prompt | Without the skill | With the skill |
-|---|---|---|
-| grass with a **density mask** | mask silently dropped | Noise → `Density Factor` wired; controls exposed |
-| pipe along a curve | profile never connected — pipe has no cross-section | wired; `Pipe Radius` exposed |
-
-From Codex + Blender MCP comparison runs (reproduction harness in the [NodeCue repo](https://github.com/monswag/NodeCue)).
-
-</details>
 
 ## Install
 
