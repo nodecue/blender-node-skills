@@ -6,23 +6,26 @@
 
 ## 为什么要装它？
 
-同一个 agent（Codex app，gpt-5.6，extra-high 推理），同一句提示词，通过 Blender MCP 各跑一次——一次要求不借助任何 skill，一次用这个 skill：
+同一个任务（在场景中添加一个 2 米立方体，在其顶部 4 个顶点处分别添加一个高 0.2 米、直径 0.2 米的圆锥），用三种方式搭建：
 
 > 在场景中添加一个立方体，2米大小，在立方体的顶部4个顶点处分别添加一个高0.2米，直径0.2米的圆锥。
 
-| 无 skill | 有 skill |
-|---|---|
-| ![无 skill：每个节点都被改名并加了解释标签，成品图里留着多余的 Realize Instances，共 11 个节点](docs/images/comparison-no-skill.png) | ![有 skill：节点保持默认名，4 个双语教学 Frame，共 9 个节点](docs/images/comparison-with-skill.png) |
+| 无 skill（Codex app，gpt-5.6） | 有 skill（Codex app，gpt-5.6） | NodeCue 插件（deepseek-v4-pro） |
+|---|---|---|
+| ![无 skill：每个节点都被改名并加了解释标签，成品图里留着多余的 Realize Instances，共 11 个节点](docs/images/comparison-no-skill.png) | ![有 skill：节点保持默认名，4 个双语教学 Frame，共 9 个节点](docs/images/comparison-with-skill.png) | ![NodeCue 插件在 deepseek-v4-pro 上的结果：默认节点名，5 个教学 Frame，共 10 个节点，无需外部 agent 或 MCP 配置](docs/images/comparison-nodecue-deepseek.png) |
+| 11 个节点，被改名+加标签，留着多余的 `Realize Instances` | 9 个节点，默认命名，4 个双语 Frame | 10 个节点，默认命名，5 个 Frame |
 
 *左侧的提示词还额外要求了一句："并对节点使用 frame 进行功能性解释。"用了 skill 之后，教学 Frame 会自动生成——不需要额外提这一句。*
 
-两次几何结果都是对的——这是个强模型。差异在于图里留下了什么：
+前两列是同一个 agent（Codex app，gpt-5.6，extra-high 推理）通过 Blender MCP 各跑一次——一次要求不借助任何 skill，一次用这个 skill。两次几何结果都是对的，这是个强模型，差异在于图里留下了什么：
 
 - **节点命名**：每个节点都被改名并加上解释性标签（`Cube_2m`、"读取每个顶点的位置"、"Z > 0.99 = 顶部顶点"……）vs. 保持 Blender 默认名（`Position`、`Compare`、`Cone`……）。改名会切断节点图与 Blender 界面、以及任何默认命名教程之间的对照关系。
-- **解释放在哪里**：涂满在各个节点的标签上 vs. 集中收纳进 4 个双语 Frame（"02 顶部四点 — Select Z > 0.99"）。
+- **解释放在哪里**：涂满在各个节点的标签上 vs. 集中收纳进教学 Frame（"02 顶部四点 — Select Z > 0.99"）。
 - **多余节点**：成品图里留着一个 `Realize Instances` vs. 只在验证数量（4 个圆锥）时临时用一下，随后撤销。
 - **图的大小**：同样的结果，11 个节点 / 11 条连线 vs. 9 个节点 / 9 条连线。
 - **成本**：4 次 MCP 调用（约 4 分 17 秒）vs. 7 次 MCP 调用（约 5 分 46 秒）——多出来的回读-校验-修复循环不是免费的。
+
+第三列是 **[NodeCue Blender 插件](https://github.com/monswag/NodeCue)**——不用 Codex，不用配置外部 MCP，只是插件自带的 agent——跑在 deepseek-v4-pro 上，一个中档模型，而不是上面用的强模型。结果依然是默认节点名 + 组织有序的教学 Frame，因为插件的构建过程始终经过这同一套 skill。这个约定不绑定顶级模型或外部 agent，装哪一个都能拿到。
 
 在强模型上，skill 带来的不是"能跑 vs. 跑不通"的差距，而是**固化的约定**（默认命名、Frame、双语标签）和**验证纪律**（先检查再宣称完成）——省去了你每次都要在提示词里重申"请用 frame 解释"、并且自己去检查结果对不对。
 

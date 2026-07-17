@@ -4,7 +4,7 @@
 
 ### Added
 
-- Real side-by-side screenshots in the "Why install this?" section: same agent (Codex app, gpt-5.6, extra-high reasoning), same prompt, with and without the skill (`docs/images/comparison-*.png`). Each README quotes the prompt in its own primary language (English translation in README.md, original Chinese in README.zh-CN.md), trimmed to the core build request; a caption notes the no-skill run's prompt also had to explicitly ask for frame-based explanation, which the skill provides automatically.
+- "Why install this?" now compares the same build task three ways with real screenshots (`docs/images/comparison-*.png`): Codex app without the skill, Codex app with the skill, and the NodeCue add-on's built-in agent on deepseek-v4-pro (a mid-tier model, no external agent or MCP setup). Both skill-following runs keep default node names and organize teaching frames; the no-skill run renames every node and leaves a stray `Realize Instances`. Each README quotes the prompt in its own primary language (English translation in README.md, original Chinese in README.zh-CN.md), trimmed to the core build request; a caption notes the no-skill run's prompt also had to explicitly ask for frame-based explanation, which the skill provides automatically.
 
 ### Removed
 

@@ -6,23 +6,26 @@ An agent skill that teaches AI coding agents to **build Blender Geometry Nodes g
 
 ## Why install this?
 
-Same agent (Codex app, gpt-5.6, extra-high reasoning), same prompt, run twice through Blender MCP — once told not to use any skill, once with this skill:
+Same task (add a 2 m cube; at each of its top 4 vertices, add a cone 0.2 m tall and 0.2 m in diameter), built three ways:
 
 > *(Add a 2 m cube to the scene. At each of its top 4 vertices, add a cone 0.2 m tall and 0.2 m in diameter.)*
 
-| Without the skill | With the skill |
-|---|---|
-| ![Without the skill: every node renamed and labeled, a leftover Realize Instances node, 11 nodes](docs/images/comparison-no-skill.png) | ![With the skill: default node names, four bilingual teaching frames, 9 nodes](docs/images/comparison-with-skill.png) |
+| Without the skill (Codex app, gpt-5.6) | With the skill (Codex app, gpt-5.6) | NodeCue add-on (deepseek-v4-pro) |
+|---|---|---|
+| ![Without the skill: every node renamed and labeled, a leftover Realize Instances node, 11 nodes](docs/images/comparison-no-skill.png) | ![With the skill: default node names, four bilingual teaching frames, 9 nodes](docs/images/comparison-with-skill.png) | ![NodeCue add-on on deepseek-v4-pro: default node names, five teaching frames, 10 nodes, no external agent or MCP setup](docs/images/comparison-nodecue-deepseek.png) |
+| 11 nodes, renamed + relabeled, leftover `Realize Instances` | 9 nodes, default names, 4 bilingual frames | 10 nodes, default names, 5 frames |
 
-*The prompt on the left also had to spell out: "Use frames to give a functional explanation of the nodes." With the skill, teaching frames get added automatically — nothing extra to ask for.*
+*The prompt for the left column also had to spell out: "Use frames to give a functional explanation of the nodes." The skill adds teaching frames automatically — nothing extra to ask for.*
 
-The geometry is correct both times — this is a strong model. The difference is what gets left behind:
+The first two columns are the same agent (Codex app, gpt-5.6, extra-high reasoning) through Blender MCP, once told not to use any skill and once with this skill — geometry is correct both times; this is a strong model, so the difference is what gets left behind:
 
 - **Node names**: every node renamed and relabeled with an explanation (`Cube_2m`, "读取每个顶点的位置", "Z > 0.99 = 顶部顶点"...) vs. default Blender names (`Position`, `Compare`, `Cone`...). Renaming breaks the link between the graph, Blender's UI, and any tutorial that assumes default names.
-- **Where the teaching lives**: explanations smeared across individual node labels vs. collected into four bilingual frames ("02 顶部四点 — Select Z > 0.99").
+- **Where the teaching lives**: explanations smeared across individual node labels vs. collected into teaching frames ("02 顶部四点 — Select Z > 0.99").
 - **Leftover node**: a `Realize Instances` left sitting in the final graph vs. used only to verify the count (4 cones), then removed.
 - **Graph size**: 11 nodes / 11 links vs. 9 nodes / 9 links for the identical result.
 - **Cost**: 4 MCP calls (~4m17s) vs. 7 MCP calls (~5m46s) — the extra readback-verify-repair loop isn't free.
+
+The third column is the **[NodeCue Blender add-on](https://github.com/monswag/NodeCue)** — no Codex, no external MCP setup, just the add-on's own built-in agent — on deepseek-v4-pro, a mid-tier model, not the strong model used above. It still comes out with default node names and organized teaching frames, because the add-on always builds through this same skill. The convention isn't tied to a top-tier model or an external agent; it's what you get by installing either.
 
 On a strong model, the skill isn't the difference between working and broken. It's standing convention (default names, frames, bilingual labels) and verification discipline (check before claiming done) instead of you re-typing "please explain with frames" and re-checking the result yourself, every time.
 
