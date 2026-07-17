@@ -6,15 +6,15 @@
 
 ## 为什么要装它？
 
-同一个 agent（Codex CLI，gpt-5.6，extra-high 推理），同一句提示词，通过 Blender MCP 各跑一次——一次要求不借助任何 skill，一次用这个 skill：
+同一个 agent（Codex app，gpt-5.6，extra-high 推理），同一句提示词，通过 Blender MCP 各跑一次——一次要求不借助任何 skill，一次用这个 skill：
 
-> 在场景中添加一个立方体，2米大小，在立方体的顶部4个顶点处分别添加一个高0.2米，直径0.2米的圆锥。并对节点使用frame进行功能性解释。
->
-> *(英文对照：Add a 2 m cube to the scene. At each of its top 4 vertices, add a cone 0.2 m tall and 0.2 m in diameter. Use frames to give a functional explanation of the nodes.)*
+> 在场景中添加一个立方体，2米大小，在立方体的顶部4个顶点处分别添加一个高0.2米，直径0.2米的圆锥。
 
 | 无 skill | 有 skill |
 |---|---|
 | ![无 skill：每个节点都被改名并加了解释标签，成品图里留着多余的 Realize Instances，共 11 个节点](docs/images/comparison-no-skill.png) | ![有 skill：节点保持默认名，4 个双语教学 Frame，共 9 个节点](docs/images/comparison-with-skill.png) |
+
+*左侧的提示词还额外要求了一句："并对节点使用 frame 进行功能性解释。"用了 skill 之后，教学 Frame 会自动生成——不需要额外提这一句。*
 
 两次几何结果都是对的——这是个强模型。差异在于图里留下了什么：
 

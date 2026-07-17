@@ -6,15 +6,15 @@ An agent skill that teaches AI coding agents to **build Blender Geometry Nodes g
 
 ## Why install this?
 
-Same agent (Codex CLI, gpt-5.6, extra-high reasoning), same prompt, run twice through Blender MCP — once told not to use any skill, once with this skill:
+Same agent (Codex app, gpt-5.6, extra-high reasoning), same prompt, run twice through Blender MCP — once told not to use any skill, once with this skill:
 
-> 在场景中添加一个立方体，2米大小，在立方体的顶部4个顶点处分别添加一个高0.2米，直径0.2米的圆锥。并对节点使用frame进行功能性解释。
->
-> *(Add a 2 m cube to the scene. At each of its top 4 vertices, add a cone 0.2 m tall and 0.2 m in diameter. Use frames to give a functional explanation of the nodes.)*
+> *(Add a 2 m cube to the scene. At each of its top 4 vertices, add a cone 0.2 m tall and 0.2 m in diameter.)*
 
 | Without the skill | With the skill |
 |---|---|
 | ![Without the skill: every node renamed and labeled, a leftover Realize Instances node, 11 nodes](docs/images/comparison-no-skill.png) | ![With the skill: default node names, four bilingual teaching frames, 9 nodes](docs/images/comparison-with-skill.png) |
+
+*The prompt on the left also had to spell out: "Use frames to give a functional explanation of the nodes." With the skill, teaching frames get added automatically — nothing extra to ask for.*
 
 The geometry is correct both times — this is a strong model. The difference is what gets left behind:
 

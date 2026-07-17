@@ -4,7 +4,7 @@
 
 ### Added
 
-- Real side-by-side screenshots in the "Why install this?" section: same agent (Codex CLI, gpt-5.6, extra-high reasoning), same prompt, with and without the skill (`docs/images/comparison-*.png`). The prompt now shows an English translation alongside the original Chinese.
+- Real side-by-side screenshots in the "Why install this?" section: same agent (Codex app, gpt-5.6, extra-high reasoning), same prompt, with and without the skill (`docs/images/comparison-*.png`). Each README quotes the prompt in its own primary language (English translation in README.md, original Chinese in README.zh-CN.md), trimmed to the core build request; a caption notes the no-skill run's prompt also had to explicitly ask for frame-based explanation, which the skill provides automatically.
 
 ### Removed
 
