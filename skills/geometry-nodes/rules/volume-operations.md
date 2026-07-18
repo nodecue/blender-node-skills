@@ -4,7 +4,7 @@ section: volume
 description: "Volume Nodes (Operations): Build, transform, and process voxel grids and volume geometry."
 tags: field, get, grid, operations, prune, volume
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -13,7 +13,7 @@ last_verified: "2026-07-18"
 Reference nodes for `Volume Operations`. Total: **24** nodes.
 
 ### Clip Grid — `GeometryNodeGridClip`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2.0 live readback.
 - **Notes:** Clip a volume grid against bounds.
 - **Inputs:**
@@ -50,7 +50,7 @@ Reference nodes for `Volume Operations`. Total: **24** nodes.
 
 
 ### Grid Dilate & Erode — `GeometryNodeGridDilateAndErode`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2.0 live readback.
 - **Notes:** Morphological dilate/erode on a volume grid.
 - **Inputs:**
@@ -72,7 +72,7 @@ Reference nodes for `Volume Operations`. Total: **24** nodes.
 
 
 ### Grid Mean — `GeometryNodeGridMean`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2.0 live readback.
 - **Notes:** Mean (box) filter over a volume grid.
 - **Inputs:**
@@ -84,7 +84,7 @@ Reference nodes for `Volume Operations`. Total: **24** nodes.
 
 
 ### Grid Median — `GeometryNodeGridMedian`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2.0 live readback.
 - **Notes:** Median filter over a volume grid.
 - **Inputs:**
@@ -106,7 +106,7 @@ Reference nodes for `Volume Operations`. Total: **24** nodes.
 
 
 ### Grid to Points — `GeometryNodeGridToPoints`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2.0 live readback.
 - **Notes:** Convert active grid voxels to points with per-voxel outputs.
 - **Inputs:**

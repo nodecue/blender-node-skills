@@ -4,7 +4,7 @@ section: geometry
 description: "Geometry Nodes (Read): Read geometry state, identity, and context-dependent geometry fields."
 tags: geometry, group, id, index, material, normal, read
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -47,7 +47,7 @@ Reference nodes for `Geometry Read`. Total: **26** nodes.
 
 
 ### Get Geometry Bundle — `GeometryNodeGetGeometryBundle`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Read the bundle attached to geometry (see Set Geometry Bundle).
 - **Inputs:**
@@ -59,7 +59,7 @@ Reference nodes for `Geometry Read`. Total: **26** nodes.
 
 
 ### Get Geometry Component — `GeometryNodeGetGeometryComponent`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Extract a single component (mesh, curve, point cloud, volume, instances) from mixed geometry.
 - **Inputs:**

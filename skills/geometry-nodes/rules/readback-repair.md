@@ -4,7 +4,7 @@ section: workflow
 description: "Observable readback symptoms and repair rules for Geometry Nodes graph construction."
 tags: readback, repair, socket, link, verify
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 

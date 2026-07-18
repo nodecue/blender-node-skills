@@ -4,12 +4,12 @@
 
 ### Added
 
-- **Blender 5.2 support (skill v0.6)**, verified by live readback on Blender 5.2.0 LTS: 36 new node entries across 15 rule files (the 5.2 release notes list 26; live enumeration found 10 more), each with `Version` and `Evidence` metadata. New Version Awareness rules: gate `5.2+` nodes on older Blenders, and resolve sockets via live readback for nodes whose identifiers changed. The mental model gains the 5.2 list and geometry-bundle data shapes.
-- File-level `blender_support` / `blender_verified` frontmatter on all rules (5.1.1 + 5.2.0) and patterns (5.1.1; 5.2 golden readback regeneration pending).
+- **Blender 5.2 support (skill v0.6)**, verified by live readback on Blender 5.2: 36 new node entries across 15 rule files (the 5.2 release notes list 26; live enumeration found 10 more), each with `Version` and `Evidence` metadata. New Version Awareness rules: gate `5.2+` nodes on older Blenders, and resolve sockets via live readback for nodes whose identifiers changed. The mental model gains the 5.2 list and geometry-bundle data shapes.
+- File-level `blender_support` / `blender_verified` frontmatter on all rules (5.1 + 5.2) and patterns (5.1; 5.2 golden readback regeneration pending). Version metadata uses two-part Blender versions only.
 
 ### Changed
 
-- `GeometryNodeList` was removed in Blender 5.2 — replaced by `Field to List` / `Closure to List`; `Get List Item` and `List Length` rewritten for generic list sockets (no longer Float-only).
+- `GeometryNodeList` is now version-bounded to Blender 5.0-5.1 (removed in 5.2; use `Field to List` / `Closure to List` there); `Get List Item` and `List Length` rewritten for generic list sockets (no longer Float-only).
 - `Compare` and `Random Value` carry Compatibility notes: Blender 5.2 changed their socket identifiers; agents must resolve sockets from readback instead of 5.1 baselines.
 
 - "Why install this?" now compares the same build task three ways with real screenshots (`docs/images/comparison-*.png`): Codex app without the skill, Codex app with the skill, and the NodeCue add-on's built-in agent on deepseek-v4-pro (a mid-tier model, no external agent or MCP setup). Both skill-following runs keep default node names and organize teaching frames; the no-skill run renames every node and leaves a stray `Realize Instances`. Each README quotes the prompt in its own primary language (English translation in README.md, original Chinese in README.zh-CN.md), trimmed to the core build request; a caption notes the no-skill run's prompt also had to explicitly ask for frame-based explanation, which the skill provides automatically.

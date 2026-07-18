@@ -4,16 +4,16 @@ section: system
 description: "System Nodes: Node-tree structure, zones, layout helpers, and system-level support nodes."
 tags: boolean, curve, integer, misc, system
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
 ## System Misc
 
-Reference nodes for `System Misc`. Total: **18** nodes.
+Reference nodes for `System Misc`. Total: **19** nodes.
 
 ### Closure to List — `GeometryNodeClosureToList`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Build a list by evaluating a closure Count times (index-driven). Pairs with Evaluate Closure workflows.
 - **Inputs:**
@@ -24,7 +24,7 @@ Reference nodes for `System Misc`. Total: **18** nodes.
 
 
 ### Field to List — `GeometryNodeFieldToList`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Evaluate a field Count times into a list. Bridges the field lane into the new 5.2 list data type; list sockets are generic (element type set by the connected value).
 - **Inputs:**
@@ -35,7 +35,7 @@ Reference nodes for `System Misc`. Total: **18** nodes.
 
 
 ### Filter List — `GeometryNodeFilterList`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Filter list items with a boolean selection; outputs the selected list and the inverted remainder.
 - **Inputs:**
@@ -66,7 +66,7 @@ Reference nodes for `System Misc`. Total: **18** nodes.
 
 
 ### Get List Item — `GeometryNodeListGetItem`
-- **Version:** NodeCue support `Blender 5.0+`; verified `5.1.1`, `5.2.0`.
+- **Version:** NodeCue support `Blender 5.0+`; verified `5.1`, `5.2`.
 - **Compatibility:** Blender 5.2 made list sockets generic (was `FLOAT`).
 - **Notes:** Generic list socket in 5.2: element type follows the connected list (socket_type/data_type enum), not Float-only. Resolve via live readback.
 - **Inputs:**
@@ -92,8 +92,19 @@ Reference nodes for `System Misc`. Total: **18** nodes.
 - **Outputs:** None
 
 
+### List — `GeometryNodeList`
+- **Version:** Blender `5.0`-`5.1` only; removed in Blender `5.2`.
+- **Evidence:** Blender 5.1 runtime readback (not documented in the 5.0/5.1 manual); removal confirmed by Blender 5.2 live probe.
+- **Compatibility:** Removed in 5.2 - on Blender 5.2+ use `GeometryNodeFieldToList` or `GeometryNodeClosureToList` instead.
+- **Notes:** Create a list of values (legacy list constructor).
+- **Inputs:**
+  - `Count` (`INT`)
+  - `Value` (`FLOAT`)
+- **Outputs:**
+  - `List` (`FLOAT`)
+
 ### List Length — `GeometryNodeListLength`
-- **Version:** NodeCue support `Blender 5.0+`; verified `5.1.1`, `5.2.0`.
+- **Version:** NodeCue support `Blender 5.0+`; verified `5.1`, `5.2`.
 - **Compatibility:** Blender 5.2 made list sockets generic (was `FLOAT`).
 - **Notes:** Generic list socket in 5.2: element type follows the connected list (socket_type/data_type enum), not Float-only. Resolve via live readback.
 - **Inputs:**
@@ -159,7 +170,7 @@ Reference nodes for `System Misc`. Total: **18** nodes.
 
 
 ### Sort List — `GeometryNodeSortList`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Sort list items by a sort weight, optionally within groups (Group ID) and restricted by Selection.
 - **Inputs:**

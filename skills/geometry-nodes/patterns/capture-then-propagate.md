@@ -5,7 +5,7 @@ description: "Freeze a field value into geometry with Capture Attribute so it su
 category: utility
 tags: capture attribute, anonymous attribute, field, preserve, freeze
 blender_support: "5.0+"
-blender_verified: 5.1.1
+blender_verified: 5.1
 status: stable
 ---
 

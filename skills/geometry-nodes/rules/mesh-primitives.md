@@ -4,7 +4,7 @@ section: mesh
 description: "Mesh Nodes (Primitives): Generate parametric mesh primitives."
 tags: cone, cube, cylinder, mesh, primitives
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -31,7 +31,7 @@ Reference nodes for `Mesh Primitives`. Total: **9** nodes.
 
 
 ### Cube Grid Topology — `GeometryNodeCubeGridTopology`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2.0 live readback.
 - **Notes:** Generate a cube-grid mesh topology primitive (voxel-style grid of cubes).
 - **Inputs:**

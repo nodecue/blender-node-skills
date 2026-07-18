@@ -4,7 +4,7 @@ section: mesh
 description: "Mesh Nodes (Operations): Mesh topology modification, conversion, and surface operations."
 tags: corners, dual, mesh, operations
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -13,7 +13,7 @@ last_verified: "2026-07-18"
 Reference nodes for `Mesh Operations`. Total: **35** nodes.
 
 ### Cluster by Connected — `GeometryNodeClusterByConnected`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Group elements into clusters by mesh connectivity; writes cluster IDs.
 - **Inputs:**
@@ -25,7 +25,7 @@ Reference nodes for `Mesh Operations`. Total: **35** nodes.
 
 
 ### Cluster by Distance — `GeometryNodeClusterByDistance`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Group elements into clusters by distance threshold; writes cluster IDs for downstream grouping.
 - **Inputs:**
@@ -159,7 +159,7 @@ Reference nodes for `Mesh Operations`. Total: **35** nodes.
 
 
 ### Mesh Bevel — `GeometryNodeMeshBevel`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Bevel mesh edges or vertices (node counterpart of the bevel tool); supports width, segments, and profile controls.
 - **Inputs:**

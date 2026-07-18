@@ -4,7 +4,7 @@ section: utilities
 description: "Utilities (Rotation): Rotation conversion, alignment, and rotation-space operations."
 tags: align, axes, axis, euler, rotation, utilities
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 

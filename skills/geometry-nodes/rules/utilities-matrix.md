@@ -4,7 +4,7 @@ section: utilities
 description: "Utilities (Matrix): Matrix and transform composition/decomposition utilities."
 tags: combine, invert, matrix, multiply, utilities
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -63,7 +63,7 @@ Reference nodes for `Utilities Matrix`. Total: **12** nodes.
 
 
 ### Matrix SVD — `FunctionNodeMatrixSVD`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2.0 live readback.
 - **Notes:** Singular value decomposition of a matrix into rotation/scale factors.
 - **Inputs:**

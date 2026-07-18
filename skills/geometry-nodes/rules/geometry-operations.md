@@ -4,7 +4,7 @@ section: geometry
 description: "Geometry Nodes (Operations): Core geometry-level transforms, separation, deletion, and sorting."
 tags: bake, bounding, convex, delete, geometry, operations
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -75,7 +75,7 @@ Reference nodes for `Geometry Operations`. Total: **14** nodes.
 
 
 ### Merge Points — `GeometryNodeMergePoints`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Merge points that lie within a distance threshold.
 - **Inputs:**
@@ -111,7 +111,7 @@ Reference nodes for `Geometry Operations`. Total: **14** nodes.
 
 
 ### Set Geometry Bundle — `GeometryNodeSetGeometryBundle`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Attach a bundle to geometry. In 5.2 a geometry can carry an attached bundle alongside components and attributes.
 - **Inputs:**

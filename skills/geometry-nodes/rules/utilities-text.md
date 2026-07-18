@@ -4,7 +4,7 @@ section: utilities
 description: "Utilities (Text): String formatting, composition, and text-to-geometry utilities."
 tags: find, format, match, special, text, utilities
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -66,7 +66,7 @@ Reference nodes for `Utilities Text`. Total: **15** nodes.
 
 
 ### Reverse String — `FunctionNodeReverseString`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Reverse the characters of a string.
 - **Inputs:**
@@ -76,7 +76,7 @@ Reference nodes for `Utilities Text`. Total: **15** nodes.
 
 
 ### Set String Case — `FunctionNodeSetStringCase`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Convert a string's case (mode enum, e.g. upper/lower).
 - **Inputs:**
@@ -106,7 +106,7 @@ Reference nodes for `Utilities Text`. Total: **15** nodes.
 
 
 ### Split String — `FunctionNodeSplitString`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Split a string by a delimiter into a string list; consume with list nodes.
 - **Inputs:**
@@ -159,7 +159,7 @@ Reference nodes for `Utilities Text`. Total: **15** nodes.
 
 
 ### Trim String — `FunctionNodeTrimString`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Trim characters from the ends of a string.
 - **Inputs:**

@@ -4,7 +4,7 @@ section: curve
 description: "Curve Nodes (Operations): Modify, resample, convert, and edit existing curve geometry."
 tags: curve, operations, set
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -199,7 +199,7 @@ Reference nodes for `Curve Operations`. Total: **22** nodes.
 
 
 ### Set NURBS Order — `GeometryNodeSetNURBSOrder`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Set the NURBS order of curve splines.
 - **Inputs:**
@@ -211,7 +211,7 @@ Reference nodes for `Curve Operations`. Total: **22** nodes.
 
 
 ### Set NURBS Weight — `GeometryNodeSetNURBSWeight`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Set NURBS control-point weights.
 - **Inputs:**

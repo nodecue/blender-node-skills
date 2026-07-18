@@ -5,7 +5,7 @@ description: "Shape per-element values along a sequence using Float Curve and Ma
 category: utility
 tags: index, float curve, map range, shaping, scale, gradual, layers
 blender_support: "5.0+"
-blender_verified: 5.1.1
+blender_verified: 5.1
 status: stable
 ---
 

@@ -5,7 +5,7 @@ description: "Pass material decisions or numeric masks through geometry with mat
 category: utility
 tags: material, attribute, mask, handoff, selection
 blender_support: "5.0+"
-blender_verified: 5.1.1
+blender_verified: 5.1
 status: stable
 ---
 

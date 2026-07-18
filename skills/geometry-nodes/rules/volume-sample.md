@@ -4,7 +4,7 @@ section: volume
 description: "Volume Nodes (Sample): Sample and derive grid fields such as gradient, curl, and divergence."
 tags: advect, grid, sample, volume
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 

@@ -5,7 +5,7 @@ description: "Generate organic blobby mesh from a point cloud via volume interme
 category: generation
 tags: points, volume, mesh, organic, blob, moss, coral, rock
 blender_support: "5.0+"
-blender_verified: 5.1.1
+blender_verified: 5.1
 status: stable
 ---
 

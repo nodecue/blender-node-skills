@@ -4,7 +4,7 @@ section: input
 description: "Input Nodes (Scene): Scene, object, camera, viewport, and time-dependent context inputs."
 tags: active, camera, collection, image, input, scene
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -29,7 +29,7 @@ Reference nodes for `Input Scene`. Total: **14** nodes.
 
 
 ### Bone Info — `GeometryNodeBoneInfo`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2.0 live readback.
 - **Notes:** Read transform info for an armature bone by name.
 - **Inputs:**
@@ -61,7 +61,7 @@ Reference nodes for `Input Scene`. Total: **14** nodes.
 
 
 ### Collection Children — `GeometryNodeCollectionChildren`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** List the child collections of a collection as collection references.
 - **Inputs:**
@@ -129,7 +129,7 @@ Reference nodes for `Input Scene`. Total: **14** nodes.
 
 
 ### Sample Sound Frequencies — `GeometryNodeSampleSoundFrequencies`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Sample amplitude of a sound data-block across frequency bands at a given time; drives audio-reactive setups.
 - **Inputs:**

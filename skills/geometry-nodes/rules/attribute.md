@@ -4,7 +4,7 @@ section: attribute
 description: "Attribute Nodes: Read, capture, store, and manage geometry attributes across domains."
 tags: attribute, blur, capture, domain
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -67,7 +67,7 @@ Reference nodes for `Attribute`. Total: **9** nodes.
 
 
 ### Get Attribute Names — `GeometryNodeGetAttributeNames`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** List the attribute names present on geometry as a string list; consume with list nodes.
 - **Inputs:**
@@ -91,7 +91,7 @@ Reference nodes for `Attribute`. Total: **9** nodes.
 
 
 ### Rename Attribute — `GeometryNodeRenameAttribute`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Rename an attribute on geometry without copying its data.
 - **Inputs:**
@@ -118,7 +118,7 @@ Reference nodes for `Attribute`. Total: **9** nodes.
 
 
 ### Transfer Attributes — `GeometryNodeTransferAttributes`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Transfer multiple attributes between geometries in one node using a shared mapping; wide input set, read sockets via live readback.
 - **Inputs:**

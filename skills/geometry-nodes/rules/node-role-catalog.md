@@ -4,7 +4,7 @@ section: workflow
 description: "Evidence-backed candidate node roles for open-ended Geometry Nodes planning."
 tags: role, planning, candidate, readback
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 

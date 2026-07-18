@@ -5,7 +5,7 @@ description: "Scatter instances on a surface, along a curve, or at mesh vertices
 category: instancing
 tags: 分布术, scatter, instance, distribute, 散布, 实例
 blender_support: "5.0+"
-blender_verified: 5.1.1
+blender_verified: 5.1
 status: stable
 ---
 

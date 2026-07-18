@@ -5,7 +5,7 @@ description: "Move geometry with Set Position using a verified vector direction 
 category: deformation
 tags: displacement, set position, normal, noise, vector
 blender_support: "5.0+"
-blender_verified: 5.1.1
+blender_verified: 5.1
 status: stable
 ---
 

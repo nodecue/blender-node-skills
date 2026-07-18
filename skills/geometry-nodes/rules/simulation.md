@@ -4,7 +4,7 @@ section: system
 description: "Simulation zone boundary nodes and frame-to-frame state flow."
 tags: geometry, simulation, system, zone
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -31,7 +31,7 @@ Reference nodes for `Simulation Zones`. Total: **3** nodes.
 
 
 ### XPBD Solver — `GeometryNodeXPBDSolver`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Physics release notes; Blender 5.2.0 live readback (experimental).
 - **Notes:** XPBD physics solver node. Marked experimental in Blender 5.2 - do not use as a stable default path.
 - **Inputs:**

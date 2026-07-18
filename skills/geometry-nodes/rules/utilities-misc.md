@@ -4,7 +4,7 @@ section: utilities
 description: "Utilities (Misc): Switch/control-flow style helpers, randomization, and mixed utilities."
 tags: align, misc, random, rotate, rotation, utilities
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -136,7 +136,7 @@ Reference nodes for `Utilities Misc`. Total: **11** nodes.
 
 
 ### Tag Filter — `GeometryNodeTagFilter`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2.0 live readback.
 - **Notes:** Filter/select elements by tag membership (5.2 tag system).
 - **Inputs:**

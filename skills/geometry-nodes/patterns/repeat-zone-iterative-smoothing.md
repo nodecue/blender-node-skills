@@ -5,7 +5,7 @@ description: "Use a Repeat Zone to iteratively refine geometry (smoothing, relax
 category: deformation
 tags: repeat zone, iteration, smoothing, relaxation, blur, simulation
 blender_support: "5.0+"
-blender_verified: 5.1.1
+blender_verified: 5.1
 status: stable
 ---
 

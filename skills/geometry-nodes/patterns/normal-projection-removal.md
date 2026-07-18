@@ -5,7 +5,7 @@ description: "Remove the normal component from a displacement vector, keeping on
 category: deformation
 tags: normal, tangent, projection, displacement, vector math, surface
 blender_support: "5.0+"
-blender_verified: 5.1.1
+blender_verified: 5.1
 status: stable
 ---
 

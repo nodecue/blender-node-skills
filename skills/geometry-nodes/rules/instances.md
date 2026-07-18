@@ -4,7 +4,7 @@ section: instances
 description: "Instance Nodes: Create, transform, and realize instanced geometry workflows."
 tags: instance, instances
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -40,7 +40,7 @@ Reference nodes for `Instances`. Total: **12** nodes.
 
 
 ### Instance Reference — `GeometryNodeInputInstanceReference`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2 Geometry Nodes release notes; Blender 5.2.0 live readback.
 - **Notes:** Output the reference (instanced data) of each instance for grouping or switching per source.
 - **Inputs:** None

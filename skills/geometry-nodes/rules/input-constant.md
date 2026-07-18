@@ -4,7 +4,7 @@ section: input
 description: "Input Nodes (Constant): Constant values and datablock references used as reusable inputs."
 tags: boolean, color, constant, image, input, integer, rotation, string, vector
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
@@ -35,7 +35,7 @@ Reference nodes for `Input Constant`. Total: **14** nodes.
 
 
 ### Font — `GeometryNodeInputFont`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2.0 live readback.
 - **Notes:** Font data-block input for text/string-to-curves workflows.
 - **Inputs:** None
@@ -51,7 +51,7 @@ Reference nodes for `Input Constant`. Total: **14** nodes.
 
 
 ### Integer Vector — `FunctionNodeInputIntVector`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2.0 live readback.
 - **Notes:** Constant integer vector input (integer counterpart of the Vector input).
 - **Inputs:** None
@@ -75,7 +75,7 @@ Reference nodes for `Input Constant`. Total: **14** nodes.
 
 
 ### Menu — `FunctionNodeInputMenu`
-- **Version:** Blender `5.2+`; verified `5.2.0`.
+- **Version:** Blender `5.2+`; verified `5.2`.
 - **Evidence:** Blender 5.2.0 live readback.
 - **Notes:** Menu constant input; exposes a menu socket for switch-style group interfaces.
 - **Inputs:** None

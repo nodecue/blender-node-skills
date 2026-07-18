@@ -3,7 +3,7 @@ name: geometry-nodes
 version: "0.6"
 description: Use when an agent must plan, build, modify, explain, or debug Blender Geometry Nodes with exact node identities, socket/link correctness, field/data-flow reasoning, asset node-group reuse, and readback-based repair.
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 ---
 
 # Geometry Nodes
@@ -51,7 +51,7 @@ When adding a new pattern or rule, include an `Evidence` section that points to 
 2. Only use nodes and patterns available in the running Blender version. Entries marked `Blender 5.2+` must not be requested from Blender 5.0/5.1.
 3. When the running version is newer than an entry's `verified` versions, prefer creating the node live and reading back its actual sockets over trusting the written socket list.
 4. For nodes with a `Compatibility` note (socket identifiers or types changed across versions), always resolve sockets from live readback - never reuse identifiers from an older baseline.
-5. Blender 5.2 removed the old `List` value node (bl_idname GeometryNodeList); use `GeometryNodeFieldToList` or `GeometryNodeClosureToList` instead.
+5. `GeometryNodeList` exists on Blender 5.0-5.1 but was removed in 5.2; on 5.2+ use `GeometryNodeFieldToList` or `GeometryNodeClosureToList` instead. Version-bounded entries like this stay in the rules for as long as NodeCue supports the versions they apply to.
 
 ## Geometry Nodes Mental Model
 Geometry Nodes has two coupled lanes:

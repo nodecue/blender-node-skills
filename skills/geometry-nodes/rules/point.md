@@ -4,7 +4,7 @@ section: point
 description: "Point Nodes: Create, distribute, sample, and convert point-based geometry."
 tags: distribute, point, points
 blender_support: "5.0+"
-blender_verified: 5.1.1, 5.2.0
+blender_verified: 5.1, 5.2
 last_verified: "2026-07-18"
 ---
 
