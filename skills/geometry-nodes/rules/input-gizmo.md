@@ -3,6 +3,9 @@ title: Input Gizmo
 section: input
 description: "Input Nodes (Gizmo): Interactive viewport gizmo-driven inputs for tool and group control."
 tags: dial, gizmo, input, linear, transform
+blender_support: "5.0+"
+blender_verified: 5.1.1, 5.2.0
+last_verified: "2026-07-18"
 ---
 
 ## Input Gizmo

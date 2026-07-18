@@ -4,6 +4,9 @@ name: 分布术 (Distribution Archetype)
 description: "Scatter instances on a surface, along a curve, or at mesh vertices — the canonical point-generator → Instance on Points pipeline."
 category: instancing
 tags: 分布术, scatter, instance, distribute, 散布, 实例
+blender_support: "5.0+"
+blender_verified: 5.1.1
+status: stable
 ---
 
 ## 分布术 (Distribution Archetype)

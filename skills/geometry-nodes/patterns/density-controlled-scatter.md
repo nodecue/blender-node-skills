@@ -4,6 +4,9 @@ name: Density Controlled Scatter
 description: "Control surface scattering with boolean selection or float density fields before instancing."
 category: instancing
 tags: scatter, density, selection, instance, random
+blender_support: "5.0+"
+blender_verified: 5.1.1
+status: stable
 ---
 
 ## Density Controlled Scatter

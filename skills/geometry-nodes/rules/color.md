@@ -3,6 +3,9 @@ title: Color
 section: color
 description: "Color Nodes: General-purpose color construction, conversion, and blending utilities."
 tags: blackbody, color, combine, gamma, mix, separate
+blender_support: "5.0+"
+blender_verified: 5.1.1, 5.2.0
+last_verified: "2026-07-18"
 ---
 
 ## Color

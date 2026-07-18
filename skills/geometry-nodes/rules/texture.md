@@ -3,6 +3,9 @@ title: Texture
 section: texture
 description: "Texture Nodes: Procedural and image-based texture generators and samplers."
 tags: brick, checker, gabor, image, noise, texture
+blender_support: "5.0+"
+blender_verified: 5.1.1, 5.2.0
+last_verified: "2026-07-18"
 ---
 
 ## Texture

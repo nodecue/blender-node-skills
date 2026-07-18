@@ -3,6 +3,9 @@ title: Input Import
 section: input
 description: "Input Nodes (Import): File-based geometry and data import nodes."
 tags: import, input
+blender_support: "5.0+"
+blender_verified: 5.1.1, 5.2.0
+last_verified: "2026-07-18"
 ---
 
 ## Input Import

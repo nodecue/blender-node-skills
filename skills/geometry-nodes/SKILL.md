@@ -1,7 +1,9 @@
 ---
 name: geometry-nodes
-version: "0.5"
+version: "0.6"
 description: Use when an agent must plan, build, modify, explain, or debug Blender Geometry Nodes with exact node identities, socket/link correctness, field/data-flow reasoning, asset node-group reuse, and readback-based repair.
+blender_support: "5.0+"
+blender_verified: 5.1.1, 5.2.0
 ---
 
 # Geometry Nodes
@@ -44,11 +46,23 @@ When adding a new pattern or rule, include an `Evidence` section that points to 
 10. If a create/connect/write operation fails and returns suggestions or metadata, use one direct correction, then read the tree again.
 11. Temporary aliases used by a host tool are not graph content. They must not be written into `node.name` or `node.label`.
 
+## Version Awareness
+1. Read the Blender version (`bpy.app.version` or host metadata) before building.
+2. Only use nodes and patterns available in the running Blender version. Entries marked `Blender 5.2+` must not be requested from Blender 5.0/5.1.
+3. When the running version is newer than an entry's `verified` versions, prefer creating the node live and reading back its actual sockets over trusting the written socket list.
+4. For nodes with a `Compatibility` note (socket identifiers or types changed across versions), always resolve sockets from live readback - never reuse identifiers from an older baseline.
+5. Blender 5.2 removed the old `List` value node (bl_idname GeometryNodeList); use `GeometryNodeFieldToList` or `GeometryNodeClosureToList` instead.
+
 ## Geometry Nodes Mental Model
 Geometry Nodes has two coupled lanes:
 
 - **Data flow lane**: geometry sockets carry mesh, curve, points, volume, or instances from source to sink. These nodes transform visible geometry.
 - **Field lane**: field-compatible sockets define per-element computations. Fields are evaluated lazily by downstream data-flow nodes.
+
+Blender 5.2 adds two more data shapes to reason about:
+
+- **Lists**: first-class ordered value collections with generic element types (`Field to List`, `Filter List`, `Sort List`, `Get List Item`). List sockets are not Float-only; the element type follows what you connect.
+- **Bundles**: a geometry can carry an attached bundle alongside its components and attributes (`Set/Get Geometry Bundle`).
 
 Every graph needs a reachable trunk:
 

@@ -4,6 +4,9 @@ name: Repeat Zone Selection Expansion
 description: "Use a Repeat Zone with domain hopping to iteratively grow (dilate) a boolean selection by N rings."
 category: branching
 tags: repeat zone, selection, expand, dilate, domain, evaluate on domain, boolean
+blender_support: "5.0+"
+blender_verified: 5.1.1
+status: stable
 ---
 
 ## Repeat Zone Selection Expansion

@@ -3,6 +3,9 @@ title: Curve Primitives
 section: curve
 description: "Curve Nodes (Primitives): Generate curve geometry from parametric primitive sources."
 tags: arc, bézier, curve, primitives
+blender_support: "5.0+"
+blender_verified: 5.1.1, 5.2.0
+last_verified: "2026-07-18"
 ---
 
 ## Curve Primitives

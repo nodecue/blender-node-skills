@@ -3,6 +3,9 @@ title: Utilities Math
 section: utilities
 description: "Utilities (Math): Scalar, integer, comparison, mapping, and curve math helpers."
 tags: bit, boolean, compare, float, integer, map, math, utilities
+blender_support: "5.0+"
+blender_verified: 5.1.1, 5.2.0
+last_verified: "2026-07-18"
 ---
 
 ## Utilities Math
@@ -39,6 +42,7 @@ Reference nodes for `Utilities Math`. Total: **10** nodes.
 - **Example:** The Voronoi Texture node outputs a value whose minimum is zero. We can use the Clamp node to clamp this value such that the minimum is 0.2.
 
 ### Compare — `FunctionNodeCompare`
+- **Compatibility:** Blender 5.2 changed socket identifiers and made `A`/`B` generic. Do not reuse 5.1 socket identifiers; resolve sockets from live readback.
 - **Notes:** The Compare node takes two inputs and does an operation to determine whether they are similar. The node can work on all generic data types, and has modes for vectors that contain more complex comparisons, which can help to reduce the number of necessary nodes, and make a node tree more readable.
 - **Inputs:**
   - `A` (`FLOAT`)

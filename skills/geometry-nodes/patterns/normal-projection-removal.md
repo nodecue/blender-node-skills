@@ -4,6 +4,9 @@ name: Normal Projection Removal
 description: "Remove the normal component from a displacement vector, keeping only the tangent-to-surface part."
 category: deformation
 tags: normal, tangent, projection, displacement, vector math, surface
+blender_support: "5.0+"
+blender_verified: 5.1.1
+status: stable
 ---
 
 ## Normal Projection Removal

@@ -3,6 +3,9 @@ title: Utilities Field
 section: utilities
 description: "Utilities (Field): Evaluate, aggregate, and transform fields across domains."
 tags: accumulate, evaluate, field, utilities
+blender_support: "5.0+"
+blender_verified: 5.1.1, 5.2.0
+last_verified: "2026-07-18"
 ---
 
 ## Utilities Field

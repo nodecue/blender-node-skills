@@ -4,6 +4,9 @@ name: Points to Volume to Mesh
 description: "Generate organic blobby mesh from a point cloud via volume intermediate."
 category: generation
 tags: points, volume, mesh, organic, blob, moss, coral, rock
+blender_support: "5.0+"
+blender_verified: 5.1.1
+status: stable
 ---
 
 ## Points to Volume to Mesh
