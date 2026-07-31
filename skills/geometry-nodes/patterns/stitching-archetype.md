@@ -4,8 +4,6 @@ name: 拼接术 (Stitching Archetype)
 description: "Compose multiple independent sub-models (primitives, node groups, scatter outputs) into one assembly via Join Geometry."
 category: generation
 tags: 拼接术, assembly, join, 组装, modular, composition
-blender_support: "5.0+"
-blender_verified: 5.1
 status: stable
 ---
 

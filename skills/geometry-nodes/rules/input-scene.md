@@ -3,9 +3,7 @@ title: Input Scene
 section: input
 description: "Input Nodes (Scene): Scene, object, camera, viewport, and time-dependent context inputs."
 tags: active, camera, collection, image, input, scene
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Input Scene
@@ -45,6 +43,7 @@ Reference nodes for `Input Scene`. Total: **14** nodes.
 
 
 ### Camera Info — `GeometryNodeCameraInfo`
+- **Compatibility:** `Sensor` and `Shift` use 3D vector sockets in Blender 4.5 and 2D vector sockets in Blender 5.2; their visible names and identifiers are unchanged.
 - **Notes:** The Camera Info node outputs the information about the selected camera object. It can be used to customize geometry based on the camera’s parameters, for example when building camera-based visual effects or aligning geometry with the camera view.
 - **Inputs:**
   - `Camera` (`OBJECT`)

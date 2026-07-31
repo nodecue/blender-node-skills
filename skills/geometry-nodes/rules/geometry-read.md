@@ -3,9 +3,7 @@ title: Geometry Read
 section: geometry
 description: "Geometry Nodes (Read): Read geometry state, identity, and context-dependent geometry fields."
 tags: geometry, group, id, index, material, normal, read
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Geometry Read
@@ -162,6 +160,7 @@ Reference nodes for `Geometry Read`. Total: **26** nodes.
 
 
 ### Raycast — `GeometryNodeRaycast`
+- **Compatibility:** Blender 4.5 has no `Interpolation` socket; Blender 5.2 exposes `Interpolation` as a menu input before `Source Position`.
 - **Notes:** The Raycast node intersects rays from one geometry onto another. The source geometry is defined by the context of the node that the Raycast node is connected to. Each ray computes hit points on the target mesh and outputs normals, distances and any surface attribute specified.
 - **Inputs:**
   - `Target Geometry` (`GEOMETRY`)

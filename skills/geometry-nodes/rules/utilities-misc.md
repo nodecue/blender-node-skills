@@ -3,9 +3,7 @@ title: Utilities Misc
 section: utilities
 description: "Utilities (Misc): Switch/control-flow style helpers, randomization, and mixed utilities."
 tags: align, misc, random, rotate, rotation, utilities
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Utilities Misc
@@ -36,6 +34,7 @@ Reference nodes for `Utilities Misc`. Total: **11** nodes.
 
 
 ### Index Switch — `GeometryNodeIndexSwitch`
+- **Compatibility:** The data sockets are type-configurable. A new Blender 4.5 node defaults to `GEOMETRY`, while Blender 5.2 defaults to `FLOAT`; read `data_type` and the actual sockets live.
 - **Notes:** The Index Switch node outputs one of its inputs based on an integer Index value. Only the selected input is evaluated, making this node useful for switching between multiple data inputs efficiently.
 - **Inputs:**
   - `Index` (`INT`)
@@ -59,6 +58,7 @@ Reference nodes for `Utilities Misc`. Total: **11** nodes.
 
 
 ### Menu Switch — `GeometryNodeMenuSwitch`
+- **Compatibility:** Blender 4.5 has only the selected `Output`; Blender 5.2 also exposes per-item boolean outputs such as `A` and `B`.
 - **Notes:** The Menu Switch node outputs one of its inputs based on a selected menu item. Only the active input is evaluated, allowing efficient switching between multiple options. The available menu entries are defined by the user. Menu items can be added and removed, as well as renamed and reordered in the editor side bar. Renaming a menu entry keeps existing links of the matching input socket. The menu can be used in node groups and the nodes modifier UI. Connecting the menu input with a Group Input node will expose the menu as a group input. A menu socket in a node group, reroute node, or other pass-through nodes needs to be connected to a Menu Switch node in order to work. An unconnected menu socket will show an empty menu by default. Connecting multiple Menu Switch nodes to the same output socket creates a conflict (even when the menu entries are the same). To avoid this a menu switch can be wrapped in a node group. Multiple node groups of the same type can be connected to the same menu, since they contain the same menu switch node. | !../../../_images/node-types_GeometryNodeMenuSwitch_conflict.webp Conflict caused by connecting different menus. | !../../../_images/node-types_GeometryNodeMenuSwitch_group_wrapper.webp Same node group can be connected without conflict. | | --- | --- |
 - **Inputs:**
   - `Menu` (`MENU: A, B`)
@@ -113,6 +113,7 @@ Reference nodes for `Utilities Misc`. Total: **11** nodes.
 
 
 ### Rotate Euler — `FunctionNodeRotateEuler`
+- **Compatibility:** Blender 4.5 keeps both Euler and Axis-Angle socket sets on the node; Blender 5.2 exposes only the sockets for the active `rotation_type`. Read the active layout before linking `Axis` or `Angle`.
 - **Notes:** The Rotate Euler node rotates an Euler rotation. Important This node is deprecated, use the Rotate Rotation Node instead.
 - **Inputs:**
   - `Rotation` (`VECTOR`)
@@ -125,6 +126,7 @@ Reference nodes for `Utilities Misc`. Total: **11** nodes.
 
 
 ### Switch — `GeometryNodeSwitch`
+- **Compatibility:** The switched sockets are type-configurable. A new Blender 4.5 node defaults to `GEOMETRY`, while Blender 5.2 defaults to `FLOAT`; read `input_type` and the actual sockets live.
 - **Notes:** The Switch node outputs one of two inputs depending on a condition. Only the input that is passed through the node is computed.
 - **Inputs:**
   - `Switch` (`BOOLEAN`)

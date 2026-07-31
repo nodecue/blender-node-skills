@@ -3,9 +3,7 @@ title: Curve Read
 section: curve
 description: "Curve Nodes (Read): Query curve state, spline properties, and curve-derived fields."
 tags: curve, endpoint, handle, read
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Curve Read

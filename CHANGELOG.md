@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Changed (2026-07-30 — skill becomes the only product surface)
+
+- The NodeCue Blender add-on is retired. The skill no longer references it: the "Why install this?" comparison drops the add-on column, and the add-on is removed from the list of Blender access paths. Recommended path is this skill plus Blender's official Lab MCP server.
+- Repository moved to the `nodecue` organization and renamed `blender-node-skills`. Install and marketplace commands now use `nodecue/blender-node-skills`.
+- Scope corrected to **Blender 4.5 LTS through 5.2**. The previous "Blender 5.0+, rules follow the 5.0 manual, most testing on 5.1" statement predated the 4.5 live audit (350 node types created on Blender 4.5.12; 45 shared nodes diffed against 5.2.0). Differences between 5.0 and 5.1 are stated as not yet systematically audited.
+- Pattern `Evidence` lines now cite `evals/gn_pattern_readbacks.json` inside this package instead of a path in a separate development repository, so every claim resolves from the skill alone.
+- `SKILL.md` gained a `Modes` section carrying the strictly read-only Explain contract, which previously shipped only in the add-on's unpublished system prompt.
+
 ### Added
 
 - **Blender 5.2 support (skill v0.6)**, verified by live readback on Blender 5.2: 36 new node entries across 15 rule files (the 5.2 release notes list 26; live enumeration found 10 more), each with `Version` and `Evidence` metadata. New Version Awareness rules: gate `5.2+` nodes on older Blenders, and resolve sockets via live readback for nodes whose identifiers changed. The mental model gains the 5.2 list and geometry-bundle data shapes.
@@ -12,13 +20,13 @@
 - `GeometryNodeList` is now version-bounded to Blender 5.0-5.1 (removed in 5.2; use `Field to List` / `Closure to List` there); `Get List Item` and `List Length` rewritten for generic list sockets (no longer Float-only).
 - `Compare` and `Random Value` carry Compatibility notes: Blender 5.2 changed their socket identifiers; agents must resolve sockets from readback instead of 5.1 baselines.
 
-- "Why install this?" now compares the same build task three ways with real screenshots (`docs/images/comparison-*.png`): Codex app without the skill, Codex app with the skill, and the NodeCue add-on's built-in agent on deepseek-v4-pro (a mid-tier model, no external agent or MCP setup). Both skill-following runs keep default node names and organize teaching frames; the no-skill run renames every node and leaves a stray `Realize Instances`. Each README quotes the prompt in its own primary language (English translation in README.md, original Chinese in README.zh-CN.md), trimmed to the core build request; a caption notes the no-skill run's prompt also had to explicitly ask for frame-based explanation, which the skill provides automatically.
+- "Why install this?" now compares the same build task two ways with real screenshots (`docs/images/comparison-*.png`): Codex app without the skill and Codex app with the skill. The skill-following run keeps default node names and organizes teaching frames; the no-skill run renames every node and leaves a stray `Realize Instances`. Each README quotes the prompt in its own primary language (English translation in README.md, original Chinese in README.zh-CN.md), trimmed to the core build request; a caption notes the no-skill run's prompt also had to explicitly ask for frame-based explanation, which the skill provides automatically.
 
 ### Removed
 
 - The mid-tier ablation table (grass/pipe, dropped requirements) — the top-tier before/after screenshots now carry the "why install" argument alone.
 
-- The repository is now a Claude Code plugin marketplace: `/plugin marketplace add monswag/nodecue-blender-node-skills` then `/plugin install blender-node-skills@nodecue` installs the skill without a terminal. Codex and other agents keep the clone-and-copy path.
+- The repository is now a Claude Code plugin marketplace: `/plugin marketplace add nodecue/blender-node-skills` then `/plugin install blender-node-skills@nodecue` installs the skill without a terminal. Codex and other agents keep the clone-and-copy path.
 - Chinese README (`README.zh-CN.md`) with a language switcher.
 - SKILL.md v0.5: annotation-language rule (follow the prompt language, never translate Blender terms, prefer short bilingual frame labels).
 

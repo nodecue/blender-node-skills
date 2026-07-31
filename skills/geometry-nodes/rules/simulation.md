@@ -3,9 +3,7 @@ title: Simulation Zones
 section: system
 description: "Simulation zone boundary nodes and frame-to-frame state flow."
 tags: geometry, simulation, system, zone
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Simulation Zones

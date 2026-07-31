@@ -3,9 +3,7 @@ title: System Misc
 section: system
 description: "System Nodes: Node-tree structure, zones, layout helpers, and system-level support nodes."
 tags: boolean, curve, integer, misc, system
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## System Misc
@@ -66,7 +64,7 @@ Reference nodes for `System Misc`. Total: **19** nodes.
 
 
 ### Get List Item — `GeometryNodeListGetItem`
-- **Version:** NodeCue support `Blender 5.0+`; verified `5.1`, `5.2`.
+- **Version:** Blender `5.0+`; verified `5.1`, `5.2`.
 - **Compatibility:** Blender 5.2 made list sockets generic (was `FLOAT`).
 - **Notes:** Generic list socket in 5.2: element type follows the connected list (socket_type/data_type enum), not Float-only. Resolve via live readback.
 - **Inputs:**
@@ -104,7 +102,7 @@ Reference nodes for `System Misc`. Total: **19** nodes.
   - `List` (`FLOAT`)
 
 ### List Length — `GeometryNodeListLength`
-- **Version:** NodeCue support `Blender 5.0+`; verified `5.1`, `5.2`.
+- **Version:** Blender `5.0+`; verified `5.1`, `5.2`.
 - **Compatibility:** Blender 5.2 made list sockets generic (was `FLOAT`).
 - **Notes:** Generic list socket in 5.2: element type follows the connected list (socket_type/data_type enum), not Float-only. Resolve via live readback.
 - **Inputs:**
@@ -183,6 +181,7 @@ Reference nodes for `System Misc`. Total: **19** nodes.
 
 
 ### Viewer — `GeometryNodeViewer`
+- **Compatibility:** Blender 4.5 initializes `Geometry` and `Value` inputs; Blender 5.2 initializes only an extend socket. Viewer inputs are dynamic, so always read them live.
 - **Notes:** The Viewer node allows viewing data from inside a geometry node group in both the Spreadsheet Editor and the 3D Viewport. Any geometry or attribute connected to the viewer can be visualized in the viewport, and its evaluated attribute values can be inspected in the spreadsheet. Other data can also be viewed and inspected such as scaler values and grids by showing them in the spreadsheet.
 - **Inputs:**
   - `Unnamed` (`CUSTOM`)

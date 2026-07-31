@@ -3,9 +3,7 @@ title: Point
 section: point
 description: "Point Nodes: Create, distribute, sample, and convert point-based geometry."
 tags: distribute, point, points
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Point
@@ -13,6 +11,8 @@ last_verified: "2026-07-18"
 Reference nodes for `Point`. Total: **9** nodes.
 
 ### Distribute Points in Grid — `GeometryNodeDistributePointsInGrid`
+- **Version:** Blender `5.0+`; not in 4.5.
+- **Evidence:** Absent from the Blender 4.5 manual (`docs/blender-manual-gn-4.5/`); documented from 5.0 in `docs/blender-manual-gn-5.0/point/distribute_points_in_grid.md`.
 - **Notes:** The Distribute Points in Grid node generates points within the active region of a voxel grid. The number and placement of points can be controlled using the grid’s density values and various distribution parameters. This node is useful for scattering geometry procedurally inside a volumetric region, such as distributing particles in a fog volume, populating points in a simulation domain, or sampling areas defined by a signed distance field (SDF) or density grid.
 - **Inputs:**
   - `Grid` (`FLOAT`)
@@ -24,6 +24,7 @@ Reference nodes for `Point`. Total: **9** nodes.
   - `Points` (`GEOMETRY`)
 
 ### Distribute Points in Volume — `GeometryNodeDistributePointsInVolume`
+- **Compatibility:** Blender 4.5 has no `Mode` socket; Blender 5.2 exposes `Mode` as a menu input before `Density`.
 - **Notes:** The Distribute Points in Volume node creates points inside of volume grids. The node has two basic modes of operation: distributing points randomly, or in a regular grid. Both methods operate on all of the float grids in the volume.
 - **Inputs:**
   - `Volume` (`GEOMETRY`)
@@ -75,6 +76,8 @@ Reference nodes for `Point`. Total: **9** nodes.
 - **Tip:** If points of curve have the same Weight value, the order will be the same as its original relative location. Without any Weight and Group ID inputs, each point will have the same indices in the curve.
 
 ### Points to SDF Grid — `GeometryNodePointsToSDFGrid`
+- **Version:** Blender `5.0+`; not in 4.5.
+- **Evidence:** Absent from the Blender 4.5 manual (`docs/blender-manual-gn-4.5/`); documented from 5.0 in `docs/blender-manual-gn-5.0/point/points_to_sdf_grid.md`.
 - **Notes:** The Points to SDF Grid node generates a Signed Distance Field (SDF)*grid from a set of input points. Each voxel in the resulting grid stores the shortest signed distance to the nearest point, allowing points to be represented as smooth, volumetric shapes. Positive values represent distances outside the influence of the points, negative values represent distances inside, and zero corresponds to the surface of the generated implicit sphere around each point. This node is useful for constructing volumetric fields or collision volumes from particles, instances, or procedurally generated point clouds.
 - **Inputs:**
   - `Points` (`GEOMETRY`)
@@ -92,6 +95,7 @@ Reference nodes for `Point`. Total: **9** nodes.
   - `Mesh` (`GEOMETRY`)
 
 ### Points to Volume — `GeometryNodePointsToVolume`
+- **Compatibility:** Blender 4.5 has no `Resolution Mode` socket; Blender 5.2 exposes it between `Density` and the resolution inputs.
 - **Notes:** The Points to Volume node generates a fog volume sphere around every point in the input geometry. The new volume grid is named “density”. It usually makes sense to combine this node with the Volume to Mesh Node.
 - **Inputs:**
   - `Points` (`GEOMETRY`)
@@ -112,4 +116,3 @@ Reference nodes for `Point`. Total: **9** nodes.
   - `Radius` (`FLOAT`)
 - **Outputs:**
   - `Points` (`GEOMETRY`)
-

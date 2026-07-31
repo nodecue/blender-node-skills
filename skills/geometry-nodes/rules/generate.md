@@ -3,9 +3,7 @@ title: Generate
 section: generate
 description: "Generate Nodes: Procedural generators that create or duplicate geometry components."
 tags: duplicate, generate
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Generate

@@ -3,9 +3,7 @@ title: Utilities Math
 section: utilities
 description: "Utilities (Math): Scalar, integer, comparison, mapping, and curve math helpers."
 tags: bit, boolean, compare, float, integer, map, math, utilities
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Utilities Math

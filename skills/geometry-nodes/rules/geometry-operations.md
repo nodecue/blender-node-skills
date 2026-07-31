@@ -3,9 +3,7 @@ title: Geometry Operations
 section: geometry
 description: "Geometry Nodes (Operations): Core geometry-level transforms, separation, deletion, and sorting."
 tags: bake, bounding, convex, delete, geometry, operations
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Geometry Operations
@@ -13,6 +11,7 @@ last_verified: "2026-07-18"
 Reference nodes for `Geometry Operations`. Total: **14** nodes.
 
 ### Bake — `GeometryNodeBake`
+- **Compatibility:** Blender 4.5 initializes the node with a `Geometry` bake item plus extend sockets; Blender 5.2 initializes with extend sockets only. Read the configured bake items live.
 - **Notes:** The Bake node allows saving and loading intermediate geometries. This node bakes parts of the node tree for better performance. The data format used to store geometry data is not considered to be an import/export format. Volume objects, however, are saved using the OpenVDB file format which can be used interoperably.
 - **Inputs:**
   - `Unnamed` (`CUSTOM`)
@@ -63,6 +62,7 @@ Reference nodes for `Geometry Operations`. Total: **14** nodes.
 
 
 ### Merge by Distance — `GeometryNodeMergeByDistance`
+- **Compatibility:** Blender 4.5 has no `Mode` socket; Blender 5.2 exposes `Mode` as a menu input between `Selection` and `Distance`.
 - **Notes:** The Merge by Distance node merges selected mesh vertices or point cloud points within a given distance, merging surrounding geometry where necessary. This operation is similar to the Merge by Distance operator or the Weld Modifier.
 - **Inputs:**
   - `Geometry` (`GEOMETRY`)
@@ -157,6 +157,7 @@ Reference nodes for `Geometry Operations`. Total: **14** nodes.
 
 
 ### Transform Geometry — `GeometryNodeTransform`
+- **Compatibility:** Blender 4.5 selects Components/Matrix through the `mode` RNA property; Blender 5.2 exposes `Mode` as a menu input. Read the active socket layout before writing transforms.
 - **Notes:** The Transform Geometry Node allows you to move, rotate or scale the geometry. The transformation is applied to the entire geometry, and not per element. The Set Position Node is used for moving individual points of a geometry. For transforming instances individually, the instance translate, rotate, or scale nodes can be used.
 - **Inputs:**
   - `Geometry` (`GEOMETRY`)

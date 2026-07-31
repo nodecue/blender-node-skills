@@ -1,8 +1,8 @@
 {
   "name": "nodecue",
   "owner": {
-    "name": "monswag",
-    "url": "https://github.com/monswag"
+    "name": "NodeCue",
+    "url": "https://github.com/nodecue"
   },
   "metadata": {
     "description": "NodeCue skills for Blender node systems",

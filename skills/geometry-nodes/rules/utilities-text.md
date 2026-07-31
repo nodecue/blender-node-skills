@@ -3,9 +3,7 @@ title: Utilities Text
 section: utilities
 description: "Utilities (Text): String formatting, composition, and text-to-geometry utilities."
 tags: find, format, match, special, text, utilities
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Utilities Text
@@ -13,6 +11,7 @@ last_verified: "2026-07-18"
 Reference nodes for `Utilities Text`. Total: **15** nodes.
 
 ### Find in String — `FunctionNodeFindInString`
+- **Compatibility:** Blender 4.5 exposes only `String` and `Search`; Blender 5.2 also exposes a `Mode` menu input.
 - **Notes:** The Find in String node finds the number of times a substring occurs in a string, and the position of the start of the first match.
 - **Inputs:**
   - `String` (`STRING`)
@@ -45,6 +44,7 @@ Reference nodes for `Utilities Text`. Total: **15** nodes.
 
 
 ### Match String — `FunctionNodeMatchString`
+- **Compatibility:** Blender 4.5 exposes `String` and `Key`; Blender 5.2 inserts an `Operation` menu input between them.
 - **Notes:** The Match String node compares two string values and outputs a Boolean result based on the selected operation. It is useful for conditional logic involving string comparisons, such as matching object names or attribute values.
 - **Inputs:**
   - `String` (`STRING`)
@@ -125,6 +125,7 @@ Reference nodes for `Utilities Text`. Total: **15** nodes.
 
 
 ### String to Curves — `GeometryNodeStringToCurves`
+- **Compatibility:** Blender 4.5 lacks the `Font`, alignment, `Pivot Point`, and `Overflow` inputs and the `Word` output added by Blender 5.2. Resolve the live layout before linking optional typography controls.
 - **Notes:** The String to Curves node converts a string to curve instances. Each unique character used in the string is converted to a curve once, and further uses of that character are instances of the same geometry. The name of each instance geometry is the character it represents. This makes processing the output geometry very efficient, because each unique character only has to be processed once. However, it means that the result will be the same for every instance of the same character. To process each character individually, the Realize Instances Node can be used.
 - **Inputs:**
   - `String` (`STRING`)
@@ -149,6 +150,8 @@ Reference nodes for `Utilities Text`. Total: **15** nodes.
 
 
 ### String to Value — `FunctionNodeStringToValue`
+- **Version:** Blender `5.0+`; not in 4.5.
+- **Evidence:** Absent from the Blender 4.5 manual (`docs/blender-manual-gn-4.5/`); documented from 5.0 in `docs/blender-manual-gn-5.0/utilities/text/string_to_value.md`.
 - **Notes:** The String to Value node converts a text string into a numerical value. This is useful for parsing numbers from text input, file data, or dynamically generated strings. The node reads characters from the beginning of the string until a valid number is parsed. If parsing is unsuccessful, the node outputs a floating-point value of 0.
 - **Inputs:**
   - `String` (`STRING`)
@@ -173,6 +176,7 @@ Reference nodes for `Utilities Text`. Total: **15** nodes.
 
 
 ### Value to String — `FunctionNodeValueToString`
+- **Compatibility:** Blender 4.5 exposes `Value` and `Decimals`; Blender 5.2 also exposes `Base` and `Padding`.
 - **Notes:** The Value to String node generates string representation of the input value.
 - **Inputs:**
   - `Value` (`FLOAT`)

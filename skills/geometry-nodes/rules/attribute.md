@@ -3,9 +3,7 @@ title: Attribute
 section: attribute
 description: "Attribute Nodes: Read, capture, store, and manage geometry attributes across domains."
 tags: attribute, blur, capture, domain
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Attribute
@@ -42,6 +40,7 @@ Reference nodes for `Attribute`. Total: **9** nodes.
 
 
 ### Capture Attribute — `GeometryNodeCaptureAttribute`
+- **Compatibility:** Blender 4.5 uses multi-item extend sockets but has no `Selection` pair; Blender 5.2 adds `Selection` input/output sockets. Resolve the live item sockets before linking.
 - **Notes:** The Capture Attribute node stores one or more fields on a geometry, and outputs those same fields so they can be read by other nodes. This storing and retrieving of a field can also be done with the Store Named Attribute Node and the Named Attribute Node respectively. The difference is that the Capture Attribute node creates an anonymous attribute, meaning there’s no need to specify a name and there’s no clutter at the end. This makes the node ideal for temporary data storage. A common use case is saving information that would normally be lost while converting geometry – see the example below.
 - **Inputs:**
   - `Geometry` (`GEOMETRY`)
@@ -81,6 +80,7 @@ Reference nodes for `Attribute`. Total: **9** nodes.
 
 
 ### Remove Named Attribute — `GeometryNodeRemoveAttribute`
+- **Compatibility:** Blender 4.5 has only `Geometry` and `Name` inputs; Blender 5.2 also exposes the `Pattern Mode` menu input.
 - **Notes:** The Remove Named Attribute node deletes an attribute with a certain name from its geometry input. Any attribute that exists on geometry data will be automatically propagated when the geometry storing it is changed, which can be an expensive operation, so using this node can be a simple way to optimize the performance of a geometry node tree or even to lower the memory usage of the entire scene. Almost all named attributes can be removed. For certain Built-In Attributes, removing it will mean that a default value will be used instead. For example, removing the cyclic attribute on curves means that all curves will be non-cyclic.
 - **Inputs:**
   - `Geometry` (`GEOMETRY`)

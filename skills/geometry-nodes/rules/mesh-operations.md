@@ -3,9 +3,7 @@ title: Mesh Operations
 section: mesh
 description: "Mesh Nodes (Operations): Mesh topology modification, conversion, and surface operations."
 tags: corners, dual, mesh, operations
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Mesh Operations
@@ -209,6 +207,8 @@ Reference nodes for `Mesh Operations`. Total: **35** nodes.
 
 
 ### Mesh to Density Grid — `GeometryNodeMeshToDensityGrid`
+- **Version:** Blender `5.0+`; not in 4.5.
+- **Evidence:** Absent from the Blender 4.5 manual (`docs/blender-manual-gn-4.5/`); documented from 5.0 in `docs/blender-manual-gn-5.0/mesh/operations/mesh_to_density_grid.md`.
 - **Notes:** The Mesh to Density Grid node converts a mesh into a *density grid*, where each voxel stores a scalar value representing how far it lies inside or near the surface of the mesh. This can be used to generate fog volumes, soft-body representations, or as input to volumetric and field-based effects. The resulting grid contains smooth gradients that transition from high values inside the mesh to low values outside, allowing for continuous blending and sampling operations.
 - **Inputs:**
   - `Mesh` (`GEOMETRY`)
@@ -231,6 +231,8 @@ Reference nodes for `Mesh Operations`. Total: **35** nodes.
 
 
 ### Mesh to SDF Grid — `GeometryNodeMeshToSDFGrid`
+- **Version:** Blender `5.0+`; not in 4.5.
+- **Evidence:** Absent from the Blender 4.5 manual (`docs/blender-manual-gn-4.5/`); documented from 5.0 in `docs/blender-manual-gn-5.0/mesh/operations/mesh_to_sdf_grid.md`.
 - **Notes:** The Mesh to SDF Grid node converts a mesh into a Signed Distance Field (SDF) grid. Each voxel in the resulting grid stores the shortest distance to the surface of the mesh, with the sign indicating whether the voxel is inside or outside the mesh. Positive values represent distances outside the mesh, negative values represent distances inside the mesh, and zero corresponds to the mesh surface. SDF grids are useful for many applications, including surface reconstruction, collision detection, morphing, and volumetric modeling.
 - **Inputs:**
   - `Mesh` (`GEOMETRY`)
@@ -241,6 +243,7 @@ Reference nodes for `Mesh Operations`. Total: **35** nodes.
 
 
 ### Mesh to Volume — `GeometryNodeMeshToVolume`
+- **Compatibility:** Blender 4.5 has no `Resolution Mode` socket; Blender 5.2 exposes it between `Density` and the resolution inputs.
 - **Notes:** The Mesh to Volume node creates a fog volumes based on the shape of a mesh. The volume is created with a grid of the name "density" .
 - **Inputs:**
   - `Mesh` (`GEOMETRY`)
@@ -263,6 +266,7 @@ Reference nodes for `Mesh Operations`. Total: **35** nodes.
 
 
 ### Pack UV Islands — `GeometryNodeUVPackIslands`
+- **Compatibility:** Blender 4.5 ends its inputs at `Rotate`; Blender 5.2 also exposes `Method`, `Bottom Left`, and `Top Right`.
 - **Notes:** The Pack UV Islands Node scales islands of a UV map and moves them so they fill the UV space as much as possible.
 - **Inputs:**
   - `UV` (`VECTOR`)
@@ -303,6 +307,7 @@ Reference nodes for `Mesh Operations`. Total: **35** nodes.
 
 
 ### Scale Elements — `GeometryNodeScaleElements`
+- **Compatibility:** Blender 4.5 has no `Scale Mode` socket; Blender 5.2 exposes it before `Axis`.
 - **Notes:** Scales the selected faces or edges, letting you specify a scaling factor and pivot point for each one. Connected faces/edges are scaled together using their average factor and pivot point.
 - **Inputs:**
   - `Geometry` (`GEOMETRY`)
@@ -339,6 +344,7 @@ Reference nodes for `Mesh Operations`. Total: **35** nodes.
 
 
 ### Set Shade Smooth — `GeometryNodeSetShadeSmooth`
+- **Compatibility:** The geometry socket is visibly named `Geometry` in Blender 4.5 and `Mesh` in Blender 5.2; its identifier remains `Geometry`.
 - **Notes:** The Set Shade Smooth node controls whether the mesh’s faces look smooth in the viewport and renders. The smooth status of both edges and faces can be controlled, corresponding to the `sharp_edge` and `sharp_face` attributes. The input node for this data is the Is Face Smooth Node.
 - **Inputs:**
   - `Mesh` (`GEOMETRY`)
@@ -368,6 +374,7 @@ Reference nodes for `Mesh Operations`. Total: **35** nodes.
 
 
 ### Subdivision Surface — `GeometryNodeSubdivisionSurface`
+- **Compatibility:** Blender 4.5 ends its inputs at `Limit Surface`; Blender 5.2 also exposes `Quality`, `UV Smooth`, and `Boundary Smooth`.
 - **Notes:** The Subdivision Surface node adds new faces to mesh geometry using a Catmull-Clark subdivision method.
 - **Inputs:**
   - `Mesh` (`GEOMETRY`)
@@ -382,6 +389,7 @@ Reference nodes for `Mesh Operations`. Total: **35** nodes.
 
 
 ### Triangulate — `GeometryNodeTriangulate`
+- **Compatibility:** Blender 4.5 exposes only `Mesh` and `Selection`; Blender 5.2 also exposes `Quad Method` and `N-gon Method` menu inputs.
 - **Notes:** The Triangulate node converts all faces in a mesh (quads and n-gons) to triangular faces. It functions the same as the Triangulate tool in Edit Mode.
 - **Inputs:**
   - `Mesh` (`GEOMETRY`)
@@ -393,6 +401,8 @@ Reference nodes for `Mesh Operations`. Total: **35** nodes.
 
 
 ### UV Tangent — `GeometryNodeUVTangent`
+- **Version:** Blender `5.0+`; not in 4.5.
+- **Evidence:** Absent from the Blender 4.5 manual (`docs/blender-manual-gn-4.5/`); documented from 5.0 in `docs/blender-manual-gn-5.0/mesh/uv/uv_tangent.md`.
 - **Notes:** The UV Tangent node generates tangent direction vectors based on a specified UV map. Tangents are unit-length vectors that lie along the surface of the geometry and point in the direction of increasing U coordinates in the UV space. They are commonly used in shading and texturing workflows, for example in normal mapping or anisotropic effects. This node allows for either exact or approximate tangent computation, offering a balance between precision and performance depending on the use case.
 - **Inputs:**
   - `Method` (`MENU: Exact, Fast`)
@@ -402,6 +412,7 @@ Reference nodes for `Mesh Operations`. Total: **35** nodes.
 
 
 ### UV Unwrap — `GeometryNodeUVUnwrap`
+- **Compatibility:** Blender 4.5 ends its inputs at `Fill Holes`; Blender 5.2 also exposes `Method`, `Iterations`, and `No Flip`.
 - **Notes:** The UV Unwrap Node generates a UV map islands based on a selection of seam edges. The node implicitly performs a Pack Islands operation upon completion, because the results may not be generally useful otherwise.
 - **Inputs:**
   - `Selection` (`BOOLEAN`)

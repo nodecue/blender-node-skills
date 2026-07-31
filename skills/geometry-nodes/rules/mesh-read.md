@@ -3,9 +3,7 @@ title: Mesh Read
 section: mesh
 description: "Mesh Nodes (Read): Query mesh topology and mesh-domain measurements."
 tags: edge, edges, mesh, read
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Mesh Read

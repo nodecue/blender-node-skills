@@ -3,9 +3,7 @@ title: Utilities Vector
 section: utilities
 description: "Utilities (Vector): Vector math and vector component composition/separation."
 tags: combine, radial, separate, utilities, vector
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Utilities Vector
@@ -23,6 +21,8 @@ Reference nodes for `Utilities Vector`. Total: **6** nodes.
 - **Tip:** The vector is not normalized.
 
 ### Radial Tiling — `ShaderNodeRadialTiling`
+- **Version:** Blender `5.0+`; not in 4.5.
+- **Evidence:** Absent from the Blender 4.5 manual (`docs/blender-manual-gn-4.5/`); documented from 5.0 in `docs/blender-manual-gn-5.0/utilities/vector/radial_tiling.md`.
 - **Notes:** Transform Coordinate System for Radial Tiling.
 - **Inputs:**
   - `Vector` (`VECTOR`)
@@ -45,6 +45,7 @@ Reference nodes for `Utilities Vector`. Total: **6** nodes.
   - `Z` (`FLOAT`)
 
 ### Vector Curves — `ShaderNodeVectorCurve`
+- **Compatibility:** The factor input is visibly named `Fac` in Blender 4.5 and `Factor` in Blender 5.2; its identifier remains `Fac`.
 - **Notes:** Map input vector components with curves.
 - **Inputs:**
   - `Factor` (`FLOAT`)

@@ -3,9 +3,7 @@ title: Curve Operations
 section: curve
 description: "Curve Nodes (Operations): Modify, resample, convert, and edit existing curve geometry."
 tags: curve, operations, set
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Curve Operations
@@ -59,6 +57,7 @@ Reference nodes for `Curve Operations`. Total: **22** nodes.
 
 
 ### Fill Curve — `GeometryNodeFillCurve`
+- **Compatibility:** Blender 4.5 exposes `Curve` and `Group ID`; Blender 5.2 also exposes `Mode` and `Fill Rule` menu inputs.
 - **Notes:** The Fill Curve node generates a mesh using the constrained Delaunay triangulation algorithm with the curves as boundaries. The mesh is only generated flat with a local Z of 0.
 - **Inputs:**
   - `Curve` (`GEOMETRY`)
@@ -70,6 +69,7 @@ Reference nodes for `Curve Operations`. Total: **22** nodes.
 
 
 ### Fillet Curve — `GeometryNodeFilletCurve`
+- **Compatibility:** Blender 4.5 selects Bezier/Poly through the `mode` RNA property; Blender 5.2 exposes `Mode` as a menu input and orders `Count` after it. Read the active layout before linking.
 - **Notes:** The Fillet Curve rounds corners on curve control points, similar to the effect of the Bevel Modifier on a 2D mesh. However, a key difference is that the rounded portions created by the Fillet Curve node are always portions of a circle.
 - **Inputs:**
   - `Curve` (`GEOMETRY`)
@@ -99,6 +99,7 @@ Reference nodes for `Curve Operations`. Total: **22** nodes.
 
 
 ### Resample Curve — `GeometryNodeResampleCurve`
+- **Compatibility:** Blender 4.5 selects Evaluated/Count/Length through the `mode` RNA property; Blender 5.2 exposes `Mode` as a menu input before `Count` and `Length`.
 - **Notes:** The Resample Curve node creates a poly spline for each input spline. In the Count and Length modes, the control points of the new poly splines will have uniform spacing.
 - **Inputs:**
   - `Curve` (`GEOMETRY`)
@@ -141,6 +142,7 @@ Reference nodes for `Curve Operations`. Total: **22** nodes.
 
 
 ### Set Curve Normal — `GeometryNodeSetCurveNormal`
+- **Compatibility:** Blender 4.5 selects the normal mode through node state; Blender 5.2 exposes `Mode` as a menu input before `Normal`.
 - **Notes:** The Set Curve Normal controls the method used to calculate curve normals for every curve. The node doesn’t set the normals directly, those are calculated later as necessary. Combined with the tilt attribute value at each control point, this will define the final normals accessible with the Normal Node. Internally this node adjusts the values of the `normal_mode` attribute on each curve.
 - **Inputs:**
   - `Curve` (`GEOMETRY`)
@@ -223,6 +225,7 @@ Reference nodes for `Curve Operations`. Total: **22** nodes.
 
 
 ### Set Spline Cyclic — `GeometryNodeSetSplineCyclic`
+- **Compatibility:** The geometry socket is visibly named `Geometry` in Blender 4.5 and `Curve` in Blender 5.2; its identifier remains `Geometry`.
 - **Notes:** The Set Spline Cyclic node changes whether splines loop back on themselves – that is, whether their first and last control points are connected. You can use the Is Spline Cyclic Node to read this property.
 - **Inputs:**
   - `Curve` (`GEOMETRY`)
@@ -233,6 +236,7 @@ Reference nodes for `Curve Operations`. Total: **22** nodes.
 
 
 ### Set Spline Resolution — `GeometryNodeSetSplineResolution`
+- **Compatibility:** The geometry socket is visibly named `Geometry` in Blender 4.5 and `Curve` in Blender 5.2; its identifier remains `Geometry`.
 - **Notes:** The Set Spline Resolution node sets the value for how many evaluated points should be generated on the curve for every control point. It only has an effect on NURBS, Bézier, and Catmull Rom splines. In case of Bézier splines, the resolution does not have an effect on segments between vector handles. The evaluated points are displayed in the viewport, used in the Curve to Mesh Node node, and optionally used in the Resample Curve Node. The input node for this data is the Spline Resolution Node.
 - **Inputs:**
   - `Curve` (`GEOMETRY`)

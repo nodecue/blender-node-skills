@@ -3,9 +3,7 @@ title: Color
 section: color
 description: "Color Nodes: General-purpose color construction, conversion, and blending utilities."
 tags: blackbody, color, combine, gamma, mix, separate
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Color
@@ -21,6 +19,7 @@ Reference nodes for `Color`. Total: **8** nodes.
 - **Example:** Example of the color ranges of the Blackbody node.
 
 ### Color Ramp — `ShaderNodeValToRGB`
+- **Compatibility:** The factor input is visibly named `Fac` in Blender 4.5 and `Factor` in Blender 5.2; its identifier remains `Fac`.
 - **Notes:** Map values to colors with the use of a gradient.
 - **Inputs:**
   - `Factor` (`FLOAT`)
@@ -40,6 +39,8 @@ Reference nodes for `Color`. Total: **8** nodes.
   - `Color` (`COLOR`)
 
 ### Gamma — `ShaderNodeGamma`
+- **Version:** Blender `5.0+`; not in 4.5.
+- **Evidence:** Absent from the Blender 4.5 manual (`docs/blender-manual-gn-4.5/`); documented from 5.0 in `docs/blender-manual-gn-5.0/color/gamma.md`.
 - **Notes:** Apply a gamma correction.
 - **Inputs:**
   - `Color` (`COLOR`)
@@ -69,6 +70,7 @@ Reference nodes for `Color`. Total: **8** nodes.
 - **Example:** See the Mix Color Node for additional examples. Used with: Mix Color.
 
 ### Mix (Legacy) — `ShaderNodeMixRGB`
+- **Compatibility:** The factor input is visibly named `Fac` in Blender 4.5 and `Factor` in Blender 5.2; its identifier remains `Fac`.
 - **Notes:** Mix two input colors.
 - **Inputs:**
   - `Factor` (`FLOAT`)
@@ -78,6 +80,7 @@ Reference nodes for `Color`. Total: **8** nodes.
   - `Color` (`COLOR`)
 
 ### RGB Curves — `ShaderNodeRGBCurve`
+- **Compatibility:** The factor input is visibly named `Fac` in Blender 4.5 and `Factor` in Blender 5.2; its identifier remains `Fac`.
 - **Notes:** The RGB Curves Node performs level adjustments on each color channel.
 - **Inputs:**
   - `Factor` (`FLOAT`)

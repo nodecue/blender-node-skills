@@ -3,9 +3,7 @@ title: Texture
 section: texture
 description: "Texture Nodes: Procedural and image-based texture generators and samplers."
 tags: brick, checker, gabor, image, noise, texture
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Texture
@@ -13,6 +11,7 @@ last_verified: "2026-07-18"
 Reference nodes for `Texture`. Total: **10** nodes.
 
 ### Brick Texture — `ShaderNodeTexBrick`
+- **Compatibility:** The scalar output is visibly named `Fac` in Blender 4.5 and `Factor` in Blender 5.2; its identifier remains `Fac`.
 - **Notes:** Generate a procedural texture producing bricks.
 - **Inputs:**
   - `Vector` (`VECTOR`)
@@ -32,6 +31,7 @@ Reference nodes for `Texture`. Total: **10** nodes.
 - **Tip:** Texture nodes can produce details at a higher frequency than geometry can show. This may cause artifacts such as Moiré type patterns or a lack of detail due to insufficient sampling points.
 
 ### Checker Texture — `ShaderNodeTexChecker`
+- **Compatibility:** The scalar output is visibly named `Fac` in Blender 4.5 and `Factor` in Blender 5.2; its identifier remains `Fac`.
 - **Notes:** Generate a checkerboard texture.
 - **Inputs:**
   - `Vector` (`VECTOR`)
@@ -60,6 +60,7 @@ Reference nodes for `Texture`. Total: **10** nodes.
 - **Example:** The following table demonstrates different outputs of the node with different parameters.
 
 ### Gradient Texture — `ShaderNodeTexGradient`
+- **Compatibility:** The scalar output is visibly named `Fac` in Blender 4.5 and `Factor` in Blender 5.2; its identifier remains `Fac`.
 - **Notes:** Generate interpolated color and intensity values based on the input vector.
 - **Inputs:**
   - `Vector` (`VECTOR`)
@@ -81,6 +82,7 @@ Reference nodes for `Texture`. Total: **10** nodes.
 - **Tip:** Unlike the other texture nodes, this node operates differently in geometry nodes compared to the equivalent shader node. When not connected the Vector input has an implicit `position` attribute value.
 
 ### Magic Texture — `ShaderNodeTexMagic`
+- **Compatibility:** The scalar output is visibly named `Fac` in Blender 4.5 and `Factor` in Blender 5.2; its identifier remains `Fac`.
 - **Notes:** Generate a psychedelic color texture.
 - **Inputs:**
   - `Vector` (`VECTOR`)
@@ -92,6 +94,7 @@ Reference nodes for `Texture`. Total: **10** nodes.
 - **Example:** Magic texture: Depth 10, Distortion 2.0.
 
 ### Noise Texture — `ShaderNodeTexNoise`
+- **Compatibility:** The scalar output is visibly named `Fac` in Blender 4.5 and `Factor` in Blender 5.2; its identifier remains `Fac`.
 - **Notes:** Generate fractal Perlin noise.
 - **Inputs:**
   - `Vector` (`VECTOR`)
@@ -129,6 +132,7 @@ Reference nodes for `Texture`. Total: **10** nodes.
 - **Example:** The difference between F1 and Smooth F1 can be used to create beveled Voronoi cells. Creating a hammered metal shader using the Voronoi Texture node.
 
 ### Wave Texture — `ShaderNodeTexWave`
+- **Compatibility:** The scalar output is visibly named `Fac` in Blender 4.5 and `Factor` in Blender 5.2; its identifier remains `Fac`.
 - **Notes:** Generate procedural bands or rings with noise.
 - **Inputs:**
   - `Vector` (`VECTOR`)
@@ -153,4 +157,3 @@ Reference nodes for `Texture`. Total: **10** nodes.
   - `Value` (`FLOAT`)
   - `Color` (`COLOR`)
 - **Example:** Generating cell noise using the Snap vector operation and the White Noise node.
-

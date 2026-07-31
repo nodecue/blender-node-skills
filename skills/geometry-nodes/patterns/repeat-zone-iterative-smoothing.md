@@ -4,8 +4,6 @@ name: Repeat Zone Iterative Smoothing
 description: "Use a Repeat Zone to iteratively refine geometry (smoothing, relaxation, simulation steps)."
 category: deformation
 tags: repeat zone, iteration, smoothing, relaxation, blur, simulation
-blender_support: "5.0+"
-blender_verified: 5.1
 status: stable
 ---
 

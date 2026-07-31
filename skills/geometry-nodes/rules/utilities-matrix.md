@@ -3,9 +3,7 @@ title: Utilities Matrix
 section: utilities
 description: "Utilities (Matrix): Matrix and transform composition/decomposition utilities."
 tags: combine, invert, matrix, multiply, utilities
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Utilities Matrix

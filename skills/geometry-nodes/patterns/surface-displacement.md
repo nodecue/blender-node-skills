@@ -4,8 +4,6 @@ name: Surface Displacement
 description: "Move geometry with Set Position using a verified vector direction and a field-driven magnitude."
 category: deformation
 tags: displacement, set position, normal, noise, vector
-blender_support: "5.0+"
-blender_verified: 5.1
 status: stable
 ---
 
@@ -21,7 +19,7 @@ status: stable
 - `rules/utilities-vector.md`: `ShaderNodeVectorMath`
 - `rules/utilities-math.md`: `ShaderNodeMapRange`, `ShaderNodeMath`
 - `patterns/normal-projection-removal.md`: verified vector projection chain for tangent-only variants
-- Blender 5.1 readback captured in the NodeCue dev repo (`tests/golden/skill_evals/gn_pattern_readbacks.json`) for `surface-displacement`
+- Blender 5.1 live readback for `surface-displacement`, recorded in this skill at `evals/gn_pattern_readbacks.json`
 
 ## Signature
 

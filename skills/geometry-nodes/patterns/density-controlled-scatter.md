@@ -4,8 +4,6 @@ name: Density Controlled Scatter
 description: "Control surface scattering with boolean selection or float density fields before instancing."
 category: instancing
 tags: scatter, density, selection, instance, random
-blender_support: "5.0+"
-blender_verified: 5.1
 status: stable
 ---
 
@@ -21,7 +19,7 @@ status: stable
 - `rules/utilities-misc.md`: `FunctionNodeRandomValue`
 - `rules/utilities-math.md`: `FunctionNodeCompare`, `ShaderNodeMapRange`
 - `rules/texture.md`: `ShaderNodeTexNoise`, `ShaderNodeTexVoronoi`
-- Blender 5.1 readback captured in the NodeCue dev repo (`tests/golden/skill_evals/gn_pattern_readbacks.json`) for `density-controlled-scatter`
+- Blender 5.1 live readback for `density-controlled-scatter`, recorded in this skill at `evals/gn_pattern_readbacks.json`
 
 ## Signature
 

@@ -3,9 +3,7 @@ title: Input Constant
 section: input
 description: "Input Nodes (Constant): Constant values and datablock references used as reusable inputs."
 tags: boolean, color, constant, image, input, integer, rotation, string, vector
-blender_support: "5.0+"
-blender_verified: 5.1, 5.2
-last_verified: "2026-07-18"
+last_verified: "2026-07-29"
 ---
 
 ## Input Constant

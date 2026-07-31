@@ -4,8 +4,6 @@ name: Capture Then Propagate
 description: "Freeze a field value into geometry with Capture Attribute so it survives downstream geometry changes."
 category: utility
 tags: capture attribute, anonymous attribute, field, preserve, freeze
-blender_support: "5.0+"
-blender_verified: 5.1
 status: stable
 ---
 

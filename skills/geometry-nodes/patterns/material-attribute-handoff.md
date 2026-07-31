@@ -4,8 +4,6 @@ name: Material Attribute Handoff
 description: "Pass material decisions or numeric masks through geometry with material index, material assignment, or named attributes."
 category: utility
 tags: material, attribute, mask, handoff, selection
-blender_support: "5.0+"
-blender_verified: 5.1
 status: stable
 ---
 
@@ -19,7 +17,7 @@ status: stable
 - `rules/attribute.md`: `GeometryNodeCaptureAttribute`, `GeometryNodeStoreNamedAttribute`
 - `rules/color.md`: `ShaderNodeValToRGB` for color mapping from a factor
 - `rules/utilities-math.md`: `FunctionNodeCompare`, `ShaderNodeMapRange`
-- Blender 5.1 readback captured in the NodeCue dev repo (`tests/golden/skill_evals/gn_pattern_readbacks.json`) for `material-attribute-handoff`
+- Blender 5.1 live readback for `material-attribute-handoff`, recorded in this skill at `evals/gn_pattern_readbacks.json`
 
 ## Signature
 
