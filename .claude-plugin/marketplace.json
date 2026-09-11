@@ -6,13 +6,13 @@
   },
   "metadata": {
     "description": "NodeCue skills for Blender node systems",
-    "version": "0.6.0"
+    "version": "0.7.0"
   },
   "plugins": [
     {
       "name": "blender-node-skills",
       "source": "./",
-      "description": "Geometry Nodes knowledge for AI agents: exact node identities, verified graph patterns, field/data-flow reasoning, readback repair, and teachable frame annotations. Shader and compositing nodes planned."
+      "description": "Geometry Nodes skills for AI agents: live node introspection, field/data-flow reasoning, result verification, asset reuse, and teachable frame annotations."
     }
   ]
 }

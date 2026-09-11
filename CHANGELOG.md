@@ -1,6 +1,14 @@
 # Changelog
 
-## Unreleased
+## 0.7.0 — 2026-09-11
+
+- Replaced the category rules/patterns package with a nine-file runtime: one entrypoint, four conditional references, and four Blender scripts.
+- Added a reproducible 368-node routing index, live graph/node inspection, bounded asset inspection, and opt-in node-editor capture.
+- Added project-local memory guidance, script invocation instructions, and named-attribute evaluation-context guidance.
+- Removed unsupported field-capability assumptions and fixed geometry trunk/dependency classification.
+- Runtime regression checks pass. Full v0.7 host behavioral acceptance remains pending; no new connection adapter is included in this release.
+
+## Earlier changes
 
 ### Changed (2026-07-30 — skill becomes the only product surface)
 

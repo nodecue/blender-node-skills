@@ -2,7 +2,11 @@ English | [简体中文](README.zh-CN.md)
 
 # NodeCue Blender Node Skills
 
-An agent skill that teaches AI coding agents to **build Blender Geometry Nodes graphs correctly — and explain them so you can learn from the result**: verified node and socket identities, proven graph patterns, readback-based self-repair, and teaching annotations in the language of your prompt.
+An agent skill that teaches AI coding agents to **build Blender Geometry Nodes graphs correctly — and explain them so you can learn from the result**: live node/socket introspection, geometry and field reasoning, result verification, and teaching annotations in the language of your prompt.
+
+The v0.7 runtime contains `SKILL.md`, four references, and four Blender Python scripts. Search `references/nodes.tsv` for candidates; resolve socket identities in the running Blender. Asset inspection and project-local `NODECUE.md` memory are available when relevant. Scripts run through your agent's existing Blender execution channel; the skill does not establish that connection.
+
+Validation status: runtime regression checks pass; the complete v0.7 Claude Code/Codex behavioral acceptance matrix remains pending. Start with a test `.blend` and report results. The comparison below is historical evidence from an earlier skill version.
 
 ## Why install this?
 
@@ -46,7 +50,7 @@ The skill works with whatever Blender access path your agent has:
 
 ## Scope and Accuracy
 
-- **Geometry Nodes only, Blender 4.5 LTS through 5.2.** Node availability and socket layouts are recorded per entry with `Version`, `Compatibility`, and `Evidence` notes, established from the versioned Blender manuals and confirmed by live readback on Blender 4.5.12 and 5.2.0. Differences between 5.0 and 5.1 have not yet been systematically audited. Shader Nodes and Compositing Nodes are planned as sibling skill folders.
+- **Geometry Nodes only, Blender 4.5 LTS through 5.2.** The 368-row routing index records node availability using four-version evidence. Node modes, sockets, properties, and field behavior must be checked live; the index is not a full behavioral compatibility guarantee. Conditional references cover cross-version guidance, reuse, and diagnostics. Shader Nodes and Compositing Nodes are not included.
 - **Annotations follow your prompt's language** (Chinese prompt → Chinese teaching notes); Blender terms always stay in English so they map to the UI and tutorials.
 - **Results can still be wrong.** The skill sharply reduces invented node names and dropped requirements, but model quality matters. Inspect the graph in Blender before relying on it, and report failures.
 
@@ -56,4 +60,4 @@ Open an issue with the `Skill feedback` template when an agent gets a Blender no
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Node behavior in the rules is verified against the [Blender Manual](https://docs.blender.org/manual/en/latest/) (CC-BY-SA 4.0).
+MIT — see [LICENSE](LICENSE). The [Blender Manual](https://docs.blender.org/manual/en/latest/) (CC-BY-SA 4.0) is a reference source; live Blender remains the authority for current identities and behavior.

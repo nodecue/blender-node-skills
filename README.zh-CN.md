@@ -2,7 +2,11 @@
 
 # NodeCue Blender Node Skills
 
-一个 agent skill，教 AI 编码 agent **正确构建 Blender 几何节点（Geometry Nodes）图——并对结果做出解释，让你能从中学习**：核验过的节点与 socket 标识、经过验证的图模式、基于回读的自我修复，以及跟随提示词语言的教学注释。
+一个 agent skill，教 AI 编码 agent **正确构建 Blender 几何节点（Geometry Nodes）图——并对结果做出解释，让你能从中学习**：实时读取节点与 socket、理解 geometry 和 field、验证实际结果，并按提示词语言添加教学注释。
+
+v0.7 运行时包含 `SKILL.md`、四个 references 和四个 Blender Python 脚本。通过 `references/nodes.tsv` 搜索候选节点，再从运行中的 Blender 确认 socket 身份。按需使用资产读取和项目内 `NODECUE.md` 记忆。脚本通过 agent 已有的 Blender 执行通道运行，skill 本身不负责建立连接。
+
+验收状态：运行时回归检查已通过；v0.7 的完整 Claude Code/Codex 行为验收矩阵仍待完成。建议先在测试 `.blend` 中试用并反馈。下方对比来自早期 skill 版本，作为历史证据保留。
 
 ## 为什么要装它？
 
@@ -46,7 +50,7 @@ skill 不绑定特定的 Blender 访问方式：
 
 ## 范围与准确性
 
-- **仅支持几何节点，Blender 4.5 LTS 至 5.2。** 节点可用性与 socket 布局按条目记录在 `Version`、`Compatibility`、`Evidence` 说明中，先由各版本 Blender 手册确定候选边界，再经 Blender 4.5.12 与 5.2.0 的 live readback 确认。5.0 与 5.1 之间的差异尚未系统盘点。Shader Nodes 和 Compositing Nodes 计划作为同级 skill 文件夹加入。
+- **仅包含几何节点，Blender 4.5 LTS 至 5.2。** 368 行路由索引依据四版本证据记录节点可用性。模式、socket、属性和 Field 行为需要实时验证；索引不代表完整行为兼容保证。版本、复用和诊断指导按需读取。尚未包含 Shader Nodes 和 Compositing Nodes。
 - **注释跟随提示词语言**（中文提示词 → 中文教学标注）；Blender 术语始终保持英文，与界面和教程对照一致。
 - **结果仍可能出错。** skill 能大幅减少凭空编造的节点名和被丢弃的需求，但模型质量很关键。依赖结果之前请在 Blender 中检查节点图，遇到失败请反馈。
 
@@ -56,4 +60,4 @@ skill 不绑定特定的 Blender 访问方式：
 
 ## 许可
 
-MIT — 见 [LICENSE](LICENSE)。规则中的节点行为参照 [Blender Manual](https://docs.blender.org/manual/en/latest/)（CC-BY-SA 4.0）核验。
+MIT — 见 [LICENSE](LICENSE)。[Blender Manual](https://docs.blender.org/manual/en/latest/)（CC-BY-SA 4.0）作为参考来源；当前节点身份与行为以运行中的 Blender 为准。

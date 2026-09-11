@@ -1,7 +1,7 @@
 {
   "name": "blender-node-skills",
   "description": "Teach AI agents to build Blender Geometry Nodes graphs correctly, with teaching annotations you can learn from.",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "author": {
     "name": "monswag"
   },

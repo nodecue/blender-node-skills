@@ -1,0 +1,369 @@
+bl_idname	display_name	category	version	note
+FunctionNodeAlignEulerToVector	Align Euler to Vector	Utilities/Deprecated	4.5+	
+FunctionNodeAlignRotationToVector	Align Rotation to Vector	Utilities/Rotation	4.5+	
+FunctionNodeAxesToRotation	Axes to Rotation	Utilities/Rotation	4.5+	
+FunctionNodeAxisAngleToRotation	Axis Angle to Rotation	Utilities/Rotation	4.5+	
+FunctionNodeBitMath	Bit Math	Utilities/Math	4.5+	
+FunctionNodeBooleanMath	Boolean Math	Utilities/Math	4.5+	
+FunctionNodeCombineColor	Combine Color	Color	4.5+	
+FunctionNodeCombineMatrix	Combine Matrix	Utilities/Matrix	4.5+	
+FunctionNodeCombineTransform	Combine Transform	Utilities/Matrix	4.5+	
+FunctionNodeCompare	Compare	Utilities/Math	4.5+	
+FunctionNodeEulerToRotation	Euler to Rotation	Utilities/Rotation	4.5+	
+FunctionNodeFindInString	Find in String	Utilities/Text	4.5+	
+FunctionNodeFloatToInt	Float to Integer	Utilities/Math	4.5+	
+FunctionNodeFormatString	Format String	Utilities/Text	4.5+	
+FunctionNodeHashValue	Hash Value	Utilities/Math	4.5+	
+FunctionNodeInputBool	Boolean	Input/Constant	4.5+	
+FunctionNodeInputColor	Color	Input/Constant	4.5+	
+FunctionNodeInputInt	Integer	Input/Constant	4.5+	
+FunctionNodeInputIntVector	Integer Vector	Input/Constant	5.2+	
+FunctionNodeInputMenu	Menu	Input/Constant	5.2+	
+FunctionNodeInputRotation	Rotation	Input/Constant	4.5+	
+FunctionNodeInputSpecialCharacters	Special Characters	Utilities/Text	4.5+	
+FunctionNodeInputString	String	Input/Constant	4.5+	
+FunctionNodeInputVector	Vector	Input/Constant	4.5+	
+FunctionNodeIntegerMath	Integer Math	Utilities/Math	4.5+	
+FunctionNodeInvertMatrix	Invert Matrix	Utilities/Matrix	4.5+	
+FunctionNodeInvertRotation	Invert Rotation	Utilities/Rotation	4.5+	
+FunctionNodeMatchString	Match String	Utilities/Text	4.5+	
+FunctionNodeMatrixDeterminant	Matrix Determinant	Utilities/Matrix	4.5+	
+FunctionNodeMatrixMultiply	Multiply Matrices	Utilities/Matrix	4.5+	
+FunctionNodeMatrixSVD	Matrix SVD	Utilities/Matrix	5.1+	
+FunctionNodeProjectPoint	Project Point	Utilities/Matrix	4.5+	
+FunctionNodeQuaternionToRotation	Quaternion to Rotation	Utilities/Rotation	4.5+	
+FunctionNodeRandomValue	Random Value	Utilities	4.5+	
+FunctionNodeReplaceString	Replace String	Utilities/Text	4.5+	
+FunctionNodeReverseString	Reverse String	Utilities/Text	5.2+	
+FunctionNodeRotateEuler	Rotate Euler	Utilities/Deprecated	4.5+	
+FunctionNodeRotateRotation	Rotate Rotation	Utilities/Rotation	4.5+	
+FunctionNodeRotateVector	Rotate Vector	Utilities/Rotation	4.5+	
+FunctionNodeRotationToAxisAngle	Rotation to Axis Angle	Utilities/Rotation	4.5+	
+FunctionNodeRotationToEuler	Rotation to Euler	Utilities/Rotation	4.5+	
+FunctionNodeRotationToQuaternion	Rotation to Quaternion	Utilities/Rotation	4.5+	
+FunctionNodeSeparateColor	Separate Color	Color	4.5+	
+FunctionNodeSeparateMatrix	Separate Matrix	Utilities/Matrix	4.5+	
+FunctionNodeSeparateTransform	Separate Transform	Utilities/Matrix	4.5+	
+FunctionNodeSetStringCase	Set String Case	Utilities/Text	5.2+	
+FunctionNodeSliceString	Slice String	Utilities/Text	4.5+	
+FunctionNodeSplitString	Split String	Utilities/Text	5.2+	
+FunctionNodeStringLength	String Length	Utilities/Text	4.5+	
+FunctionNodeStringToValue	String to Value	Utilities/Text	5.0+	
+FunctionNodeTransformDirection	Transform Direction	Utilities/Matrix	4.5+	
+FunctionNodeTransformPoint	Transform Point	Utilities/Matrix	4.5+	
+FunctionNodeTransposeMatrix	Transpose Matrix	Utilities/Matrix	4.5+	
+FunctionNodeTrimString	Trim String	Utilities/Text	5.2+	
+FunctionNodeValueToString	Value to String	Utilities/Text	4.5+	
+GeometryNodeAccumulateField	Accumulate Field	Utilities/Field	4.5+	
+GeometryNodeAttributeDomainSize	Domain Size	Attribute	4.5+	
+GeometryNodeAttributeStatistic	Attribute Statistic	Attribute	4.5+	
+GeometryNodeBake	Bake	Geometry/Operations	4.5+	
+GeometryNodeBlurAttribute	Blur Attribute	Attribute	4.5+	Returns its input unchanged on domains with no adjacency - point-cloud points and face corners - while the field still type-checks.
+GeometryNodeBoneInfo	Bone Info	Input/Scene	5.1+	
+GeometryNodeBoundBox	Bounding Box	Geometry/Operations	4.5+	
+GeometryNodeCameraInfo	Camera Info	Input/Scene	4.5+	
+GeometryNodeCaptureAttribute	Capture Attribute	Attribute	4.5+	
+GeometryNodeClosureInput	Closure Input	Zone/Closure	4.5-only	
+GeometryNodeClosureOutput	Closure Output	Zone/Closure	4.5-only	
+GeometryNodeClosureToList	Closure to List	Utilities/List	5.2+	
+GeometryNodeClusterByConnected	Cluster by Connected	Mesh/Read	5.2+	
+GeometryNodeClusterByDistance	Cluster by Distance	Utilities/Field	5.2+	
+GeometryNodeCollectionChildren	Collection Children	Input/Scene	5.2+	
+GeometryNodeCollectionInfo	Collection Info	Input/Scene	4.5+	
+GeometryNodeCombineBundle	Combine Bundle	Utilities	4.5-only	
+GeometryNodeConvexHull	Convex Hull	Geometry/Operations	4.5+	Evaluates separately per instance; loose parts and components are hulled together.
+GeometryNodeCornersOfEdge	Corners of Edge	Mesh/Topology	4.5+	
+GeometryNodeCornersOfFace	Corners of Face	Mesh/Topology	4.5+	
+GeometryNodeCornersOfVertex	Corners of Vertex	Mesh/Topology	4.5+	
+GeometryNodeCubeGridTopology	Cube Grid Topology	Volume/Primitives	5.1+	
+GeometryNodeCurveArc	Arc	Curve/Primitives	4.5+	
+GeometryNodeCurveEndpointSelection	Endpoint Selection	Curve/Read	4.5+	
+GeometryNodeCurveHandleTypeSelection	Handle Type Selection	Curve/Read	4.5+	
+GeometryNodeCurveLength	Curve Length	Curve/Read	4.5+	
+GeometryNodeCurveOfPoint	Curve of Point	Curve/Topology	4.5+	
+GeometryNodeCurvePrimitiveBezierSegment	Bézier Segment	Curve/Primitives	4.5+	
+GeometryNodeCurvePrimitiveCircle	Curve Circle	Curve/Primitives	4.5+	
+GeometryNodeCurvePrimitiveLine	Curve Line	Curve/Primitives	4.5+	
+GeometryNodeCurvePrimitiveQuadrilateral	Quadrilateral	Curve/Primitives	4.5+	
+GeometryNodeCurveQuadraticBezier	Quadratic Bézier	Curve/Primitives	4.5+	
+GeometryNodeCurveSetHandles	Set Handle Type	Curve/Write	4.5+	
+GeometryNodeCurveSpiral	Spiral	Curve/Primitives	4.5+	
+GeometryNodeCurveSplineType	Set Spline Type	Curve/Write	4.5+	
+GeometryNodeCurveStar	Star	Curve/Primitives	4.5+	
+GeometryNodeCurveToMesh	Curve to Mesh	Curve/Operations	4.5+	Marks sharp edges from Vector handles on the profile only - not Free handles, not the rail, and a poly profile creates no sharp_edge attribute at all.
+GeometryNodeCurveToPoints	Curve to Points	Curve/Operations	4.5+	
+GeometryNodeCurvesToGreasePencil	Curves to Grease Pencil	Curve/Operations	4.5+	
+GeometryNodeDeformCurvesOnSurface	Deform Curves on Surface	Curve/Operations	4.5+	
+GeometryNodeDeleteGeometry	Delete Geometry	Geometry/Operations	4.5+	
+GeometryNodeDistributePointsInGrid	Distribute Points in Grid	Point	4.5+	
+GeometryNodeDistributePointsInVolume	Distribute Points in Volume	Point	4.5+	
+GeometryNodeDistributePointsOnFaces	Distribute Points on Faces	Point	4.5+	
+GeometryNodeDualMesh	Dual Mesh	Mesh/Operations	4.5+	
+GeometryNodeDuplicateElements	Duplicate Elements	Geometry/Operations	4.5+	
+GeometryNodeEdgePathsToCurves	Edge Paths to Curves	Mesh/Operations	4.5+	
+GeometryNodeEdgePathsToSelection	Edge Paths to Selection	Mesh/Operations	4.5+	
+GeometryNodeEdgesOfCorner	Edges of Corner	Mesh/Topology	4.5+	
+GeometryNodeEdgesOfVertex	Edges of Vertex	Mesh/Topology	4.5+	
+GeometryNodeEdgesToFaceGroups	Edges to Face Groups	Mesh/Read	4.5+	
+GeometryNodeEvaluateClosure	Evaluate Closure	Utilities	4.5-only	
+GeometryNodeExtrudeMesh	Extrude Mesh	Mesh/Operations	4.5+	
+GeometryNodeFaceOfCorner	Face of Corner	Mesh/Topology	4.5+	
+GeometryNodeFieldAtIndex	Evaluate at Index	Utilities/Field	4.5+	
+GeometryNodeFieldAverage	Field Average	Utilities/Field	4.5+	
+GeometryNodeFieldMinAndMax	Field Min & Max	Utilities/Field	4.5+	
+GeometryNodeFieldOnDomain	Evaluate on Domain	Utilities/Field	4.5+	
+GeometryNodeFieldToGrid	Field to Grid	Volume/Operations	5.0+	
+GeometryNodeFieldToList	Field to List	Utilities/List	5.1+	
+GeometryNodeFieldVariance	Field Variance	Utilities/Field	4.5+	
+GeometryNodeFillCurve	Fill Curve	Curve/Operations	4.5+	
+GeometryNodeFilletCurve	Fillet Curve	Curve/Operations	4.5+	
+GeometryNodeFilterList	Filter List	Utilities/List	5.2+	
+GeometryNodeFlipFaces	Flip Faces	Mesh/Operations	4.5+	
+GeometryNodeForeachGeometryElementInput	For Each Geometry Element Input	Zone/For Each Element	4.5+	
+GeometryNodeForeachGeometryElementOutput	For Each Geometry Element Output	Zone/For Each Element	4.5+	
+GeometryNodeGeometryToInstance	Geometry to Instance	Geometry	4.5+	
+GeometryNodeGetAttributeNames	Get Attribute Names	Attribute	5.2+	
+GeometryNodeGetGeometryBundle	Get Geometry Bundle	Geometry/Read	5.1+	
+GeometryNodeGetGeometryComponent	Get Geometry Component	Geometry/Operations	5.2+	
+GeometryNodeGetNamedGrid	Get Named Grid	Volume/Read	4.5+	
+GeometryNodeGizmoDial	Dial Gizmo	Input/Gizmo	4.5+	
+GeometryNodeGizmoLinear	Linear Gizmo	Input/Gizmo	4.5+	
+GeometryNodeGizmoTransform	Transform Gizmo	Input/Gizmo	4.5+	
+GeometryNodeGreasePencilToCurves	Grease Pencil to Curves	Grease Pencil/Operations	4.5+	
+GeometryNodeGridAdvect	Advect Grid	Volume/Sample	5.0+	
+GeometryNodeGridClip	Clip Grid	Volume/Operations	5.1+	
+GeometryNodeGridCurl	Grid Curl	Volume/Sample	5.0+	
+GeometryNodeGridDilateAndErode	Grid Dilate & Erode	Volume/Operations	5.1+	
+GeometryNodeGridDivergence	Grid Divergence	Volume/Sample	5.0+	
+GeometryNodeGridGradient	Grid Gradient	Volume/Sample	5.0+	
+GeometryNodeGridInfo	Grid Info	Volume/Read	4.5+	
+GeometryNodeGridLaplacian	Grid Laplacian	Volume/Sample	5.0+	
+GeometryNodeGridMean	Grid Mean	Volume/Operations	5.1+	
+GeometryNodeGridMedian	Grid Median	Volume/Operations	5.1+	
+GeometryNodeGridPrune	Prune Grid	Volume/Operations	5.0+	
+GeometryNodeGridToMesh	Grid to Mesh	Volume/Operations	4.5+	
+GeometryNodeGridToPoints	Grid to Points	Volume/Operations	5.1+	
+GeometryNodeGridVoxelize	Voxelize Grid	Volume/Operations	5.0+	
+GeometryNodeGroup	Group	Group	4.5+	
+GeometryNodeImageInfo	Image Info	Input/Scene	4.5+	
+GeometryNodeImageTexture	Image Texture	Texture	4.5+	
+GeometryNodeImportCSV	Import CSV	Input/Import	4.5+	
+GeometryNodeImportOBJ	Import OBJ	Input/Import	4.5+	
+GeometryNodeImportPLY	Import PLY	Input/Import	4.5+	
+GeometryNodeImportSTL	Import STL	Input/Import	4.5+	
+GeometryNodeImportText	Import Text	Input/Import	4.5+	
+GeometryNodeImportVDB	Import VDB	Input/Import	4.5+	
+GeometryNodeIndexOfNearest	Index of Nearest	Geometry/Sample	4.5+	
+GeometryNodeIndexSwitch	Index Switch	Utilities	4.5+	
+GeometryNodeInputActiveCamera	Active Camera	Input/Scene	4.5+	
+GeometryNodeInputCollection	Collection	Input/Constant	4.5+	
+GeometryNodeInputCurveHandlePositions	Curve Handle Positions	Curve/Read	4.5+	
+GeometryNodeInputCurveTilt	Curve Tilt	Curve/Read	4.5+	
+GeometryNodeInputEdgeSmooth	Is Edge Smooth	Mesh/Read	4.5+	
+GeometryNodeInputFont	Font	Input/Constant	5.2+	
+GeometryNodeInputID	ID	Geometry/Read	4.5+	
+GeometryNodeInputImage	Image	Input/Constant	4.5+	
+GeometryNodeInputIndex	Index	Geometry/Read	4.5+	
+GeometryNodeInputInstanceBounds	Instance Bounds	Instances	4.5+	
+GeometryNodeInputInstanceReference	Instance Reference	Instances	5.2+	
+GeometryNodeInputInstanceRotation	Instance Rotation	Instances	4.5+	
+GeometryNodeInputInstanceScale	Instance Scale	Instances	4.5+	
+GeometryNodeInputMaterial	Material	Input/Constant	4.5+	
+GeometryNodeInputMaterialIndex	Material Index	Geometry/Material	4.5+	
+GeometryNodeInputMeshEdgeAngle	Edge Angle	Mesh/Read	4.5+	Both outputs are radians and are displayed as radians, unlike the rotation-unit sockets the editor draws in degrees.
+GeometryNodeInputMeshEdgeNeighbors	Edge Neighbors	Mesh/Read	4.5+	
+GeometryNodeInputMeshEdgeVertices	Edge Vertices	Mesh/Read	4.5+	
+GeometryNodeInputMeshFaceArea	Face Area	Mesh/Read	4.5+	
+GeometryNodeInputMeshFaceIsPlanar	Is Face Planar	Mesh/Read	4.5+	
+GeometryNodeInputMeshFaceNeighbors	Face Neighbors	Mesh/Read	4.5+	
+GeometryNodeInputMeshIsland	Mesh Island	Mesh/Read	4.5+	
+GeometryNodeInputMeshVertexNeighbors	Vertex Neighbors	Mesh/Read	4.5+	
+GeometryNodeInputNamedAttribute	Named Attribute	Geometry/Read	4.5+	
+GeometryNodeInputNamedLayerSelection	Named Layer Selection	Grease Pencil/Read	4.5+	
+GeometryNodeInputNormal	Normal	Geometry/Read	4.5+	
+GeometryNodeInputObject	Object	Input/Constant	4.5+	
+GeometryNodeInputPosition	Position	Geometry/Read	4.5+	
+GeometryNodeInputRadius	Radius	Geometry/Read	4.5+	
+GeometryNodeInputSceneTime	Scene Time	Input/Scene	4.5+	
+GeometryNodeInputShadeSmooth	Is Face Smooth	Mesh/Read	4.5+	
+GeometryNodeInputShortestEdgePaths	Shortest Edge Paths	Mesh/Read	4.5+	
+GeometryNodeInputSplineCyclic	Is Spline Cyclic	Curve/Read	4.5+	
+GeometryNodeInputSplineResolution	Spline Resolution	Curve/Read	4.5+	
+GeometryNodeInputTangent	Curve Tangent	Curve/Read	4.5+	
+GeometryNodeInputVoxelIndex	Voxel Index	Volume/Read	5.0+	
+GeometryNodeInstanceOnPoints	Instance on Points	Instances	4.5+	
+GeometryNodeInstanceTransform	Instance Transform	Instances	4.5+	
+GeometryNodeInstancesToPoints	Instances to Points	Instances	4.5+	
+GeometryNodeInterpolateCurves	Interpolate Curves	Curve/Operations	4.5+	
+GeometryNodeIsViewport	Is Viewport	Input/Scene	4.5+	
+GeometryNodeJoinGeometry	Join Geometry	Geometry	4.5+	Drops the volume component when two or more volumes are joined - zero grids out, no warning. Every other component type merges.
+GeometryNodeList	List	Utilities/List	5.0-only	
+GeometryNodeListGetItem	Get List Item	Utilities/List	5.0+	
+GeometryNodeListLength	List Length	Utilities/List	5.0+	
+GeometryNodeMaterialSelection	Material Selection	Geometry/Material	4.5+	
+GeometryNodeMenuSwitch	Menu Switch	Utilities	4.5+	
+GeometryNodeMergeByDistance	Merge by Distance	Geometry/Operations	4.5+	
+GeometryNodeMergeLayers	Merge Layers	Grease Pencil/Operations	4.5+	
+GeometryNodeMergePoints	Merge Points	Geometry/Operations	5.2+	
+GeometryNodeMeshBevel	Mesh Bevel	Mesh/Operations	5.2+	
+GeometryNodeMeshBoolean	Mesh Boolean	Mesh/Operations	4.5+	
+GeometryNodeMeshCircle	Mesh Circle	Mesh/Primitives	4.5+	
+GeometryNodeMeshCone	Cone	Mesh/Primitives	4.5+	
+GeometryNodeMeshCube	Cube	Mesh/Primitives	4.5+	
+GeometryNodeMeshCylinder	Cylinder	Mesh/Primitives	4.5+	
+GeometryNodeMeshFaceSetBoundaries	Face Group Boundaries	Mesh/Read	4.5+	
+GeometryNodeMeshGrid	Grid	Mesh/Primitives	4.5+	
+GeometryNodeMeshIcoSphere	Ico Sphere	Mesh/Primitives	4.5+	
+GeometryNodeMeshLine	Mesh Line	Mesh/Primitives	4.5+	
+GeometryNodeMeshToCurve	Mesh to Curve	Mesh/Operations	4.5+	
+GeometryNodeMeshToDensityGrid	Mesh to Density Grid	Mesh/Operations	4.5+	
+GeometryNodeMeshToPoints	Mesh to Points	Mesh/Operations	4.5+	
+GeometryNodeMeshToSDFGrid	Mesh to SDF Grid	Mesh/Operations	4.5+	
+GeometryNodeMeshToVolume	Mesh to Volume	Mesh/Operations	4.5+	
+GeometryNodeMeshUVSphere	UV Sphere	Mesh/Primitives	4.5+	
+GeometryNodeObjectInfo	Object Info	Input/Scene	4.5+	
+GeometryNodeOffsetCornerInFace	Offset Corner in Face	Mesh/Topology	4.5+	
+GeometryNodeOffsetPointInCurve	Offset Point in Curve	Curve/Topology	4.5+	
+GeometryNodePoints	Points	Point	4.5+	
+GeometryNodePointsOfCurve	Points of Curve	Curve/Topology	4.5+	
+GeometryNodePointsToCurves	Points to Curves	Point	4.5+	
+GeometryNodePointsToSDFGrid	Points to SDF Grid	Point	4.5+	
+GeometryNodePointsToVertices	Points to Vertices	Point	4.5+	
+GeometryNodePointsToVolume	Points to Volume	Point	4.5+	
+GeometryNodeProximity	Geometry Proximity	Geometry/Sample	4.5+	
+GeometryNodeRaycast	Raycast	Geometry/Sample	4.5+	
+GeometryNodeRealizeInstances	Realize Instances	Instances	4.5+	
+GeometryNodeRemoveAttribute	Remove Named Attribute	Attribute	4.5+	
+GeometryNodeRenameAttribute	Rename Attribute	Attribute	5.2+	
+GeometryNodeRepeatInput	Repeat Input	Zone/Repeat	4.5+	
+GeometryNodeRepeatOutput	Repeat Output	Zone/Repeat	4.5+	
+GeometryNodeReplaceMaterial	Replace Material	Geometry/Material	4.5+	Silently does nothing on curves and point clouds; only meshes carry the material_index it rewrites.
+GeometryNodeResampleCurve	Resample Curve	Curve/Operations	4.5+	
+GeometryNodeReverseCurve	Reverse Curve	Curve/Operations	4.5+	
+GeometryNodeRotateInstances	Rotate Instances	Instances	4.5+	
+GeometryNodeSDFGridBoolean	SDF Grid Boolean	Volume/Operations	4.5+	
+GeometryNodeSDFGridFillet	SDF Grid Fillet	Volume/Operations	5.0+	
+GeometryNodeSDFGridLaplacian	SDF Grid Laplacian	Volume/Operations	5.0+	
+GeometryNodeSDFGridMean	SDF Grid Mean	Volume/Operations	5.0+	
+GeometryNodeSDFGridMeanCurvature	SDF Grid Mean Curvature	Volume/Operations	5.0+	
+GeometryNodeSDFGridMedian	SDF Grid Median	Volume/Operations	5.0+	
+GeometryNodeSDFGridOffset	SDF Grid Offset	Volume/Operations	5.0+	
+GeometryNodeSampleCurve	Sample Curve	Curve/Sample	4.5+	
+GeometryNodeSampleGrid	Sample Grid	Volume/Sample	4.5+	
+GeometryNodeSampleGridIndex	Sample Grid Index	Volume/Sample	4.5+	
+GeometryNodeSampleIndex	Sample Index	Geometry/Sample	4.5+	Picks one component before it picks an index, by a fixed Mesh > Point Cloud > Curve priority that no socket or property shows.
+GeometryNodeSampleNearest	Sample Nearest	Geometry/Sample	4.5+	
+GeometryNodeSampleNearestSurface	Sample Nearest Surface	Mesh/Sample	4.5+	
+GeometryNodeSampleSoundFrequencies	Sample Sound Frequencies	Utilities/Sound	5.2+	
+GeometryNodeSampleUVSurface	Sample UV Surface	Mesh/Sample	4.5+	
+GeometryNodeScaleElements	Scale Elements	Mesh/Operations	4.5+	
+GeometryNodeScaleInstances	Scale Instances	Instances	4.5+	
+GeometryNodeSelfObject	Self Object	Input/Scene	4.5+	
+GeometryNodeSeparateBundle	Separate Bundle	Utilities	4.5-only	
+GeometryNodeSeparateComponents	Separate Components	Geometry/Operations	4.5+	
+GeometryNodeSeparateGeometry	Separate Geometry	Geometry/Operations	4.5+	
+GeometryNodeSetCurveHandlePositions	Set Handle Positions	Curve/Write	4.5+	Writing one handle re-derives the opposite one and can change the handle type, so two chained writes do not give two handles.
+GeometryNodeSetCurveNormal	Set Curve Normal	Curve/Write	4.5+	
+GeometryNodeSetCurveRadius	Set Curve Radius	Curve/Write	4.5+	
+GeometryNodeSetCurveTilt	Set Curve Tilt	Curve/Write	4.5+	
+GeometryNodeSetGeometryBundle	Set Geometry Bundle	Geometry/Write	5.1+	
+GeometryNodeSetGeometryName	Set Geometry Name	Geometry/Write	4.5+	
+GeometryNodeSetGreasePencilColor	Set Grease Pencil Color	Grease Pencil/Write	4.5+	
+GeometryNodeSetGreasePencilDepth	Set Grease Pencil Depth	Grease Pencil/Write	4.5+	
+GeometryNodeSetGreasePencilSoftness	Set Grease Pencil Softness	Grease Pencil/Write	4.5+	
+GeometryNodeSetGridBackground	Set Grid Background	Volume/Write	5.0+	
+GeometryNodeSetGridTransform	Set Grid Transform	Volume/Write	5.0+	
+GeometryNodeSetID	Set ID	Geometry/Write	4.5+	
+GeometryNodeSetInstanceTransform	Set Instance Transform	Instances	4.5+	
+GeometryNodeSetMaterial	Set Material	Geometry/Material	4.5+	Works on curves and point clouds, but they carry one material per component and no material_index, so Selection is silently ignored there.
+GeometryNodeSetMaterialIndex	Set Material Index	Geometry/Material	4.5+	
+GeometryNodeSetMeshNormal	Set Mesh Normal	Mesh/Write	4.5+	
+GeometryNodeSetNURBSOrder	Set NURBS Order	Curve/Write	5.2+	
+GeometryNodeSetNURBSWeight	Set NURBS Weight	Curve/Write	5.2+	
+GeometryNodeSetPointRadius	Set Point Radius	Point	4.5+	
+GeometryNodeSetPosition	Set Position	Geometry/Write	4.5+	
+GeometryNodeSetShadeSmooth	Set Shade Smooth	Mesh/Write	4.5+	
+GeometryNodeSetSplineCyclic	Set Spline Cyclic	Curve/Write	4.5+	
+GeometryNodeSetSplineResolution	Set Spline Resolution	Curve/Write	4.5+	
+GeometryNodeSimulationInput	Simulation Input	Zone/Simulation	4.5+	
+GeometryNodeSimulationOutput	Simulation Output	Zone/Simulation	4.5+	
+GeometryNodeSortElements	Sort Elements	Geometry/Operations	4.5+	
+GeometryNodeSortList	Sort List	Utilities/List	5.2+	
+GeometryNodeSplineLength	Spline Length	Curve/Read	4.5+	
+GeometryNodeSplineParameter	Spline Parameter	Curve/Read	4.5+	
+GeometryNodeSplitEdges	Split Edges	Mesh/Operations	4.5+	
+GeometryNodeSplitToInstances	Split to Instances	Geometry/Operations	4.5+	
+GeometryNodeStoreNamedAttribute	Store Named Attribute	Attribute	4.5+	
+GeometryNodeStoreNamedGrid	Store Named Grid	Volume/Write	4.5+	
+GeometryNodeStringJoin	Join Strings	Utilities/Text	4.5+	
+GeometryNodeStringToCurves	String to Curves	Utilities/Text	4.5+	
+GeometryNodeSubdivideCurve	Subdivide Curve	Curve/Operations	4.5+	
+GeometryNodeSubdivideMesh	Subdivide Mesh	Mesh/Operations	4.5+	
+GeometryNodeSubdivisionSurface	Subdivision Surface	Mesh/Operations	4.5+	
+GeometryNodeSwitch	Switch	Utilities	4.5+	
+GeometryNodeTagFilter	Tag Filter	Utilities/Text	5.2+	
+GeometryNodeTool3DCursor	3D Cursor	Input/Scene	4.5+	
+GeometryNodeToolActiveElement	Active Element	Geometry/Read	4.5+	
+GeometryNodeToolFaceSet	Face Set	Mesh/Read	4.5+	
+GeometryNodeToolMousePosition	Mouse Position	Input/Scene	4.5+	
+GeometryNodeToolSelection	Selection	Geometry/Read	4.5+	
+GeometryNodeToolSetFaceSet	Set Face Set	Mesh/Write	4.5+	
+GeometryNodeToolSetSelection	Set Selection	Geometry/Write	4.5+	
+GeometryNodeTransferAttributes	Transfer Attributes	Attribute	5.2+	
+GeometryNodeTransform	Transform Geometry	Geometry/Operations	4.5+	
+GeometryNodeTranslateInstances	Translate Instances	Instances	4.5+	
+GeometryNodeTriangulate	Triangulate	Mesh/Operations	4.5+	
+GeometryNodeTrimCurve	Trim Curve	Curve/Operations	4.5+	
+GeometryNodeUVPackIslands	Pack UV Islands	Mesh/UV	4.5+	
+GeometryNodeUVTangent	UV Tangent	Mesh/UV	5.0+	
+GeometryNodeUVUnwrap	UV Unwrap	Mesh/UV	4.5+	
+GeometryNodeVertexOfCorner	Vertex of Corner	Mesh/Topology	4.5+	
+GeometryNodeViewer	Viewer	Output	4.5+	
+GeometryNodeViewportTransform	Viewport Transform	Input/Scene	4.5+	
+GeometryNodeVolumeCube	Volume Cube	Volume/Primitives	4.5+	
+GeometryNodeVolumeToMesh	Volume to Mesh	Volume/Operations	4.5+	
+GeometryNodeWarning	Warning	Output	4.5+	
+GeometryNodeXPBDSolver	XPBD Solver	Simulation	5.2+	
+NodeClosureInput	Closure Input	Zone/Closure	5.0+	
+NodeClosureOutput	Closure Output	Zone/Closure	5.0+	
+NodeCombineBundle	Combine Bundle	Utilities/Bundle	5.0+	
+NodeEnableOutput	Enable Output	Output	5.0+	
+NodeEvaluateClosure	Evaluate Closure	Utilities/Closure	5.0+	
+NodeFrame	Frame	Layout	4.5+	
+NodeGetBundleItem	Get Bundle Item	Utilities/Bundle	5.1+	
+NodeGetNestedBundlePaths	Get Nested Bundle Paths	Utilities/Bundle	5.2+	
+NodeGroupInput	Group Input	Input/Group	4.5+	
+NodeGroupOutput	Group Output	Output	4.5+	
+NodeImplicitConversion	Implicit Conversion	Utilities	5.2+	
+NodeJoinBundle	Join Bundle	Utilities/Bundle	5.0+	
+NodeReroute	Reroute	Layout	4.5+	
+NodeSeparateBundle	Separate Bundle	Utilities/Bundle	5.0+	
+NodeStoreBundleItem	Store Bundle Item	Utilities/Bundle	5.1+	
+ShaderNodeBlackbody	Blackbody	Color	4.5+	
+ShaderNodeClamp	Clamp	Utilities/Math	4.5+	
+ShaderNodeCombineRGB	Combine RGB (Legacy)	Utilities/Deprecated	4.5-only	
+ShaderNodeCombineXYZ	Combine XYZ	Utilities/Vector	4.5+	
+ShaderNodeFloatCurve	Float Curve	Utilities/Math	4.5+	
+ShaderNodeGamma	Gamma	Color	5.0+	
+ShaderNodeMapRange	Map Range	Utilities/Math	4.5+	
+ShaderNodeMath	Math	Utilities/Math	4.5+	
+ShaderNodeMix	Mix	Utilities/Math	4.5+	
+ShaderNodeMixRGB	Mix (Legacy)	Utilities/Deprecated	4.5+	
+ShaderNodeRGBCurve	RGB Curves	Color	4.5+	
+ShaderNodeRadialTiling	Radial Tiling	Utilities/Vector	5.0+	
+ShaderNodeSeparateRGB	Separate RGB (Legacy)	Utilities/Deprecated	4.5-only	
+ShaderNodeSeparateXYZ	Separate XYZ	Utilities/Vector	4.5+	
+ShaderNodeTexBrick	Brick Texture	Texture	4.5+	
+ShaderNodeTexChecker	Checker Texture	Texture	4.5+	
+ShaderNodeTexGabor	Gabor Texture	Texture	4.5+	
+ShaderNodeTexGradient	Gradient Texture	Texture	4.5+	
+ShaderNodeTexMagic	Magic Texture	Texture	4.5+	
+ShaderNodeTexNoise	Noise Texture	Texture	4.5+	
+ShaderNodeTexVoronoi	Voronoi Texture	Texture	4.5+	
+ShaderNodeTexWave	Wave Texture	Texture	4.5+	
+ShaderNodeTexWhiteNoise	White Noise Texture	Texture	4.5+	
+ShaderNodeValToRGB	Color Ramp	Color	4.5+	
+ShaderNodeValue	Value	Input/Constant	4.5+	
+ShaderNodeVectorCurve	Vector Curves	Utilities/Vector	4.5+	
+ShaderNodeVectorMath	Vector Math	Utilities/Vector	4.5+	
+ShaderNodeVectorRotate	Vector Rotate	Utilities/Vector	4.5+	

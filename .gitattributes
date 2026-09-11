@@ -1,0 +1,2 @@
+# An empty final TSV column requires a trailing tab; preserve that field.
+*.tsv whitespace=-blank-at-eol
