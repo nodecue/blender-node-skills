@@ -2,62 +2,95 @@
 
 # NodeCue Blender Node Skills
 
-一个 agent skill，教 AI 编码 agent **正确构建 Blender 几何节点（Geometry Nodes）图——并对结果做出解释，让你能从中学习**：实时读取节点与 socket、理解 geometry 和 field、验证实际结果，并按提示词语言添加教学注释。
+现在可以直接使用的，是已经发布的 **v0.7 几何节点 skill**，位置在 [`skills/geometry-nodes/`](skills/geometry-nodes/)。它由 [`SKILL.md`](skills/geometry-nodes/SKILL.md)、四份参考文件和四个脚本组成：
 
-v0.7 运行时包含 `SKILL.md`、四个 references 和四个 Blender Python 脚本。通过 `references/nodes.tsv` 搜索候选节点，再从运行中的 Blender 确认 socket 身份。按需使用资产读取和项目内 `NODECUE.md` 记忆。脚本通过 agent 已有的 Blender 执行通道运行，skill 本身不负责建立连接。
+- 参考文件：[`nodes.tsv`](skills/geometry-nodes/references/nodes.tsv)、[`versions.md`](skills/geometry-nodes/references/versions.md)、[`reuse.md`](skills/geometry-nodes/references/reuse.md)、[`diagnostics.md`](skills/geometry-nodes/references/diagnostics.md)
+- 脚本：[`read_graph.py`](skills/geometry-nodes/scripts/read_graph.py)、[`probe_node.py`](skills/geometry-nodes/scripts/probe_node.py)、[`capture.py`](skills/geometry-nodes/scripts/capture.py)、[`inspect_assets.py`](skills/geometry-nodes/scripts/inspect_assets.py)
 
-验收状态：运行时回归检查已通过；v0.7 的完整 Claude Code/Codex 行为验收矩阵仍待完成。建议先在测试 `.blend` 中试用并反馈。下方对比来自早期 skill 版本，作为历史证据保留。
+agent 用它搭建一份可以核对的几何节点图，也可以在不改动图的情况下解释一份已有的图。
 
-## 为什么要装它？
+> **状态。** 上面这些 v0.7 skill 文件，是本仓库里稳定的产品。安装路径、各个 host 上的行为，以及 agent plugin 封装层仍在变化。本 README 不把这些路径当作已验证路径，也不保证你今天使用的路径以后保持原样。在依赖某一次安装或某一个 host 之前，请先看最新的 README、[Releases](https://github.com/nodecue/blender-node-skills/releases) 和 [Issues](https://github.com/nodecue/blender-node-skills/issues)。欢迎根据真实 host 上的实际使用来反馈。
 
-同一个任务、同一个 agent、同一个模型，一次不用 skill，一次用：
+## v0.7 skill 做什么
 
-> 在场景中添加一个立方体，2米大小，在立方体的顶部4个顶点处分别添加一个高0.2米，直径0.2米的圆锥。
+1. 读取 Blender 版本和当前节点图。
+2. 用 `references/nodes.tsv` 筛选候选节点。这个文件是路由索引，不能拿来直接连线。
+3. 连线之前，在正在运行的 Blender 里确认节点、socket 和属性的身份。
+4. 搭建、修改或解释时，按可以单独核对的小段进行。解释模式只读，不改图。
+5. 核对的是从请求推导出来的结果。节点个数只说明图本身。尺寸、位置，或请求里明确要的数量，才是该核对的内容。
+6. 请求要求改图时，保留 Blender 的默认节点名，把解释写在教学 Frame 上。
 
-| 无 skill（Codex app，gpt-5.6） | 有 skill（Codex app，gpt-5.6） |
-|---|---|
-| ![无 skill：每个节点都被改名并加了解释标签，成品图里留着多余的 Realize Instances，共 11 个节点](docs/images/comparison-no-skill.png) | ![有 skill：节点保持默认名，4 个双语教学 Frame，共 9 个节点](docs/images/comparison-with-skill.png) |
-| 11 个节点，被改名+加标签，留着多余的 `Realize Instances` | 9 个节点，默认命名，4 个双语 Frame |
+任务需要时，可以使用 [`inspect_assets.py`](skills/geometry-nodes/scripts/inspect_assets.py) 和项目内的 `NODECUE.md`。它们不能代替对 Blender 的实时读取。
 
-*左侧的提示词还额外要求了一句："并对节点使用 frame 进行功能性解释。"用了 skill 之后，教学 Frame 会自动生成——不需要额外提这一句。*
+## 安装独立 skill
 
-两列是同一个 agent（Codex app，gpt-5.6，extra-high 推理）通过 Blender MCP 各跑一次——一次要求不借助任何 skill，一次用这个 skill。两次几何结果都是对的，这是个强模型，差异在于图里留下了什么：
+NodeCue 目前没有一条已经验收、可以同时覆盖 Claude Code、Codex、Cursor、Pi 和其他 agent 的安装命令。skill 放在哪里、host 如何发现它，彼此不同。请按你正在使用的那个 agent 的现行 skill 安装文档操作。
 
-- **节点命名**：每个节点都被改名并加上解释性标签（`Cube_2m`、"读取每个顶点的位置"、"Z > 0.99 = 顶部顶点"……）vs. 保持 Blender 默认名（`Position`、`Compare`、`Cone`……）。改名会切断节点图与 Blender 界面、以及任何默认命名教程之间的对照关系。
-- **解释放在哪里**：涂满在各个节点的标签上 vs. 集中收纳进教学 Frame（"02 顶部四点 — Select Z > 0.99"）。
-- **多余节点**：成品图里留着一个 `Realize Instances` vs. 只在验证数量（4 个圆锥）时临时用一下，随后撤销。
-- **图的大小**：同样的结果，11 个节点 / 11 条连线 vs. 9 个节点 / 9 条连线。
-- **成本**：4 次 MCP 调用（约 4 分 17 秒）vs. 7 次 MCP 调用（约 5 分 46 秒）——多出来的回读-校验-修复循环不是免费的。
+**手动路径，不限定哪一个 host。** 克隆或下载本仓库，把 [`skills/geometry-nodes/`](skills/geometry-nodes/) 放到该 agent 安装能够识别 skill 的位置。
 
-在强模型上，skill 带来的不是"能跑 vs. 跑不通"的差距，而是**固化的约定**（默认命名、Frame、双语标签）和**验证纪律**（先检查再宣称完成）——省去了你每次都要在提示词里重申"请用 frame 解释"、并且自己去检查结果对不对。
-
-## 安装
-
-一条命令，通用于 Claude Code、Codex、Cursor 等 agent（基于开源的 [skills CLI](https://github.com/vercel-labs/skills)）：
+**便利命令。** 下面是现有的 [skills CLI](https://github.com/vercel-labs/skills) 命令。NodeCue 还没有完成它在各个 host 上的行为验收。它不会配置 Blender，也不会安装下文那个尚未完成的 plugin。
 
 ```bash
 npx skills add nodecue/blender-node-skills
 ```
 
-其他方式：Claude Code plugin（`/plugin marketplace add nodecue/blender-node-skills`，然后 `/plugin install blender-node-skills@nodecue`），或克隆仓库后把 `skills/geometry-nodes/` 复制到 agent 的 skills 目录。
+## 把 agent 接到正在运行的 Blender
 
-## 连接 Blender
+这个 skill 不建立 Blender 连接。它要求一条已经可用的执行通道。这条通道必须在正在运行的 Blender 内部执行随仓库发布的 Python，并把结果返回来。Blender 外面的 host Python 看不到当前打开的文件。
 
-skill 不绑定特定的 Blender 访问方式：
+MCP，或者 host 已经提供的其他集成，都可以作为这条通道。NodeCue 尚未完成这些路线的当前逐 host 验收，官方和社区的 MCP server 也在此列。本页不给任何一条路线排序，也不写 server 的安装步骤。请看你所选 host 和传输方式自己的文档。
 
-- **Blender 官方 [MCP server](https://www.blender.org/lab/mcp-server/)**（Blender Lab 出品，随 5.2 LTS 内置，可作插件安装）——优先推荐
-- 社区的 [blender-mcp](https://github.com/ahujasid/blender-mcp) 项目
+## agent plugin 封装尚未完成
+
+把这个 skill 打包成 NodeCue 的 agent plugin，是 skill 之外的另一项工作，而且尚未完成。plugin 命令不是 v0.7 skill 的已验证安装方式。
+
+已提交的 [`.claude-plugin/`](.claude-plugin/) 元数据，即 [`plugin.json`](.claude-plugin/plugin.json) 和 [`marketplace.json`](.claude-plugin/marketplace.json)，记录的是早期的 Claude 封装表面。它不能证明当前的 Claude host 已经接受这个 plugin。命令 `/plugin marketplace add nodecue/blender-node-skills` 和 `/plugin install blender-node-skills@nodecue` 属于这个早期表面。它们不是推荐的安装路径，NodeCue 也没有把它们验收为已验证路径。它们不会配置 Blender。
+
+Codex 是下一项 plugin 验收优先对象。Codex 的 plugin 支持尚未完成。Claude 兼容性先留在仓库里，等以后再验证。
+
+## 第一次使用
+
+这条路径只使用本公开仓库。
+
+1. 安装或找到独立 skill，目录是 `skills/geometry-nodes/`。
+2. 确认 agent 已经有一条可用的 Blender 执行通道。
+3. 启用几何节点 skill，从一份测试用 `.blend` 开始。
+4. 提出搭建、修改或解释的请求，然后在 Blender 里查看求值后的结果。节点图看起来整齐，并不等于结果正确。
+5. 失败时，用 [Skill feedback](.github/ISSUE_TEMPLATE/skill-feedback.yml) 模板开 issue。写上提示词、agent 或工具、模型、Blender 版本，以及结果错在哪里。不要放入 API key、凭据、私有资产库路径，以及不能公开的 `.blend` 文件。
 
 ## 范围与准确性
 
-- **仅包含几何节点，Blender 4.5 LTS 至 5.2。** 368 行路由索引依据四版本证据记录节点可用性。模式、socket、属性和 Field 行为需要实时验证；索引不代表完整行为兼容保证。版本、复用和诊断指导按需读取。尚未包含 Shader Nodes 和 Compositing Nodes。
-- **注释跟随提示词语言**（中文提示词 → 中文教学标注）；Blender 术语始终保持英文，与界面和教程对照一致。
-- **结果仍可能出错。** skill 能大幅减少凭空编造的节点名和被丢弃的需求，但模型质量很关键。依赖结果之前请在 Blender 中检查节点图，遇到失败请反馈。
+- **只有几何节点。** Shader Nodes 和 Compositing Nodes 都没有发布。
+- **带版本的证据用来路由，不是行为保证。** [`versions.md`](skills/geometry-nodes/references/versions.md) 和 `nodes.tsv` 的 `version` 列覆盖 Blender 4.5 LTS、5.0、5.1 和 5.2 LTS。它们记录候选节点出现在哪些版本，以及一部分跨版本差异长什么样。它们不保证同一张图在这些版本上行为一致。
+- **当前身份以正在运行的 Blender 为准。** 节点、socket、属性和 RNA 身份，以及合法取值，都从你连上的那一个 Blender 读取。
+- **从输入参考重建节点图，没有随这个版本发布。** 对求值结果做自动视觉质检，也没有发布。[`capture.py`](skills/geometry-nodes/scripts/capture.py) 截取的是节点编辑器。它不判断最终的渲染或视口求值结果。
+- **请求要求改图时，Frame 注释跟随提示词的语言。** 节点、socket 和标识符保持 Blender 显示的原文，以便和界面、教程对照。
+- **结果仍然可能是错的。** 早前的静态检查和运行时回归记录，不等于 Claude、Codex 或任何其他 host 上的验收。本 README 不把那些早前运行写成当前的通过结论。在依赖节点图之前，先查看 Blender 里求值后的输出。
+
+## v0.7 之前的历史示例
+
+下面两张图来自更早的一次会话：Codex app，gpt-5.6，同一句立方体加圆锥的请求，一次不用当时那个 skill，一次使用它，通道是 Blender MCP。它们用来说明 v0.7 之前那一版 skill 的习惯。它们不是 v0.7 的行为验收，不能说明任何一个 host 现在已经被支持，也不是性能基准。
+
+> 在场景中添加一个立方体，2米大小，在立方体的顶部4个顶点处分别添加一个高0.2米，直径0.2米的圆锥。
+
+| 没有当时那个旧 skill（Codex app，gpt-5.6） | 使用当时那个旧 skill（Codex app，gpt-5.6） |
+|---|---|
+| ![历史会话，未使用旧 skill：节点被改名并加上标签，成品里留着 Realize Instances，共 11 个节点](docs/images/comparison-no-skill.png) | ![历史会话，使用了旧 skill：节点保持默认名，四个双语教学 Frame，共 9 个节点](docs/images/comparison-with-skill.png) |
+| 11 个节点，被改名并加上标签，留着多余的 `Realize Instances` | 9 个节点，默认名称，4 个双语 Frame |
+
+那次会话仍然值得看的地方：
+
+- **Blender 默认名称。** `Position`、`Compare`、`Cone` 这类名字仍然能对上界面和教程。`Cube_2m` 这种改名，以及“读取每个顶点的位置”这种标签，会把这层对照切断。
+- **教学 Frame。** 使用当时 skill 的那一列，把解释放在 Frame 上（“02 顶部四点 — Select Z > 0.99”）。另一边的提示词额外写了一句，才要求用 Frame 做解释。这是那次运行的记录，不能证明现在的会话会自动加上 Frame。
+- **尽量晚 Realize。** `Realize Instances` 当时只用来清点四个圆锥，随后被移除。只有后面的操作确实需要实体几何时才 Realize，并且放到该操作允许的最晚时机。
+- **那次会话里，核对多花了工夫。** 记录是：不用 skill 时 4 次 MCP 调用（约 4 分 17 秒），使用 skill 时 7 次 MCP 调用（约 5 分 46 秒）。多出来的是回读和修复。这些数字只描述那一次会话，不是当前基准。
+
+两次都做出了请求里的几何。在那个模型上，看得见的差别是留下来的图：默认名称、教学 Frame、没有留在成品里的临时 Realize，以及在宣称完成之前先做核对。
 
 ## 反馈
 
-当 agent 读取了这个 skill 之后仍然把 Blender 节点任务做错时，请用 `Skill feedback` 模板开 issue，附上提示词、agent/工具、模型和图错在哪里。请勿在公开 issue 中包含 API key、私有资产库路径或不可公开的 `.blend` 文件。
+请使用 [Skill feedback](.github/ISSUE_TEMPLATE/skill-feedback.yml) 模板。说明你问了什么、用的 agent 和模型、当时的 Blender 版本、执行通道是怎么接上的，以及求值结果实际怎样。只提交可以公开的证据：不要包含 API key、凭据、私有路径，或不能公开的 `.blend` 文件。
 
 ## 许可
 
-MIT — 见 [LICENSE](LICENSE)。[Blender Manual](https://docs.blender.org/manual/en/latest/)（CC-BY-SA 4.0）作为参考来源；当前节点身份与行为以运行中的 Blender 为准。
+MIT。见 [LICENSE](LICENSE)。[Blender 手册](https://docs.blender.org/manual/en/latest/)（CC-BY-SA 4.0）是参考来源。当前身份和行为以正在运行的 Blender 为准。
