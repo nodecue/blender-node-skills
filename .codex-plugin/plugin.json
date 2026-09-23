@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "NodeCue Blender Node Skills",
     "shortDescription": "Build and explain Blender Geometry Nodes graphs with live introspection.",
-    "longDescription": "Packages the shipped Geometry Nodes skill and a blender-mcp stdio entry. The skill remains the only build, edit, and explain loop: live node and socket introspection, result verification, and teaching frames. Codex discovers the shared skills directory and launches blender-mcp from PATH.",
+    "longDescription": "Packages the shipped Geometry Nodes skill and a blender-mcp stdio entry. The skill remains the only build, edit, and explain loop: live node and socket introspection, result verification, and teaching frames. The package provides the shared skills directory and blender-mcp stdio entry for Codex to discover and use. Live host and Blender connection acceptance is separate.",
     "developerName": "NodeCue",
     "category": "Productivity",
     "capabilities": [],
