@@ -1,0 +1,11327 @@
+{
+"blender": "4.5.12 LTS",
+"experimental": {
+"override_auto_resync": false,
+"show_asset_debug_info": false,
+"use_all_linked_data_direct": false,
+"use_asset_indexing": false,
+"use_attribute_storage_write": false,
+"use_bundle_and_closure_nodes": false,
+"use_cycles_debug": false,
+"use_eevee_debug": false,
+"use_extended_asset_browser": false,
+"use_extensions_debug": false,
+"use_new_curves_tools": false,
+"use_new_volume_nodes": false,
+"use_recompute_usercount_on_save_debug": false,
+"use_sculpt_texture_paint": false,
+"use_shader_node_previews": false,
+"use_socket_structure_type": false,
+"use_undo_legacy": false,
+"use_viewport_debug": false,
+"write_large_blend_file_blocks": false
+},
+"nodes": {
+"FunctionNodeAlignEulerToVector": {
+"desc": "",
+"in": [
+[
+"Rotation",
+"Rotation",
+"VECTOR",
+"NodeSocketVectorEuler"
+],
+[
+"Factor",
+"Factor",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"label": "Align Euler to Vector",
+"out": [
+[
+"Rotation",
+"Rotation",
+"VECTOR",
+"NodeSocketVectorEuler"
+]
+],
+"props": {
+"axis": [
+"X",
+"Y",
+"Z"
+],
+"pivot_axis": [
+"AUTO",
+"X",
+"Y",
+"Z"
+]
+}
+},
+"FunctionNodeAlignRotationToVector": {
+"desc": "",
+"in": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+],
+[
+"Factor",
+"Factor",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVectorXYZ"
+]
+],
+"label": "Align Rotation to Vector",
+"out": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"props": {
+"axis": [
+"X",
+"Y",
+"Z"
+],
+"pivot_axis": [
+"AUTO",
+"X",
+"Y",
+"Z"
+]
+}
+},
+"FunctionNodeAxesToRotation": {
+"desc": "Create a rotation from a primary and (ideally orthogonal) secondary axis",
+"in": [
+[
+"Primary Axis",
+"Primary Axis",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Secondary Axis",
+"Secondary Axis",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"label": "Axes to Rotation",
+"out": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"props": {
+"primary_axis": [
+"X",
+"Y",
+"Z"
+],
+"secondary_axis": [
+"X",
+"Y",
+"Z"
+]
+}
+},
+"FunctionNodeAxisAngleToRotation": {
+"desc": "",
+"in": [
+[
+"Axis",
+"Axis",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Angle",
+"Angle",
+"VALUE",
+"NodeSocketFloatAngle"
+]
+],
+"label": "Axis Angle to Rotation",
+"out": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+]
+},
+"FunctionNodeBitMath": {
+"desc": "Perform bitwise operations on 32-bit integers",
+"in": [
+[
+"A",
+"A",
+"INT",
+"NodeSocketInt"
+],
+[
+"B",
+"B",
+"INT",
+"NodeSocketInt"
+],
+[
+"Shift",
+"Shift",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Bit Math",
+"out": [
+[
+"Value",
+"Value",
+"INT",
+"NodeSocketInt"
+]
+],
+"props": {
+"operation": [
+"AND",
+"OR",
+"XOR",
+"NOT",
+"SHIFT",
+"ROTATE"
+]
+}
+},
+"FunctionNodeBooleanMath": {
+"desc": "",
+"in": [
+[
+"Boolean",
+"Boolean",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Boolean",
+"Boolean_001",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Boolean Math",
+"out": [
+[
+"Boolean",
+"Boolean",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"operation": [
+"AND",
+"OR",
+"NOT",
+"NAND",
+"NOR",
+"XNOR",
+"XOR",
+"IMPLY",
+"NIMPLY"
+]
+}
+},
+"FunctionNodeCombineColor": {
+"desc": "",
+"in": [
+[
+"Red",
+"Red",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Green",
+"Green",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Blue",
+"Blue",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Alpha",
+"Alpha",
+"VALUE",
+"NodeSocketFloatFactor"
+]
+],
+"label": "Combine Color",
+"out": [
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+]
+],
+"props": {
+"mode": [
+"RGB",
+"HSV",
+"HSL"
+]
+}
+},
+"FunctionNodeCombineMatrix": {
+"desc": "Construct a 4x4 matrix from its individual values",
+"in": [
+[
+"Column 1 Row 1",
+"Column 1 Row 1",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 1 Row 2",
+"Column 1 Row 2",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 1 Row 3",
+"Column 1 Row 3",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 1 Row 4",
+"Column 1 Row 4",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 2 Row 1",
+"Column 2 Row 1",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 2 Row 2",
+"Column 2 Row 2",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 2 Row 3",
+"Column 2 Row 3",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 2 Row 4",
+"Column 2 Row 4",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 3 Row 1",
+"Column 3 Row 1",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 3 Row 2",
+"Column 3 Row 2",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 3 Row 3",
+"Column 3 Row 3",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 3 Row 4",
+"Column 3 Row 4",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 4 Row 1",
+"Column 4 Row 1",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 4 Row 2",
+"Column 4 Row 2",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 4 Row 3",
+"Column 4 Row 3",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 4 Row 4",
+"Column 4 Row 4",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Combine Matrix",
+"out": [
+[
+"Matrix",
+"Matrix",
+"MATRIX",
+"NodeSocketMatrix"
+]
+]
+},
+"FunctionNodeCombineTransform": {
+"desc": "",
+"in": [
+[
+"Translation",
+"Translation",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+],
+[
+"Scale",
+"Scale",
+"VECTOR",
+"NodeSocketVectorXYZ"
+]
+],
+"label": "Combine Transform",
+"out": [
+[
+"Transform",
+"Transform",
+"MATRIX",
+"NodeSocketMatrix"
+]
+]
+},
+"FunctionNodeCompare": {
+"desc": "",
+"in": [
+[
+"A",
+"A",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"B",
+"B",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"A",
+"A_INT",
+"INT",
+"NodeSocketInt"
+],
+[
+"B",
+"B_INT",
+"INT",
+"NodeSocketInt"
+],
+[
+"A",
+"A_VEC3",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"B",
+"B_VEC3",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"A",
+"A_COL",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"B",
+"B_COL",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"A",
+"A_STR",
+"STRING",
+"NodeSocketString"
+],
+[
+"B",
+"B_STR",
+"STRING",
+"NodeSocketString"
+],
+[
+"C",
+"C",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Angle",
+"Angle",
+"VALUE",
+"NodeSocketFloatAngle"
+],
+[
+"Epsilon",
+"Epsilon",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Compare",
+"out": [
+[
+"Result",
+"Result",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"BOOLEAN",
+"VECTOR",
+"ROTATION",
+"MATRIX",
+"STRING",
+"MENU",
+"RGBA",
+"OBJECT",
+"IMAGE",
+"GEOMETRY",
+"COLLECTION",
+"TEXTURE",
+"MATERIAL",
+"BUNDLE",
+"CLOSURE"
+],
+"mode": [
+"ELEMENT",
+"LENGTH",
+"AVERAGE",
+"DOT_PRODUCT",
+"DIRECTION"
+],
+"operation": [
+"LESS_THAN",
+"LESS_EQUAL",
+"GREATER_THAN",
+"GREATER_EQUAL",
+"EQUAL",
+"NOT_EQUAL",
+"BRIGHTER",
+"DARKER"
+]
+}
+},
+"FunctionNodeEulerToRotation": {
+"desc": "",
+"in": [
+[
+"Euler",
+"Euler",
+"VECTOR",
+"NodeSocketVectorEuler"
+]
+],
+"label": "Euler to Rotation",
+"out": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+]
+},
+"FunctionNodeFindInString": {
+"desc": "",
+"in": [
+[
+"String",
+"String",
+"STRING",
+"NodeSocketString"
+],
+[
+"Search",
+"Search",
+"STRING",
+"NodeSocketString"
+]
+],
+"label": "Find in String",
+"out": [
+[
+"First Found",
+"First Found",
+"INT",
+"NodeSocketInt"
+],
+[
+"Count",
+"Count",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"FunctionNodeFloatToInt": {
+"desc": "",
+"in": [
+[
+"Float",
+"Float",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Float to Integer",
+"out": [
+[
+"Integer",
+"Integer",
+"INT",
+"NodeSocketInt"
+]
+],
+"props": {
+"rounding_mode": [
+"ROUND",
+"FLOOR",
+"CEILING",
+"TRUNCATE"
+]
+}
+},
+"FunctionNodeFormatString": {
+"desc": "Insert values into a string using a Python and path template compatible formatting syntax",
+"in": [
+[
+"Format",
+"Format",
+"STRING",
+"NodeSocketString"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "Format String",
+"out": [
+[
+"String",
+"String",
+"STRING",
+"NodeSocketString"
+]
+],
+"props": {
+"active_index": "INT"
+}
+},
+"FunctionNodeHashValue": {
+"desc": "",
+"in": [
+[
+"Value",
+"Value",
+"INT",
+"NodeSocketInt"
+],
+[
+"Seed",
+"Seed",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Hash Value",
+"out": [
+[
+"Hash",
+"Hash",
+"INT",
+"NodeSocketInt"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"BOOLEAN",
+"VECTOR",
+"ROTATION",
+"MATRIX",
+"STRING",
+"MENU",
+"RGBA",
+"OBJECT",
+"IMAGE",
+"GEOMETRY",
+"COLLECTION",
+"TEXTURE",
+"MATERIAL",
+"BUNDLE",
+"CLOSURE"
+]
+}
+},
+"FunctionNodeInputBool": {
+"desc": "",
+"in": [],
+"label": "Boolean",
+"out": [
+[
+"Boolean",
+"Boolean",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"boolean": "BOOLEAN"
+}
+},
+"FunctionNodeInputColor": {
+"desc": "",
+"in": [],
+"label": "Color",
+"out": [
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+]
+],
+"props": {
+"value": "FLOAT"
+}
+},
+"FunctionNodeInputInt": {
+"desc": "",
+"in": [],
+"label": "Integer",
+"out": [
+[
+"Integer",
+"Integer",
+"INT",
+"NodeSocketInt"
+]
+],
+"props": {
+"integer": "INT"
+}
+},
+"FunctionNodeInputRotation": {
+"desc": "",
+"in": [],
+"label": "Rotation",
+"out": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"props": {
+"rotation_euler": "FLOAT"
+}
+},
+"FunctionNodeInputSpecialCharacters": {
+"desc": "",
+"in": [],
+"label": "Special Characters",
+"out": [
+[
+"Line Break",
+"Line Break",
+"STRING",
+"NodeSocketString"
+],
+[
+"Tab",
+"Tab",
+"STRING",
+"NodeSocketString"
+]
+]
+},
+"FunctionNodeInputString": {
+"desc": "",
+"in": [],
+"label": "String",
+"out": [
+[
+"String",
+"String",
+"STRING",
+"NodeSocketString"
+]
+],
+"props": {
+"string": "STRING"
+}
+},
+"FunctionNodeInputVector": {
+"desc": "",
+"in": [],
+"label": "Vector",
+"out": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"props": {
+"vector": "FLOAT"
+}
+},
+"FunctionNodeIntegerMath": {
+"desc": "",
+"in": [
+[
+"Value",
+"Value",
+"INT",
+"NodeSocketInt"
+],
+[
+"Value",
+"Value_001",
+"INT",
+"NodeSocketInt"
+],
+[
+"Value",
+"Value_002",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Integer Math",
+"out": [
+[
+"Value",
+"Value",
+"INT",
+"NodeSocketInt"
+]
+],
+"props": {
+"operation": [
+"ADD",
+"SUBTRACT",
+"MULTIPLY",
+"DIVIDE",
+"MULTIPLY_ADD",
+"ABSOLUTE",
+"NEGATE",
+"POWER",
+"MINIMUM",
+"MAXIMUM",
+"SIGN",
+"DIVIDE_ROUND",
+"DIVIDE_FLOOR",
+"DIVIDE_CEIL",
+"FLOORED_MODULO",
+"MODULO",
+"GCD",
+"LCM"
+]
+}
+},
+"FunctionNodeInvertMatrix": {
+"desc": "",
+"in": [
+[
+"Matrix",
+"Matrix",
+"MATRIX",
+"NodeSocketMatrix"
+]
+],
+"label": "Invert Matrix",
+"out": [
+[
+"Matrix",
+"Matrix",
+"MATRIX",
+"NodeSocketMatrix"
+],
+[
+"Invertible",
+"Invertible",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"FunctionNodeInvertRotation": {
+"desc": "",
+"in": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"label": "Invert Rotation",
+"out": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+]
+},
+"FunctionNodeMatchString": {
+"desc": "",
+"in": [
+[
+"String",
+"String",
+"STRING",
+"NodeSocketString"
+],
+[
+"Key",
+"Key",
+"STRING",
+"NodeSocketString"
+]
+],
+"label": "Match String",
+"out": [
+[
+"Result",
+"Result",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"operation": [
+"STARTS_WITH",
+"ENDS_WITH",
+"CONTAINS"
+]
+}
+},
+"FunctionNodeMatrixDeterminant": {
+"desc": "",
+"in": [
+[
+"Matrix",
+"Matrix",
+"MATRIX",
+"NodeSocketMatrix"
+]
+],
+"label": "Matrix Determinant",
+"out": [
+[
+"Determinant",
+"Determinant",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"FunctionNodeMatrixMultiply": {
+"desc": "",
+"in": [
+[
+"Matrix",
+"Matrix",
+"MATRIX",
+"NodeSocketMatrix"
+],
+[
+"Matrix",
+"Matrix_001",
+"MATRIX",
+"NodeSocketMatrix"
+]
+],
+"label": "Multiply Matrices",
+"out": [
+[
+"Matrix",
+"Matrix",
+"MATRIX",
+"NodeSocketMatrix"
+]
+]
+},
+"FunctionNodeProjectPoint": {
+"desc": "Project a point using a matrix, using location, rotation, scale, and perspective divide",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVectorXYZ"
+],
+[
+"Transform",
+"Transform",
+"MATRIX",
+"NodeSocketMatrix"
+]
+],
+"label": "Project Point",
+"out": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVectorXYZ"
+]
+]
+},
+"FunctionNodeQuaternionToRotation": {
+"desc": "",
+"in": [
+[
+"W",
+"W",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"X",
+"X",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Y",
+"Y",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Z",
+"Z",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Quaternion to Rotation",
+"out": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+]
+},
+"FunctionNodeRandomValue": {
+"desc": "",
+"in": [
+[
+"Min",
+"Min",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Max",
+"Max",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Min",
+"Min_001",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Max",
+"Max_001",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Min",
+"Min_002",
+"INT",
+"NodeSocketInt"
+],
+[
+"Max",
+"Max_002",
+"INT",
+"NodeSocketInt"
+],
+[
+"Probability",
+"Probability",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"ID",
+"ID",
+"INT",
+"NodeSocketInt"
+],
+[
+"Seed",
+"Seed",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Random Value",
+"out": [
+[
+"Value",
+"Value",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Value",
+"Value_001",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Value",
+"Value_002",
+"INT",
+"NodeSocketInt"
+],
+[
+"Value",
+"Value_003",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"FLOAT_COLOR",
+"BYTE_COLOR",
+"STRING",
+"BOOLEAN",
+"FLOAT2",
+"INT8",
+"INT16_2D",
+"INT32_2D",
+"QUATERNION",
+"FLOAT4X4"
+]
+}
+},
+"FunctionNodeReplaceString": {
+"desc": "",
+"in": [
+[
+"String",
+"String",
+"STRING",
+"NodeSocketString"
+],
+[
+"Find",
+"Find",
+"STRING",
+"NodeSocketString"
+],
+[
+"Replace",
+"Replace",
+"STRING",
+"NodeSocketString"
+]
+],
+"label": "Replace String",
+"out": [
+[
+"String",
+"String",
+"STRING",
+"NodeSocketString"
+]
+]
+},
+"FunctionNodeRotateEuler": {
+"desc": "",
+"in": [
+[
+"Rotation",
+"Rotation",
+"VECTOR",
+"NodeSocketVectorEuler"
+],
+[
+"Rotate By",
+"Rotate By",
+"VECTOR",
+"NodeSocketVectorEuler"
+],
+[
+"Axis",
+"Axis",
+"VECTOR",
+"NodeSocketVectorXYZ"
+],
+[
+"Angle",
+"Angle",
+"VALUE",
+"NodeSocketFloatAngle"
+]
+],
+"label": "Rotate Euler",
+"out": [
+[
+"Rotation",
+"Rotation",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"props": {
+"rotation_type": [
+"AXIS_ANGLE",
+"EULER"
+],
+"space": [
+"OBJECT",
+"LOCAL"
+]
+}
+},
+"FunctionNodeRotateRotation": {
+"desc": "",
+"in": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+],
+[
+"Rotate By",
+"Rotate By",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"label": "Rotate Rotation",
+"out": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"props": {
+"rotation_space": [
+"GLOBAL",
+"LOCAL"
+]
+}
+},
+"FunctionNodeRotateVector": {
+"desc": "",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"label": "Rotate Vector",
+"out": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"FunctionNodeRotationToAxisAngle": {
+"desc": "",
+"in": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"label": "Rotation to Axis Angle",
+"out": [
+[
+"Axis",
+"Axis",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Angle",
+"Angle",
+"VALUE",
+"NodeSocketFloatAngle"
+]
+]
+},
+"FunctionNodeRotationToEuler": {
+"desc": "",
+"in": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"label": "Rotation to Euler",
+"out": [
+[
+"Euler",
+"Euler",
+"VECTOR",
+"NodeSocketVectorEuler"
+]
+]
+},
+"FunctionNodeRotationToQuaternion": {
+"desc": "",
+"in": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"label": "Rotation to Quaternion",
+"out": [
+[
+"W",
+"W",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"X",
+"X",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Y",
+"Y",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Z",
+"Z",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"FunctionNodeSeparateColor": {
+"desc": "",
+"in": [
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+]
+],
+"label": "Separate Color",
+"out": [
+[
+"Red",
+"Red",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Green",
+"Green",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Blue",
+"Blue",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Alpha",
+"Alpha",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"mode": [
+"RGB",
+"HSV",
+"HSL"
+]
+}
+},
+"FunctionNodeSeparateMatrix": {
+"desc": "Split a 4x4 matrix into its individual values",
+"in": [
+[
+"Matrix",
+"Matrix",
+"MATRIX",
+"NodeSocketMatrix"
+]
+],
+"label": "Separate Matrix",
+"out": [
+[
+"Column 1 Row 1",
+"Column 1 Row 1",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 1 Row 2",
+"Column 1 Row 2",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 1 Row 3",
+"Column 1 Row 3",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 1 Row 4",
+"Column 1 Row 4",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 2 Row 1",
+"Column 2 Row 1",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 2 Row 2",
+"Column 2 Row 2",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 2 Row 3",
+"Column 2 Row 3",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 2 Row 4",
+"Column 2 Row 4",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 3 Row 1",
+"Column 3 Row 1",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 3 Row 2",
+"Column 3 Row 2",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 3 Row 3",
+"Column 3 Row 3",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 3 Row 4",
+"Column 3 Row 4",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 4 Row 1",
+"Column 4 Row 1",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 4 Row 2",
+"Column 4 Row 2",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 4 Row 3",
+"Column 4 Row 3",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Column 4 Row 4",
+"Column 4 Row 4",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"FunctionNodeSeparateTransform": {
+"desc": "",
+"in": [
+[
+"Transform",
+"Transform",
+"MATRIX",
+"NodeSocketMatrix"
+]
+],
+"label": "Separate Transform",
+"out": [
+[
+"Translation",
+"Translation",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+],
+[
+"Scale",
+"Scale",
+"VECTOR",
+"NodeSocketVectorXYZ"
+]
+]
+},
+"FunctionNodeSliceString": {
+"desc": "",
+"in": [
+[
+"String",
+"String",
+"STRING",
+"NodeSocketString"
+],
+[
+"Position",
+"Position",
+"INT",
+"NodeSocketInt"
+],
+[
+"Length",
+"Length",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Slice String",
+"out": [
+[
+"String",
+"String",
+"STRING",
+"NodeSocketString"
+]
+]
+},
+"FunctionNodeStringLength": {
+"desc": "",
+"in": [
+[
+"String",
+"String",
+"STRING",
+"NodeSocketString"
+]
+],
+"label": "String Length",
+"out": [
+[
+"Length",
+"Length",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"FunctionNodeTransformDirection": {
+"desc": "",
+"in": [
+[
+"Direction",
+"Direction",
+"VECTOR",
+"NodeSocketVectorXYZ"
+],
+[
+"Transform",
+"Transform",
+"MATRIX",
+"NodeSocketMatrix"
+]
+],
+"label": "Transform Direction",
+"out": [
+[
+"Direction",
+"Direction",
+"VECTOR",
+"NodeSocketVectorXYZ"
+]
+]
+},
+"FunctionNodeTransformPoint": {
+"desc": "",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVectorXYZ"
+],
+[
+"Transform",
+"Transform",
+"MATRIX",
+"NodeSocketMatrix"
+]
+],
+"label": "Transform Point",
+"out": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVectorXYZ"
+]
+]
+},
+"FunctionNodeTransposeMatrix": {
+"desc": "",
+"in": [
+[
+"Matrix",
+"Matrix",
+"MATRIX",
+"NodeSocketMatrix"
+]
+],
+"label": "Transpose Matrix",
+"out": [
+[
+"Matrix",
+"Matrix",
+"MATRIX",
+"NodeSocketMatrix"
+]
+]
+},
+"FunctionNodeValueToString": {
+"desc": "",
+"in": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Decimals",
+"Decimals",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Value to String",
+"out": [
+[
+"String",
+"String",
+"STRING",
+"NodeSocketString"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT"
+]
+}
+},
+"GeometryNodeAccumulateField": {
+"desc": "Add the values of an evaluated field together and output the running total for each element",
+"in": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Group ID",
+"Group Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Accumulate Field",
+"out": [
+[
+"Leading",
+"Leading",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Trailing",
+"Trailing",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Total",
+"Total",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"TRANSFORM"
+],
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CORNER",
+"CURVE",
+"INSTANCE",
+"LAYER"
+]
+}
+},
+"GeometryNodeAttributeDomainSize": {
+"desc": "Retrieve the number of elements in a geometry for each attribute domain",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"label": "Domain Size",
+"out": [
+[
+"Point Count",
+"Point Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"Edge Count",
+"Edge Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"Face Count",
+"Face Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"Face Corner Count",
+"Face Corner Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"Spline Count",
+"Spline Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"Instance Count",
+"Instance Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"Layer Count",
+"Layer Count",
+"INT",
+"NodeSocketInt"
+]
+],
+"props": {
+"component": [
+"MESH",
+"POINTCLOUD",
+"CURVE",
+"INSTANCES",
+"GREASEPENCIL"
+]
+}
+},
+"GeometryNodeAttributeStatistic": {
+"desc": "Calculate statistics about a data set from a field evaluated on a geometry",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Attribute",
+"Attribute",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Attribute Statistic",
+"out": [
+[
+"Mean",
+"Mean",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Median",
+"Median",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Sum",
+"Sum",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Min",
+"Min",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Max",
+"Max",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Range",
+"Range",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Standard Deviation",
+"Standard Deviation",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Variance",
+"Variance",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"FLOAT_COLOR",
+"BYTE_COLOR",
+"STRING",
+"BOOLEAN",
+"FLOAT2",
+"INT8",
+"INT16_2D",
+"INT32_2D",
+"QUATERNION",
+"FLOAT4X4"
+],
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CORNER",
+"CURVE",
+"INSTANCE",
+"LAYER"
+]
+}
+},
+"GeometryNodeBake": {
+"desc": "Cache the incoming data so that it can be used without recomputation",
+"in": [
+[
+"Geometry",
+"Item_0",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "Bake",
+"out": [
+[
+"Geometry",
+"Item_0",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"props": {
+"active_index": "INT"
+}
+},
+"GeometryNodeBlurAttribute": {
+"desc": "Mix attribute values of neighboring elements",
+"in": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Iterations",
+"Iterations",
+"INT",
+"NodeSocketInt"
+],
+[
+"Weight",
+"Weight",
+"VALUE",
+"NodeSocketFloatFactor"
+]
+],
+"label": "Blur Attribute",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"FLOAT_COLOR",
+"BYTE_COLOR",
+"STRING",
+"BOOLEAN",
+"FLOAT2",
+"INT8",
+"INT16_2D",
+"INT32_2D",
+"QUATERNION",
+"FLOAT4X4"
+]
+}
+},
+"GeometryNodeBoundBox": {
+"desc": "Calculate the limits of a geometry's positions and generate a box mesh with those dimensions",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Use Radius",
+"Use Radius",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Bounding Box",
+"out": [
+[
+"Bounding Box",
+"Bounding Box",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Min",
+"Min",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Max",
+"Max",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"GeometryNodeCameraInfo": {
+"desc": "Retrieve information from a camera object",
+"in": [
+[
+"Camera",
+"Camera",
+"OBJECT",
+"NodeSocketObject"
+]
+],
+"label": "Camera Info",
+"out": [
+[
+"Projection Matrix",
+"Projection Matrix",
+"MATRIX",
+"NodeSocketMatrix"
+],
+[
+"Focal Length",
+"Focal Length",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Sensor",
+"Sensor",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Shift",
+"Shift",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Clip Start",
+"Clip Start",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Clip End",
+"Clip End",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Focus Distance",
+"Focus Distance",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Is Orthographic",
+"Is Orthographic",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Orthographic Scale",
+"Orthographic Scale",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeCaptureAttribute": {
+"desc": "Store the result of a field on a geometry and output the data as a node socket. Allows remembering or interpolating data as the geometry changes, such as positions before deformation",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "Capture Attribute",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"props": {
+"active_index": "INT",
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CORNER",
+"CURVE",
+"INSTANCE",
+"LAYER"
+]
+}
+},
+"GeometryNodeClosureInput": {
+"desc": "",
+"in": [],
+"label": "Closure Input",
+"out": [
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+]
+},
+"GeometryNodeClosureOutput": {
+"desc": "",
+"in": [
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "Closure Output",
+"out": [
+[
+"Closure",
+"Closure",
+"CLOSURE",
+"NodeSocketClosure"
+]
+],
+"props": {
+"active_input_index": "INT",
+"active_output_index": "INT"
+}
+},
+"GeometryNodeCollectionInfo": {
+"desc": "Retrieve geometry instances from a collection",
+"in": [
+[
+"Collection",
+"Collection",
+"COLLECTION",
+"NodeSocketCollection"
+],
+[
+"Separate Children",
+"Separate Children",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Reset Children",
+"Reset Children",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Collection Info",
+"out": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"transform_space": [
+"ORIGINAL",
+"RELATIVE"
+]
+}
+},
+"GeometryNodeCombineBundle": {
+"desc": "Combine multiple socket values into one.",
+"in": [
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "Combine Bundle",
+"out": [
+[
+"Bundle",
+"Bundle",
+"BUNDLE",
+"NodeSocketBundle"
+]
+],
+"props": {
+"active_index": "INT"
+}
+},
+"GeometryNodeConvexHull": {
+"desc": "Create a mesh that encloses all points in the input geometry with the smallest number of points",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"label": "Convex Hull",
+"out": [
+[
+"Convex Hull",
+"Convex Hull",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeCornersOfEdge": {
+"desc": "Retrieve face corners connected to edges",
+"in": [
+[
+"Edge Index",
+"Edge Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Weights",
+"Weights",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Sort Index",
+"Sort Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Corners of Edge",
+"out": [
+[
+"Corner Index",
+"Corner Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Total",
+"Total",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeCornersOfFace": {
+"desc": "Retrieve corners that make up a face",
+"in": [
+[
+"Face Index",
+"Face Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Weights",
+"Weights",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Sort Index",
+"Sort Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Corners of Face",
+"out": [
+[
+"Corner Index",
+"Corner Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Total",
+"Total",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeCornersOfVertex": {
+"desc": "Retrieve face corners connected to vertices",
+"in": [
+[
+"Vertex Index",
+"Vertex Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Weights",
+"Weights",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Sort Index",
+"Sort Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Corners of Vertex",
+"out": [
+[
+"Corner Index",
+"Corner Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Total",
+"Total",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeCurveArc": {
+"desc": "Generate a poly spline arc",
+"in": [
+[
+"Resolution",
+"Resolution",
+"INT",
+"NodeSocketIntUnsigned"
+],
+[
+"Start",
+"Start",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Middle",
+"Middle",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"End",
+"End",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Start Angle",
+"Start Angle",
+"VALUE",
+"NodeSocketFloatAngle"
+],
+[
+"Sweep Angle",
+"Sweep Angle",
+"VALUE",
+"NodeSocketFloatAngle"
+],
+[
+"Offset Angle",
+"Offset Angle",
+"VALUE",
+"NodeSocketFloatAngle"
+],
+[
+"Connect Center",
+"Connect Center",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Invert Arc",
+"Invert Arc",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Arc",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Center",
+"Center",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Normal",
+"Normal",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"mode": [
+"POINTS",
+"RADIUS"
+]
+}
+},
+"GeometryNodeCurveEndpointSelection": {
+"desc": "Provide a selection for an arbitrary number of endpoints in each spline",
+"in": [
+[
+"Start Size",
+"Start Size",
+"INT",
+"NodeSocketInt"
+],
+[
+"End Size",
+"End Size",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Endpoint Selection",
+"out": [
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeCurveHandleTypeSelection": {
+"desc": "Provide a selection based on the handle types of B\u00e9zier control points",
+"in": [],
+"label": "Handle Type Selection",
+"out": [
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"handle_type": [
+"FREE",
+"AUTO",
+"VECTOR",
+"ALIGN"
+],
+"mode": [
+"LEFT",
+"RIGHT"
+]
+}
+},
+"GeometryNodeCurveLength": {
+"desc": "Retrieve the length of all splines added together",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"label": "Curve Length",
+"out": [
+[
+"Length",
+"Length",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeCurveOfPoint": {
+"desc": "Retrieve the curve a control point is part of",
+"in": [
+[
+"Point Index",
+"Point Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Curve of Point",
+"out": [
+[
+"Curve Index",
+"Curve Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Index in Curve",
+"Index in Curve",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeCurvePrimitiveBezierSegment": {
+"desc": "Generate a 2D B\u00e9zier spline from the given control points and handles",
+"in": [
+[
+"Resolution",
+"Resolution",
+"INT",
+"NodeSocketIntUnsigned"
+],
+[
+"Start",
+"Start",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Start Handle",
+"Start Handle",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"End Handle",
+"End Handle",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"End",
+"End",
+"VECTOR",
+"NodeSocketVectorTranslation"
+]
+],
+"label": "B\u00e9zier Segment",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"POSITION",
+"OFFSET"
+]
+}
+},
+"GeometryNodeCurvePrimitiveCircle": {
+"desc": "Generate a poly spline circle",
+"in": [
+[
+"Resolution",
+"Resolution",
+"INT",
+"NodeSocketInt"
+],
+[
+"Point 1",
+"Point 1",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Point 2",
+"Point 2",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Point 3",
+"Point 3",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Curve Circle",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Center",
+"Center",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"props": {
+"mode": [
+"POINTS",
+"RADIUS"
+]
+}
+},
+"GeometryNodeCurvePrimitiveLine": {
+"desc": "Generate a poly spline line with two points",
+"in": [
+[
+"Start",
+"Start",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"End",
+"End",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Direction",
+"Direction",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Length",
+"Length",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Curve Line",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"POINTS",
+"DIRECTION"
+]
+}
+},
+"GeometryNodeCurvePrimitiveQuadrilateral": {
+"desc": "Generate a polygon with four points",
+"in": [
+[
+"Width",
+"Width",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Height",
+"Height",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Bottom Width",
+"Bottom Width",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Top Width",
+"Top Width",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Offset",
+"Offset",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Bottom Height",
+"Bottom Height",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Top Height",
+"Top Height",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Point 1",
+"Point 1",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Point 2",
+"Point 2",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Point 3",
+"Point 3",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Point 4",
+"Point 4",
+"VECTOR",
+"NodeSocketVectorTranslation"
+]
+],
+"label": "Quadrilateral",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"RECTANGLE",
+"PARALLELOGRAM",
+"TRAPEZOID",
+"KITE",
+"POINTS"
+]
+}
+},
+"GeometryNodeCurveQuadraticBezier": {
+"desc": "Generate a poly spline in a parabola shape with control points positions",
+"in": [
+[
+"Resolution",
+"Resolution",
+"INT",
+"NodeSocketIntUnsigned"
+],
+[
+"Start",
+"Start",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Middle",
+"Middle",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"End",
+"End",
+"VECTOR",
+"NodeSocketVectorTranslation"
+]
+],
+"label": "Quadratic B\u00e9zier",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeCurveSetHandles": {
+"desc": "Set the handle type for the control points of a B\u00e9zier curve",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Set Handle Type",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"handle_type": [
+"FREE",
+"AUTO",
+"VECTOR",
+"ALIGN"
+],
+"mode": [
+"LEFT",
+"RIGHT"
+]
+}
+},
+"GeometryNodeCurveSpiral": {
+"desc": "Generate a poly spline in a spiral shape",
+"in": [
+[
+"Resolution",
+"Resolution",
+"INT",
+"NodeSocketIntUnsigned"
+],
+[
+"Rotations",
+"Rotations",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Start Radius",
+"Start Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"End Radius",
+"End Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Height",
+"Height",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Reverse",
+"Reverse",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Spiral",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeCurveSplineType": {
+"desc": "Change the type of curves",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Set Spline Type",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"spline_type": [
+"CATMULL_ROM",
+"POLY",
+"BEZIER",
+"NURBS"
+]
+}
+},
+"GeometryNodeCurveStar": {
+"desc": "Generate a poly spline in a star pattern by connecting alternating points of two circles",
+"in": [
+[
+"Points",
+"Points",
+"INT",
+"NodeSocketIntUnsigned"
+],
+[
+"Inner Radius",
+"Inner Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Outer Radius",
+"Outer Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Twist",
+"Twist",
+"VALUE",
+"NodeSocketFloatAngle"
+]
+],
+"label": "Star",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Outer Points",
+"Outer Points",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeCurveToMesh": {
+"desc": "Convert curves into a mesh, optionally with a custom profile shape defined by curves",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Profile Curve",
+"Profile Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Scale",
+"Scale",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Fill Caps",
+"Fill Caps",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Curve to Mesh",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeCurveToPoints": {
+"desc": "Generate a point cloud by sampling positions along curves",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Count",
+"Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"Length",
+"Length",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Curve to Points",
+"out": [
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Tangent",
+"Tangent",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Normal",
+"Normal",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"props": {
+"mode": [
+"EVALUATED",
+"COUNT",
+"LENGTH"
+]
+}
+},
+"GeometryNodeCurvesToGreasePencil": {
+"desc": "Convert the curves in each top-level instance into Grease Pencil layer",
+"in": [
+[
+"Curves",
+"Curves",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Instances as Layers",
+"Instances as Layers",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Curves to Grease Pencil",
+"out": [
+[
+"Grease Pencil",
+"Grease Pencil",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeDeformCurvesOnSurface": {
+"desc": "Translate and rotate curves based on changes between the object's original and evaluated surface mesh",
+"in": [
+[
+"Curves",
+"Curves",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"label": "Deform Curves on Surface",
+"out": [
+[
+"Curves",
+"Curves",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeDeleteGeometry": {
+"desc": "Remove selected elements of a geometry",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Delete Geometry",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CURVE",
+"INSTANCE",
+"LAYER"
+],
+"mode": [
+"ALL",
+"EDGE_FACE",
+"ONLY_FACE"
+]
+}
+},
+"GeometryNodeDistributePointsInGrid": {
+"desc": "Generate points inside a volume grid",
+"in": [
+[
+"Grid",
+"Grid",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Density",
+"Density",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Seed",
+"Seed",
+"INT",
+"NodeSocketInt"
+],
+[
+"Spacing",
+"Spacing",
+"VECTOR",
+"NodeSocketVectorXYZ"
+],
+[
+"Threshold",
+"Threshold",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Distribute Points in Grid",
+"out": [
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"DENSITY_RANDOM",
+"DENSITY_GRID"
+]
+}
+},
+"GeometryNodeDistributePointsInVolume": {
+"desc": "Generate points inside a volume",
+"in": [
+[
+"Volume",
+"Volume",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Density",
+"Density",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Seed",
+"Seed",
+"INT",
+"NodeSocketInt"
+],
+[
+"Spacing",
+"Spacing",
+"VECTOR",
+"NodeSocketVectorXYZ"
+],
+[
+"Threshold",
+"Threshold",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Distribute Points in Volume",
+"out": [
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"DENSITY_RANDOM",
+"DENSITY_GRID"
+]
+}
+},
+"GeometryNodeDistributePointsOnFaces": {
+"desc": "Generate points spread out on the surface of a mesh",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Distance Min",
+"Distance Min",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Density Max",
+"Density Max",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Density",
+"Density",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Density Factor",
+"Density Factor",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Seed",
+"Seed",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Distribute Points on Faces",
+"out": [
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Normal",
+"Normal",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"props": {
+"distribute_method": [
+"RANDOM",
+"POISSON"
+],
+"use_legacy_normal": "BOOLEAN"
+}
+},
+"GeometryNodeDualMesh": {
+"desc": "Convert Faces into vertices and vertices into faces",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Keep Boundaries",
+"Keep Boundaries",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Dual Mesh",
+"out": [
+[
+"Dual Mesh",
+"Dual Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeDuplicateElements": {
+"desc": "Generate an arbitrary number copies of each selected input element",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Amount",
+"Amount",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Duplicate Elements",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Duplicate Index",
+"Duplicate Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"props": {
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"SPLINE",
+"LAYER",
+"INSTANCE"
+]
+}
+},
+"GeometryNodeEdgePathsToCurves": {
+"desc": "Output curves following paths across mesh edges",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Start Vertices",
+"Start Vertices",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Next Vertex Index",
+"Next Vertex Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Edge Paths to Curves",
+"out": [
+[
+"Curves",
+"Curves",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeEdgePathsToSelection": {
+"desc": "Output a selection of edges by following paths across mesh edges",
+"in": [
+[
+"Start Vertices",
+"Start Vertices",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Next Vertex Index",
+"Next Vertex Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Edge Paths to Selection",
+"out": [
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeEdgesOfCorner": {
+"desc": "Retrieve the edges on both sides of a face corner",
+"in": [
+[
+"Corner Index",
+"Corner Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Edges of Corner",
+"out": [
+[
+"Next Edge Index",
+"Next Edge Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Previous Edge Index",
+"Previous Edge Index",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeEdgesOfVertex": {
+"desc": "Retrieve the edges connected to each vertex",
+"in": [
+[
+"Vertex Index",
+"Vertex Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Weights",
+"Weights",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Sort Index",
+"Sort Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Edges of Vertex",
+"out": [
+[
+"Edge Index",
+"Edge Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Total",
+"Total",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeEdgesToFaceGroups": {
+"desc": "Group faces into regions surrounded by the selected boundary edges",
+"in": [
+[
+"Boundary Edges",
+"Boundary Edges",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Edges to Face Groups",
+"out": [
+[
+"Face Group ID",
+"Face Group ID",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeEvaluateClosure": {
+"desc": "",
+"in": [
+[
+"Closure",
+"Closure",
+"CLOSURE",
+"NodeSocketClosure"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "Evaluate Closure",
+"out": [
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"props": {
+"active_input_index": "INT",
+"active_output_index": "INT"
+}
+},
+"GeometryNodeExtrudeMesh": {
+"desc": "Generate new vertices, edges, or faces from selected elements and move them based on an offset while keeping them connected by their boundary",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Offset",
+"Offset",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Offset Scale",
+"Offset Scale",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Individual",
+"Individual",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Extrude Mesh",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Top",
+"Top",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Side",
+"Side",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"mode": [
+"VERTICES",
+"EDGES",
+"FACES"
+]
+}
+},
+"GeometryNodeFaceOfCorner": {
+"desc": "Retrieve the face each face corner is part of",
+"in": [
+[
+"Corner Index",
+"Corner Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Face of Corner",
+"out": [
+[
+"Face Index",
+"Face Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Index in Face",
+"Index in Face",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeFieldAtIndex": {
+"desc": "Retrieve data of other elements in the context's geometry",
+"in": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Index",
+"Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Evaluate at Index",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"FLOAT_COLOR",
+"BYTE_COLOR",
+"STRING",
+"BOOLEAN",
+"FLOAT2",
+"INT8",
+"INT16_2D",
+"INT32_2D",
+"QUATERNION",
+"FLOAT4X4"
+],
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CORNER",
+"CURVE",
+"INSTANCE",
+"LAYER"
+]
+}
+},
+"GeometryNodeFieldAverage": {
+"desc": "Calculate the mean and median of a given field",
+"in": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Group ID",
+"Group Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Field Average",
+"out": [
+[
+"Mean",
+"Mean",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Median",
+"Median",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"FLOAT_VECTOR"
+],
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CORNER",
+"CURVE",
+"INSTANCE",
+"LAYER"
+]
+}
+},
+"GeometryNodeFieldMinAndMax": {
+"desc": "Calculate the minimum and maximum of a given field",
+"in": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Group ID",
+"Group Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Field Min & Max",
+"out": [
+[
+"Min",
+"Min",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Max",
+"Max",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR"
+],
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CORNER",
+"CURVE",
+"INSTANCE",
+"LAYER"
+]
+}
+},
+"GeometryNodeFieldOnDomain": {
+"desc": "Retrieve values from a field on a different domain besides the domain from the context",
+"in": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Evaluate on Domain",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"FLOAT_COLOR",
+"BYTE_COLOR",
+"STRING",
+"BOOLEAN",
+"FLOAT2",
+"INT8",
+"INT16_2D",
+"INT32_2D",
+"QUATERNION",
+"FLOAT4X4"
+],
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CORNER",
+"CURVE",
+"INSTANCE",
+"LAYER"
+]
+}
+},
+"GeometryNodeFieldVariance": {
+"desc": "Calculate the standard deviation and variance of a given field",
+"in": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Group ID",
+"Group Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Field Variance",
+"out": [
+[
+"Standard Deviation",
+"Standard Deviation",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Variance",
+"Variance",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"FLOAT_VECTOR"
+],
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CORNER",
+"CURVE",
+"INSTANCE",
+"LAYER"
+]
+}
+},
+"GeometryNodeFillCurve": {
+"desc": "Generate a mesh on the XY plane with faces on the inside of input curves",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Group ID",
+"Group ID",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Fill Curve",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"TRIANGLES",
+"NGONS"
+]
+}
+},
+"GeometryNodeFilletCurve": {
+"desc": "Round corners by generating circular arcs on each control point",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Count",
+"Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Limit Radius",
+"Limit Radius",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Fillet Curve",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"BEZIER",
+"POLY"
+]
+}
+},
+"GeometryNodeFlipFaces": {
+"desc": "Reverse the order of the vertices and edges of selected faces, flipping their normal direction",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Flip Faces",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeForeachGeometryElementInput": {
+"desc": "",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "For Each Geometry Element Input",
+"out": [
+[
+"Index",
+"Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Element",
+"Element",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+]
+},
+"GeometryNodeForeachGeometryElementOutput": {
+"desc": "",
+"in": [
+[
+"",
+"__extend__main",
+"CUSTOM",
+"NodeSocketVirtual"
+],
+[
+"Geometry",
+"Generation_0",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__generation",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "For Each Geometry Element Output",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__main",
+"CUSTOM",
+"NodeSocketVirtual"
+],
+[
+"Geometry",
+"Generation_0",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__generation",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"props": {
+"active_generation_index": "INT",
+"active_input_index": "INT",
+"active_main_index": "INT",
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CORNER",
+"CURVE",
+"INSTANCE",
+"LAYER"
+],
+"inspection_index": "INT"
+}
+},
+"GeometryNodeGeometryToInstance": {
+"desc": "Convert each input geometry into an instance, which can be much faster than the Join Geometry node when the inputs are large",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"label": "Geometry to Instance",
+"out": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeGetNamedGrid": {
+"desc": "Get volume grid from a volume geometry with the specified name",
+"in": [
+[
+"Volume",
+"Volume",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Name",
+"Name",
+"STRING",
+"NodeSocketString"
+],
+[
+"Remove",
+"Remove",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Get Named Grid",
+"out": [
+[
+"Volume",
+"Volume",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Grid",
+"Grid",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"BOOLEAN",
+"VECTOR",
+"ROTATION",
+"MATRIX",
+"STRING",
+"MENU",
+"RGBA",
+"OBJECT",
+"IMAGE",
+"GEOMETRY",
+"COLLECTION",
+"TEXTURE",
+"MATERIAL",
+"BUNDLE",
+"CLOSURE"
+]
+}
+},
+"GeometryNodeGizmoDial": {
+"desc": "Show a dial gizmo in the viewport for a value",
+"in": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Up",
+"Up",
+"VECTOR",
+"NodeSocketVectorXYZ"
+],
+[
+"Screen Space",
+"Screen Space",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Dial Gizmo",
+"out": [
+[
+"Transform",
+"Transform",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"color_id": [
+"PRIMARY",
+"SECONDARY",
+"X",
+"Y",
+"Z"
+]
+}
+},
+"GeometryNodeGizmoLinear": {
+"desc": "Show a linear gizmo in the viewport for a value",
+"in": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Direction",
+"Direction",
+"VECTOR",
+"NodeSocketVectorXYZ"
+]
+],
+"label": "Linear Gizmo",
+"out": [
+[
+"Transform",
+"Transform",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"color_id": [
+"PRIMARY",
+"SECONDARY",
+"X",
+"Y",
+"Z"
+],
+"draw_style": [
+"ARROW",
+"CROSS",
+"BOX"
+]
+}
+},
+"GeometryNodeGizmoTransform": {
+"desc": "Show a transform gizmo in the viewport",
+"in": [
+[
+"Value",
+"Value",
+"MATRIX",
+"NodeSocketMatrix"
+],
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"label": "Transform Gizmo",
+"out": [
+[
+"Transform",
+"Transform",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"use_rotation_x": "BOOLEAN",
+"use_rotation_y": "BOOLEAN",
+"use_rotation_z": "BOOLEAN",
+"use_scale_x": "BOOLEAN",
+"use_scale_y": "BOOLEAN",
+"use_scale_z": "BOOLEAN",
+"use_translation_x": "BOOLEAN",
+"use_translation_y": "BOOLEAN",
+"use_translation_z": "BOOLEAN"
+}
+},
+"GeometryNodeGreasePencilToCurves": {
+"desc": "Convert Grease Pencil layers into curve instances",
+"in": [
+[
+"Grease Pencil",
+"Grease Pencil",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Layers as Instances",
+"Layers as Instances",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Grease Pencil to Curves",
+"out": [
+[
+"Curves",
+"Curves",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeGridInfo": {
+"desc": "Retrieve information about a volume grid",
+"in": [
+[
+"Grid",
+"Grid",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Grid Info",
+"out": [
+[
+"Transform",
+"Transform",
+"MATRIX",
+"NodeSocketMatrix"
+],
+[
+"Background Value",
+"Background Value",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"BOOLEAN",
+"VECTOR",
+"ROTATION",
+"MATRIX",
+"STRING",
+"MENU",
+"RGBA",
+"OBJECT",
+"IMAGE",
+"GEOMETRY",
+"COLLECTION",
+"TEXTURE",
+"MATERIAL",
+"BUNDLE",
+"CLOSURE"
+]
+}
+},
+"GeometryNodeGridToMesh": {
+"desc": "Generate a mesh on the \"surface\" of a volume grid",
+"in": [
+[
+"Grid",
+"Grid",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Threshold",
+"Threshold",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Adaptivity",
+"Adaptivity",
+"VALUE",
+"NodeSocketFloatFactor"
+]
+],
+"label": "Grid to Mesh",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeGroup": {
+"desc": "",
+"in": [],
+"label": "Group",
+"out": []
+},
+"GeometryNodeImageInfo": {
+"desc": "Retrieve information about an image",
+"in": [
+[
+"Image",
+"Image",
+"IMAGE",
+"NodeSocketImage"
+],
+[
+"Frame",
+"Frame",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Image Info",
+"out": [
+[
+"Width",
+"Width",
+"INT",
+"NodeSocketInt"
+],
+[
+"Height",
+"Height",
+"INT",
+"NodeSocketInt"
+],
+[
+"Has Alpha",
+"Has Alpha",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Frame Count",
+"Frame Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"FPS",
+"FPS",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeImageTexture": {
+"desc": "Sample values from an image texture",
+"in": [
+[
+"Image",
+"Image",
+"IMAGE",
+"NodeSocketImage"
+],
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Frame",
+"Frame",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Image Texture",
+"out": [
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Alpha",
+"Alpha",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"extension": [
+"REPEAT",
+"EXTEND",
+"CLIP",
+"MIRROR"
+],
+"interpolation": [
+"Linear",
+"Closest",
+"Cubic"
+]
+}
+},
+"GeometryNodeImportCSV": {
+"desc": "Import geometry from an CSV file",
+"in": [
+[
+"Path",
+"Path",
+"STRING",
+"NodeSocketStringFilePath"
+],
+[
+"Delimiter",
+"Delimiter",
+"STRING",
+"NodeSocketString"
+]
+],
+"label": "Import CSV",
+"out": [
+[
+"Point Cloud",
+"Point Cloud",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeImportOBJ": {
+"desc": "Import geometry from an OBJ file",
+"in": [
+[
+"Path",
+"Path",
+"STRING",
+"NodeSocketStringFilePath"
+]
+],
+"label": "Import OBJ",
+"out": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeImportPLY": {
+"desc": "Import a point cloud from a PLY file",
+"in": [
+[
+"Path",
+"Path",
+"STRING",
+"NodeSocketStringFilePath"
+]
+],
+"label": "Import PLY",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeImportSTL": {
+"desc": "Import a mesh from an STL file",
+"in": [
+[
+"Path",
+"Path",
+"STRING",
+"NodeSocketStringFilePath"
+]
+],
+"label": "Import STL",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeImportText": {
+"desc": "Import a string from a text file",
+"in": [
+[
+"Path",
+"Path",
+"STRING",
+"NodeSocketStringFilePath"
+]
+],
+"label": "Import Text",
+"out": [
+[
+"String",
+"String",
+"STRING",
+"NodeSocketString"
+]
+]
+},
+"GeometryNodeImportVDB": {
+"desc": "Import volume data from a .vdb file",
+"in": [
+[
+"Path",
+"Path",
+"STRING",
+"NodeSocketStringFilePath"
+]
+],
+"label": "Import VDB",
+"out": [
+[
+"Volume",
+"Volume",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeIndexOfNearest": {
+"desc": "Find the nearest element in a group. Similar to the \"Sample Nearest\" node",
+"in": [
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Group ID",
+"Group ID",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Index of Nearest",
+"out": [
+[
+"Index",
+"Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Has Neighbor",
+"Has Neighbor",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeIndexSwitch": {
+"desc": "Choose between an arbitrary number of values with an index",
+"in": [
+[
+"Index",
+"Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"0",
+"Item_0",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"1",
+"Item_1",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "Index Switch",
+"out": [
+[
+"Output",
+"Output",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"BOOLEAN",
+"VECTOR",
+"ROTATION",
+"MATRIX",
+"STRING",
+"MENU",
+"RGBA",
+"OBJECT",
+"IMAGE",
+"GEOMETRY",
+"COLLECTION",
+"TEXTURE",
+"MATERIAL",
+"BUNDLE",
+"CLOSURE"
+]
+}
+},
+"GeometryNodeInputActiveCamera": {
+"desc": "Retrieve the scene's active camera",
+"in": [],
+"label": "Active Camera",
+"out": [
+[
+"Active Camera",
+"Active Camera",
+"OBJECT",
+"NodeSocketObject"
+]
+]
+},
+"GeometryNodeInputCollection": {
+"desc": "Output a single collection",
+"in": [],
+"label": "Collection",
+"out": [
+[
+"Collection",
+"Collection",
+"COLLECTION",
+"NodeSocketCollection"
+]
+]
+},
+"GeometryNodeInputCurveHandlePositions": {
+"desc": "Retrieve the position of each B\u00e9zier control point's handles",
+"in": [
+[
+"Relative",
+"Relative",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Curve Handle Positions",
+"out": [
+[
+"Left",
+"Left",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Right",
+"Right",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"GeometryNodeInputCurveTilt": {
+"desc": "Retrieve the angle at each control point used to twist the curve's normal around its tangent",
+"in": [],
+"label": "Curve Tilt",
+"out": [
+[
+"Tilt",
+"Tilt",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeInputEdgeSmooth": {
+"desc": "Retrieve whether each edge is marked for smooth or split normals",
+"in": [],
+"label": "Is Edge Smooth",
+"out": [
+[
+"Smooth",
+"Smooth",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeInputID": {
+"desc": "Retrieve a stable random identifier value from the \"id\" attribute on the point domain, or the index if the attribute does not exist",
+"in": [],
+"label": "ID",
+"out": [
+[
+"ID",
+"ID",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeInputImage": {
+"desc": "Input an image data-block",
+"in": [],
+"label": "Image",
+"out": [
+[
+"Image",
+"Image",
+"IMAGE",
+"NodeSocketImage"
+]
+]
+},
+"GeometryNodeInputIndex": {
+"desc": "Retrieve an integer value indicating the position of each element in the list, starting at zero",
+"in": [],
+"label": "Index",
+"out": [
+[
+"Index",
+"Index",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeInputInstanceBounds": {
+"desc": "Calculate position bounds of each instance's geometry set",
+"in": [
+[
+"Use Radius",
+"Use Radius",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Instance Bounds",
+"out": [
+[
+"Min",
+"Min",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Max",
+"Max",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"GeometryNodeInputInstanceRotation": {
+"desc": "Retrieve the rotation of each instance in the geometry",
+"in": [],
+"label": "Instance Rotation",
+"out": [
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+]
+},
+"GeometryNodeInputInstanceScale": {
+"desc": "Retrieve the scale of each instance in the geometry",
+"in": [],
+"label": "Instance Scale",
+"out": [
+[
+"Scale",
+"Scale",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"GeometryNodeInputMaterial": {
+"desc": "Output a single material",
+"in": [],
+"label": "Material",
+"out": [
+[
+"Material",
+"Material",
+"MATERIAL",
+"NodeSocketMaterial"
+]
+]
+},
+"GeometryNodeInputMaterialIndex": {
+"desc": "Retrieve the index of the material used for each element in the geometry's list of materials",
+"in": [],
+"label": "Material Index",
+"out": [
+[
+"Material Index",
+"Material Index",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeInputMeshEdgeAngle": {
+"desc": "The angle between the normals of connected manifold faces",
+"in": [],
+"label": "Edge Angle",
+"out": [
+[
+"Unsigned Angle",
+"Unsigned Angle",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Signed Angle",
+"Signed Angle",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeInputMeshEdgeNeighbors": {
+"desc": "Retrieve the number of faces that use each edge as one of their sides",
+"in": [],
+"label": "Edge Neighbors",
+"out": [
+[
+"Face Count",
+"Face Count",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeInputMeshEdgeVertices": {
+"desc": "Retrieve topology information relating to each edge of a mesh",
+"in": [],
+"label": "Edge Vertices",
+"out": [
+[
+"Vertex Index 1",
+"Vertex Index 1",
+"INT",
+"NodeSocketInt"
+],
+[
+"Vertex Index 2",
+"Vertex Index 2",
+"INT",
+"NodeSocketInt"
+],
+[
+"Position 1",
+"Position 1",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Position 2",
+"Position 2",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"GeometryNodeInputMeshFaceArea": {
+"desc": "Calculate the surface area of a mesh's faces",
+"in": [],
+"label": "Face Area",
+"out": [
+[
+"Area",
+"Area",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeInputMeshFaceIsPlanar": {
+"desc": "Retrieve whether all triangles in a face are on the same plane, i.e. whether they have the same normal",
+"in": [
+[
+"Threshold",
+"Threshold",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Is Face Planar",
+"out": [
+[
+"Planar",
+"Planar",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeInputMeshFaceNeighbors": {
+"desc": "Retrieve topology information relating to each face of a mesh",
+"in": [],
+"label": "Face Neighbors",
+"out": [
+[
+"Vertex Count",
+"Vertex Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"Face Count",
+"Face Count",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeInputMeshIsland": {
+"desc": "Retrieve information about separate connected regions in a mesh",
+"in": [],
+"label": "Mesh Island",
+"out": [
+[
+"Island Index",
+"Island Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Island Count",
+"Island Count",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeInputMeshVertexNeighbors": {
+"desc": "Retrieve topology information relating to each vertex of a mesh",
+"in": [],
+"label": "Vertex Neighbors",
+"out": [
+[
+"Vertex Count",
+"Vertex Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"Face Count",
+"Face Count",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeInputNamedAttribute": {
+"desc": "Retrieve the data of a specified attribute",
+"in": [
+[
+"Name",
+"Name",
+"STRING",
+"NodeSocketString"
+]
+],
+"label": "Named Attribute",
+"out": [
+[
+"Attribute",
+"Attribute",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Exists",
+"Exists",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"FLOAT_COLOR",
+"BYTE_COLOR",
+"STRING",
+"BOOLEAN",
+"FLOAT2",
+"INT8",
+"INT16_2D",
+"INT32_2D",
+"QUATERNION",
+"FLOAT4X4"
+]
+}
+},
+"GeometryNodeInputNamedLayerSelection": {
+"desc": "Output a selection of a Grease Pencil layer",
+"in": [
+[
+"Name",
+"Name",
+"STRING",
+"NodeSocketString"
+]
+],
+"label": "Named Layer Selection",
+"out": [
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeInputNormal": {
+"desc": "Retrieve a unit length vector indicating the direction pointing away from the geometry at each element",
+"in": [],
+"label": "Normal",
+"out": [
+[
+"Normal",
+"Normal",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"True Normal",
+"True Normal",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"props": {
+"legacy_corner_normals": "BOOLEAN"
+}
+},
+"GeometryNodeInputObject": {
+"desc": "Output a single object",
+"in": [],
+"label": "Object",
+"out": [
+[
+"Object",
+"Object",
+"OBJECT",
+"NodeSocketObject"
+]
+]
+},
+"GeometryNodeInputPosition": {
+"desc": "Retrieve a vector indicating the location of each element",
+"in": [],
+"label": "Position",
+"out": [
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"GeometryNodeInputRadius": {
+"desc": "Retrieve the radius at each point on curve or point cloud geometry",
+"in": [],
+"label": "Radius",
+"out": [
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeInputSceneTime": {
+"desc": "Retrieve the current time in the scene's animation in units of seconds or frames",
+"in": [],
+"label": "Scene Time",
+"out": [
+[
+"Seconds",
+"Seconds",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Frame",
+"Frame",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeInputShadeSmooth": {
+"desc": "Retrieve whether each face is marked for smooth or sharp normals",
+"in": [],
+"label": "Is Face Smooth",
+"out": [
+[
+"Smooth",
+"Smooth",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeInputShortestEdgePaths": {
+"desc": "Find the shortest paths along mesh edges to selected end vertices, with customizable cost per edge",
+"in": [
+[
+"End Vertex",
+"End Vertex",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Edge Cost",
+"Edge Cost",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Shortest Edge Paths",
+"out": [
+[
+"Next Vertex Index",
+"Next Vertex Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Total Cost",
+"Total Cost",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeInputSplineCyclic": {
+"desc": "Retrieve whether each spline endpoint connects to the beginning",
+"in": [],
+"label": "Is Spline Cyclic",
+"out": [
+[
+"Cyclic",
+"Cyclic",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeInputSplineResolution": {
+"desc": "Retrieve the number of evaluated points that will be generated for every control point on curves",
+"in": [],
+"label": "Spline Resolution",
+"out": [
+[
+"Resolution",
+"Resolution",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeInputTangent": {
+"desc": "Retrieve the direction of curves at each control point",
+"in": [],
+"label": "Curve Tangent",
+"out": [
+[
+"Tangent",
+"Tangent",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"GeometryNodeInstanceOnPoints": {
+"desc": "Generate a reference to geometry at each of the input points, without duplicating its underlying data",
+"in": [
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Instance",
+"Instance",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Pick Instance",
+"Pick Instance",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Instance Index",
+"Instance Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+],
+[
+"Scale",
+"Scale",
+"VECTOR",
+"NodeSocketVectorXYZ"
+]
+],
+"label": "Instance on Points",
+"out": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeInstanceTransform": {
+"desc": "Retrieve the full transformation of each instance in the geometry",
+"in": [],
+"label": "Instance Transform",
+"out": [
+[
+"Transform",
+"Transform",
+"MATRIX",
+"NodeSocketMatrix"
+]
+]
+},
+"GeometryNodeInstancesToPoints": {
+"desc": "Generate points at the origins of instances.\nNote: Nested instances are not affected by this node",
+"in": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Instances to Points",
+"out": [
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeInterpolateCurves": {
+"desc": "Generate new curves on points by interpolating between existing curves",
+"in": [
+[
+"Guide Curves",
+"Guide Curves",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Guide Up",
+"Guide Up",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Guide Group ID",
+"Guide Group ID",
+"INT",
+"NodeSocketInt"
+],
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Point Up",
+"Point Up",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Point Group ID",
+"Point Group ID",
+"INT",
+"NodeSocketInt"
+],
+[
+"Max Neighbors",
+"Max Neighbors",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Interpolate Curves",
+"out": [
+[
+"Curves",
+"Curves",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Closest Index",
+"Closest Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Closest Weight",
+"Closest Weight",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeIsViewport": {
+"desc": "Retrieve whether the nodes are being evaluated for the viewport rather than the final render",
+"in": [],
+"label": "Is Viewport",
+"out": [
+[
+"Is Viewport",
+"Is Viewport",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeJoinGeometry": {
+"desc": "Merge separately generated geometries into a single one",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"label": "Join Geometry",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeMaterialSelection": {
+"desc": "Provide a selection of faces that use the specified material",
+"in": [
+[
+"Material",
+"Material",
+"MATERIAL",
+"NodeSocketMaterial"
+]
+],
+"label": "Material Selection",
+"out": [
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeMenuSwitch": {
+"desc": "Select from multiple inputs by name",
+"in": [
+[
+"Menu",
+"Menu",
+"MENU",
+"NodeSocketMenu"
+],
+[
+"A",
+"Item_0",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"B",
+"Item_1",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "Menu Switch",
+"out": [
+[
+"Output",
+"Output",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"active_index": "INT",
+"data_type": [
+"FLOAT",
+"INT",
+"BOOLEAN",
+"VECTOR",
+"ROTATION",
+"MATRIX",
+"STRING",
+"MENU",
+"RGBA",
+"OBJECT",
+"IMAGE",
+"GEOMETRY",
+"COLLECTION",
+"TEXTURE",
+"MATERIAL",
+"BUNDLE",
+"CLOSURE"
+]
+}
+},
+"GeometryNodeMergeByDistance": {
+"desc": "Merge vertices or points within a given distance",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Distance",
+"Distance",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Merge by Distance",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"ALL",
+"CONNECTED"
+]
+}
+},
+"GeometryNodeMergeLayers": {
+"desc": "Join groups of Grease Pencil layers into one",
+"in": [
+[
+"Grease Pencil",
+"Grease Pencil",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Group ID",
+"Group ID",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Merge Layers",
+"out": [
+[
+"Grease Pencil",
+"Grease Pencil",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"MERGE_BY_NAME",
+"MERGE_BY_ID"
+]
+}
+},
+"GeometryNodeMeshBoolean": {
+"desc": "Cut, subtract, or join multiple mesh inputs",
+"in": [
+[
+"Mesh 1",
+"Mesh 1",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Mesh 2",
+"Mesh 2",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Self Intersection",
+"Self Intersection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Hole Tolerant",
+"Hole Tolerant",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Mesh Boolean",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Intersecting Edges",
+"Intersecting Edges",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"operation": [
+"INTERSECT",
+"UNION",
+"DIFFERENCE"
+],
+"solver": [
+"EXACT",
+"FLOAT",
+"MANIFOLD"
+]
+}
+},
+"GeometryNodeMeshCircle": {
+"desc": "Generate a circular ring of edges",
+"in": [
+[
+"Vertices",
+"Vertices",
+"INT",
+"NodeSocketInt"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Mesh Circle",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"fill_type": [
+"NONE",
+"NGON",
+"TRIANGLE_FAN"
+]
+}
+},
+"GeometryNodeMeshCone": {
+"desc": "Generate a cone mesh",
+"in": [
+[
+"Vertices",
+"Vertices",
+"INT",
+"NodeSocketInt"
+],
+[
+"Side Segments",
+"Side Segments",
+"INT",
+"NodeSocketInt"
+],
+[
+"Fill Segments",
+"Fill Segments",
+"INT",
+"NodeSocketInt"
+],
+[
+"Radius Top",
+"Radius Top",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Radius Bottom",
+"Radius Bottom",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Depth",
+"Depth",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Cone",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Top",
+"Top",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Bottom",
+"Bottom",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Side",
+"Side",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"UV Map",
+"UV Map",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"props": {
+"fill_type": [
+"NONE",
+"NGON",
+"TRIANGLE_FAN"
+]
+}
+},
+"GeometryNodeMeshCube": {
+"desc": "Generate a cuboid mesh with variable side lengths and subdivisions",
+"in": [
+[
+"Size",
+"Size",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Vertices X",
+"Vertices X",
+"INT",
+"NodeSocketInt"
+],
+[
+"Vertices Y",
+"Vertices Y",
+"INT",
+"NodeSocketInt"
+],
+[
+"Vertices Z",
+"Vertices Z",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Cube",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"UV Map",
+"UV Map",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"GeometryNodeMeshCylinder": {
+"desc": "Generate a cylinder mesh",
+"in": [
+[
+"Vertices",
+"Vertices",
+"INT",
+"NodeSocketInt"
+],
+[
+"Side Segments",
+"Side Segments",
+"INT",
+"NodeSocketInt"
+],
+[
+"Fill Segments",
+"Fill Segments",
+"INT",
+"NodeSocketInt"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Depth",
+"Depth",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Cylinder",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Top",
+"Top",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Side",
+"Side",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Bottom",
+"Bottom",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"UV Map",
+"UV Map",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"props": {
+"fill_type": [
+"NONE",
+"NGON",
+"TRIANGLE_FAN"
+]
+}
+},
+"GeometryNodeMeshFaceSetBoundaries": {
+"desc": "Find edges on the boundaries between groups of faces with the same ID value",
+"in": [
+[
+"Face Group ID",
+"Face Set",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Face Group Boundaries",
+"out": [
+[
+"Boundary Edges",
+"Boundary Edges",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeMeshGrid": {
+"desc": "Generate a planar mesh on the XY plane",
+"in": [
+[
+"Size X",
+"Size X",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Size Y",
+"Size Y",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Vertices X",
+"Vertices X",
+"INT",
+"NodeSocketInt"
+],
+[
+"Vertices Y",
+"Vertices Y",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Grid",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"UV Map",
+"UV Map",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"GeometryNodeMeshIcoSphere": {
+"desc": "Generate a spherical mesh that consists of equally sized triangles",
+"in": [
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Subdivisions",
+"Subdivisions",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Ico Sphere",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"UV Map",
+"UV Map",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"GeometryNodeMeshLine": {
+"desc": "Generate vertices in a line and connect them with edges",
+"in": [
+[
+"Count",
+"Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"Resolution",
+"Resolution",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Start Location",
+"Start Location",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Offset",
+"Offset",
+"VECTOR",
+"NodeSocketVectorTranslation"
+]
+],
+"label": "Mesh Line",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"count_mode": [
+"TOTAL",
+"RESOLUTION"
+],
+"mode": [
+"OFFSET",
+"END_POINTS"
+]
+}
+},
+"GeometryNodeMeshToCurve": {
+"desc": "Generate a curve from a mesh",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Mesh to Curve",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"EDGES",
+"FACES"
+]
+}
+},
+"GeometryNodeMeshToDensityGrid": {
+"desc": "Create a filled volume grid from a mesh",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Density",
+"Density",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Voxel Size",
+"Voxel Size",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Gradient Width",
+"Gradient Width",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Mesh to Density Grid",
+"out": [
+[
+"Density Grid",
+"Density Grid",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeMeshToPoints": {
+"desc": "Generate a point cloud from a mesh's vertices",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Mesh to Points",
+"out": [
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"VERTICES",
+"EDGES",
+"FACES",
+"CORNERS"
+]
+}
+},
+"GeometryNodeMeshToSDFGrid": {
+"desc": "Create a signed distance volume grid from a mesh",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Voxel Size",
+"Voxel Size",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Band Width",
+"Band Width",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Mesh to SDF Grid",
+"out": [
+[
+"SDF Grid",
+"SDF Grid",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeMeshToVolume": {
+"desc": "Create a fog volume with the shape of the input mesh's surface",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Density",
+"Density",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Voxel Size",
+"Voxel Size",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Voxel Amount",
+"Voxel Amount",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Interior Band Width",
+"Interior Band Width",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Mesh to Volume",
+"out": [
+[
+"Volume",
+"Volume",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"resolution_mode": [
+"VOXEL_AMOUNT",
+"VOXEL_SIZE"
+]
+}
+},
+"GeometryNodeMeshUVSphere": {
+"desc": "Generate a spherical mesh with quads, except for triangles at the top and bottom",
+"in": [
+[
+"Segments",
+"Segments",
+"INT",
+"NodeSocketInt"
+],
+[
+"Rings",
+"Rings",
+"INT",
+"NodeSocketInt"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "UV Sphere",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"UV Map",
+"UV Map",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"GeometryNodeObjectInfo": {
+"desc": "Retrieve information from an object",
+"in": [
+[
+"Object",
+"Object",
+"OBJECT",
+"NodeSocketObject"
+],
+[
+"As Instance",
+"As Instance",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Object Info",
+"out": [
+[
+"Transform",
+"Transform",
+"MATRIX",
+"NodeSocketMatrix"
+],
+[
+"Location",
+"Location",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+],
+[
+"Scale",
+"Scale",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"transform_space": [
+"ORIGINAL",
+"RELATIVE"
+]
+}
+},
+"GeometryNodeOffsetCornerInFace": {
+"desc": "Retrieve corners in the same face as another",
+"in": [
+[
+"Corner Index",
+"Corner Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Offset",
+"Offset",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Offset Corner in Face",
+"out": [
+[
+"Corner Index",
+"Corner Index",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeOffsetPointInCurve": {
+"desc": "Offset a control point index within its curve",
+"in": [
+[
+"Point Index",
+"Point Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Offset",
+"Offset",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Offset Point in Curve",
+"out": [
+[
+"Is Valid Offset",
+"Is Valid Offset",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Point Index",
+"Point Index",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodePoints": {
+"desc": "Generate a point cloud with positions and radii defined by fields",
+"in": [
+[
+"Count",
+"Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Points",
+"out": [
+[
+"Points",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodePointsOfCurve": {
+"desc": "Retrieve a point index within a curve",
+"in": [
+[
+"Curve Index",
+"Curve Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Weights",
+"Weights",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Sort Index",
+"Sort Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Points of Curve",
+"out": [
+[
+"Point Index",
+"Point Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Total",
+"Total",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodePointsToCurves": {
+"desc": "Split all points to curve by its group ID and reorder by weight",
+"in": [
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Curve Group ID",
+"Curve Group ID",
+"INT",
+"NodeSocketInt"
+],
+[
+"Weight",
+"Weight",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Points to Curves",
+"out": [
+[
+"Curves",
+"Curves",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodePointsToSDFGrid": {
+"desc": "Create a signed distance volume grid from points",
+"in": [
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Voxel Size",
+"Voxel Size",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Points to SDF Grid",
+"out": [
+[
+"SDF Grid",
+"SDF Grid",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodePointsToVertices": {
+"desc": "Generate a mesh vertex for each point cloud point",
+"in": [
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Points to Vertices",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodePointsToVolume": {
+"desc": "Generate a fog volume sphere around every point",
+"in": [
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Density",
+"Density",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Voxel Size",
+"Voxel Size",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Voxel Amount",
+"Voxel Amount",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Points to Volume",
+"out": [
+[
+"Volume",
+"Volume",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"resolution_mode": [
+"VOXEL_AMOUNT",
+"VOXEL_SIZE"
+]
+}
+},
+"GeometryNodeProximity": {
+"desc": "Compute the closest location on the target geometry",
+"in": [
+[
+"Geometry",
+"Target",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Group ID",
+"Group ID",
+"INT",
+"NodeSocketInt"
+],
+[
+"Sample Position",
+"Source Position",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Sample Group ID",
+"Sample Group ID",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Geometry Proximity",
+"out": [
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Distance",
+"Distance",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Is Valid",
+"Is Valid",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"target_element": [
+"POINTS",
+"EDGES",
+"FACES"
+]
+}
+},
+"GeometryNodeRaycast": {
+"desc": "Cast rays from the context geometry onto a target geometry, and retrieve information from each hit point",
+"in": [
+[
+"Target Geometry",
+"Target Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Attribute",
+"Attribute",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Source Position",
+"Source Position",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Ray Direction",
+"Ray Direction",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Ray Length",
+"Ray Length",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Raycast",
+"out": [
+[
+"Is Hit",
+"Is Hit",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Hit Position",
+"Hit Position",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Hit Normal",
+"Hit Normal",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Hit Distance",
+"Hit Distance",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Attribute",
+"Attribute",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"FLOAT_COLOR",
+"BYTE_COLOR",
+"STRING",
+"BOOLEAN",
+"FLOAT2",
+"INT8",
+"INT16_2D",
+"INT32_2D",
+"QUATERNION",
+"FLOAT4X4"
+],
+"mapping": [
+"INTERPOLATED",
+"NEAREST"
+]
+}
+},
+"GeometryNodeRealizeInstances": {
+"desc": "Convert instances into real geometry data",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Realize All",
+"Realize All",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Depth",
+"Depth",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Realize Instances",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeRemoveAttribute": {
+"desc": "Delete an attribute with a specified name from a geometry. Typically used to optimize performance",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Name",
+"Name",
+"STRING",
+"NodeSocketString"
+]
+],
+"label": "Remove Named Attribute",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"pattern_mode": [
+"EXACT",
+"WILDCARD"
+]
+}
+},
+"GeometryNodeRepeatInput": {
+"desc": "",
+"in": [
+[
+"Iterations",
+"Iterations",
+"INT",
+"NodeSocketInt"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "Repeat Input",
+"out": [
+[
+"Iteration",
+"Iteration",
+"INT",
+"NodeSocketInt"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+]
+},
+"GeometryNodeRepeatOutput": {
+"desc": "",
+"in": [
+[
+"Geometry",
+"Item_0",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "Repeat Output",
+"out": [
+[
+"Geometry",
+"Item_0",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"props": {
+"active_index": "INT",
+"inspection_index": "INT"
+}
+},
+"GeometryNodeReplaceMaterial": {
+"desc": "Swap one material with another",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Old",
+"Old",
+"MATERIAL",
+"NodeSocketMaterial"
+],
+[
+"New",
+"New",
+"MATERIAL",
+"NodeSocketMaterial"
+]
+],
+"label": "Replace Material",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeResampleCurve": {
+"desc": "Generate a poly spline for each input spline",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Count",
+"Count",
+"INT",
+"NodeSocketInt"
+],
+[
+"Length",
+"Length",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Resample Curve",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"keep_last_segment": "BOOLEAN",
+"mode": [
+"EVALUATED",
+"COUNT",
+"LENGTH"
+]
+}
+},
+"GeometryNodeReverseCurve": {
+"desc": "Change the direction of curves by swapping their start and end data",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Reverse Curve",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeRotateInstances": {
+"desc": "Rotate geometry instances in local or global space",
+"in": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+],
+[
+"Pivot Point",
+"Pivot Point",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Local Space",
+"Local Space",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Rotate Instances",
+"out": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSDFGridBoolean": {
+"desc": "Cut, subtract, or join multiple SDF volume grid inputs",
+"in": [
+[
+"Grid 1",
+"Grid 1",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Grid 2",
+"Grid 2",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "SDF Grid Boolean",
+"out": [
+[
+"Grid",
+"Grid",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"operation": [
+"INTERSECT",
+"UNION",
+"DIFFERENCE"
+]
+}
+},
+"GeometryNodeSampleCurve": {
+"desc": "Retrieve data from a point on a curve at a certain distance from its start",
+"in": [
+[
+"Curves",
+"Curves",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Factor",
+"Factor",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Length",
+"Length",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Curve Index",
+"Curve Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Sample Curve",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Tangent",
+"Tangent",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Normal",
+"Normal",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"FLOAT_COLOR",
+"BYTE_COLOR",
+"STRING",
+"BOOLEAN",
+"FLOAT2",
+"INT8",
+"INT16_2D",
+"INT32_2D",
+"QUATERNION",
+"FLOAT4X4"
+],
+"mode": [
+"FACTOR",
+"LENGTH"
+],
+"use_all_curves": "BOOLEAN"
+}
+},
+"GeometryNodeSampleGrid": {
+"desc": "",
+"in": [
+[
+"Grid",
+"Grid",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"label": "Sample Grid",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"BOOLEAN",
+"VECTOR",
+"ROTATION",
+"MATRIX",
+"STRING",
+"MENU",
+"RGBA",
+"OBJECT",
+"IMAGE",
+"GEOMETRY",
+"COLLECTION",
+"TEXTURE",
+"MATERIAL",
+"BUNDLE",
+"CLOSURE"
+],
+"interpolation_mode": [
+"NEAREST",
+"TRILINEAR",
+"TRIQUADRATIC"
+]
+}
+},
+"GeometryNodeSampleGridIndex": {
+"desc": "Retrieve volume grid values at specific voxels",
+"in": [
+[
+"Grid",
+"Grid",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"X",
+"X",
+"INT",
+"NodeSocketInt"
+],
+[
+"Y",
+"Y",
+"INT",
+"NodeSocketInt"
+],
+[
+"Z",
+"Z",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Sample Grid Index",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"BOOLEAN",
+"VECTOR",
+"ROTATION",
+"MATRIX",
+"STRING",
+"MENU",
+"RGBA",
+"OBJECT",
+"IMAGE",
+"GEOMETRY",
+"COLLECTION",
+"TEXTURE",
+"MATERIAL",
+"BUNDLE",
+"CLOSURE"
+]
+}
+},
+"GeometryNodeSampleIndex": {
+"desc": "Retrieve values from specific geometry elements",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Index",
+"Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Sample Index",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"clamp": "BOOLEAN",
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"FLOAT_COLOR",
+"BYTE_COLOR",
+"STRING",
+"BOOLEAN",
+"FLOAT2",
+"INT8",
+"INT16_2D",
+"INT32_2D",
+"QUATERNION",
+"FLOAT4X4"
+],
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CORNER",
+"CURVE",
+"INSTANCE",
+"LAYER"
+]
+}
+},
+"GeometryNodeSampleNearest": {
+"desc": "Find the element of a geometry closest to a position. Similar to the \"Index of Nearest\" node",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Sample Position",
+"Sample Position",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"label": "Sample Nearest",
+"out": [
+[
+"Index",
+"Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"props": {
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CORNER"
+]
+}
+},
+"GeometryNodeSampleNearestSurface": {
+"desc": "Calculate the interpolated value of a mesh attribute on the closest point of its surface",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Group ID",
+"Group ID",
+"INT",
+"NodeSocketInt"
+],
+[
+"Sample Position",
+"Sample Position",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Sample Group ID",
+"Sample Group ID",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Sample Nearest Surface",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Is Valid",
+"Is Valid",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"FLOAT_COLOR",
+"BYTE_COLOR",
+"STRING",
+"BOOLEAN",
+"FLOAT2",
+"INT8",
+"INT16_2D",
+"INT32_2D",
+"QUATERNION",
+"FLOAT4X4"
+]
+}
+},
+"GeometryNodeSampleUVSurface": {
+"desc": "Calculate the interpolated values of a mesh attribute at a UV coordinate",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"UV Map",
+"Source UV Map",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Sample UV",
+"Sample UV",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"label": "Sample UV Surface",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Is Valid",
+"Is Valid",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"FLOAT_COLOR",
+"BYTE_COLOR",
+"STRING",
+"BOOLEAN",
+"FLOAT2",
+"INT8",
+"INT16_2D",
+"INT32_2D",
+"QUATERNION",
+"FLOAT4X4"
+]
+}
+},
+"GeometryNodeScaleElements": {
+"desc": "Scale groups of connected edges and faces",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Scale",
+"Scale",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Center",
+"Center",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Axis",
+"Axis",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"label": "Scale Elements",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"domain": [
+"FACE",
+"EDGE"
+],
+"scale_mode": [
+"UNIFORM",
+"SINGLE_AXIS"
+]
+}
+},
+"GeometryNodeScaleInstances": {
+"desc": "Scale geometry instances in local or global space",
+"in": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Scale",
+"Scale",
+"VECTOR",
+"NodeSocketVectorXYZ"
+],
+[
+"Center",
+"Center",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Local Space",
+"Local Space",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Scale Instances",
+"out": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSelfObject": {
+"desc": "Retrieve the object that contains the geometry nodes modifier currently being executed",
+"in": [],
+"label": "Self Object",
+"out": [
+[
+"Self Object",
+"Self Object",
+"OBJECT",
+"NodeSocketObject"
+]
+]
+},
+"GeometryNodeSeparateBundle": {
+"desc": "Split a bundle into multiple sockets.",
+"in": [
+[
+"Bundle",
+"Bundle",
+"BUNDLE",
+"NodeSocketBundle"
+]
+],
+"label": "Separate Bundle",
+"out": [
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"props": {
+"active_index": "INT"
+}
+},
+"GeometryNodeSeparateComponents": {
+"desc": "Split a geometry into a separate output for each type of data in the geometry",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"label": "Separate Components",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Grease Pencil",
+"Grease Pencil",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Point Cloud",
+"Point Cloud",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Volume",
+"Volume",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSeparateGeometry": {
+"desc": "Split a geometry into two geometry outputs based on a selection",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Separate Geometry",
+"out": [
+[
+"Selection",
+"Selection",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Inverted",
+"Inverted",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CURVE",
+"INSTANCE",
+"LAYER"
+]
+}
+},
+"GeometryNodeSetCurveHandlePositions": {
+"desc": "Set the positions for the handles of B\u00e9zier curves",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Offset",
+"Offset",
+"VECTOR",
+"NodeSocketVectorTranslation"
+]
+],
+"label": "Set Handle Positions",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"LEFT",
+"RIGHT"
+]
+}
+},
+"GeometryNodeSetCurveNormal": {
+"desc": "Set the evaluation mode for curve normals",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Normal",
+"Normal",
+"VECTOR",
+"NodeSocketVectorXYZ"
+]
+],
+"label": "Set Curve Normal",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"MINIMUM_TWIST",
+"Z_UP",
+"FREE"
+]
+}
+},
+"GeometryNodeSetCurveRadius": {
+"desc": "Set the radius of the curve at each control point",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Set Curve Radius",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSetCurveTilt": {
+"desc": "Set the tilt angle at each curve control point",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Tilt",
+"Tilt",
+"VALUE",
+"NodeSocketFloatAngle"
+]
+],
+"label": "Set Curve Tilt",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSetGeometryName": {
+"desc": "Set the name of a geometry for easier debugging",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Name",
+"Name",
+"STRING",
+"NodeSocketString"
+]
+],
+"label": "Set Geometry Name",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSetGreasePencilColor": {
+"desc": "Set color and opacity attributes on Grease Pencil geometry",
+"in": [
+[
+"Grease Pencil",
+"Grease Pencil",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Opacity",
+"Opacity",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Set Grease Pencil Color",
+"out": [
+[
+"Grease Pencil",
+"Grease Pencil",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"STROKE",
+"FILL"
+]
+}
+},
+"GeometryNodeSetGreasePencilDepth": {
+"desc": "Set the Grease Pencil depth order to use",
+"in": [
+[
+"Grease Pencil",
+"Grease Pencil",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"label": "Set Grease Pencil Depth",
+"out": [
+[
+"Grease Pencil",
+"Grease Pencil",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"depth_order": [
+"2D",
+"3D"
+]
+}
+},
+"GeometryNodeSetGreasePencilSoftness": {
+"desc": "Set softness attribute on Grease Pencil geometry",
+"in": [
+[
+"Grease Pencil",
+"Grease Pencil",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Softness",
+"Softness",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Set Grease Pencil Softness",
+"out": [
+[
+"Grease Pencil",
+"Grease Pencil",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSetID": {
+"desc": "Set the id attribute on the input geometry, mainly used internally for randomizing",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"ID",
+"ID",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Set ID",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSetInstanceTransform": {
+"desc": "Set the transformation matrix of every instance",
+"in": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Transform",
+"Transform",
+"MATRIX",
+"NodeSocketMatrix"
+]
+],
+"label": "Set Instance Transform",
+"out": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSetMaterial": {
+"desc": "Assign a material to geometry elements",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Material",
+"Material",
+"MATERIAL",
+"NodeSocketMaterial"
+]
+],
+"label": "Set Material",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSetMaterialIndex": {
+"desc": "Set the material index for each selected geometry element",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Material Index",
+"Material Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Set Material Index",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSetMeshNormal": {
+"desc": "Store a normal vector for each mesh element",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Remove Custom",
+"Remove Custom",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Edge Sharpness",
+"Edge Sharpness",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Face Sharpness",
+"Face Sharpness",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Set Mesh Normal",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"domain": [
+"POINT",
+"FACE",
+"CORNER"
+],
+"mode": [
+"SHARPNESS",
+"FREE",
+"TANGENT_SPACE"
+]
+}
+},
+"GeometryNodeSetPointRadius": {
+"desc": "Set the display size of point cloud points",
+"in": [
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Set Point Radius",
+"out": [
+[
+"Points",
+"Points",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSetPosition": {
+"desc": "Set the location of each point",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Offset",
+"Offset",
+"VECTOR",
+"NodeSocketVectorTranslation"
+]
+],
+"label": "Set Position",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSetShadeSmooth": {
+"desc": "Control the smoothness of mesh normals around each face by changing the \"shade smooth\" attribute",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Shade Smooth",
+"Shade Smooth",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Set Shade Smooth",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"domain": [
+"EDGE",
+"FACE"
+]
+}
+},
+"GeometryNodeSetSplineCyclic": {
+"desc": "Control whether each spline loops back on itself by changing the \"cyclic\" attribute",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Cyclic",
+"Cyclic",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Set Spline Cyclic",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSetSplineResolution": {
+"desc": "Control how many evaluated points should be generated on every curve segment",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Resolution",
+"Resolution",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Set Spline Resolution",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSimulationInput": {
+"desc": "Input data for the simulation zone",
+"in": [],
+"label": "Simulation Input",
+"out": [
+[
+"Delta Time",
+"Delta Time",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeSimulationOutput": {
+"desc": "Output data from the simulation zone",
+"in": [
+[
+"Skip",
+"Skip",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Geometry",
+"Item_0",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "Simulation Output",
+"out": [
+[
+"Geometry",
+"Item_0",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"props": {
+"active_index": "INT"
+}
+},
+"GeometryNodeSortElements": {
+"desc": "Rearrange geometry elements, changing their indices",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Group ID",
+"Group ID",
+"INT",
+"NodeSocketInt"
+],
+[
+"Sort Weight",
+"Sort Weight",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Sort Elements",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CURVE",
+"INSTANCE"
+]
+}
+},
+"GeometryNodeSplineLength": {
+"desc": "Retrieve the total length of each spline, as a distance or as a number of points",
+"in": [],
+"label": "Spline Length",
+"out": [
+[
+"Length",
+"Length",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Point Count",
+"Point Count",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeSplineParameter": {
+"desc": "Retrieve how far along each spline a control point is",
+"in": [],
+"label": "Spline Parameter",
+"out": [
+[
+"Factor",
+"Factor",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Length",
+"Length",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Index",
+"Index",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeSplitEdges": {
+"desc": "Duplicate mesh edges and break connections with the surrounding faces",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Split Edges",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSplitToInstances": {
+"desc": "Create separate geometries containing the elements from the same group",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Group ID",
+"Group ID",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Split to Instances",
+"out": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Group ID",
+"Group ID",
+"INT",
+"NodeSocketInt"
+]
+],
+"props": {
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CURVE",
+"INSTANCE",
+"LAYER"
+]
+}
+},
+"GeometryNodeStoreNamedAttribute": {
+"desc": "Store the result of a field on a geometry as an attribute with the specified name",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Name",
+"Name",
+"STRING",
+"NodeSocketString"
+],
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Store Named Attribute",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"FLOAT_COLOR",
+"BYTE_COLOR",
+"STRING",
+"BOOLEAN",
+"FLOAT2",
+"INT8",
+"INT16_2D",
+"INT32_2D",
+"QUATERNION",
+"FLOAT4X4"
+],
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CORNER",
+"CURVE",
+"INSTANCE",
+"LAYER"
+]
+}
+},
+"GeometryNodeStoreNamedGrid": {
+"desc": "Store grid data in a volume geometry with the specified name",
+"in": [
+[
+"Volume",
+"Volume",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Name",
+"Name",
+"STRING",
+"NodeSocketString"
+],
+[
+"Grid",
+"Grid",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Store Named Grid",
+"out": [
+[
+"Volume",
+"Volume",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"data_type": [
+"BOOLEAN",
+"FLOAT",
+"DOUBLE",
+"INT",
+"INT64",
+"MASK",
+"VECTOR_FLOAT",
+"VECTOR_DOUBLE",
+"VECTOR_INT",
+"POINTS",
+"UNKNOWN"
+]
+}
+},
+"GeometryNodeStringJoin": {
+"desc": "Combine any number of input strings",
+"in": [
+[
+"Delimiter",
+"Delimiter",
+"STRING",
+"NodeSocketString"
+],
+[
+"Strings",
+"Strings",
+"STRING",
+"NodeSocketString"
+]
+],
+"label": "Join Strings",
+"out": [
+[
+"String",
+"String",
+"STRING",
+"NodeSocketString"
+]
+]
+},
+"GeometryNodeStringToCurves": {
+"desc": "Generate a paragraph of text with a specific font, using a curve instance to store each character",
+"in": [
+[
+"String",
+"String",
+"STRING",
+"NodeSocketString"
+],
+[
+"Size",
+"Size",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Character Spacing",
+"Character Spacing",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Word Spacing",
+"Word Spacing",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Line Spacing",
+"Line Spacing",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Text Box Width",
+"Text Box Width",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Text Box Height",
+"Text Box Height",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "String to Curves",
+"out": [
+[
+"Curve Instances",
+"Curve Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Remainder",
+"Remainder",
+"STRING",
+"NodeSocketString"
+],
+[
+"Line",
+"Line",
+"INT",
+"NodeSocketInt"
+],
+[
+"Pivot Point",
+"Pivot Point",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"props": {
+"align_x": [
+"LEFT",
+"CENTER",
+"RIGHT",
+"JUSTIFY",
+"FLUSH"
+],
+"align_y": [
+"TOP",
+"TOP_BASELINE",
+"MIDDLE",
+"BOTTOM_BASELINE",
+"BOTTOM"
+],
+"overflow": [
+"OVERFLOW",
+"SCALE_TO_FIT",
+"TRUNCATE"
+],
+"pivot_mode": [
+"MIDPOINT",
+"TOP_LEFT",
+"TOP_CENTER",
+"TOP_RIGHT",
+"BOTTOM_LEFT",
+"BOTTOM_CENTER",
+"BOTTOM_RIGHT"
+]
+}
+},
+"GeometryNodeSubdivideCurve": {
+"desc": "Dividing each curve segment into a specified number of pieces",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Cuts",
+"Cuts",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Subdivide Curve",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSubdivideMesh": {
+"desc": "Divide mesh faces into smaller ones without changing the shape or volume, using linear interpolation to place the new vertices",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Level",
+"Level",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Subdivide Mesh",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeSubdivisionSurface": {
+"desc": "Divide mesh faces to form a smooth surface, using the Catmull-Clark subdivision method",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Level",
+"Level",
+"INT",
+"NodeSocketInt"
+],
+[
+"Edge Crease",
+"Edge Crease",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Vertex Crease",
+"Vertex Crease",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Limit Surface",
+"Limit Surface",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Subdivision Surface",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"boundary_smooth": [
+"PRESERVE_CORNERS",
+"ALL"
+],
+"uv_smooth": [
+"NONE",
+"PRESERVE_CORNERS",
+"PRESERVE_CORNERS_AND_JUNCTIONS",
+"PRESERVE_CORNERS_JUNCTIONS_AND_CONCAVE",
+"PRESERVE_BOUNDARIES",
+"SMOOTH_ALL"
+]
+}
+},
+"GeometryNodeSwitch": {
+"desc": "Switch between two inputs",
+"in": [
+[
+"Switch",
+"Switch",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"False",
+"False",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"True",
+"True",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"label": "Switch",
+"out": [
+[
+"Output",
+"Output",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"input_type": [
+"FLOAT",
+"INT",
+"BOOLEAN",
+"VECTOR",
+"ROTATION",
+"MATRIX",
+"STRING",
+"MENU",
+"RGBA",
+"OBJECT",
+"IMAGE",
+"GEOMETRY",
+"COLLECTION",
+"TEXTURE",
+"MATERIAL",
+"BUNDLE",
+"CLOSURE"
+]
+}
+},
+"GeometryNodeTool3DCursor": {
+"desc": "The scene's 3D cursor location and rotation",
+"in": [],
+"label": "3D Cursor",
+"out": [
+[
+"Location",
+"Location",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+]
+},
+"GeometryNodeToolActiveElement": {
+"desc": "Active element indices of the edited geometry, for tool execution",
+"in": [],
+"label": "Active Element",
+"out": [
+[
+"Index",
+"Index",
+"INT",
+"NodeSocketInt"
+],
+[
+"Exists",
+"Exists",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"LAYER"
+]
+}
+},
+"GeometryNodeToolFaceSet": {
+"desc": "Each face's sculpt face set value",
+"in": [],
+"label": "Face Set",
+"out": [
+[
+"Face Set",
+"Face Set",
+"INT",
+"NodeSocketInt"
+],
+[
+"Exists",
+"Exists",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeToolMousePosition": {
+"desc": "Retrieve the position of the mouse cursor",
+"in": [],
+"label": "Mouse Position",
+"out": [
+[
+"Mouse X",
+"Mouse X",
+"INT",
+"NodeSocketInt"
+],
+[
+"Mouse Y",
+"Mouse Y",
+"INT",
+"NodeSocketInt"
+],
+[
+"Region Width",
+"Region Width",
+"INT",
+"NodeSocketInt"
+],
+[
+"Region Height",
+"Region Height",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeToolSelection": {
+"desc": "User selection of the edited geometry, for tool execution",
+"in": [],
+"label": "Selection",
+"out": [
+[
+"Boolean",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Float",
+"Float",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"GeometryNodeToolSetFaceSet": {
+"desc": "Set sculpt face set values for faces",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Face Set",
+"Face Set",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Set Face Set",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeToolSetSelection": {
+"desc": "Set selection of the edited geometry, for tool execution",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Set Selection",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"domain": [
+"POINT",
+"EDGE",
+"FACE",
+"CURVE"
+],
+"selection_type": [
+"BOOLEAN",
+"FLOAT"
+]
+}
+},
+"GeometryNodeTransform": {
+"desc": "Translate, rotate or scale the geometry",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Translation",
+"Translation",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Rotation",
+"Rotation",
+"ROTATION",
+"NodeSocketRotation"
+],
+[
+"Scale",
+"Scale",
+"VECTOR",
+"NodeSocketVectorXYZ"
+],
+[
+"Transform",
+"Transform",
+"MATRIX",
+"NodeSocketMatrix"
+]
+],
+"label": "Transform Geometry",
+"out": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"COMPONENTS",
+"MATRIX"
+]
+}
+},
+"GeometryNodeTranslateInstances": {
+"desc": "Move top-level geometry instances in local or global space",
+"in": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Translation",
+"Translation",
+"VECTOR",
+"NodeSocketVectorTranslation"
+],
+[
+"Local Space",
+"Local Space",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Translate Instances",
+"out": [
+[
+"Instances",
+"Instances",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeTriangulate": {
+"desc": "Convert all faces in a mesh to triangular faces",
+"in": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Triangulate",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"ngon_method": [
+"BEAUTY",
+"CLIP"
+],
+"quad_method": [
+"BEAUTY",
+"FIXED",
+"FIXED_ALTERNATE",
+"SHORTEST_DIAGONAL",
+"LONGEST_DIAGONAL"
+]
+}
+},
+"GeometryNodeTrimCurve": {
+"desc": "Shorten curves by removing portions at the start or end",
+"in": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Start",
+"Start",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"End",
+"End",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Start",
+"Start_001",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"End",
+"End_001",
+"VALUE",
+"NodeSocketFloatDistance"
+]
+],
+"label": "Trim Curve",
+"out": [
+[
+"Curve",
+"Curve",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"mode": [
+"FACTOR",
+"LENGTH"
+]
+}
+},
+"GeometryNodeUVPackIslands": {
+"desc": "Scale islands of a UV map and move them so they fill the UV space as much as possible",
+"in": [
+[
+"UV",
+"UV",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Margin",
+"Margin",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Rotate",
+"Rotate",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "Pack UV Islands",
+"out": [
+[
+"UV",
+"UV",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"GeometryNodeUVUnwrap": {
+"desc": "Generate a UV map based on seam edges",
+"in": [
+[
+"Selection",
+"Selection",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Seam",
+"Seam",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Margin",
+"Margin",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Fill Holes",
+"Fill Holes",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"label": "UV Unwrap",
+"out": [
+[
+"UV",
+"UV",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"props": {
+"method": [
+"ANGLE_BASED",
+"CONFORMAL"
+]
+}
+},
+"GeometryNodeVertexOfCorner": {
+"desc": "Retrieve the vertex each face corner is attached to",
+"in": [
+[
+"Corner Index",
+"Corner Index",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Vertex of Corner",
+"out": [
+[
+"Vertex Index",
+"Vertex Index",
+"INT",
+"NodeSocketInt"
+]
+]
+},
+"GeometryNodeViewer": {
+"desc": "Display the input data in the Spreadsheet Editor",
+"in": [
+[
+"Geometry",
+"Geometry",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Viewer",
+"out": [],
+"props": {
+"data_type": [
+"FLOAT",
+"INT",
+"FLOAT_VECTOR",
+"FLOAT_COLOR",
+"BYTE_COLOR",
+"STRING",
+"BOOLEAN",
+"FLOAT2",
+"INT8",
+"INT16_2D",
+"INT32_2D",
+"QUATERNION",
+"FLOAT4X4"
+],
+"domain": [
+"AUTO",
+"POINT",
+"EDGE",
+"FACE",
+"CORNER",
+"CURVE",
+"INSTANCE",
+"LAYER"
+],
+"ui_shortcut": "INT"
+}
+},
+"GeometryNodeViewportTransform": {
+"desc": "Retrieve the view direction and location of the 3D viewport",
+"in": [],
+"label": "Viewport Transform",
+"out": [
+[
+"Projection",
+"Projection",
+"MATRIX",
+"NodeSocketMatrix"
+],
+[
+"View",
+"View",
+"MATRIX",
+"NodeSocketMatrix"
+],
+[
+"Is Orthographic",
+"Is Orthographic",
+"BOOLEAN",
+"NodeSocketBool"
+]
+]
+},
+"GeometryNodeVolumeCube": {
+"desc": "Generate a dense volume with a field that controls the density at each grid voxel based on its position",
+"in": [
+[
+"Density",
+"Density",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Background",
+"Background",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Min",
+"Min",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Max",
+"Max",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Resolution X",
+"Resolution X",
+"INT",
+"NodeSocketInt"
+],
+[
+"Resolution Y",
+"Resolution Y",
+"INT",
+"NodeSocketInt"
+],
+[
+"Resolution Z",
+"Resolution Z",
+"INT",
+"NodeSocketInt"
+]
+],
+"label": "Volume Cube",
+"out": [
+[
+"Volume",
+"Volume",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+]
+},
+"GeometryNodeVolumeToMesh": {
+"desc": "Generate a mesh on the \"surface\" of a volume",
+"in": [
+[
+"Volume",
+"Volume",
+"GEOMETRY",
+"NodeSocketGeometry"
+],
+[
+"Voxel Size",
+"Voxel Size",
+"VALUE",
+"NodeSocketFloatDistance"
+],
+[
+"Voxel Amount",
+"Voxel Amount",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Threshold",
+"Threshold",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Adaptivity",
+"Adaptivity",
+"VALUE",
+"NodeSocketFloatFactor"
+]
+],
+"label": "Volume to Mesh",
+"out": [
+[
+"Mesh",
+"Mesh",
+"GEOMETRY",
+"NodeSocketGeometry"
+]
+],
+"props": {
+"resolution_mode": [
+"GRID",
+"VOXEL_AMOUNT",
+"VOXEL_SIZE"
+]
+}
+},
+"GeometryNodeWarning": {
+"desc": "Create custom warnings in node groups",
+"in": [
+[
+"Show",
+"Show",
+"BOOLEAN",
+"NodeSocketBool"
+],
+[
+"Message",
+"Message",
+"STRING",
+"NodeSocketString"
+]
+],
+"label": "Warning",
+"out": [
+[
+"Show",
+"Show",
+"BOOLEAN",
+"NodeSocketBool"
+]
+],
+"props": {
+"warning_type": [
+"ERROR",
+"WARNING",
+"INFO"
+]
+}
+},
+"NodeFrame": {
+"desc": "Collect related nodes together in a common area. Useful for organization when the re-usability of a node group is not required",
+"in": [],
+"label": "Frame",
+"out": [],
+"props": {
+"label_size": "INT",
+"shrink": "BOOLEAN"
+}
+},
+"NodeGroupInput": {
+"desc": "Expose connected data from inside a node group as inputs to its interface",
+"in": [],
+"label": "Group Input",
+"out": [
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+]
+},
+"NodeGroupOutput": {
+"desc": "Output data from inside of a node group",
+"in": [
+[
+"",
+"__extend__",
+"CUSTOM",
+"NodeSocketVirtual"
+]
+],
+"label": "Group Output",
+"out": [],
+"props": {
+"is_active_output": "BOOLEAN"
+}
+},
+"NodeReroute": {
+"desc": "A single-socket organization tool that supports one input and multiple outputs",
+"in": [
+[
+"Input",
+"Input",
+"RGBA",
+"NodeSocketColor"
+]
+],
+"label": "Reroute",
+"out": [
+[
+"Output",
+"Output",
+"RGBA",
+"NodeSocketColor"
+]
+],
+"props": {
+"socket_idname": "STRING"
+}
+},
+"ShaderNodeBlackbody": {
+"desc": "Convert a blackbody temperature to an RGB value",
+"in": [
+[
+"Temperature",
+"Temperature",
+"VALUE",
+"NodeSocketFloatColorTemperature"
+]
+],
+"label": "Blackbody",
+"out": [
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+]
+]
+},
+"ShaderNodeClamp": {
+"desc": "Clamp a value between a minimum and a maximum",
+"in": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Min",
+"Min",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Max",
+"Max",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Clamp",
+"out": [
+[
+"Result",
+"Result",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"clamp_type": [
+"MINMAX",
+"RANGE"
+]
+}
+},
+"ShaderNodeCombineRGB": {
+"desc": "Deprecated",
+"in": [
+[
+"R",
+"R",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"G",
+"G",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"B",
+"B",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Combine RGB (Legacy)",
+"out": [
+[
+"Image",
+"Image",
+"RGBA",
+"NodeSocketColor"
+]
+]
+},
+"ShaderNodeCombineXYZ": {
+"desc": "Create a vector from X, Y, and Z components",
+"in": [
+[
+"X",
+"X",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Y",
+"Y",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Z",
+"Z",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Combine XYZ",
+"out": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"ShaderNodeFloatCurve": {
+"desc": "Map an input float to a curve and outputs a float value",
+"in": [
+[
+"Factor",
+"Factor",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Float Curve",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"ShaderNodeMapRange": {
+"desc": "Remap a value from a range to a target range",
+"in": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"From Min",
+"From Min",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"From Max",
+"From Max",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"To Min",
+"To Min",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"To Max",
+"To Max",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Steps",
+"Steps",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"From Min",
+"From_Min_FLOAT3",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"From Max",
+"From_Max_FLOAT3",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"To Min",
+"To_Min_FLOAT3",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"To Max",
+"To_Max_FLOAT3",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Steps",
+"Steps_FLOAT3",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"label": "Map Range",
+"out": [
+[
+"Result",
+"Result",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"props": {
+"clamp": "BOOLEAN",
+"data_type": [
+"FLOAT",
+"FLOAT_VECTOR"
+],
+"interpolation_type": [
+"LINEAR",
+"STEPPED",
+"SMOOTHSTEP",
+"SMOOTHERSTEP"
+]
+}
+},
+"ShaderNodeMath": {
+"desc": "Perform math operations",
+"in": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Value",
+"Value_001",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Value",
+"Value_002",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Math",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"operation": [
+"ADD",
+"SUBTRACT",
+"MULTIPLY",
+"DIVIDE",
+"MULTIPLY_ADD",
+"POWER",
+"LOGARITHM",
+"SQRT",
+"INVERSE_SQRT",
+"ABSOLUTE",
+"EXPONENT",
+"MINIMUM",
+"MAXIMUM",
+"LESS_THAN",
+"GREATER_THAN",
+"SIGN",
+"COMPARE",
+"SMOOTH_MIN",
+"SMOOTH_MAX",
+"ROUND",
+"FLOOR",
+"CEIL",
+"TRUNC",
+"FRACT",
+"MODULO",
+"FLOORED_MODULO",
+"WRAP",
+"SNAP",
+"PINGPONG",
+"SINE",
+"COSINE",
+"TANGENT",
+"ARCSINE",
+"ARCCOSINE",
+"ARCTANGENT",
+"ARCTAN2",
+"SINH",
+"COSH",
+"TANH",
+"RADIANS",
+"DEGREES"
+],
+"use_clamp": "BOOLEAN"
+}
+},
+"ShaderNodeMix": {
+"desc": "Mix values by a factor",
+"in": [
+[
+"Factor",
+"Factor_Float",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Factor",
+"Factor_Vector",
+"VECTOR",
+"NodeSocketVectorFactor"
+],
+[
+"A",
+"A_Float",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"B",
+"B_Float",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"A",
+"A_Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"B",
+"B_Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"A",
+"A_Color",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"B",
+"B_Color",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"A",
+"A_Rotation",
+"ROTATION",
+"NodeSocketRotation"
+],
+[
+"B",
+"B_Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"label": "Mix",
+"out": [
+[
+"Result",
+"Result_Float",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Result",
+"Result_Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Result",
+"Result_Color",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Result",
+"Result_Rotation",
+"ROTATION",
+"NodeSocketRotation"
+]
+],
+"props": {
+"blend_type": [
+"MIX",
+"DARKEN",
+"MULTIPLY",
+"BURN",
+"LIGHTEN",
+"SCREEN",
+"DODGE",
+"ADD",
+"OVERLAY",
+"SOFT_LIGHT",
+"LINEAR_LIGHT",
+"DIFFERENCE",
+"EXCLUSION",
+"SUBTRACT",
+"DIVIDE",
+"HUE",
+"SATURATION",
+"COLOR",
+"VALUE"
+],
+"clamp_factor": "BOOLEAN",
+"clamp_result": "BOOLEAN",
+"data_type": [
+"FLOAT",
+"VECTOR",
+"RGBA",
+"ROTATION"
+],
+"factor_mode": [
+"UNIFORM",
+"NON_UNIFORM"
+]
+}
+},
+"ShaderNodeMixRGB": {
+"desc": "Mix two input colors",
+"in": [
+[
+"Fac",
+"Fac",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Color1",
+"Color1",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Color2",
+"Color2",
+"RGBA",
+"NodeSocketColor"
+]
+],
+"label": "Mix (Legacy)",
+"out": [
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+]
+],
+"props": {
+"blend_type": [
+"MIX",
+"DARKEN",
+"MULTIPLY",
+"BURN",
+"LIGHTEN",
+"SCREEN",
+"DODGE",
+"ADD",
+"OVERLAY",
+"SOFT_LIGHT",
+"LINEAR_LIGHT",
+"DIFFERENCE",
+"EXCLUSION",
+"SUBTRACT",
+"DIVIDE",
+"HUE",
+"SATURATION",
+"COLOR",
+"VALUE"
+],
+"use_alpha": "BOOLEAN",
+"use_clamp": "BOOLEAN"
+}
+},
+"ShaderNodeRGBCurve": {
+"desc": "Apply color corrections for each color channel",
+"in": [
+[
+"Fac",
+"Fac",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+]
+],
+"label": "RGB Curves",
+"out": [
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+]
+]
+},
+"ShaderNodeSeparateRGB": {
+"desc": "Deprecated",
+"in": [
+[
+"Image",
+"Image",
+"RGBA",
+"NodeSocketColor"
+]
+],
+"label": "Separate RGB (Legacy)",
+"out": [
+[
+"R",
+"R",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"G",
+"G",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"B",
+"B",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"ShaderNodeSeparateXYZ": {
+"desc": "Split a vector into its X, Y, and Z components",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"label": "Separate XYZ",
+"out": [
+[
+"X",
+"X",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Y",
+"Y",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Z",
+"Z",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"ShaderNodeTexBrick": {
+"desc": "Generate a procedural texture producing bricks",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Color1",
+"Color1",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Color2",
+"Color2",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Mortar",
+"Mortar",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Scale",
+"Scale",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Mortar Size",
+"Mortar Size",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Mortar Smooth",
+"Mortar Smooth",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Bias",
+"Bias",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Brick Width",
+"Brick Width",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Row Height",
+"Row Height",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Brick Texture",
+"out": [
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Fac",
+"Fac",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"offset": "FLOAT",
+"offset_frequency": "INT",
+"squash": "FLOAT",
+"squash_frequency": "INT"
+}
+},
+"ShaderNodeTexChecker": {
+"desc": "Generate a checkerboard texture",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Color1",
+"Color1",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Color2",
+"Color2",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Scale",
+"Scale",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Checker Texture",
+"out": [
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Fac",
+"Fac",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"ShaderNodeTexGabor": {
+"desc": "Generate Gabor noise",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Scale",
+"Scale",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Frequency",
+"Frequency",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Anisotropy",
+"Anisotropy",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Orientation",
+"Orientation 2D",
+"VALUE",
+"NodeSocketFloatAngle"
+],
+[
+"Orientation",
+"Orientation 3D",
+"VECTOR",
+"NodeSocketVectorDirection"
+]
+],
+"label": "Gabor Texture",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Phase",
+"Phase",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Intensity",
+"Intensity",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"gabor_type": [
+"2D",
+"3D"
+]
+}
+},
+"ShaderNodeTexGradient": {
+"desc": "Generate interpolated color and intensity values based on the input vector",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"label": "Gradient Texture",
+"out": [
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Fac",
+"Fac",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"gradient_type": [
+"LINEAR",
+"QUADRATIC",
+"EASING",
+"DIAGONAL",
+"SPHERICAL",
+"QUADRATIC_SPHERE",
+"RADIAL"
+]
+}
+},
+"ShaderNodeTexMagic": {
+"desc": "Generate a psychedelic color texture",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Scale",
+"Scale",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Distortion",
+"Distortion",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Magic Texture",
+"out": [
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Fac",
+"Fac",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"turbulence_depth": "INT"
+}
+},
+"ShaderNodeTexNoise": {
+"desc": "Generate fractal Perlin noise",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"W",
+"W",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Scale",
+"Scale",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Detail",
+"Detail",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Roughness",
+"Roughness",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Lacunarity",
+"Lacunarity",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Offset",
+"Offset",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Gain",
+"Gain",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Distortion",
+"Distortion",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Noise Texture",
+"out": [
+[
+"Fac",
+"Fac",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+]
+],
+"props": {
+"noise_dimensions": [
+"1D",
+"2D",
+"3D",
+"4D"
+],
+"noise_type": [
+"MULTIFRACTAL",
+"RIDGED_MULTIFRACTAL",
+"HYBRID_MULTIFRACTAL",
+"FBM",
+"HETERO_TERRAIN"
+],
+"normalize": "BOOLEAN"
+}
+},
+"ShaderNodeTexVoronoi": {
+"desc": "Generate Worley noise based on the distance to random points. Typically used to generate textures such as stones, water, or biological cells",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"W",
+"W",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Scale",
+"Scale",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Detail",
+"Detail",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Roughness",
+"Roughness",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Lacunarity",
+"Lacunarity",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Smoothness",
+"Smoothness",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Exponent",
+"Exponent",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Randomness",
+"Randomness",
+"VALUE",
+"NodeSocketFloatFactor"
+]
+],
+"label": "Voronoi Texture",
+"out": [
+[
+"Distance",
+"Distance",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Position",
+"Position",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"W",
+"W",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Radius",
+"Radius",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"distance": [
+"EUCLIDEAN",
+"MANHATTAN",
+"CHEBYCHEV",
+"MINKOWSKI"
+],
+"feature": [
+"F1",
+"F2",
+"SMOOTH_F1",
+"DISTANCE_TO_EDGE",
+"N_SPHERE_RADIUS"
+],
+"normalize": "BOOLEAN",
+"voronoi_dimensions": [
+"1D",
+"2D",
+"3D",
+"4D"
+]
+}
+},
+"ShaderNodeTexWave": {
+"desc": "Generate procedural bands or rings with noise",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Scale",
+"Scale",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Distortion",
+"Distortion",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Detail",
+"Detail",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Detail Scale",
+"Detail Scale",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Detail Roughness",
+"Detail Roughness",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Phase Offset",
+"Phase Offset",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Wave Texture",
+"out": [
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Fac",
+"Fac",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"bands_direction": [
+"X",
+"Y",
+"Z",
+"DIAGONAL"
+],
+"rings_direction": [
+"X",
+"Y",
+"Z",
+"SPHERICAL"
+],
+"wave_profile": [
+"SIN",
+"SAW",
+"TRI"
+],
+"wave_type": [
+"BANDS",
+"RINGS"
+]
+}
+},
+"ShaderNodeTexWhiteNoise": {
+"desc": "Return a random value or color based on an input seed",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"W",
+"W",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "White Noise Texture",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+],
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+]
+],
+"props": {
+"noise_dimensions": [
+"1D",
+"2D",
+"3D",
+"4D"
+]
+}
+},
+"ShaderNodeValToRGB": {
+"desc": "Map values to colors with the use of a gradient",
+"in": [
+[
+"Fac",
+"Fac",
+"VALUE",
+"NodeSocketFloatFactor"
+]
+],
+"label": "Color Ramp",
+"out": [
+[
+"Color",
+"Color",
+"RGBA",
+"NodeSocketColor"
+],
+[
+"Alpha",
+"Alpha",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"ShaderNodeValue": {
+"desc": "Input numerical values to other nodes in the tree",
+"in": [],
+"label": "Value",
+"out": [
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+]
+},
+"ShaderNodeVectorCurve": {
+"desc": "Map input vector components with curves",
+"in": [
+[
+"Fac",
+"Fac",
+"VALUE",
+"NodeSocketFloatFactor"
+],
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"label": "Vector Curves",
+"out": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+]
+]
+},
+"ShaderNodeVectorMath": {
+"desc": "Perform vector math operation",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Vector",
+"Vector_001",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Vector",
+"Vector_002",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Scale",
+"Scale",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"label": "Vector Math",
+"out": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Value",
+"Value",
+"VALUE",
+"NodeSocketFloat"
+]
+],
+"props": {
+"operation": [
+"ADD",
+"SUBTRACT",
+"MULTIPLY",
+"DIVIDE",
+"MULTIPLY_ADD",
+"CROSS_PRODUCT",
+"PROJECT",
+"REFLECT",
+"REFRACT",
+"FACEFORWARD",
+"DOT_PRODUCT",
+"DISTANCE",
+"LENGTH",
+"SCALE",
+"NORMALIZE",
+"ABSOLUTE",
+"POWER",
+"SIGN",
+"MINIMUM",
+"MAXIMUM",
+"FLOOR",
+"CEIL",
+"FRACTION",
+"MODULO",
+"WRAP",
+"SNAP",
+"SINE",
+"COSINE",
+"TANGENT"
+]
+}
+},
+"ShaderNodeVectorRotate": {
+"desc": "Rotate a vector around a pivot point (center)",
+"in": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Center",
+"Center",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Axis",
+"Axis",
+"VECTOR",
+"NodeSocketVector"
+],
+[
+"Angle",
+"Angle",
+"VALUE",
+"NodeSocketFloatAngle"
+],
+[
+"Rotation",
+"Rotation",
+"VECTOR",
+"NodeSocketVectorEuler"
+]
+],
+"label": "Vector Rotate",
+"out": [
+[
+"Vector",
+"Vector",
+"VECTOR",
+"NodeSocketVector"
+]
+],
+"props": {
+"invert": "BOOLEAN",
+"rotation_type": [
+"AXIS_ANGLE",
+"X_AXIS",
+"Y_AXIS",
+"Z_AXIS",
+"EULER_XYZ"
+]
+}
+}
+},
+"tree_type": "GeometryNodeTree"
+}

@@ -2,37 +2,39 @@
 
 Overwrite this file on every agent switch. It is not a history log — Git holds history. When the task is finished, clear or overwrite with an empty template.
 
-**Task:** Issue #10 first slice — self-contained agent governance files (AGENTS, PRODUCT, CURRENT, HANDOFF, learnings).
+**Task:** Issue #10 second slice — public skill and plugin validation (tools, node dumps, pytest, inventory).
 
 **Done:**
 
-- New clone of public `main` at `a8de11f`.
-- Branch `issue-10-github-primary` created on that clone.
-- Issue #2 was locally integrated into the old development source and closed with a public factual comment; Issues #3/#4/#5 were merged into public main through PR #7/#8/#9 and closed.
-- Five governance files added in this slice.
+- Node dumps, TSV generator, review file, and dump helpers committed under `docs/node-dumps/` and `tools/`.
+- Skill, runtime-script, field-shape, TSV, and static plugin-package tests under `tests/`.
+- `requirements-dev.txt` (pytest) and documented `python -m pytest tests -q` plus `python tools/gen_nodes_tsv.py --check`.
+- `docs/research/github-primary-inventory.md` records migrated vs historical vs excluded surfaces.
 
 **Not done:**
 
-- Tests/tools inventory for what must live in public git.
-- Retirement of old dual-authority / sync process (no deletion of any old tree).
-- Fresh-clone acceptance of skill, plugin, and live read-only.
-- PR for this slice (commit locally only unless the user asks to push).
+- Fresh-clone acceptance on a machine that has only this repository.
+- Host plugin validation (JSON tests are static only).
+- Live read-only Blender check through this clone.
+- Final GitHub-primary authority declaration; Issue #10 remains open.
+- PR / push (commit locally only unless the user asks).
 
 **Files touched:**
 
-- `AGENTS.md`
-- `docs/PRODUCT.md`
-- `docs/CURRENT.md`
-- `docs/HANDOFF.md`
-- `docs/learnings.md`
+- `tools/` (`gen_nodes_tsv.py`, `nodes_tsv_review.json`, `introspect_nodes.py`, `dump_tsv_evidence.py`)
+- `docs/node-dumps/`
+- `tests/` including `test_plugin_package.py` and `golden/run_skill_runtime_scripts.py`
+- `requirements-dev.txt`
+- `docs/research/github-primary-inventory.md`
+- `docs/CURRENT.md`, `docs/HANDOFF.md`, `AGENTS.md`
 
 **Risks / landmines:**
 
-- Do not copy old dual-authority, release-copy, or sync-release rules into these files.
+- Do not claim Issue #10 or GitHub-primary cutover complete.
 - Do not delete or instruct deletion of any old local repo.
-- Do not claim unverified hosts (new VM, Claude, Pi) or plugin end-to-end mutation/image as done.
-- Do not announce GitHub-primary migration complete; CURRENT still says in progress.
+- Do not restore dual-authority or release-sync process.
+- Static plugin tests do not prove live host discovery.
 
-**Next action:** Independent review is complete; next push branch and open the first Issue #10 PR; inventory/tests/tools remain later slices.
+**Next action:** Independent review of this slice; later slices prove fresh clone, plugin host, and live read-only before any authority cutover.
 
 **Last verified:** 2026-09-27

@@ -50,7 +50,15 @@ For non-trivial implement work, before coding:
 
 When the user changes direction, update `docs/CURRENT.md` first, then continue.
 
-There is no accepted unified public test command in this repository. Do not invent unverified test, build, or install commands.
+Public development checks for this repository:
+
+```bash
+pip install -r requirements-dev.txt
+python -m pytest tests -q
+python tools/gen_nodes_tsv.py --check
+```
+
+Those commands cover committed skill, TSV, and plugin-JSON tests. They do not prove live host plugin discovery or live Blender behavior. Do not invent additional unverified test, build, or install commands.
 
 ## Handoff and one editor
 

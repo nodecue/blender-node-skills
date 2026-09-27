@@ -1,0 +1,5934 @@
+{
+ "blender": "5.1.2",
+ "creatable": 333,
+ "field_shapes": {
+  "FunctionNodeAlignEulerToVector": {
+   "in": {
+    "Factor": "CIRCLE",
+    "Rotation": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Rotation": "CIRCLE"
+   }
+  },
+  "FunctionNodeAlignRotationToVector": {
+   "in": {
+    "Factor": "CIRCLE",
+    "Rotation": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Rotation": "CIRCLE"
+   }
+  },
+  "FunctionNodeAxesToRotation": {
+   "in": {
+    "Primary Axis": "CIRCLE",
+    "Secondary Axis": "CIRCLE"
+   },
+   "out": {
+    "Rotation": "CIRCLE"
+   }
+  },
+  "FunctionNodeAxisAngleToRotation": {
+   "in": {
+    "Angle": "CIRCLE",
+    "Axis": "CIRCLE"
+   },
+   "out": {
+    "Rotation": "CIRCLE"
+   }
+  },
+  "FunctionNodeBitMath": {
+   "in": {
+    "A": "CIRCLE",
+    "B": "CIRCLE",
+    "Shift": "CIRCLE"
+   },
+   "out": {
+    "Value": "CIRCLE"
+   }
+  },
+  "FunctionNodeBooleanMath": {
+   "in": {
+    "Boolean": "CIRCLE",
+    "Boolean_001": "CIRCLE"
+   },
+   "out": {
+    "Boolean": "CIRCLE"
+   }
+  },
+  "FunctionNodeCombineColor": {
+   "in": {
+    "Alpha": "CIRCLE",
+    "Blue": "CIRCLE",
+    "Green": "CIRCLE",
+    "Red": "CIRCLE"
+   },
+   "out": {
+    "Color": "CIRCLE"
+   }
+  },
+  "FunctionNodeCombineMatrix": {
+   "in": {
+    "Column 1 Row 1": "CIRCLE",
+    "Column 1 Row 2": "CIRCLE",
+    "Column 1 Row 3": "CIRCLE",
+    "Column 1 Row 4": "CIRCLE",
+    "Column 2 Row 1": "CIRCLE",
+    "Column 2 Row 2": "CIRCLE",
+    "Column 2 Row 3": "CIRCLE",
+    "Column 2 Row 4": "CIRCLE",
+    "Column 3 Row 1": "CIRCLE",
+    "Column 3 Row 2": "CIRCLE",
+    "Column 3 Row 3": "CIRCLE",
+    "Column 3 Row 4": "CIRCLE",
+    "Column 4 Row 1": "CIRCLE",
+    "Column 4 Row 2": "CIRCLE",
+    "Column 4 Row 3": "CIRCLE",
+    "Column 4 Row 4": "CIRCLE"
+   },
+   "out": {
+    "Matrix": "CIRCLE"
+   }
+  },
+  "FunctionNodeCombineTransform": {
+   "in": {
+    "Rotation": "CIRCLE",
+    "Scale": "CIRCLE",
+    "Translation": "CIRCLE"
+   },
+   "out": {
+    "Transform": "CIRCLE"
+   }
+  },
+  "FunctionNodeCompare": {
+   "in": {
+    "A": "CIRCLE",
+    "A_COL": "CIRCLE",
+    "A_INT": "CIRCLE",
+    "A_STR": "CIRCLE",
+    "A_VEC3": "CIRCLE",
+    "Angle": "CIRCLE",
+    "B": "CIRCLE",
+    "B_COL": "CIRCLE",
+    "B_INT": "CIRCLE",
+    "B_STR": "CIRCLE",
+    "B_VEC3": "CIRCLE",
+    "C": "CIRCLE",
+    "Epsilon": "CIRCLE"
+   },
+   "out": {
+    "Result": "CIRCLE"
+   }
+  },
+  "FunctionNodeEulerToRotation": {
+   "in": {
+    "Euler": "CIRCLE"
+   },
+   "out": {
+    "Rotation": "CIRCLE"
+   }
+  },
+  "FunctionNodeFindInString": {
+   "in": {
+    "Search": "LINE",
+    "String": "LINE"
+   },
+   "out": {
+    "Count": "LINE",
+    "First Found": "LINE"
+   }
+  },
+  "FunctionNodeFloatToInt": {
+   "in": {
+    "Float": "CIRCLE"
+   },
+   "out": {
+    "Integer": "CIRCLE"
+   }
+  },
+  "FunctionNodeFormatString": {
+   "in": {
+    "Format": "CIRCLE"
+   },
+   "out": {
+    "String": "CIRCLE"
+   }
+  },
+  "FunctionNodeHashValue": {
+   "in": {
+    "Seed": "CIRCLE",
+    "Value": "CIRCLE"
+   },
+   "out": {
+    "Hash": "CIRCLE"
+   }
+  },
+  "FunctionNodeInputBool": {
+   "in": {},
+   "out": {
+    "Boolean": "LINE"
+   }
+  },
+  "FunctionNodeInputColor": {
+   "in": {},
+   "out": {
+    "Color": "LINE"
+   }
+  },
+  "FunctionNodeInputInt": {
+   "in": {},
+   "out": {
+    "Integer": "LINE"
+   }
+  },
+  "FunctionNodeInputRotation": {
+   "in": {},
+   "out": {
+    "Rotation": "LINE"
+   }
+  },
+  "FunctionNodeInputSpecialCharacters": {
+   "in": {},
+   "out": {
+    "Line Break": "LINE",
+    "Tab": "LINE"
+   }
+  },
+  "FunctionNodeInputString": {
+   "in": {},
+   "out": {
+    "String": "CIRCLE"
+   }
+  },
+  "FunctionNodeInputVector": {
+   "in": {},
+   "out": {
+    "Vector": "LINE"
+   }
+  },
+  "FunctionNodeIntegerMath": {
+   "in": {
+    "Value": "CIRCLE",
+    "Value_001": "CIRCLE",
+    "Value_002": "CIRCLE"
+   },
+   "out": {
+    "Value": "CIRCLE"
+   }
+  },
+  "FunctionNodeInvertMatrix": {
+   "in": {
+    "Matrix": "CIRCLE"
+   },
+   "out": {
+    "Invertible": "CIRCLE",
+    "Matrix": "CIRCLE"
+   }
+  },
+  "FunctionNodeInvertRotation": {
+   "in": {
+    "Rotation": "CIRCLE"
+   },
+   "out": {
+    "Rotation": "CIRCLE"
+   }
+  },
+  "FunctionNodeMatchString": {
+   "in": {
+    "Key": "LINE",
+    "Operation": "LINE",
+    "String": "LINE"
+   },
+   "out": {
+    "Result": "LINE"
+   }
+  },
+  "FunctionNodeMatrixDeterminant": {
+   "in": {
+    "Matrix": "CIRCLE"
+   },
+   "out": {
+    "Determinant": "CIRCLE"
+   }
+  },
+  "FunctionNodeMatrixMultiply": {
+   "in": {
+    "Matrix": "CIRCLE",
+    "Matrix_001": "CIRCLE"
+   },
+   "out": {
+    "Matrix": "CIRCLE"
+   }
+  },
+  "FunctionNodeMatrixSVD": {
+   "in": {
+    "Matrix": "CIRCLE"
+   },
+   "out": {
+    "S": "CIRCLE",
+    "U": "CIRCLE",
+    "V": "CIRCLE"
+   }
+  },
+  "FunctionNodeProjectPoint": {
+   "in": {
+    "Transform": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Vector": "CIRCLE"
+   }
+  },
+  "FunctionNodeQuaternionToRotation": {
+   "in": {
+    "W": "CIRCLE",
+    "X": "CIRCLE",
+    "Y": "CIRCLE",
+    "Z": "CIRCLE"
+   },
+   "out": {
+    "Rotation": "CIRCLE"
+   }
+  },
+  "FunctionNodeRandomValue": {
+   "in": {
+    "ID": "CIRCLE",
+    "Max": "CIRCLE",
+    "Max_001": "CIRCLE",
+    "Max_002": "CIRCLE",
+    "Min": "CIRCLE",
+    "Min_001": "CIRCLE",
+    "Min_002": "CIRCLE",
+    "Probability": "CIRCLE",
+    "Seed": "CIRCLE"
+   },
+   "out": {
+    "Value": "CIRCLE",
+    "Value_001": "CIRCLE",
+    "Value_002": "CIRCLE",
+    "Value_003": "CIRCLE"
+   }
+  },
+  "FunctionNodeReplaceString": {
+   "in": {
+    "Find": "LINE",
+    "Replace": "LINE",
+    "String": "LINE"
+   },
+   "out": {
+    "String": "LINE"
+   }
+  },
+  "FunctionNodeRotateEuler": {
+   "in": {
+    "Angle": "CIRCLE",
+    "Axis": "CIRCLE",
+    "Rotate By": "CIRCLE",
+    "Rotation": "CIRCLE"
+   },
+   "out": {
+    "Rotation": "CIRCLE"
+   }
+  },
+  "FunctionNodeRotateRotation": {
+   "in": {
+    "Rotate By": "CIRCLE",
+    "Rotation": "CIRCLE"
+   },
+   "out": {
+    "Rotation": "CIRCLE"
+   }
+  },
+  "FunctionNodeRotateVector": {
+   "in": {
+    "Rotation": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Vector": "CIRCLE"
+   }
+  },
+  "FunctionNodeRotationToAxisAngle": {
+   "in": {
+    "Rotation": "CIRCLE"
+   },
+   "out": {
+    "Angle": "CIRCLE",
+    "Axis": "CIRCLE"
+   }
+  },
+  "FunctionNodeRotationToEuler": {
+   "in": {
+    "Rotation": "CIRCLE"
+   },
+   "out": {
+    "Euler": "CIRCLE"
+   }
+  },
+  "FunctionNodeRotationToQuaternion": {
+   "in": {
+    "Rotation": "CIRCLE"
+   },
+   "out": {
+    "W": "CIRCLE",
+    "X": "CIRCLE",
+    "Y": "CIRCLE",
+    "Z": "CIRCLE"
+   }
+  },
+  "FunctionNodeSeparateColor": {
+   "in": {
+    "Color": "CIRCLE"
+   },
+   "out": {
+    "Alpha": "CIRCLE",
+    "Blue": "CIRCLE",
+    "Green": "CIRCLE",
+    "Red": "CIRCLE"
+   }
+  },
+  "FunctionNodeSeparateMatrix": {
+   "in": {
+    "Matrix": "CIRCLE"
+   },
+   "out": {
+    "Column 1 Row 1": "CIRCLE",
+    "Column 1 Row 2": "CIRCLE",
+    "Column 1 Row 3": "CIRCLE",
+    "Column 1 Row 4": "CIRCLE",
+    "Column 2 Row 1": "CIRCLE",
+    "Column 2 Row 2": "CIRCLE",
+    "Column 2 Row 3": "CIRCLE",
+    "Column 2 Row 4": "CIRCLE",
+    "Column 3 Row 1": "CIRCLE",
+    "Column 3 Row 2": "CIRCLE",
+    "Column 3 Row 3": "CIRCLE",
+    "Column 3 Row 4": "CIRCLE",
+    "Column 4 Row 1": "CIRCLE",
+    "Column 4 Row 2": "CIRCLE",
+    "Column 4 Row 3": "CIRCLE",
+    "Column 4 Row 4": "CIRCLE"
+   }
+  },
+  "FunctionNodeSeparateTransform": {
+   "in": {
+    "Transform": "CIRCLE"
+   },
+   "out": {
+    "Rotation": "CIRCLE",
+    "Scale": "CIRCLE",
+    "Translation": "CIRCLE"
+   }
+  },
+  "FunctionNodeSliceString": {
+   "in": {
+    "Length": "LINE",
+    "Position": "LINE",
+    "String": "LINE"
+   },
+   "out": {
+    "String": "LINE"
+   }
+  },
+  "FunctionNodeStringLength": {
+   "in": {
+    "String": "LINE"
+   },
+   "out": {
+    "Length": "LINE"
+   }
+  },
+  "FunctionNodeStringToValue": {
+   "in": {
+    "String": "LINE"
+   },
+   "out": {
+    "Length": "LINE",
+    "Value": "LINE"
+   }
+  },
+  "FunctionNodeTransformDirection": {
+   "in": {
+    "Direction": "CIRCLE",
+    "Transform": "CIRCLE"
+   },
+   "out": {
+    "Direction": "CIRCLE"
+   }
+  },
+  "FunctionNodeTransformPoint": {
+   "in": {
+    "Transform": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Vector": "CIRCLE"
+   }
+  },
+  "FunctionNodeTransposeMatrix": {
+   "in": {
+    "Matrix": "CIRCLE"
+   },
+   "out": {
+    "Matrix": "CIRCLE"
+   }
+  },
+  "FunctionNodeValueToString": {
+   "in": {
+    "Decimals": "LINE",
+    "Value": "LINE"
+   },
+   "out": {
+    "String": "LINE"
+   }
+  },
+  "GeometryNodeAccumulateField": {
+   "in": {
+    "Group Index": "DIAMOND",
+    "Value": "DIAMOND"
+   },
+   "out": {
+    "Leading": "DIAMOND",
+    "Total": "DIAMOND",
+    "Trailing": "DIAMOND"
+   }
+  },
+  "GeometryNodeAttributeDomainSize": {
+   "in": {
+    "Geometry": "LINE"
+   },
+   "out": {
+    "Edge Count": "LINE",
+    "Face Corner Count": "LINE",
+    "Face Count": "LINE",
+    "Instance Count": "LINE",
+    "Layer Count": "LINE",
+    "Point Count": "LINE",
+    "Spline Count": "LINE"
+   }
+  },
+  "GeometryNodeAttributeStatistic": {
+   "in": {
+    "Attribute": "DIAMOND",
+    "Geometry": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Max": "LINE",
+    "Mean": "LINE",
+    "Median": "LINE",
+    "Min": "LINE",
+    "Range": "LINE",
+    "Standard Deviation": "LINE",
+    "Sum": "LINE",
+    "Variance": "LINE"
+   }
+  },
+  "GeometryNodeBake": {
+   "in": {},
+   "out": {}
+  },
+  "GeometryNodeBlurAttribute": {
+   "in": {
+    "Iterations": "LINE",
+    "Value": "DIAMOND",
+    "Weight": "DIAMOND"
+   },
+   "out": {
+    "Value": "DIAMOND"
+   }
+  },
+  "GeometryNodeBoneInfo": {
+   "in": {
+    "Armature": "LINE",
+    "Bone Name": "LINE"
+   },
+   "out": {
+    "Local Pose": "LINE",
+    "Pose": "LINE",
+    "Rest Length": "LINE",
+    "Rest Pose": "LINE",
+    "Transform Pose": "LINE"
+   }
+  },
+  "GeometryNodeBoundBox": {
+   "in": {
+    "Geometry": "LINE",
+    "Use Radius": "LINE"
+   },
+   "out": {
+    "Bounding Box": "LINE",
+    "Max": "LINE",
+    "Min": "LINE"
+   }
+  },
+  "GeometryNodeCameraInfo": {
+   "in": {
+    "Camera": "LINE"
+   },
+   "out": {
+    "Clip End": "LINE",
+    "Clip Start": "LINE",
+    "Focal Length": "LINE",
+    "Focus Distance": "LINE",
+    "Is Orthographic": "LINE",
+    "Orthographic Scale": "LINE",
+    "Projection Matrix": "LINE",
+    "Sensor": "LINE",
+    "Shift": "LINE"
+   }
+  },
+  "GeometryNodeCaptureAttribute": {
+   "in": {
+    "Geometry": "LINE"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeCollectionInfo": {
+   "in": {
+    "Collection": "LINE",
+    "Reset Children": "LINE",
+    "Separate Children": "LINE"
+   },
+   "out": {
+    "Instances": "LINE"
+   }
+  },
+  "GeometryNodeConvexHull": {
+   "in": {
+    "Geometry": "LINE"
+   },
+   "out": {
+    "Convex Hull": "LINE"
+   }
+  },
+  "GeometryNodeCornersOfEdge": {
+   "in": {
+    "Edge Index": "DIAMOND",
+    "Sort Index": "DIAMOND",
+    "Weights": "DIAMOND"
+   },
+   "out": {
+    "Corner Index": "DIAMOND",
+    "Total": "DIAMOND"
+   }
+  },
+  "GeometryNodeCornersOfFace": {
+   "in": {
+    "Face Index": "DIAMOND",
+    "Sort Index": "DIAMOND",
+    "Weights": "DIAMOND"
+   },
+   "out": {
+    "Corner Index": "DIAMOND",
+    "Total": "DIAMOND"
+   }
+  },
+  "GeometryNodeCornersOfVertex": {
+   "in": {
+    "Sort Index": "DIAMOND",
+    "Vertex Index": "DIAMOND",
+    "Weights": "DIAMOND"
+   },
+   "out": {
+    "Corner Index": "DIAMOND",
+    "Total": "DIAMOND"
+   }
+  },
+  "GeometryNodeCubeGridTopology": {
+   "in": {
+    "Bounds Max": "LINE",
+    "Bounds Min": "LINE",
+    "Min X": "LINE",
+    "Min Y": "LINE",
+    "Min Z": "LINE",
+    "Resolution X": "LINE",
+    "Resolution Y": "LINE",
+    "Resolution Z": "LINE"
+   },
+   "out": {
+    "Topology": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeCurveArc": {
+   "in": {
+    "Connect Center": "LINE",
+    "End": "LINE",
+    "Invert Arc": "LINE",
+    "Middle": "LINE",
+    "Offset Angle": "LINE",
+    "Radius": "LINE",
+    "Resolution": "LINE",
+    "Start": "LINE",
+    "Start Angle": "LINE",
+    "Sweep Angle": "LINE"
+   },
+   "out": {
+    "Center": "LINE",
+    "Curve": "LINE",
+    "Normal": "LINE",
+    "Radius": "LINE"
+   }
+  },
+  "GeometryNodeCurveEndpointSelection": {
+   "in": {
+    "End Size": "DIAMOND",
+    "Start Size": "DIAMOND"
+   },
+   "out": {
+    "Selection": "DIAMOND"
+   }
+  },
+  "GeometryNodeCurveHandleTypeSelection": {
+   "in": {},
+   "out": {
+    "Selection": "DIAMOND"
+   }
+  },
+  "GeometryNodeCurveLength": {
+   "in": {
+    "Curve": "LINE"
+   },
+   "out": {
+    "Length": "LINE"
+   }
+  },
+  "GeometryNodeCurveOfPoint": {
+   "in": {
+    "Point Index": "DIAMOND"
+   },
+   "out": {
+    "Curve Index": "DIAMOND",
+    "Index in Curve": "DIAMOND"
+   }
+  },
+  "GeometryNodeCurvePrimitiveBezierSegment": {
+   "in": {
+    "End": "LINE",
+    "End Handle": "LINE",
+    "Resolution": "LINE",
+    "Start": "LINE",
+    "Start Handle": "LINE"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeCurvePrimitiveCircle": {
+   "in": {
+    "Point 1": "LINE",
+    "Point 2": "LINE",
+    "Point 3": "LINE",
+    "Radius": "LINE",
+    "Resolution": "LINE"
+   },
+   "out": {
+    "Center": "LINE",
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeCurvePrimitiveLine": {
+   "in": {
+    "Direction": "LINE",
+    "End": "LINE",
+    "Length": "LINE",
+    "Start": "LINE"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeCurvePrimitiveQuadrilateral": {
+   "in": {
+    "Bottom Height": "LINE",
+    "Bottom Width": "LINE",
+    "Height": "LINE",
+    "Offset": "LINE",
+    "Point 1": "LINE",
+    "Point 2": "LINE",
+    "Point 3": "LINE",
+    "Point 4": "LINE",
+    "Top Height": "LINE",
+    "Top Width": "LINE",
+    "Width": "LINE"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeCurveQuadraticBezier": {
+   "in": {
+    "End": "LINE",
+    "Middle": "LINE",
+    "Resolution": "LINE",
+    "Start": "LINE"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeCurveSetHandles": {
+   "in": {
+    "Curve": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeCurveSpiral": {
+   "in": {
+    "End Radius": "LINE",
+    "Height": "LINE",
+    "Resolution": "LINE",
+    "Reverse": "LINE",
+    "Rotations": "LINE",
+    "Start Radius": "LINE"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeCurveSplineType": {
+   "in": {
+    "Curve": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeCurveStar": {
+   "in": {
+    "Inner Radius": "LINE",
+    "Outer Radius": "LINE",
+    "Points": "LINE",
+    "Twist": "LINE"
+   },
+   "out": {
+    "Curve": "LINE",
+    "Outer Points": "DIAMOND"
+   }
+  },
+  "GeometryNodeCurveToMesh": {
+   "in": {
+    "Curve": "LINE",
+    "Fill Caps": "LINE",
+    "Profile Curve": "LINE",
+    "Scale": "DIAMOND"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeCurveToPoints": {
+   "in": {
+    "Count": "DIAMOND",
+    "Curve": "LINE",
+    "Length": "DIAMOND"
+   },
+   "out": {
+    "Normal": "DIAMOND",
+    "Points": "LINE",
+    "Rotation": "DIAMOND",
+    "Tangent": "DIAMOND"
+   }
+  },
+  "GeometryNodeCurvesToGreasePencil": {
+   "in": {
+    "Curves": "LINE",
+    "Instances as Layers": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Grease Pencil": "LINE"
+   }
+  },
+  "GeometryNodeDeformCurvesOnSurface": {
+   "in": {
+    "Curves": "LINE"
+   },
+   "out": {
+    "Curves": "LINE"
+   }
+  },
+  "GeometryNodeDeleteGeometry": {
+   "in": {
+    "Geometry": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeDistributePointsInGrid": {
+   "in": {
+    "Density": "LINE",
+    "Grid": "VOLUME_GRID",
+    "Seed": "LINE",
+    "Spacing": "LINE",
+    "Threshold": "LINE"
+   },
+   "out": {
+    "Points": "LINE"
+   }
+  },
+  "GeometryNodeDistributePointsInVolume": {
+   "in": {
+    "Density": "LINE",
+    "Mode": "LINE",
+    "Seed": "LINE",
+    "Spacing": "LINE",
+    "Threshold": "LINE",
+    "Volume": "LINE"
+   },
+   "out": {
+    "Points": "LINE"
+   }
+  },
+  "GeometryNodeDistributePointsOnFaces": {
+   "in": {
+    "Density": "DIAMOND",
+    "Density Factor": "DIAMOND",
+    "Density Max": "LINE",
+    "Distance Min": "LINE",
+    "Mesh": "LINE",
+    "Seed": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Normal": "DIAMOND",
+    "Points": "LINE",
+    "Rotation": "DIAMOND"
+   }
+  },
+  "GeometryNodeDualMesh": {
+   "in": {
+    "Keep Boundaries": "LINE",
+    "Mesh": "LINE"
+   },
+   "out": {
+    "Dual Mesh": "LINE"
+   }
+  },
+  "GeometryNodeDuplicateElements": {
+   "in": {
+    "Amount": "DIAMOND",
+    "Geometry": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Duplicate Index": "DIAMOND",
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeEdgePathsToCurves": {
+   "in": {
+    "Mesh": "LINE",
+    "Next Vertex Index": "DIAMOND",
+    "Start Vertices": "DIAMOND"
+   },
+   "out": {
+    "Curves": "LINE"
+   }
+  },
+  "GeometryNodeEdgePathsToSelection": {
+   "in": {
+    "Next Vertex Index": "DIAMOND",
+    "Start Vertices": "DIAMOND"
+   },
+   "out": {
+    "Selection": "DIAMOND"
+   }
+  },
+  "GeometryNodeEdgesOfCorner": {
+   "in": {
+    "Corner Index": "DIAMOND"
+   },
+   "out": {
+    "Next Edge Index": "DIAMOND",
+    "Previous Edge Index": "DIAMOND"
+   }
+  },
+  "GeometryNodeEdgesOfVertex": {
+   "in": {
+    "Sort Index": "DIAMOND",
+    "Vertex Index": "DIAMOND",
+    "Weights": "DIAMOND"
+   },
+   "out": {
+    "Edge Index": "DIAMOND",
+    "Total": "DIAMOND"
+   }
+  },
+  "GeometryNodeEdgesToFaceGroups": {
+   "in": {
+    "Boundary Edges": "DIAMOND"
+   },
+   "out": {
+    "Face Group ID": "DIAMOND"
+   }
+  },
+  "GeometryNodeExtrudeMesh": {
+   "in": {
+    "Individual": "LINE",
+    "Mesh": "LINE",
+    "Offset": "DIAMOND",
+    "Offset Scale": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Mesh": "LINE",
+    "Side": "DIAMOND",
+    "Top": "DIAMOND"
+   }
+  },
+  "GeometryNodeFaceOfCorner": {
+   "in": {
+    "Corner Index": "DIAMOND"
+   },
+   "out": {
+    "Face Index": "DIAMOND",
+    "Index in Face": "DIAMOND"
+   }
+  },
+  "GeometryNodeFieldAtIndex": {
+   "in": {
+    "Index": "DIAMOND",
+    "Value": "DIAMOND"
+   },
+   "out": {
+    "Value": "DIAMOND"
+   }
+  },
+  "GeometryNodeFieldAverage": {
+   "in": {
+    "Group Index": "DIAMOND",
+    "Value": "DIAMOND"
+   },
+   "out": {
+    "Mean": "DIAMOND",
+    "Median": "DIAMOND"
+   }
+  },
+  "GeometryNodeFieldMinAndMax": {
+   "in": {
+    "Group Index": "DIAMOND",
+    "Value": "DIAMOND"
+   },
+   "out": {
+    "Max": "DIAMOND",
+    "Min": "DIAMOND"
+   }
+  },
+  "GeometryNodeFieldOnDomain": {
+   "in": {
+    "Value": "DIAMOND"
+   },
+   "out": {
+    "Value": "DIAMOND"
+   }
+  },
+  "GeometryNodeFieldToGrid": {
+   "in": {
+    "Topology": "VOLUME_GRID"
+   },
+   "out": {}
+  },
+  "GeometryNodeFieldToList": {
+   "in": {
+    "Count": "LINE"
+   },
+   "out": {}
+  },
+  "GeometryNodeFieldVariance": {
+   "in": {
+    "Group Index": "DIAMOND",
+    "Value": "DIAMOND"
+   },
+   "out": {
+    "Standard Deviation": "DIAMOND",
+    "Variance": "DIAMOND"
+   }
+  },
+  "GeometryNodeFillCurve": {
+   "in": {
+    "Curve": "LINE",
+    "Fill Rule": "LINE",
+    "Group ID": "DIAMOND",
+    "Mode": "LINE"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeFilletCurve": {
+   "in": {
+    "Count": "DIAMOND",
+    "Curve": "LINE",
+    "Limit Radius": "LINE",
+    "Mode": "LINE",
+    "Radius": "DIAMOND"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeFlipFaces": {
+   "in": {
+    "Mesh": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeForeachGeometryElementInput": {
+   "in": {
+    "Geometry": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Element": "LINE",
+    "Index": "LINE"
+   }
+  },
+  "GeometryNodeForeachGeometryElementOutput": {
+   "in": {
+    "Generation_0": "LINE",
+    "__extend__generation": "LINE",
+    "__extend__main": "LINE"
+   },
+   "out": {
+    "Generation_0": "LINE",
+    "Geometry": "LINE",
+    "__extend__generation": "LINE",
+    "__extend__main": "LINE"
+   }
+  },
+  "GeometryNodeGeometryToInstance": {
+   "in": {
+    "Geometry": "LINE"
+   },
+   "out": {
+    "Instances": "LINE"
+   }
+  },
+  "GeometryNodeGetGeometryBundle": {
+   "in": {
+    "Geometry": "LINE",
+    "Remove": "LINE"
+   },
+   "out": {
+    "Bundle": "LINE",
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeGetNamedGrid": {
+   "in": {
+    "Name": "LINE",
+    "Remove": "LINE",
+    "Volume": "LINE"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID",
+    "Volume": "LINE"
+   }
+  },
+  "GeometryNodeGizmoDial": {
+   "in": {
+    "Position": "LINE",
+    "Radius": "LINE",
+    "Screen Space": "LINE",
+    "Up": "LINE",
+    "Value": "LINE"
+   },
+   "out": {
+    "Transform": "LINE"
+   }
+  },
+  "GeometryNodeGizmoLinear": {
+   "in": {
+    "Direction": "LINE",
+    "Position": "LINE",
+    "Value": "LINE"
+   },
+   "out": {
+    "Transform": "LINE"
+   }
+  },
+  "GeometryNodeGizmoTransform": {
+   "in": {
+    "Position": "LINE",
+    "Rotation": "LINE",
+    "Value": "LINE"
+   },
+   "out": {
+    "Transform": "LINE"
+   }
+  },
+  "GeometryNodeGreasePencilToCurves": {
+   "in": {
+    "Grease Pencil": "LINE",
+    "Layers as Instances": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Curves": "LINE"
+   }
+  },
+  "GeometryNodeGridAdvect": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "Integration Scheme": "LINE",
+    "Limiter": "LINE",
+    "Time Step": "LINE",
+    "Velocity": "VOLUME_GRID"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeGridClip": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "Max X": "LINE",
+    "Max Y": "LINE",
+    "Max Z": "LINE",
+    "Min X": "LINE",
+    "Min Y": "LINE",
+    "Min Z": "LINE"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeGridCurl": {
+   "in": {
+    "Grid": "VOLUME_GRID"
+   },
+   "out": {
+    "Curl": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeGridDilateAndErode": {
+   "in": {
+    "Connectivity": "LINE",
+    "Grid": "VOLUME_GRID",
+    "Steps": "LINE",
+    "Tiles": "LINE"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeGridDivergence": {
+   "in": {
+    "Grid": "VOLUME_GRID"
+   },
+   "out": {
+    "Divergence": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeGridGradient": {
+   "in": {
+    "Grid": "VOLUME_GRID"
+   },
+   "out": {
+    "Gradient": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeGridInfo": {
+   "in": {
+    "Grid": "VOLUME_GRID"
+   },
+   "out": {
+    "Background Value": "LINE",
+    "Transform": "LINE"
+   }
+  },
+  "GeometryNodeGridLaplacian": {
+   "in": {
+    "Grid": "VOLUME_GRID"
+   },
+   "out": {
+    "Laplacian": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeGridMean": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "Iterations": "LINE",
+    "Width": "LINE"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeGridMedian": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "Iterations": "LINE",
+    "Width": "LINE"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeGridPrune": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "Mode": "LINE",
+    "Threshold": "LINE"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeGridToMesh": {
+   "in": {
+    "Adaptivity": "LINE",
+    "Grid": "VOLUME_GRID",
+    "Threshold": "LINE"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeGridToPoints": {
+   "in": {
+    "Grid": "VOLUME_GRID"
+   },
+   "out": {
+    "Extent": "DIAMOND",
+    "Is Tile": "DIAMOND",
+    "Points": "LINE",
+    "Value": "DIAMOND",
+    "X": "DIAMOND",
+    "Y": "DIAMOND",
+    "Z": "DIAMOND"
+   }
+  },
+  "GeometryNodeGridVoxelize": {
+   "in": {
+    "Grid": "VOLUME_GRID"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeGroup": {
+   "in": {},
+   "out": {}
+  },
+  "GeometryNodeImageInfo": {
+   "in": {
+    "Frame": "LINE",
+    "Image": "LINE"
+   },
+   "out": {
+    "FPS": "LINE",
+    "Frame Count": "LINE",
+    "Has Alpha": "LINE",
+    "Height": "LINE",
+    "Width": "LINE"
+   }
+  },
+  "GeometryNodeImageTexture": {
+   "in": {
+    "Frame": "LINE",
+    "Image": "LINE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Alpha": "CIRCLE",
+    "Color": "CIRCLE"
+   }
+  },
+  "GeometryNodeImportCSV": {
+   "in": {
+    "Delimiter": "LINE",
+    "Path": "LINE"
+   },
+   "out": {
+    "Point Cloud": "LINE"
+   }
+  },
+  "GeometryNodeImportOBJ": {
+   "in": {
+    "Path": "LINE"
+   },
+   "out": {
+    "Instances": "LINE"
+   }
+  },
+  "GeometryNodeImportPLY": {
+   "in": {
+    "Path": "LINE"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeImportSTL": {
+   "in": {
+    "Path": "LINE"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeImportText": {
+   "in": {
+    "Path": "LINE"
+   },
+   "out": {
+    "String": "LINE"
+   }
+  },
+  "GeometryNodeImportVDB": {
+   "in": {
+    "Path": "LINE"
+   },
+   "out": {
+    "Volume": "LINE"
+   }
+  },
+  "GeometryNodeIndexOfNearest": {
+   "in": {
+    "Group ID": "DIAMOND",
+    "Position": "DIAMOND"
+   },
+   "out": {
+    "Has Neighbor": "DIAMOND",
+    "Index": "DIAMOND"
+   }
+  },
+  "GeometryNodeIndexSwitch": {
+   "in": {
+    "Index": "CIRCLE",
+    "Item_0": "CIRCLE",
+    "Item_1": "CIRCLE"
+   },
+   "out": {
+    "Output": "CIRCLE"
+   }
+  },
+  "GeometryNodeInputActiveCamera": {
+   "in": {},
+   "out": {
+    "Active Camera": "LINE"
+   }
+  },
+  "GeometryNodeInputCollection": {
+   "in": {},
+   "out": {
+    "Collection": "LINE"
+   }
+  },
+  "GeometryNodeInputCurveHandlePositions": {
+   "in": {
+    "Relative": "DIAMOND"
+   },
+   "out": {
+    "Left": "DIAMOND",
+    "Right": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputCurveTilt": {
+   "in": {},
+   "out": {
+    "Tilt": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputEdgeSmooth": {
+   "in": {},
+   "out": {
+    "Smooth": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputID": {
+   "in": {},
+   "out": {
+    "ID": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputImage": {
+   "in": {},
+   "out": {
+    "Image": "LINE"
+   }
+  },
+  "GeometryNodeInputIndex": {
+   "in": {},
+   "out": {
+    "Index": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputInstanceBounds": {
+   "in": {
+    "Use Radius": "LINE"
+   },
+   "out": {
+    "Max": "DIAMOND",
+    "Min": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputInstanceRotation": {
+   "in": {},
+   "out": {
+    "Rotation": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputInstanceScale": {
+   "in": {},
+   "out": {
+    "Scale": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputMaterial": {
+   "in": {},
+   "out": {
+    "Material": "LINE"
+   }
+  },
+  "GeometryNodeInputMaterialIndex": {
+   "in": {},
+   "out": {
+    "Material Index": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputMeshEdgeAngle": {
+   "in": {},
+   "out": {
+    "Signed Angle": "DIAMOND",
+    "Unsigned Angle": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputMeshEdgeNeighbors": {
+   "in": {},
+   "out": {
+    "Face Count": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputMeshEdgeVertices": {
+   "in": {},
+   "out": {
+    "Position 1": "DIAMOND",
+    "Position 2": "DIAMOND",
+    "Vertex Index 1": "DIAMOND",
+    "Vertex Index 2": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputMeshFaceArea": {
+   "in": {},
+   "out": {
+    "Area": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputMeshFaceIsPlanar": {
+   "in": {
+    "Threshold": "DIAMOND"
+   },
+   "out": {
+    "Planar": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputMeshFaceNeighbors": {
+   "in": {},
+   "out": {
+    "Face Count": "DIAMOND",
+    "Vertex Count": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputMeshIsland": {
+   "in": {},
+   "out": {
+    "Island Count": "DIAMOND",
+    "Island Index": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputMeshVertexNeighbors": {
+   "in": {},
+   "out": {
+    "Face Count": "DIAMOND",
+    "Vertex Count": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputNamedAttribute": {
+   "in": {
+    "Name": "LINE"
+   },
+   "out": {
+    "Attribute": "DIAMOND",
+    "Exists": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputNamedLayerSelection": {
+   "in": {
+    "Name": "LINE"
+   },
+   "out": {
+    "Selection": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputNormal": {
+   "in": {},
+   "out": {
+    "Normal": "DIAMOND",
+    "True Normal": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputObject": {
+   "in": {},
+   "out": {
+    "Object": "LINE"
+   }
+  },
+  "GeometryNodeInputPosition": {
+   "in": {},
+   "out": {
+    "Position": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputRadius": {
+   "in": {},
+   "out": {
+    "Radius": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputSceneTime": {
+   "in": {},
+   "out": {
+    "Frame": "LINE",
+    "Seconds": "LINE"
+   }
+  },
+  "GeometryNodeInputShadeSmooth": {
+   "in": {},
+   "out": {
+    "Smooth": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputShortestEdgePaths": {
+   "in": {
+    "Edge Cost": "DIAMOND",
+    "End Vertex": "DIAMOND"
+   },
+   "out": {
+    "Next Vertex Index": "DIAMOND",
+    "Total Cost": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputSplineCyclic": {
+   "in": {},
+   "out": {
+    "Cyclic": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputSplineResolution": {
+   "in": {},
+   "out": {
+    "Resolution": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputTangent": {
+   "in": {},
+   "out": {
+    "Tangent": "DIAMOND"
+   }
+  },
+  "GeometryNodeInputVoxelIndex": {
+   "in": {},
+   "out": {
+    "Extent X": "DIAMOND",
+    "Extent Y": "DIAMOND",
+    "Extent Z": "DIAMOND",
+    "Is Tile": "DIAMOND",
+    "X": "DIAMOND",
+    "Y": "DIAMOND",
+    "Z": "DIAMOND"
+   }
+  },
+  "GeometryNodeInstanceOnPoints": {
+   "in": {
+    "Instance": "LINE",
+    "Instance Index": "DIAMOND",
+    "Pick Instance": "DIAMOND",
+    "Points": "LINE",
+    "Rotation": "DIAMOND",
+    "Scale": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Instances": "LINE"
+   }
+  },
+  "GeometryNodeInstanceTransform": {
+   "in": {},
+   "out": {
+    "Transform": "DIAMOND"
+   }
+  },
+  "GeometryNodeInstancesToPoints": {
+   "in": {
+    "Instances": "LINE",
+    "Position": "DIAMOND",
+    "Radius": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Points": "LINE"
+   }
+  },
+  "GeometryNodeInterpolateCurves": {
+   "in": {
+    "Guide Curves": "LINE",
+    "Guide Group ID": "DIAMOND",
+    "Guide Up": "DIAMOND",
+    "Max Neighbors": "LINE",
+    "Point Group ID": "DIAMOND",
+    "Point Up": "DIAMOND",
+    "Points": "LINE"
+   },
+   "out": {
+    "Closest Index": "DIAMOND",
+    "Closest Weight": "DIAMOND",
+    "Curves": "LINE"
+   }
+  },
+  "GeometryNodeIsViewport": {
+   "in": {},
+   "out": {
+    "Is Viewport": "LINE"
+   }
+  },
+  "GeometryNodeJoinGeometry": {
+   "in": {
+    "Geometry": "LINE"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeListGetItem": {
+   "in": {
+    "Index": "CIRCLE",
+    "List": "LIST"
+   },
+   "out": {
+    "Value": "CIRCLE"
+   }
+  },
+  "GeometryNodeListLength": {
+   "in": {
+    "List": "LIST"
+   },
+   "out": {
+    "Length": "LINE"
+   }
+  },
+  "GeometryNodeMaterialSelection": {
+   "in": {
+    "Material": "LINE"
+   },
+   "out": {
+    "Selection": "DIAMOND"
+   }
+  },
+  "GeometryNodeMenuSwitch": {
+   "in": {
+    "Item_0": "CIRCLE",
+    "Item_1": "CIRCLE",
+    "Menu": "CIRCLE"
+   },
+   "out": {
+    "Item_0": "LINE",
+    "Item_1": "LINE",
+    "Output": "CIRCLE"
+   }
+  },
+  "GeometryNodeMergeByDistance": {
+   "in": {
+    "Distance": "LINE",
+    "Geometry": "LINE",
+    "Mode": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeMergeLayers": {
+   "in": {
+    "Grease Pencil": "LINE",
+    "Group ID": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Grease Pencil": "LINE"
+   }
+  },
+  "GeometryNodeMeshBoolean": {
+   "in": {
+    "Hole Tolerant": "LINE",
+    "Mesh 1": "LINE",
+    "Mesh 2": "LINE",
+    "Self Intersection": "LINE"
+   },
+   "out": {
+    "Intersecting Edges": "DIAMOND",
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeMeshCircle": {
+   "in": {
+    "Radius": "LINE",
+    "Vertices": "LINE"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeMeshCone": {
+   "in": {
+    "Depth": "LINE",
+    "Fill Segments": "LINE",
+    "Radius Bottom": "LINE",
+    "Radius Top": "LINE",
+    "Side Segments": "LINE",
+    "Vertices": "LINE"
+   },
+   "out": {
+    "Bottom": "DIAMOND",
+    "Mesh": "LINE",
+    "Side": "DIAMOND",
+    "Top": "DIAMOND",
+    "UV Map": "DIAMOND"
+   }
+  },
+  "GeometryNodeMeshCube": {
+   "in": {
+    "Size": "LINE",
+    "Vertices X": "LINE",
+    "Vertices Y": "LINE",
+    "Vertices Z": "LINE"
+   },
+   "out": {
+    "Mesh": "LINE",
+    "UV Map": "DIAMOND"
+   }
+  },
+  "GeometryNodeMeshCylinder": {
+   "in": {
+    "Depth": "LINE",
+    "Fill Segments": "LINE",
+    "Radius": "LINE",
+    "Side Segments": "LINE",
+    "Vertices": "LINE"
+   },
+   "out": {
+    "Bottom": "DIAMOND",
+    "Mesh": "LINE",
+    "Side": "DIAMOND",
+    "Top": "DIAMOND",
+    "UV Map": "DIAMOND"
+   }
+  },
+  "GeometryNodeMeshFaceSetBoundaries": {
+   "in": {
+    "Face Set": "DIAMOND"
+   },
+   "out": {
+    "Boundary Edges": "DIAMOND"
+   }
+  },
+  "GeometryNodeMeshGrid": {
+   "in": {
+    "Size X": "LINE",
+    "Size Y": "LINE",
+    "Vertices X": "LINE",
+    "Vertices Y": "LINE"
+   },
+   "out": {
+    "Mesh": "LINE",
+    "UV Map": "DIAMOND"
+   }
+  },
+  "GeometryNodeMeshIcoSphere": {
+   "in": {
+    "Radius": "LINE",
+    "Subdivisions": "LINE"
+   },
+   "out": {
+    "Mesh": "LINE",
+    "UV Map": "DIAMOND"
+   }
+  },
+  "GeometryNodeMeshLine": {
+   "in": {
+    "Count": "LINE",
+    "Offset": "LINE",
+    "Resolution": "LINE",
+    "Start Location": "LINE"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeMeshToCurve": {
+   "in": {
+    "Mesh": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeMeshToDensityGrid": {
+   "in": {
+    "Density": "LINE",
+    "Gradient Width": "LINE",
+    "Mesh": "LINE",
+    "Voxel Size": "LINE"
+   },
+   "out": {
+    "Density Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeMeshToPoints": {
+   "in": {
+    "Mesh": "LINE",
+    "Position": "DIAMOND",
+    "Radius": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Points": "LINE"
+   }
+  },
+  "GeometryNodeMeshToSDFGrid": {
+   "in": {
+    "Band Width": "LINE",
+    "Mesh": "LINE",
+    "Voxel Size": "LINE"
+   },
+   "out": {
+    "SDF Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeMeshToVolume": {
+   "in": {
+    "Density": "LINE",
+    "Interior Band Width": "LINE",
+    "Mesh": "LINE",
+    "Resolution Mode": "LINE",
+    "Voxel Amount": "LINE",
+    "Voxel Size": "LINE"
+   },
+   "out": {
+    "Volume": "LINE"
+   }
+  },
+  "GeometryNodeMeshUVSphere": {
+   "in": {
+    "Radius": "LINE",
+    "Rings": "LINE",
+    "Segments": "LINE"
+   },
+   "out": {
+    "Mesh": "LINE",
+    "UV Map": "DIAMOND"
+   }
+  },
+  "GeometryNodeObjectInfo": {
+   "in": {
+    "As Instance": "LINE",
+    "Object": "LINE"
+   },
+   "out": {
+    "Geometry": "LINE",
+    "Location": "LINE",
+    "Rotation": "LINE",
+    "Scale": "LINE",
+    "Transform": "LINE"
+   }
+  },
+  "GeometryNodeOffsetCornerInFace": {
+   "in": {
+    "Corner Index": "DIAMOND",
+    "Offset": "DIAMOND"
+   },
+   "out": {
+    "Corner Index": "DIAMOND"
+   }
+  },
+  "GeometryNodeOffsetPointInCurve": {
+   "in": {
+    "Offset": "DIAMOND",
+    "Point Index": "DIAMOND"
+   },
+   "out": {
+    "Is Valid Offset": "DIAMOND",
+    "Point Index": "DIAMOND"
+   }
+  },
+  "GeometryNodePoints": {
+   "in": {
+    "Count": "LINE",
+    "Position": "DIAMOND",
+    "Radius": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodePointsOfCurve": {
+   "in": {
+    "Curve Index": "DIAMOND",
+    "Sort Index": "DIAMOND",
+    "Weights": "DIAMOND"
+   },
+   "out": {
+    "Point Index": "DIAMOND",
+    "Total": "DIAMOND"
+   }
+  },
+  "GeometryNodePointsToCurves": {
+   "in": {
+    "Curve Group ID": "DIAMOND",
+    "Points": "LINE",
+    "Weight": "DIAMOND"
+   },
+   "out": {
+    "Curves": "LINE"
+   }
+  },
+  "GeometryNodePointsToSDFGrid": {
+   "in": {
+    "Points": "LINE",
+    "Radius": "DIAMOND",
+    "Voxel Size": "LINE"
+   },
+   "out": {
+    "SDF Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodePointsToVertices": {
+   "in": {
+    "Points": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodePointsToVolume": {
+   "in": {
+    "Density": "LINE",
+    "Points": "LINE",
+    "Radius": "DIAMOND",
+    "Resolution Mode": "LINE",
+    "Voxel Amount": "LINE",
+    "Voxel Size": "LINE"
+   },
+   "out": {
+    "Volume": "LINE"
+   }
+  },
+  "GeometryNodeProximity": {
+   "in": {
+    "Group ID": "DIAMOND",
+    "Sample Group ID": "CIRCLE",
+    "Source Position": "CIRCLE",
+    "Target": "LINE"
+   },
+   "out": {
+    "Distance": "CIRCLE",
+    "Is Valid": "CIRCLE",
+    "Position": "CIRCLE"
+   }
+  },
+  "GeometryNodeRaycast": {
+   "in": {
+    "Attribute": "DIAMOND",
+    "Interpolation": "LINE",
+    "Ray Direction": "CIRCLE",
+    "Ray Length": "CIRCLE",
+    "Source Position": "CIRCLE",
+    "Target Geometry": "LINE"
+   },
+   "out": {
+    "Attribute": "CIRCLE",
+    "Hit Distance": "CIRCLE",
+    "Hit Normal": "CIRCLE",
+    "Hit Position": "CIRCLE",
+    "Is Hit": "CIRCLE"
+   }
+  },
+  "GeometryNodeRealizeInstances": {
+   "in": {
+    "Depth": "DIAMOND",
+    "Geometry": "LINE",
+    "Realize All": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeRemoveAttribute": {
+   "in": {
+    "Geometry": "LINE",
+    "Name": "LINE",
+    "Pattern Mode": "LINE"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeRepeatInput": {
+   "in": {
+    "Iterations": "LINE"
+   },
+   "out": {
+    "Iteration": "LINE"
+   }
+  },
+  "GeometryNodeRepeatOutput": {
+   "in": {
+    "Item_0": "CIRCLE"
+   },
+   "out": {
+    "Item_0": "CIRCLE"
+   }
+  },
+  "GeometryNodeReplaceMaterial": {
+   "in": {
+    "Geometry": "LINE",
+    "New": "LINE",
+    "Old": "LINE"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeResampleCurve": {
+   "in": {
+    "Count": "DIAMOND",
+    "Curve": "LINE",
+    "Length": "DIAMOND",
+    "Mode": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeReverseCurve": {
+   "in": {
+    "Curve": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeRotateInstances": {
+   "in": {
+    "Instances": "LINE",
+    "Local Space": "DIAMOND",
+    "Pivot Point": "DIAMOND",
+    "Rotation": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Instances": "LINE"
+   }
+  },
+  "GeometryNodeSDFGridBoolean": {
+   "in": {
+    "Grid 1": "VOLUME_GRID",
+    "Grid 2": "VOLUME_GRID"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeSDFGridFillet": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "Iterations": "LINE"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeSDFGridLaplacian": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "Iterations": "LINE"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeSDFGridMean": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "Iterations": "LINE",
+    "Width": "LINE"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeSDFGridMeanCurvature": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "Iterations": "LINE"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeSDFGridMedian": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "Iterations": "LINE",
+    "Width": "LINE"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeSDFGridOffset": {
+   "in": {
+    "Distance": "LINE",
+    "Grid": "VOLUME_GRID"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeSampleCurve": {
+   "in": {
+    "Curve Index": "CIRCLE",
+    "Curves": "LINE",
+    "Factor": "CIRCLE",
+    "Length": "CIRCLE",
+    "Value": "DIAMOND"
+   },
+   "out": {
+    "Normal": "CIRCLE",
+    "Position": "CIRCLE",
+    "Tangent": "CIRCLE",
+    "Value": "CIRCLE"
+   }
+  },
+  "GeometryNodeSampleGrid": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "Interpolation": "LINE",
+    "Position": "CIRCLE"
+   },
+   "out": {
+    "Value": "CIRCLE"
+   }
+  },
+  "GeometryNodeSampleGridIndex": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "X": "CIRCLE",
+    "Y": "CIRCLE",
+    "Z": "CIRCLE"
+   },
+   "out": {
+    "Value": "CIRCLE"
+   }
+  },
+  "GeometryNodeSampleIndex": {
+   "in": {
+    "Geometry": "LINE",
+    "Index": "CIRCLE",
+    "Value": "DIAMOND"
+   },
+   "out": {
+    "Value": "CIRCLE"
+   }
+  },
+  "GeometryNodeSampleNearest": {
+   "in": {
+    "Geometry": "LINE",
+    "Sample Position": "CIRCLE"
+   },
+   "out": {
+    "Index": "CIRCLE"
+   }
+  },
+  "GeometryNodeSampleNearestSurface": {
+   "in": {
+    "Group ID": "DIAMOND",
+    "Mesh": "LINE",
+    "Sample Group ID": "CIRCLE",
+    "Sample Position": "CIRCLE",
+    "Value": "DIAMOND"
+   },
+   "out": {
+    "Is Valid": "CIRCLE",
+    "Value": "CIRCLE"
+   }
+  },
+  "GeometryNodeSampleUVSurface": {
+   "in": {
+    "Mesh": "LINE",
+    "Sample UV": "CIRCLE",
+    "Source UV Map": "DIAMOND",
+    "Value": "DIAMOND"
+   },
+   "out": {
+    "Is Valid": "CIRCLE",
+    "Value": "CIRCLE"
+   }
+  },
+  "GeometryNodeScaleElements": {
+   "in": {
+    "Axis": "DIAMOND",
+    "Center": "DIAMOND",
+    "Geometry": "LINE",
+    "Scale": "DIAMOND",
+    "Scale Mode": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeScaleInstances": {
+   "in": {
+    "Center": "DIAMOND",
+    "Instances": "LINE",
+    "Local Space": "DIAMOND",
+    "Scale": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Instances": "LINE"
+   }
+  },
+  "GeometryNodeSelfObject": {
+   "in": {},
+   "out": {
+    "Self Object": "LINE"
+   }
+  },
+  "GeometryNodeSeparateComponents": {
+   "in": {
+    "Geometry": "LINE"
+   },
+   "out": {
+    "Curve": "LINE",
+    "Grease Pencil": "LINE",
+    "Instances": "LINE",
+    "Mesh": "LINE",
+    "Point Cloud": "LINE",
+    "Volume": "LINE"
+   }
+  },
+  "GeometryNodeSeparateGeometry": {
+   "in": {
+    "Geometry": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Inverted": "LINE",
+    "Selection": "LINE"
+   }
+  },
+  "GeometryNodeSetCurveHandlePositions": {
+   "in": {
+    "Curve": "LINE",
+    "Offset": "DIAMOND",
+    "Position": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeSetCurveNormal": {
+   "in": {
+    "Curve": "LINE",
+    "Mode": "LINE",
+    "Normal": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeSetCurveRadius": {
+   "in": {
+    "Curve": "LINE",
+    "Radius": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeSetCurveTilt": {
+   "in": {
+    "Curve": "LINE",
+    "Selection": "DIAMOND",
+    "Tilt": "DIAMOND"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeSetGeometryBundle": {
+   "in": {
+    "Bundle": "LINE",
+    "Geometry": "LINE"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeSetGeometryName": {
+   "in": {
+    "Geometry": "LINE",
+    "Name": "LINE"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeSetGreasePencilColor": {
+   "in": {
+    "Color": "DIAMOND",
+    "Grease Pencil": "LINE",
+    "Opacity": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Grease Pencil": "LINE"
+   }
+  },
+  "GeometryNodeSetGreasePencilDepth": {
+   "in": {
+    "Grease Pencil": "LINE"
+   },
+   "out": {
+    "Grease Pencil": "LINE"
+   }
+  },
+  "GeometryNodeSetGreasePencilSoftness": {
+   "in": {
+    "Grease Pencil": "LINE",
+    "Selection": "DIAMOND",
+    "Softness": "DIAMOND"
+   },
+   "out": {
+    "Grease Pencil": "LINE"
+   }
+  },
+  "GeometryNodeSetGridBackground": {
+   "in": {
+    "Background": "LINE",
+    "Grid": "VOLUME_GRID",
+    "Update Inactive": "LINE"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID"
+   }
+  },
+  "GeometryNodeSetGridTransform": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "Transform": "LINE"
+   },
+   "out": {
+    "Grid": "VOLUME_GRID",
+    "Is Valid": "LINE"
+   }
+  },
+  "GeometryNodeSetID": {
+   "in": {
+    "Geometry": "LINE",
+    "ID": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeSetInstanceTransform": {
+   "in": {
+    "Instances": "LINE",
+    "Selection": "DIAMOND",
+    "Transform": "DIAMOND"
+   },
+   "out": {
+    "Instances": "LINE"
+   }
+  },
+  "GeometryNodeSetMaterial": {
+   "in": {
+    "Geometry": "LINE",
+    "Material": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeSetMaterialIndex": {
+   "in": {
+    "Geometry": "LINE",
+    "Material Index": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeSetMeshNormal": {
+   "in": {
+    "Edge Sharpness": "DIAMOND",
+    "Face Sharpness": "DIAMOND",
+    "Mesh": "LINE",
+    "Remove Custom": "LINE"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeSetPointRadius": {
+   "in": {
+    "Points": "LINE",
+    "Radius": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Points": "LINE"
+   }
+  },
+  "GeometryNodeSetPosition": {
+   "in": {
+    "Geometry": "LINE",
+    "Offset": "DIAMOND",
+    "Position": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeSetShadeSmooth": {
+   "in": {
+    "Geometry": "LINE",
+    "Selection": "DIAMOND",
+    "Shade Smooth": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeSetSplineCyclic": {
+   "in": {
+    "Cyclic": "DIAMOND",
+    "Geometry": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeSetSplineResolution": {
+   "in": {
+    "Geometry": "LINE",
+    "Resolution": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeSimulationInput": {
+   "in": {},
+   "out": {
+    "Delta Time": "LINE"
+   }
+  },
+  "GeometryNodeSimulationOutput": {
+   "in": {
+    "Item_0": "LINE",
+    "Skip": "LINE"
+   },
+   "out": {
+    "Item_0": "LINE"
+   }
+  },
+  "GeometryNodeSortElements": {
+   "in": {
+    "Geometry": "LINE",
+    "Group ID": "DIAMOND",
+    "Selection": "DIAMOND",
+    "Sort Weight": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeSplineLength": {
+   "in": {},
+   "out": {
+    "Length": "DIAMOND",
+    "Point Count": "DIAMOND"
+   }
+  },
+  "GeometryNodeSplineParameter": {
+   "in": {},
+   "out": {
+    "Factor": "DIAMOND",
+    "Index": "DIAMOND",
+    "Length": "DIAMOND"
+   }
+  },
+  "GeometryNodeSplitEdges": {
+   "in": {
+    "Mesh": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeSplitToInstances": {
+   "in": {
+    "Geometry": "LINE",
+    "Group ID": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Group ID": "DIAMOND",
+    "Instances": "LINE"
+   }
+  },
+  "GeometryNodeStoreNamedAttribute": {
+   "in": {
+    "Geometry": "LINE",
+    "Name": "LINE",
+    "Selection": "DIAMOND",
+    "Value": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeStoreNamedGrid": {
+   "in": {
+    "Grid": "VOLUME_GRID",
+    "Name": "LINE",
+    "Volume": "LINE"
+   },
+   "out": {
+    "Volume": "LINE"
+   }
+  },
+  "GeometryNodeStringJoin": {
+   "in": {
+    "Delimiter": "LINE",
+    "Strings": "LINE"
+   },
+   "out": {
+    "String": "LINE"
+   }
+  },
+  "GeometryNodeStringToCurves": {
+   "in": {
+    "Align X": "LINE",
+    "Align Y": "LINE",
+    "Character Spacing": "LINE",
+    "Font": "LINE",
+    "Line Spacing": "LINE",
+    "Overflow": "LINE",
+    "Pivot Point": "LINE",
+    "Size": "LINE",
+    "String": "LINE",
+    "Text Box Height": "LINE",
+    "Text Box Width": "LINE",
+    "Word Spacing": "LINE"
+   },
+   "out": {
+    "Curve Instances": "LINE",
+    "Line": "DIAMOND",
+    "Pivot Point": "DIAMOND",
+    "Remainder": "LINE",
+    "Word": "DIAMOND"
+   }
+  },
+  "GeometryNodeSubdivideCurve": {
+   "in": {
+    "Curve": "LINE",
+    "Cuts": "DIAMOND"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeSubdivideMesh": {
+   "in": {
+    "Level": "LINE",
+    "Mesh": "LINE"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeSubdivisionSurface": {
+   "in": {
+    "Boundary Smooth": "LINE",
+    "Edge Crease": "DIAMOND",
+    "Level": "LINE",
+    "Limit Surface": "LINE",
+    "Mesh": "LINE",
+    "UV Smooth": "LINE",
+    "Vertex Crease": "DIAMOND"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeSwitch": {
+   "in": {
+    "False": "CIRCLE",
+    "Switch": "CIRCLE",
+    "True": "CIRCLE"
+   },
+   "out": {
+    "Output": "CIRCLE"
+   }
+  },
+  "GeometryNodeTool3DCursor": {
+   "in": {},
+   "out": {
+    "Location": "LINE",
+    "Rotation": "LINE"
+   }
+  },
+  "GeometryNodeToolActiveElement": {
+   "in": {},
+   "out": {
+    "Exists": "LINE",
+    "Index": "LINE"
+   }
+  },
+  "GeometryNodeToolFaceSet": {
+   "in": {},
+   "out": {
+    "Exists": "DIAMOND",
+    "Face Set": "DIAMOND"
+   }
+  },
+  "GeometryNodeToolMousePosition": {
+   "in": {},
+   "out": {
+    "Mouse X": "LINE",
+    "Mouse Y": "LINE",
+    "Region Height": "LINE",
+    "Region Width": "LINE"
+   }
+  },
+  "GeometryNodeToolSelection": {
+   "in": {},
+   "out": {
+    "Float": "DIAMOND",
+    "Selection": "DIAMOND"
+   }
+  },
+  "GeometryNodeToolSetFaceSet": {
+   "in": {
+    "Face Set": "DIAMOND",
+    "Mesh": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeToolSetSelection": {
+   "in": {
+    "Geometry": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeTransform": {
+   "in": {
+    "Geometry": "LINE",
+    "Mode": "LINE",
+    "Rotation": "LINE",
+    "Scale": "LINE",
+    "Transform": "LINE",
+    "Translation": "LINE"
+   },
+   "out": {
+    "Geometry": "LINE"
+   }
+  },
+  "GeometryNodeTranslateInstances": {
+   "in": {
+    "Instances": "LINE",
+    "Local Space": "DIAMOND",
+    "Selection": "DIAMOND",
+    "Translation": "DIAMOND"
+   },
+   "out": {
+    "Instances": "LINE"
+   }
+  },
+  "GeometryNodeTriangulate": {
+   "in": {
+    "Mesh": "LINE",
+    "N-gon Method": "LINE",
+    "Quad Method": "LINE",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeTrimCurve": {
+   "in": {
+    "Curve": "LINE",
+    "End": "DIAMOND",
+    "End_001": "DIAMOND",
+    "Selection": "DIAMOND",
+    "Start": "DIAMOND",
+    "Start_001": "DIAMOND"
+   },
+   "out": {
+    "Curve": "LINE"
+   }
+  },
+  "GeometryNodeUVPackIslands": {
+   "in": {
+    "Bottom Left": "LINE",
+    "Margin": "LINE",
+    "Method": "LINE",
+    "Rotate": "LINE",
+    "Selection": "DIAMOND",
+    "Top Right": "LINE",
+    "UV": "DIAMOND"
+   },
+   "out": {
+    "UV": "DIAMOND"
+   }
+  },
+  "GeometryNodeUVTangent": {
+   "in": {
+    "Method": "LINE",
+    "UV": "DIAMOND"
+   },
+   "out": {
+    "Tangent": "DIAMOND"
+   }
+  },
+  "GeometryNodeUVUnwrap": {
+   "in": {
+    "Fill Holes": "LINE",
+    "Iterations": "LINE",
+    "Margin": "LINE",
+    "Method": "LINE",
+    "No Flip": "LINE",
+    "Seam": "DIAMOND",
+    "Selection": "DIAMOND"
+   },
+   "out": {
+    "UV": "DIAMOND"
+   }
+  },
+  "GeometryNodeVertexOfCorner": {
+   "in": {
+    "Corner Index": "DIAMOND"
+   },
+   "out": {
+    "Vertex Index": "DIAMOND"
+   }
+  },
+  "GeometryNodeViewer": {
+   "in": {},
+   "out": {}
+  },
+  "GeometryNodeViewportTransform": {
+   "in": {},
+   "out": {
+    "Is Orthographic": "LINE",
+    "Projection": "LINE",
+    "View": "LINE"
+   }
+  },
+  "GeometryNodeVolumeCube": {
+   "in": {
+    "Background": "LINE",
+    "Density": "DIAMOND",
+    "Max": "LINE",
+    "Min": "LINE",
+    "Resolution X": "LINE",
+    "Resolution Y": "LINE",
+    "Resolution Z": "LINE"
+   },
+   "out": {
+    "Volume": "LINE"
+   }
+  },
+  "GeometryNodeVolumeToMesh": {
+   "in": {
+    "Adaptivity": "LINE",
+    "Resolution Mode": "LINE",
+    "Threshold": "LINE",
+    "Volume": "LINE",
+    "Voxel Amount": "LINE",
+    "Voxel Size": "LINE"
+   },
+   "out": {
+    "Mesh": "LINE"
+   }
+  },
+  "GeometryNodeWarning": {
+   "in": {
+    "Message": "LINE",
+    "Show": "LINE"
+   },
+   "out": {
+    "Show": "LINE"
+   }
+  },
+  "NodeClosureInput": {
+   "in": {},
+   "out": {}
+  },
+  "NodeClosureOutput": {
+   "in": {},
+   "out": {
+    "Closure": "CIRCLE"
+   }
+  },
+  "NodeCombineBundle": {
+   "in": {},
+   "out": {
+    "Bundle": "CIRCLE"
+   }
+  },
+  "NodeEnableOutput": {
+   "in": {
+    "Enable": "LINE",
+    "Value": "CIRCLE"
+   },
+   "out": {
+    "Value": "CIRCLE"
+   }
+  },
+  "NodeEvaluateClosure": {
+   "in": {
+    "Closure": "CIRCLE"
+   },
+   "out": {}
+  },
+  "NodeFrame": {
+   "in": {},
+   "out": {}
+  },
+  "NodeGetBundleItem": {
+   "in": {
+    "Bundle": "LINE",
+    "Path": "LINE",
+    "Remove": "LINE"
+   },
+   "out": {
+    "Bundle": "LINE",
+    "Exists": "LINE",
+    "Item": "CIRCLE"
+   }
+  },
+  "NodeGroupInput": {
+   "in": {},
+   "out": {}
+  },
+  "NodeGroupOutput": {
+   "in": {},
+   "out": {}
+  },
+  "NodeJoinBundle": {
+   "in": {
+    "Bundle": "LINE"
+   },
+   "out": {
+    "Bundle": "LINE"
+   }
+  },
+  "NodeReroute": {
+   "in": {
+    "Input": "CIRCLE"
+   },
+   "out": {
+    "Output": "CIRCLE"
+   }
+  },
+  "NodeSeparateBundle": {
+   "in": {
+    "Bundle": "CIRCLE"
+   },
+   "out": {}
+  },
+  "NodeStoreBundleItem": {
+   "in": {
+    "Bundle": "LINE",
+    "Item": "LINE",
+    "Path": "LINE"
+   },
+   "out": {
+    "Bundle": "LINE"
+   }
+  },
+  "ShaderNodeBlackbody": {
+   "in": {
+    "Temperature": "CIRCLE"
+   },
+   "out": {
+    "Color": "CIRCLE"
+   }
+  },
+  "ShaderNodeClamp": {
+   "in": {
+    "Max": "CIRCLE",
+    "Min": "CIRCLE",
+    "Value": "CIRCLE"
+   },
+   "out": {
+    "Result": "CIRCLE"
+   }
+  },
+  "ShaderNodeCombineXYZ": {
+   "in": {
+    "X": "CIRCLE",
+    "Y": "CIRCLE",
+    "Z": "CIRCLE"
+   },
+   "out": {
+    "Vector": "CIRCLE"
+   }
+  },
+  "ShaderNodeFloatCurve": {
+   "in": {
+    "Factor": "CIRCLE",
+    "Value": "CIRCLE"
+   },
+   "out": {
+    "Value": "CIRCLE"
+   }
+  },
+  "ShaderNodeGamma": {
+   "in": {
+    "Color": "CIRCLE",
+    "Gamma": "CIRCLE"
+   },
+   "out": {
+    "Color": "CIRCLE"
+   }
+  },
+  "ShaderNodeMapRange": {
+   "in": {
+    "From Max": "CIRCLE",
+    "From Min": "CIRCLE",
+    "From_Max_FLOAT3": "CIRCLE",
+    "From_Min_FLOAT3": "CIRCLE",
+    "Steps": "CIRCLE",
+    "Steps_FLOAT3": "CIRCLE",
+    "To Max": "CIRCLE",
+    "To Min": "CIRCLE",
+    "To_Max_FLOAT3": "CIRCLE",
+    "To_Min_FLOAT3": "CIRCLE",
+    "Value": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Result": "CIRCLE",
+    "Vector": "CIRCLE"
+   }
+  },
+  "ShaderNodeMath": {
+   "in": {
+    "Value": "CIRCLE",
+    "Value_001": "CIRCLE",
+    "Value_002": "CIRCLE"
+   },
+   "out": {
+    "Value": "CIRCLE"
+   }
+  },
+  "ShaderNodeMix": {
+   "in": {
+    "A_Color": "CIRCLE",
+    "A_Float": "CIRCLE",
+    "A_Rotation": "CIRCLE",
+    "A_Vector": "CIRCLE",
+    "B_Color": "CIRCLE",
+    "B_Float": "CIRCLE",
+    "B_Rotation": "CIRCLE",
+    "B_Vector": "CIRCLE",
+    "Factor_Float": "CIRCLE",
+    "Factor_Vector": "CIRCLE"
+   },
+   "out": {
+    "Result_Color": "CIRCLE",
+    "Result_Float": "CIRCLE",
+    "Result_Rotation": "CIRCLE",
+    "Result_Vector": "CIRCLE"
+   }
+  },
+  "ShaderNodeMixRGB": {
+   "in": {
+    "Color1": "CIRCLE",
+    "Color2": "CIRCLE",
+    "Fac": "CIRCLE"
+   },
+   "out": {
+    "Color": "CIRCLE"
+   }
+  },
+  "ShaderNodeRGBCurve": {
+   "in": {
+    "Color": "CIRCLE",
+    "Fac": "CIRCLE"
+   },
+   "out": {
+    "Color": "CIRCLE"
+   }
+  },
+  "ShaderNodeRadialTiling": {
+   "in": {
+    "Roundness": "CIRCLE",
+    "Sides": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Segment Coordinates": "CIRCLE",
+    "Segment ID": "CIRCLE",
+    "Segment Rotation": "CIRCLE",
+    "Segment Width": "CIRCLE"
+   }
+  },
+  "ShaderNodeSeparateXYZ": {
+   "in": {
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "X": "CIRCLE",
+    "Y": "CIRCLE",
+    "Z": "CIRCLE"
+   }
+  },
+  "ShaderNodeTexBrick": {
+   "in": {
+    "Bias": "CIRCLE",
+    "Brick Width": "CIRCLE",
+    "Color1": "CIRCLE",
+    "Color2": "CIRCLE",
+    "Mortar": "CIRCLE",
+    "Mortar Size": "CIRCLE",
+    "Mortar Smooth": "CIRCLE",
+    "Row Height": "CIRCLE",
+    "Scale": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Color": "CIRCLE",
+    "Fac": "CIRCLE"
+   }
+  },
+  "ShaderNodeTexChecker": {
+   "in": {
+    "Color1": "CIRCLE",
+    "Color2": "CIRCLE",
+    "Scale": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Color": "CIRCLE",
+    "Fac": "CIRCLE"
+   }
+  },
+  "ShaderNodeTexGabor": {
+   "in": {
+    "Anisotropy": "CIRCLE",
+    "Frequency": "CIRCLE",
+    "Orientation 2D": "CIRCLE",
+    "Orientation 3D": "CIRCLE",
+    "Scale": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Intensity": "CIRCLE",
+    "Phase": "CIRCLE",
+    "Value": "CIRCLE"
+   }
+  },
+  "ShaderNodeTexGradient": {
+   "in": {
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Color": "CIRCLE",
+    "Fac": "CIRCLE"
+   }
+  },
+  "ShaderNodeTexMagic": {
+   "in": {
+    "Distortion": "CIRCLE",
+    "Scale": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Color": "CIRCLE",
+    "Fac": "CIRCLE"
+   }
+  },
+  "ShaderNodeTexNoise": {
+   "in": {
+    "Detail": "CIRCLE",
+    "Distortion": "CIRCLE",
+    "Gain": "CIRCLE",
+    "Lacunarity": "CIRCLE",
+    "Offset": "CIRCLE",
+    "Roughness": "CIRCLE",
+    "Scale": "CIRCLE",
+    "Vector": "CIRCLE",
+    "W": "CIRCLE"
+   },
+   "out": {
+    "Color": "CIRCLE",
+    "Fac": "CIRCLE"
+   }
+  },
+  "ShaderNodeTexVoronoi": {
+   "in": {
+    "Detail": "CIRCLE",
+    "Exponent": "CIRCLE",
+    "Lacunarity": "CIRCLE",
+    "Randomness": "CIRCLE",
+    "Roughness": "CIRCLE",
+    "Scale": "CIRCLE",
+    "Smoothness": "CIRCLE",
+    "Vector": "CIRCLE",
+    "W": "CIRCLE"
+   },
+   "out": {
+    "Color": "CIRCLE",
+    "Distance": "CIRCLE",
+    "Position": "CIRCLE",
+    "Radius": "CIRCLE",
+    "W": "CIRCLE"
+   }
+  },
+  "ShaderNodeTexWave": {
+   "in": {
+    "Detail": "CIRCLE",
+    "Detail Roughness": "CIRCLE",
+    "Detail Scale": "CIRCLE",
+    "Distortion": "CIRCLE",
+    "Phase Offset": "CIRCLE",
+    "Scale": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Color": "CIRCLE",
+    "Fac": "CIRCLE"
+   }
+  },
+  "ShaderNodeTexWhiteNoise": {
+   "in": {
+    "Vector": "CIRCLE",
+    "W": "CIRCLE"
+   },
+   "out": {
+    "Color": "CIRCLE",
+    "Value": "CIRCLE"
+   }
+  },
+  "ShaderNodeValToRGB": {
+   "in": {
+    "Fac": "CIRCLE"
+   },
+   "out": {
+    "Alpha": "CIRCLE",
+    "Color": "CIRCLE"
+   }
+  },
+  "ShaderNodeValue": {
+   "in": {},
+   "out": {
+    "Value": "LINE"
+   }
+  },
+  "ShaderNodeVectorCurve": {
+   "in": {
+    "Fac": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Vector": "CIRCLE"
+   }
+  },
+  "ShaderNodeVectorMath": {
+   "in": {
+    "Scale": "CIRCLE",
+    "Vector": "CIRCLE",
+    "Vector_001": "CIRCLE",
+    "Vector_002": "CIRCLE"
+   },
+   "out": {
+    "Value": "CIRCLE",
+    "Vector": "CIRCLE"
+   }
+  },
+  "ShaderNodeVectorRotate": {
+   "in": {
+    "Angle": "CIRCLE",
+    "Axis": "CIRCLE",
+    "Center": "CIRCLE",
+    "Rotation": "CIRCLE",
+    "Vector": "CIRCLE"
+   },
+   "out": {
+    "Vector": "CIRCLE"
+   }
+  }
+ },
+ "menu_paths": {
+  "FunctionNodeAlignEulerToVector": [
+   {
+    "category": "Utilities/Deprecated",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeAlignRotationToVector": [
+   {
+    "category": "Utilities/Rotation",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeAxesToRotation": [
+   {
+    "category": "Utilities/Rotation",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeAxisAngleToRotation": [
+   {
+    "category": "Utilities/Rotation",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeBitMath": [
+   {
+    "category": "Utilities/Math",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeBooleanMath": [
+   {
+    "category": "Utilities/Math",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeCombineColor": [
+   {
+    "category": "Color",
+    "source": "bl_label"
+   }
+  ],
+  "FunctionNodeCombineMatrix": [
+   {
+    "category": "Utilities/Matrix",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeCombineTransform": [
+   {
+    "category": "Utilities/Matrix",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeCompare": [
+   {
+    "category": "Utilities/Math",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeEulerToRotation": [
+   {
+    "category": "Utilities/Rotation",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeFindInString": [
+   {
+    "category": "Utilities/Text",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeFloatToInt": [
+   {
+    "category": "Utilities/Math",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeFormatString": [
+   {
+    "category": "Utilities/Text",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeHashValue": [
+   {
+    "category": "Utilities/Math",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeInputBool": [
+   {
+    "category": "Input/Constant",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeInputColor": [
+   {
+    "category": "Input/Constant",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeInputInt": [
+   {
+    "category": "Input/Constant",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeInputRotation": [
+   {
+    "category": "Input/Constant",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeInputSpecialCharacters": [
+   {
+    "category": "Utilities/Text",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeInputString": [
+   {
+    "category": "Input/Constant",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeInputVector": [
+   {
+    "category": "Input/Constant",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeIntegerMath": [
+   {
+    "category": "Utilities/Math",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeInvertMatrix": [
+   {
+    "category": "Utilities/Matrix",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeInvertRotation": [
+   {
+    "category": "Utilities/Rotation",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeMatchString": [
+   {
+    "category": "Utilities/Text",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeMatrixDeterminant": [
+   {
+    "category": "Utilities/Matrix",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeMatrixMultiply": [
+   {
+    "category": "Utilities/Matrix",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeMatrixSVD": [
+   {
+    "category": "Utilities/Matrix",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeProjectPoint": [
+   {
+    "category": "Utilities/Matrix",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeQuaternionToRotation": [
+   {
+    "category": "Utilities/Rotation",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeRandomValue": [
+   {
+    "category": "Utilities",
+    "source": "bl_label"
+   }
+  ],
+  "FunctionNodeReplaceString": [
+   {
+    "category": "Utilities/Text",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeRotateEuler": [
+   {
+    "category": "Utilities/Deprecated",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeRotateRotation": [
+   {
+    "category": "Utilities/Rotation",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeRotateVector": [
+   {
+    "category": "Utilities/Rotation",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeRotationToAxisAngle": [
+   {
+    "category": "Utilities/Rotation",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeRotationToEuler": [
+   {
+    "category": "Utilities/Rotation",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeRotationToQuaternion": [
+   {
+    "category": "Utilities/Rotation",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeSeparateColor": [
+   {
+    "category": "Color",
+    "source": "bl_label"
+   }
+  ],
+  "FunctionNodeSeparateMatrix": [
+   {
+    "category": "Utilities/Matrix",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeSeparateTransform": [
+   {
+    "category": "Utilities/Matrix",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeSliceString": [
+   {
+    "category": "Utilities/Text",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeStringLength": [
+   {
+    "category": "Utilities/Text",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeStringToValue": [
+   {
+    "category": "Utilities/Text",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeTransformDirection": [
+   {
+    "category": "Utilities/Matrix",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeTransformPoint": [
+   {
+    "category": "Utilities/Matrix",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeTransposeMatrix": [
+   {
+    "category": "Utilities/Matrix",
+    "source": "menu_path"
+   }
+  ],
+  "FunctionNodeValueToString": [
+   {
+    "category": "Utilities/Text",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeAccumulateField": [
+   {
+    "category": "Utilities/Field",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeAttributeDomainSize": [
+   {
+    "category": "Attribute",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeAttributeStatistic": [
+   {
+    "category": "Attribute",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeBake": [
+   {
+    "category": "Geometry/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeBlurAttribute": [
+   {
+    "category": "Attribute",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeBoneInfo": [
+   {
+    "category": "Input/Scene",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeBoundBox": [
+   {
+    "category": "Geometry/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCameraInfo": [
+   {
+    "category": "Input/Scene",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCaptureAttribute": [
+   {
+    "category": "Attribute",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeCollectionInfo": [
+   {
+    "category": "Input/Scene",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeConvexHull": [
+   {
+    "category": "Geometry/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCornersOfEdge": [
+   {
+    "category": "Mesh/Topology",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCornersOfFace": [
+   {
+    "category": "Mesh/Topology",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCornersOfVertex": [
+   {
+    "category": "Mesh/Topology",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCubeGridTopology": [
+   {
+    "category": "Volume/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurveArc": [
+   {
+    "category": "Curve/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurveEndpointSelection": [
+   {
+    "category": "Curve/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurveHandleTypeSelection": [
+   {
+    "category": "Curve/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurveLength": [
+   {
+    "category": "Curve/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurveOfPoint": [
+   {
+    "category": "Curve/Topology",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurvePrimitiveBezierSegment": [
+   {
+    "category": "Curve/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurvePrimitiveCircle": [
+   {
+    "category": "Curve/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurvePrimitiveLine": [
+   {
+    "category": "Curve/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurvePrimitiveQuadrilateral": [
+   {
+    "category": "Curve/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurveQuadraticBezier": [
+   {
+    "category": "Curve/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurveSetHandles": [
+   {
+    "category": "Curve/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurveSpiral": [
+   {
+    "category": "Curve/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurveSplineType": [
+   {
+    "category": "Curve/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurveStar": [
+   {
+    "category": "Curve/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurveToMesh": [
+   {
+    "category": "Curve/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurveToPoints": [
+   {
+    "category": "Curve/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeCurvesToGreasePencil": [
+   {
+    "category": "Curve/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeDeformCurvesOnSurface": [
+   {
+    "category": "Curve/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeDeleteGeometry": [
+   {
+    "category": "Geometry/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeDistributePointsInGrid": [
+   {
+    "category": "Point",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeDistributePointsInVolume": [
+   {
+    "category": "Point",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeDistributePointsOnFaces": [
+   {
+    "category": "Point",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeDualMesh": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeDuplicateElements": [
+   {
+    "category": "Geometry/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeEdgePathsToCurves": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeEdgePathsToSelection": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeEdgesOfCorner": [
+   {
+    "category": "Mesh/Topology",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeEdgesOfVertex": [
+   {
+    "category": "Mesh/Topology",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeEdgesToFaceGroups": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeExtrudeMesh": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeFaceOfCorner": [
+   {
+    "category": "Mesh/Topology",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeFieldAtIndex": [
+   {
+    "category": "Utilities/Field",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeFieldAverage": [
+   {
+    "category": "Utilities/Field",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeFieldMinAndMax": [
+   {
+    "category": "Utilities/Field",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeFieldOnDomain": [
+   {
+    "category": "Utilities/Field",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeFieldToGrid": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeFieldToList": [
+   {
+    "category": "Utilities/List",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeFieldVariance": [
+   {
+    "category": "Utilities/Field",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeFillCurve": [
+   {
+    "category": "Curve/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeFilletCurve": [
+   {
+    "category": "Curve/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeFlipFaces": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGeometryToInstance": [
+   {
+    "category": "Geometry",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeGetGeometryBundle": [
+   {
+    "category": "Geometry/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGetNamedGrid": [
+   {
+    "category": "Volume/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGizmoDial": [
+   {
+    "category": "Input/Gizmo",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGizmoLinear": [
+   {
+    "category": "Input/Gizmo",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGizmoTransform": [
+   {
+    "category": "Input/Gizmo",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGreasePencilToCurves": [
+   {
+    "category": "Grease Pencil/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridAdvect": [
+   {
+    "category": "Volume/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridClip": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridCurl": [
+   {
+    "category": "Volume/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridDilateAndErode": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridDivergence": [
+   {
+    "category": "Volume/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridGradient": [
+   {
+    "category": "Volume/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridInfo": [
+   {
+    "category": "Volume/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridLaplacian": [
+   {
+    "category": "Volume/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridMean": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridMedian": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridPrune": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridToMesh": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridToPoints": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeGridVoxelize": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeImageInfo": [
+   {
+    "category": "Input/Scene",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeImageTexture": [
+   {
+    "category": "Texture",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeImportCSV": [
+   {
+    "category": "Input/Import",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeImportOBJ": [
+   {
+    "category": "Input/Import",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeImportPLY": [
+   {
+    "category": "Input/Import",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeImportSTL": [
+   {
+    "category": "Input/Import",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeImportText": [
+   {
+    "category": "Input/Import",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeImportVDB": [
+   {
+    "category": "Input/Import",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeIndexOfNearest": [
+   {
+    "category": "Geometry/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeIndexSwitch": [
+   {
+    "category": "Utilities",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeInputActiveCamera": [
+   {
+    "category": "Input/Scene",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputCollection": [
+   {
+    "category": "Input/Constant",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputCurveHandlePositions": [
+   {
+    "category": "Curve/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputCurveTilt": [
+   {
+    "category": "Curve/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputEdgeSmooth": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputID": [
+   {
+    "category": "Geometry/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputImage": [
+   {
+    "category": "Input/Constant",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputIndex": [
+   {
+    "category": "Geometry/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputInstanceBounds": [
+   {
+    "category": "Instances",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeInputInstanceRotation": [
+   {
+    "category": "Instances",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeInputInstanceScale": [
+   {
+    "category": "Instances",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeInputMaterial": [
+   {
+    "category": "Input/Constant",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputMaterialIndex": [
+   {
+    "category": "Geometry/Material",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputMeshEdgeAngle": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputMeshEdgeNeighbors": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputMeshEdgeVertices": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputMeshFaceArea": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputMeshFaceIsPlanar": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputMeshFaceNeighbors": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputMeshIsland": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputMeshVertexNeighbors": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputNamedAttribute": [
+   {
+    "category": "Geometry/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputNamedLayerSelection": [
+   {
+    "category": "Grease Pencil/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputNormal": [
+   {
+    "category": "Geometry/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputObject": [
+   {
+    "category": "Input/Constant",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputPosition": [
+   {
+    "category": "Geometry/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputRadius": [
+   {
+    "category": "Geometry/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputSceneTime": [
+   {
+    "category": "Input/Scene",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputShadeSmooth": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputShortestEdgePaths": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputSplineCyclic": [
+   {
+    "category": "Curve/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputSplineResolution": [
+   {
+    "category": "Curve/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputTangent": [
+   {
+    "category": "Curve/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInputVoxelIndex": [
+   {
+    "category": "Volume/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeInstanceOnPoints": [
+   {
+    "category": "Instances",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeInstanceTransform": [
+   {
+    "category": "Instances",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeInstancesToPoints": [
+   {
+    "category": "Instances",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeInterpolateCurves": [
+   {
+    "category": "Curve/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeIsViewport": [
+   {
+    "category": "Input/Scene",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeJoinGeometry": [
+   {
+    "category": "Geometry",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeListGetItem": [
+   {
+    "category": "Utilities/List",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeListLength": [
+   {
+    "category": "Utilities/List",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMaterialSelection": [
+   {
+    "category": "Geometry/Material",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMenuSwitch": [
+   {
+    "category": "Utilities",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeMergeByDistance": [
+   {
+    "category": "Geometry/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMergeLayers": [
+   {
+    "category": "Grease Pencil/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshBoolean": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshCircle": [
+   {
+    "category": "Mesh/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshCone": [
+   {
+    "category": "Mesh/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshCube": [
+   {
+    "category": "Mesh/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshCylinder": [
+   {
+    "category": "Mesh/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshFaceSetBoundaries": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshGrid": [
+   {
+    "category": "Mesh/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshIcoSphere": [
+   {
+    "category": "Mesh/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshLine": [
+   {
+    "category": "Mesh/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshToCurve": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshToDensityGrid": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshToPoints": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshToSDFGrid": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshToVolume": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeMeshUVSphere": [
+   {
+    "category": "Mesh/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeObjectInfo": [
+   {
+    "category": "Input/Scene",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeOffsetCornerInFace": [
+   {
+    "category": "Mesh/Topology",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeOffsetPointInCurve": [
+   {
+    "category": "Curve/Topology",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodePoints": [
+   {
+    "category": "Point",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodePointsOfCurve": [
+   {
+    "category": "Curve/Topology",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodePointsToCurves": [
+   {
+    "category": "Point",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodePointsToSDFGrid": [
+   {
+    "category": "Point",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodePointsToVertices": [
+   {
+    "category": "Point",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodePointsToVolume": [
+   {
+    "category": "Point",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeProximity": [
+   {
+    "category": "Geometry/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeRaycast": [
+   {
+    "category": "Geometry/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeRealizeInstances": [
+   {
+    "category": "Instances",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeRemoveAttribute": [
+   {
+    "category": "Attribute",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeReplaceMaterial": [
+   {
+    "category": "Geometry/Material",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeResampleCurve": [
+   {
+    "category": "Curve/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeReverseCurve": [
+   {
+    "category": "Curve/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeRotateInstances": [
+   {
+    "category": "Instances",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeSDFGridBoolean": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSDFGridFillet": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSDFGridLaplacian": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSDFGridMean": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSDFGridMeanCurvature": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSDFGridMedian": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSDFGridOffset": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSampleCurve": [
+   {
+    "category": "Curve/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSampleGrid": [
+   {
+    "category": "Volume/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSampleGridIndex": [
+   {
+    "category": "Volume/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSampleIndex": [
+   {
+    "category": "Geometry/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSampleNearest": [
+   {
+    "category": "Geometry/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSampleNearestSurface": [
+   {
+    "category": "Mesh/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSampleUVSurface": [
+   {
+    "category": "Mesh/Sample",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeScaleElements": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeScaleInstances": [
+   {
+    "category": "Instances",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeSelfObject": [
+   {
+    "category": "Input/Scene",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSeparateComponents": [
+   {
+    "category": "Geometry/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSeparateGeometry": [
+   {
+    "category": "Geometry/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetCurveHandlePositions": [
+   {
+    "category": "Curve/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetCurveNormal": [
+   {
+    "category": "Curve/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetCurveRadius": [
+   {
+    "category": "Curve/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetCurveTilt": [
+   {
+    "category": "Curve/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetGeometryBundle": [
+   {
+    "category": "Geometry/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetGeometryName": [
+   {
+    "category": "Geometry/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetGreasePencilColor": [
+   {
+    "category": "Grease Pencil/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetGreasePencilDepth": [
+   {
+    "category": "Grease Pencil/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetGreasePencilSoftness": [
+   {
+    "category": "Grease Pencil/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetGridBackground": [
+   {
+    "category": "Volume/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetGridTransform": [
+   {
+    "category": "Volume/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetID": [
+   {
+    "category": "Geometry/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetInstanceTransform": [
+   {
+    "category": "Instances",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeSetMaterial": [
+   {
+    "category": "Geometry/Material",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetMaterialIndex": [
+   {
+    "category": "Geometry/Material",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetMeshNormal": [
+   {
+    "category": "Mesh/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetPointRadius": [
+   {
+    "category": "Point",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeSetPosition": [
+   {
+    "category": "Geometry/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetShadeSmooth": [
+   {
+    "category": "Mesh/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetSplineCyclic": [
+   {
+    "category": "Curve/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSetSplineResolution": [
+   {
+    "category": "Curve/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSortElements": [
+   {
+    "category": "Geometry/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSplineLength": [
+   {
+    "category": "Curve/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSplineParameter": [
+   {
+    "category": "Curve/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSplitEdges": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSplitToInstances": [
+   {
+    "category": "Geometry/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeStoreNamedAttribute": [
+   {
+    "category": "Attribute",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeStoreNamedGrid": [
+   {
+    "category": "Volume/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeStringJoin": [
+   {
+    "category": "Utilities/Text",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeStringToCurves": [
+   {
+    "category": "Utilities/Text",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSubdivideCurve": [
+   {
+    "category": "Curve/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSubdivideMesh": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSubdivisionSurface": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeSwitch": [
+   {
+    "category": "Utilities",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeTool3DCursor": [
+   {
+    "category": "Input/Scene",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeToolActiveElement": [
+   {
+    "category": "Geometry/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeToolFaceSet": [
+   {
+    "category": "Mesh/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeToolMousePosition": [
+   {
+    "category": "Input/Scene",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeToolSelection": [
+   {
+    "category": "Geometry/Read",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeToolSetFaceSet": [
+   {
+    "category": "Mesh/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeToolSetSelection": [
+   {
+    "category": "Geometry/Write",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeTransform": [
+   {
+    "category": "Geometry/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeTranslateInstances": [
+   {
+    "category": "Instances",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeTriangulate": [
+   {
+    "category": "Mesh/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeTrimCurve": [
+   {
+    "category": "Curve/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeUVPackIslands": [
+   {
+    "category": "Mesh/UV",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeUVTangent": [
+   {
+    "category": "Mesh/UV",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeUVUnwrap": [
+   {
+    "category": "Mesh/UV",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeVertexOfCorner": [
+   {
+    "category": "Mesh/Topology",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeViewer": [
+   {
+    "category": "Output",
+    "source": "bl_label"
+   }
+  ],
+  "GeometryNodeViewportTransform": [
+   {
+    "category": "Input/Scene",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeVolumeCube": [
+   {
+    "category": "Volume/Primitives",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeVolumeToMesh": [
+   {
+    "category": "Volume/Operations",
+    "source": "menu_path"
+   }
+  ],
+  "GeometryNodeWarning": [
+   {
+    "category": "Output",
+    "source": "bl_label"
+   }
+  ],
+  "NodeCombineBundle": [
+   {
+    "category": "Utilities/Bundle",
+    "source": "menu_path"
+   }
+  ],
+  "NodeEnableOutput": [
+   {
+    "category": "Output",
+    "source": "bl_label"
+   }
+  ],
+  "NodeEvaluateClosure": [
+   {
+    "category": "Utilities/Closure",
+    "source": "menu_path"
+   }
+  ],
+  "NodeGetBundleItem": [
+   {
+    "category": "Utilities/Bundle",
+    "source": "menu_path"
+   }
+  ],
+  "NodeGroupInput": [
+   {
+    "category": "Input/Group",
+    "source": "menu_path"
+   }
+  ],
+  "NodeGroupOutput": [
+   {
+    "category": "Output",
+    "source": "bl_label"
+   }
+  ],
+  "NodeJoinBundle": [
+   {
+    "category": "Utilities/Bundle",
+    "source": "menu_path"
+   }
+  ],
+  "NodeSeparateBundle": [
+   {
+    "category": "Utilities/Bundle",
+    "source": "menu_path"
+   }
+  ],
+  "NodeStoreBundleItem": [
+   {
+    "category": "Utilities/Bundle",
+    "source": "menu_path"
+   }
+  ],
+  "ShaderNodeBlackbody": [
+   {
+    "category": "Color",
+    "source": "bl_label"
+   }
+  ],
+  "ShaderNodeClamp": [
+   {
+    "category": "Utilities/Math",
+    "source": "menu_path"
+   }
+  ],
+  "ShaderNodeCombineXYZ": [
+   {
+    "category": "Utilities/Vector",
+    "source": "menu_path"
+   }
+  ],
+  "ShaderNodeFloatCurve": [
+   {
+    "category": "Utilities/Math",
+    "source": "menu_path"
+   }
+  ],
+  "ShaderNodeGamma": [
+   {
+    "category": "Color",
+    "source": "bl_label"
+   }
+  ],
+  "ShaderNodeMapRange": [
+   {
+    "category": "Utilities/Math",
+    "source": "menu_path"
+   },
+   {
+    "category": "Utilities/Vector",
+    "source": "menu_path"
+   }
+  ],
+  "ShaderNodeMath": [
+   {
+    "category": "Utilities/Math",
+    "source": "menu_path"
+   }
+  ],
+  "ShaderNodeMix": [
+   {
+    "category": "Utilities/Math",
+    "source": "menu_path"
+   },
+   {
+    "category": "Utilities/Rotation",
+    "source": "menu_path"
+   },
+   {
+    "category": "Utilities/Vector",
+    "source": "menu_path"
+   }
+  ],
+  "ShaderNodeRGBCurve": [
+   {
+    "category": "Color",
+    "source": "bl_label"
+   }
+  ],
+  "ShaderNodeRadialTiling": [
+   {
+    "category": "Utilities/Vector",
+    "source": "menu_path"
+   }
+  ],
+  "ShaderNodeSeparateXYZ": [
+   {
+    "category": "Utilities/Vector",
+    "source": "menu_path"
+   }
+  ],
+  "ShaderNodeTexBrick": [
+   {
+    "category": "Texture",
+    "source": "bl_label"
+   }
+  ],
+  "ShaderNodeTexChecker": [
+   {
+    "category": "Texture",
+    "source": "bl_label"
+   }
+  ],
+  "ShaderNodeTexGabor": [
+   {
+    "category": "Texture",
+    "source": "bl_label"
+   }
+  ],
+  "ShaderNodeTexGradient": [
+   {
+    "category": "Texture",
+    "source": "bl_label"
+   }
+  ],
+  "ShaderNodeTexMagic": [
+   {
+    "category": "Texture",
+    "source": "bl_label"
+   }
+  ],
+  "ShaderNodeTexNoise": [
+   {
+    "category": "Texture",
+    "source": "bl_label"
+   }
+  ],
+  "ShaderNodeTexVoronoi": [
+   {
+    "category": "Texture",
+    "source": "bl_label"
+   }
+  ],
+  "ShaderNodeTexWave": [
+   {
+    "category": "Texture",
+    "source": "bl_label"
+   }
+  ],
+  "ShaderNodeTexWhiteNoise": [
+   {
+    "category": "Texture",
+    "source": "bl_label"
+   }
+  ],
+  "ShaderNodeValToRGB": [
+   {
+    "category": "Color",
+    "source": "bl_label"
+   }
+  ],
+  "ShaderNodeValue": [
+   {
+    "category": "Input/Constant",
+    "source": "menu_path"
+   }
+  ],
+  "ShaderNodeVectorCurve": [
+   {
+    "category": "Utilities/Vector",
+    "source": "menu_path"
+   }
+  ],
+  "ShaderNodeVectorMath": [
+   {
+    "category": "Utilities/Vector",
+    "source": "menu_path"
+   }
+  ],
+  "ShaderNodeVectorRotate": [
+   {
+    "category": "Utilities/Vector",
+    "source": "menu_path"
+   }
+  ]
+ },
+ "menu_structure": {
+  "NODE_MT_category_utilities_bundle_base": {
+   "label": "Bundle",
+   "menu_path": "Utilities/Bundle",
+   "nodes": [
+    "NodeCombineBundle",
+    "NodeSeparateBundle",
+    "NodeGetBundleItem",
+    "NodeStoreBundleItem",
+    "NodeJoinBundle"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_category_utilities_closure_base": {
+   "label": "Closure",
+   "menu_path": "Utilities/Closure",
+   "nodes": [
+    "NodeEvaluateClosure"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_attribute_base": {
+   "label": "Attribute",
+   "menu_path": null,
+   "nodes": [
+    "GeometryNodeAttributeStatistic",
+    "GeometryNodeAttributeDomainSize",
+    "GeometryNodeBlurAttribute",
+    "GeometryNodeCaptureAttribute",
+    "GeometryNodeRemoveAttribute",
+    "GeometryNodeStoreNamedAttribute"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_color_base": {
+   "label": "Color",
+   "menu_path": null,
+   "nodes": [
+    "ShaderNodeBlackbody",
+    "ShaderNodeGamma",
+    "ShaderNodeValToRGB",
+    "ShaderNodeRGBCurve",
+    "FunctionNodeCombineColor",
+    "FunctionNodeSeparateColor"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_curve_operations_base": {
+   "label": "Operations",
+   "menu_path": "Curve/Operations",
+   "nodes": [
+    "GeometryNodeCurveToMesh",
+    "GeometryNodeCurveToPoints",
+    "GeometryNodeCurvesToGreasePencil",
+    "GeometryNodeDeformCurvesOnSurface",
+    "GeometryNodeFillCurve",
+    "GeometryNodeFilletCurve",
+    "GeometryNodeInterpolateCurves",
+    "GeometryNodeResampleCurve",
+    "GeometryNodeReverseCurve",
+    "GeometryNodeSubdivideCurve",
+    "GeometryNodeTrimCurve"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_curve_primitives_base": {
+   "label": "Primitives",
+   "menu_path": "Curve/Primitives",
+   "nodes": [
+    "GeometryNodeCurveArc",
+    "GeometryNodeCurvePrimitiveBezierSegment",
+    "GeometryNodeCurvePrimitiveCircle",
+    "GeometryNodeCurvePrimitiveLine",
+    "GeometryNodeCurveSpiral",
+    "GeometryNodeCurveQuadraticBezier",
+    "GeometryNodeCurvePrimitiveQuadrilateral",
+    "GeometryNodeCurveStar"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_curve_read_base": {
+   "label": "Read",
+   "menu_path": "Curve/Read",
+   "nodes": [
+    "GeometryNodeInputCurveHandlePositions",
+    "GeometryNodeCurveLength",
+    "GeometryNodeInputTangent",
+    "GeometryNodeInputCurveTilt",
+    "GeometryNodeCurveEndpointSelection",
+    "GeometryNodeCurveHandleTypeSelection",
+    "GeometryNodeInputSplineCyclic",
+    "GeometryNodeSplineLength",
+    "GeometryNodeSplineParameter",
+    "GeometryNodeInputSplineResolution"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_curve_sample_base": {
+   "label": "Sample",
+   "menu_path": "Curve/Sample",
+   "nodes": [
+    "GeometryNodeSampleCurve"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_curve_topology_base": {
+   "label": "Topology",
+   "menu_path": "Curve/Topology",
+   "nodes": [
+    "GeometryNodeCurveOfPoint",
+    "GeometryNodeOffsetPointInCurve",
+    "GeometryNodePointsOfCurve"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_curve_write_base": {
+   "label": "Write",
+   "menu_path": "Curve/Write",
+   "nodes": [
+    "GeometryNodeSetCurveNormal",
+    "GeometryNodeSetCurveRadius",
+    "GeometryNodeSetCurveTilt",
+    "GeometryNodeSetCurveHandlePositions",
+    "GeometryNodeCurveSetHandles",
+    "GeometryNodeSetSplineCyclic",
+    "GeometryNodeSetSplineResolution",
+    "GeometryNodeCurveSplineType"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_geometry_base": {
+   "label": "Geometry",
+   "menu_path": null,
+   "nodes": [
+    "GeometryNodeGeometryToInstance",
+    "GeometryNodeJoinGeometry"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_geometry_operations_base": {
+   "label": "Operations",
+   "menu_path": "Geometry/Operations",
+   "nodes": [
+    "GeometryNodeBake",
+    "GeometryNodeBoundBox",
+    "GeometryNodeConvexHull",
+    "GeometryNodeDeleteGeometry",
+    "GeometryNodeDuplicateElements",
+    "GeometryNodeMergeByDistance",
+    "GeometryNodeSortElements",
+    "GeometryNodeTransform",
+    "GeometryNodeSeparateComponents",
+    "GeometryNodeSeparateGeometry",
+    "GeometryNodeSplitToInstances"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_geometry_read_base": {
+   "label": "Read",
+   "menu_path": "Geometry/Read",
+   "nodes": [
+    "GeometryNodeInputID",
+    "GeometryNodeInputIndex",
+    "GeometryNodeInputNamedAttribute",
+    "GeometryNodeInputNormal",
+    "GeometryNodeInputPosition",
+    "GeometryNodeInputRadius",
+    "GeometryNodeToolSelection",
+    "GeometryNodeToolActiveElement",
+    "GeometryNodeGetGeometryBundle"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_geometry_sample_base": {
+   "label": "Sample",
+   "menu_path": "Geometry/Sample",
+   "nodes": [
+    "GeometryNodeProximity",
+    "GeometryNodeIndexOfNearest",
+    "GeometryNodeRaycast",
+    "GeometryNodeSampleIndex",
+    "GeometryNodeSampleNearest"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_geometry_write_base": {
+   "label": "Write",
+   "menu_path": "Geometry/Write",
+   "nodes": [
+    "GeometryNodeSetGeometryName",
+    "GeometryNodeSetID",
+    "GeometryNodeSetPosition",
+    "GeometryNodeSetGeometryBundle",
+    "GeometryNodeToolSetSelection"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_grease_pencil_operations_base": {
+   "label": "Operations",
+   "menu_path": "Grease Pencil/Operations",
+   "nodes": [
+    "GeometryNodeGreasePencilToCurves",
+    "GeometryNodeMergeLayers"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_grease_pencil_read_base": {
+   "label": "Read",
+   "menu_path": "Grease Pencil/Read",
+   "nodes": [
+    "GeometryNodeInputNamedLayerSelection"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_grease_pencil_write_base": {
+   "label": "Write",
+   "menu_path": "Grease Pencil/Write",
+   "nodes": [
+    "GeometryNodeSetGreasePencilColor",
+    "GeometryNodeSetGreasePencilDepth",
+    "GeometryNodeSetGreasePencilSoftness"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_input_constant_base": {
+   "label": "Constant",
+   "menu_path": "Input/Constant",
+   "nodes": [
+    "FunctionNodeInputBool",
+    "GeometryNodeInputCollection",
+    "FunctionNodeInputColor",
+    "GeometryNodeInputImage",
+    "FunctionNodeInputInt",
+    "GeometryNodeInputMaterial",
+    "GeometryNodeInputObject",
+    "FunctionNodeInputRotation",
+    "FunctionNodeInputString",
+    "ShaderNodeValue",
+    "FunctionNodeInputVector"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_input_gizmo_base": {
+   "label": "Gizmo",
+   "menu_path": "Input/Gizmo",
+   "nodes": [
+    "GeometryNodeGizmoDial",
+    "GeometryNodeGizmoLinear",
+    "GeometryNodeGizmoTransform"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_input_group_base": {
+   "label": "Group",
+   "menu_path": "Input/Group",
+   "nodes": [
+    "NodeGroupInput"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_input_import_base": {
+   "label": "Import",
+   "menu_path": "Input/Import",
+   "nodes": [
+    "GeometryNodeImportCSV",
+    "GeometryNodeImportOBJ",
+    "GeometryNodeImportPLY",
+    "GeometryNodeImportSTL",
+    "GeometryNodeImportText",
+    "GeometryNodeImportVDB"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_input_scene_base": {
+   "label": "Scene",
+   "menu_path": "Input/Scene",
+   "nodes": [
+    "GeometryNodeInputActiveCamera",
+    "GeometryNodeCameraInfo",
+    "GeometryNodeBoneInfo",
+    "GeometryNodeCollectionInfo",
+    "GeometryNodeImageInfo",
+    "GeometryNodeIsViewport",
+    "GeometryNodeObjectInfo",
+    "GeometryNodeInputSceneTime",
+    "GeometryNodeSelfObject",
+    "GeometryNodeTool3DCursor",
+    "GeometryNodeToolMousePosition",
+    "GeometryNodeViewportTransform"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_instance_base": {
+   "label": "Instances",
+   "menu_path": null,
+   "nodes": [
+    "GeometryNodeInstanceOnPoints",
+    "GeometryNodeInstancesToPoints",
+    "GeometryNodeRealizeInstances",
+    "GeometryNodeRotateInstances",
+    "GeometryNodeScaleInstances",
+    "GeometryNodeSetInstanceTransform",
+    "GeometryNodeTranslateInstances",
+    "GeometryNodeInputInstanceBounds",
+    "GeometryNodeInstanceTransform",
+    "GeometryNodeInputInstanceRotation",
+    "GeometryNodeInputInstanceScale"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_material_base": {
+   "label": "Material",
+   "menu_path": "Geometry/Material",
+   "nodes": [
+    "GeometryNodeReplaceMaterial",
+    "GeometryNodeInputMaterialIndex",
+    "GeometryNodeMaterialSelection",
+    "GeometryNodeSetMaterial",
+    "GeometryNodeSetMaterialIndex"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_mesh_operations_base": {
+   "label": "Operations",
+   "menu_path": "Mesh/Operations",
+   "nodes": [
+    "GeometryNodeDualMesh",
+    "GeometryNodeEdgePathsToCurves",
+    "GeometryNodeEdgePathsToSelection",
+    "GeometryNodeExtrudeMesh",
+    "GeometryNodeFlipFaces",
+    "GeometryNodeMeshBoolean",
+    "GeometryNodeMeshToCurve",
+    "GeometryNodeMeshToDensityGrid",
+    "GeometryNodeMeshToPoints",
+    "GeometryNodeMeshToSDFGrid",
+    "GeometryNodeMeshToVolume",
+    "GeometryNodeScaleElements",
+    "GeometryNodeSplitEdges",
+    "GeometryNodeSubdivideMesh",
+    "GeometryNodeSubdivisionSurface",
+    "GeometryNodeTriangulate"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_mesh_primitives_base": {
+   "label": "Primitives",
+   "menu_path": "Mesh/Primitives",
+   "nodes": [
+    "GeometryNodeMeshCone",
+    "GeometryNodeMeshCube",
+    "GeometryNodeMeshCylinder",
+    "GeometryNodeMeshGrid",
+    "GeometryNodeMeshIcoSphere",
+    "GeometryNodeMeshCircle",
+    "GeometryNodeMeshLine",
+    "GeometryNodeMeshUVSphere"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_mesh_read_base": {
+   "label": "Read",
+   "menu_path": "Mesh/Read",
+   "nodes": [
+    "GeometryNodeInputMeshEdgeAngle",
+    "GeometryNodeInputMeshEdgeNeighbors",
+    "GeometryNodeInputMeshEdgeVertices",
+    "GeometryNodeEdgesToFaceGroups",
+    "GeometryNodeInputMeshFaceArea",
+    "GeometryNodeMeshFaceSetBoundaries",
+    "GeometryNodeInputMeshFaceNeighbors",
+    "GeometryNodeInputMeshFaceIsPlanar",
+    "GeometryNodeInputShadeSmooth",
+    "GeometryNodeInputEdgeSmooth",
+    "GeometryNodeInputMeshIsland",
+    "GeometryNodeInputShortestEdgePaths",
+    "GeometryNodeInputMeshVertexNeighbors",
+    "GeometryNodeToolFaceSet"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_mesh_sample_base": {
+   "label": "Sample",
+   "menu_path": "Mesh/Sample",
+   "nodes": [
+    "GeometryNodeSampleNearestSurface",
+    "GeometryNodeSampleUVSurface"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_mesh_topology_base": {
+   "label": "Topology",
+   "menu_path": "Mesh/Topology",
+   "nodes": [
+    "GeometryNodeCornersOfEdge",
+    "GeometryNodeCornersOfFace",
+    "GeometryNodeCornersOfVertex",
+    "GeometryNodeEdgesOfCorner",
+    "GeometryNodeEdgesOfVertex",
+    "GeometryNodeFaceOfCorner",
+    "GeometryNodeOffsetCornerInFace",
+    "GeometryNodeVertexOfCorner"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_mesh_uv_base": {
+   "label": "UV",
+   "menu_path": "Mesh/UV",
+   "nodes": [
+    "GeometryNodeUVPackIslands",
+    "GeometryNodeUVTangent",
+    "GeometryNodeUVUnwrap"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_mesh_write_base": {
+   "label": "Write",
+   "menu_path": "Mesh/Write",
+   "nodes": [
+    "GeometryNodeSetMeshNormal",
+    "GeometryNodeSetShadeSmooth",
+    "GeometryNodeToolSetFaceSet"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_output_base": {
+   "label": "Output",
+   "menu_path": null,
+   "nodes": [
+    "NodeEnableOutput",
+    "NodeGroupOutput",
+    "GeometryNodeViewer",
+    "GeometryNodeWarning"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_point_base": {
+   "label": "Point",
+   "menu_path": null,
+   "nodes": [
+    "GeometryNodeDistributePointsInGrid",
+    "GeometryNodeDistributePointsInVolume",
+    "GeometryNodeDistributePointsOnFaces",
+    "GeometryNodePoints",
+    "GeometryNodePointsToCurves",
+    "GeometryNodePointsToSDFGrid",
+    "GeometryNodePointsToVertices",
+    "GeometryNodePointsToVolume",
+    "GeometryNodeSetPointRadius"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_texture_base": {
+   "label": "Texture",
+   "menu_path": null,
+   "nodes": [
+    "ShaderNodeTexBrick",
+    "ShaderNodeTexChecker",
+    "ShaderNodeTexGabor",
+    "ShaderNodeTexGradient",
+    "GeometryNodeImageTexture",
+    "ShaderNodeTexMagic",
+    "ShaderNodeTexNoise",
+    "ShaderNodeTexVoronoi",
+    "ShaderNodeTexWave",
+    "ShaderNodeTexWhiteNoise"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_utilities_base": {
+   "label": "Utilities",
+   "menu_path": null,
+   "nodes": [
+    "GeometryNodeIndexSwitch",
+    "GeometryNodeMenuSwitch",
+    "FunctionNodeRandomValue",
+    "GeometryNodeSwitch"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_utilities_deprecated_base": {
+   "label": "Deprecated",
+   "menu_path": "Utilities/Deprecated",
+   "nodes": [
+    "FunctionNodeAlignEulerToVector",
+    "FunctionNodeRotateEuler"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_utilities_field_base": {
+   "label": "Field",
+   "menu_path": "Utilities/Field",
+   "nodes": [
+    "GeometryNodeAccumulateField",
+    "GeometryNodeFieldAtIndex",
+    "GeometryNodeFieldOnDomain",
+    "GeometryNodeFieldAverage",
+    "GeometryNodeFieldMinAndMax",
+    "GeometryNodeFieldVariance"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_utilities_list_base": {
+   "label": "List",
+   "menu_path": "Utilities/List",
+   "nodes": [
+    "GeometryNodeFieldToList",
+    "GeometryNodeListGetItem",
+    "GeometryNodeListLength"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_utilities_math_base": {
+   "label": "Math",
+   "menu_path": "Utilities/Math",
+   "nodes": [
+    "FunctionNodeBitMath",
+    "FunctionNodeBooleanMath",
+    "FunctionNodeIntegerMath",
+    "ShaderNodeClamp",
+    "FunctionNodeCompare",
+    "ShaderNodeFloatCurve",
+    "FunctionNodeFloatToInt",
+    "FunctionNodeHashValue",
+    "ShaderNodeMapRange",
+    "ShaderNodeMath",
+    "ShaderNodeMix"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_utilities_matrix_base": {
+   "label": "Matrix",
+   "menu_path": "Utilities/Matrix",
+   "nodes": [
+    "FunctionNodeCombineMatrix",
+    "FunctionNodeCombineTransform",
+    "FunctionNodeMatrixDeterminant",
+    "FunctionNodeInvertMatrix",
+    "FunctionNodeMatrixMultiply",
+    "FunctionNodeMatrixSVD",
+    "FunctionNodeProjectPoint",
+    "FunctionNodeSeparateMatrix",
+    "FunctionNodeSeparateTransform",
+    "FunctionNodeTransformDirection",
+    "FunctionNodeTransformPoint",
+    "FunctionNodeTransposeMatrix"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_utilities_rotation_base": {
+   "label": "Rotation",
+   "menu_path": "Utilities/Rotation",
+   "nodes": [
+    "FunctionNodeAlignRotationToVector",
+    "FunctionNodeAxesToRotation",
+    "FunctionNodeAxisAngleToRotation",
+    "FunctionNodeEulerToRotation",
+    "FunctionNodeInvertRotation",
+    "ShaderNodeMix",
+    "FunctionNodeRotateRotation",
+    "FunctionNodeRotateVector",
+    "FunctionNodeRotationToAxisAngle",
+    "FunctionNodeRotationToEuler",
+    "FunctionNodeRotationToQuaternion",
+    "FunctionNodeQuaternionToRotation"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_utilities_text_base": {
+   "label": "Text",
+   "menu_path": "Utilities/Text",
+   "nodes": [
+    "FunctionNodeFormatString",
+    "GeometryNodeStringJoin",
+    "FunctionNodeMatchString",
+    "FunctionNodeReplaceString",
+    "FunctionNodeSliceString",
+    "FunctionNodeFindInString",
+    "FunctionNodeStringLength",
+    "GeometryNodeStringToCurves",
+    "FunctionNodeStringToValue",
+    "FunctionNodeValueToString",
+    "FunctionNodeInputSpecialCharacters"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_utilities_vector_base": {
+   "label": "Vector",
+   "menu_path": "Utilities/Vector",
+   "nodes": [
+    "ShaderNodeCombineXYZ",
+    "ShaderNodeMapRange",
+    "ShaderNodeMix",
+    "ShaderNodeSeparateXYZ",
+    "ShaderNodeRadialTiling",
+    "ShaderNodeVectorCurve",
+    "ShaderNodeVectorMath",
+    "ShaderNodeVectorRotate"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_volume_operations_base": {
+   "label": "Operations",
+   "menu_path": "Volume/Operations",
+   "nodes": [
+    "GeometryNodeGridToMesh",
+    "GeometryNodeGridToPoints",
+    "GeometryNodeVolumeToMesh",
+    "GeometryNodeSDFGridBoolean",
+    "GeometryNodeSDFGridFillet",
+    "GeometryNodeSDFGridLaplacian",
+    "GeometryNodeSDFGridMean",
+    "GeometryNodeSDFGridMeanCurvature",
+    "GeometryNodeSDFGridMedian",
+    "GeometryNodeSDFGridOffset",
+    "GeometryNodeFieldToGrid",
+    "GeometryNodeGridClip",
+    "GeometryNodeGridDilateAndErode",
+    "GeometryNodeGridMean",
+    "GeometryNodeGridMedian",
+    "GeometryNodeGridPrune",
+    "GeometryNodeGridVoxelize"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_volume_primitives_base": {
+   "label": "Primitives",
+   "menu_path": "Volume/Primitives",
+   "nodes": [
+    "GeometryNodeCubeGridTopology",
+    "GeometryNodeVolumeCube"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_volume_read_base": {
+   "label": "Read",
+   "menu_path": "Volume/Read",
+   "nodes": [
+    "GeometryNodeGetNamedGrid",
+    "GeometryNodeGridInfo",
+    "GeometryNodeInputVoxelIndex"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_volume_sample_base": {
+   "label": "Sample",
+   "menu_path": "Volume/Sample",
+   "nodes": [
+    "GeometryNodeSampleGrid",
+    "GeometryNodeSampleGridIndex",
+    "GeometryNodeGridAdvect",
+    "GeometryNodeGridCurl",
+    "GeometryNodeGridDivergence",
+    "GeometryNodeGridGradient",
+    "GeometryNodeGridLaplacian"
+   ],
+   "submenus": []
+  },
+  "NODE_MT_gn_volume_write_base": {
+   "label": "Write",
+   "menu_path": "Volume/Write",
+   "nodes": [
+    "GeometryNodeSetGridBackground",
+    "GeometryNodeSetGridTransform",
+    "GeometryNodeStoreNamedGrid"
+   ],
+   "submenus": []
+  }
+ },
+ "skipped": 208,
+ "tree_type": "GeometryNodeTree",
+ "version": [
+  5,
+  1,
+  2
+ ]
+}
