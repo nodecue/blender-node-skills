@@ -1,0 +1,32 @@
+{
+  "name": "blender-node-skills",
+  "version": "0.7.0",
+  "description": "Teach AI agents to build Blender Geometry Nodes graphs correctly, with teaching annotations you can learn from.",
+  "author": {
+    "name": "monswag"
+  },
+  "homepage": "https://github.com/nodecue/blender-node-skills",
+  "repository": "https://github.com/nodecue/blender-node-skills",
+  "license": "MIT",
+  "keywords": [
+    "blender",
+    "geometry-nodes",
+    "mcp",
+    "skill"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "NodeCue Blender Node Skills",
+    "shortDescription": "Build and explain Blender Geometry Nodes graphs with live introspection.",
+    "longDescription": "Packages the shipped Geometry Nodes skill and a blender-mcp stdio entry. The skill remains the only build, edit, and explain loop: live node and socket introspection, result verification, and teaching frames. The package provides the shared skills directory and blender-mcp stdio entry for Codex to discover and use. Live host and Blender connection acceptance is separate.",
+    "developerName": "NodeCue",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "Read the Blender version and the current Geometry Nodes graph.",
+      "Explain the current Geometry Nodes graph without changing it.",
+      "Build a small Geometry Nodes graph I can check in Blender."
+    ]
+  }
+}
