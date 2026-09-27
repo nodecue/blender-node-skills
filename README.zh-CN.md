@@ -9,7 +9,7 @@
 
 agent 用它搭建一份可以核对的几何节点图，也可以在不改动图的情况下解释一份已有的图。
 
-> **状态。** 已发布的 **v0.7 几何节点 skill** 是当前稳定产品边界。Codex plugin 候选已经完成**本地**验收，分两层。**A.** 在已安装 Codex plugin 的前提下，于本仓库之外启动的全新 Codex 任务自动发现了 `geometry-nodes` skill，自动获得了 Blender MCP tool，连接到 portable Blender 5.1.2，并以只读方式返回了真实版本、文件状态、活动对象，以及没有 GN modifier。这条路径证明 plugin 的 install、discovery、MCP entry 和 live read-only。**B.** 单独通过相同 blender-mcp transport 的 live host 测试已验证 Blender 5.1.2 portable 与 5.2.2 的目标实例识别和隔离，以及最小 GN create、nodes/links/socket readback、求值包围盒和视口证据。B 层由独立验收执行，不是 A 那个全新 Codex plugin 任务完成的，不能写成 plugin 端到端 mutation 或 image acceptance。该 plugin **尚未** merge，也**尚未** release。在新机器或 VM 上从 GitHub 安装、Claude、Pi 以及其他宿主均未验证。packaging 与安装步骤仍可能变化。在依赖某一次安装或某一个 host 之前，请先看最新的 README、[Releases](https://github.com/nodecue/blender-node-skills/releases) 和 [Issues](https://github.com/nodecue/blender-node-skills/issues)。欢迎根据真实 host 上的实际使用来反馈。
+> **状态。** 已发布的 **v0.7 几何节点 skill** 是当前稳定产品边界。公开 GitHub `main` 是产品和开发源。Codex plugin 已合入公开 `main`，但不是带 tag 的 plugin release。Codex plugin 已经完成**本地**验收，分两层。**A.** 在已安装 Codex plugin 的前提下，于本仓库之外启动的全新 Codex 任务自动发现了 `geometry-nodes` skill，自动获得了 Blender MCP tool，连接到 portable Blender 5.1.2，并以只读方式返回了真实版本、文件状态、活动对象，以及没有 GN modifier。这条路径证明 plugin 的 install、discovery、MCP entry 和 live read-only。**B.** 单独通过相同 blender-mcp transport 的 live host 测试已验证 Blender 5.1.2 portable 与 5.2.2 的目标实例识别和隔离，以及最小 GN create、nodes/links/socket readback、求值包围盒和视口证据。B 层由独立验收执行，不是 A 那个全新 Codex plugin 任务完成的，不能写成 plugin 端到端 mutation 或 image acceptance。在新机器或 VM 上从 GitHub 安装、Claude、Pi 以及其他宿主均未验证。本项目仍在演进。在依赖某一次安装或某一个 host 之前，请先看最新的 README、[Releases](https://github.com/nodecue/blender-node-skills/releases) 和 [Issues](https://github.com/nodecue/blender-node-skills/issues)。欢迎根据真实 host 上的实际使用来反馈。
 
 ## v0.7 skill 做什么
 
@@ -28,7 +28,7 @@ NodeCue 目前没有一条已经验收、可以同时覆盖 Claude Code、Codex�
 
 **手动路径，不限定哪一个 host。** 克隆或下载本仓库，把 [`skills/geometry-nodes/`](skills/geometry-nodes/) 放到该 agent 安装能够识别 skill 的位置。
 
-**便利命令。** 下面是现有的 [skills CLI](https://github.com/vercel-labs/skills) 命令。NodeCue 还没有完成它在各个 host 上的行为验收。它不会配置 Blender，也不会安装下文那个 Codex plugin 候选。
+**便利命令。** 下面是现有的 [skills CLI](https://github.com/vercel-labs/skills) 命令。NodeCue 还没有完成它在各个 host 上的行为验收。它不会配置 Blender，也不会安装下文那个 Codex plugin。
 
 ```bash
 npx skills add nodecue/blender-node-skills
@@ -42,9 +42,9 @@ MCP，或者 host 已经提供的其他集成，都可以作为这条通道。�
 
 **Blender Lab MCP** 的运行下限是 **Blender 5.1 或更新**。这个下限与 v0.7 skill 在 [`versions.md`](skills/geometry-nodes/references/versions.md) 和 `nodes.tsv` 里对 Blender 4.5 LTS、5.0 的知识覆盖是分开的。skill 路由仍然记录这些更早版本；Lab MCP 不能在它们上面运行。
 
-## Codex plugin 候选（本地验收）
+## Codex plugin（已合入公开 main）
 
-把这个 skill 打包成 NodeCue 的 agent plugin，是已发布的 v0.7 skill 之外的另一项工作。Codex plugin 候选只完成了**本地**验收。它尚未 merge，也尚未 release。plugin 命令不是安装 v0.7 skill 的通用已验证方式。
+把这个 skill 打包成 NodeCue 的 agent plugin，是已发布的 v0.7 skill 之外的另一项工作。Codex plugin 已合入公开 `main`，但不是带 tag 的 plugin release。本地验收就是下面两层。plugin 命令不是安装 v0.7 skill 的通用已验证方式。
 
 本地 Codex 证据，分两层：
 

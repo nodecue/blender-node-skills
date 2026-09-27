@@ -26,7 +26,7 @@ Deeper notes (`docs/decisions/`, `docs/research/`, `docs/lessons/`) only when th
 
 GitHub history, Issues, and PRs hold facts. Do not duplicate long process here.
 
-GitHub-primary migration is still in progress. Treat `docs/CURRENT.md` as the live statement of what is authoritative now. Do not assume the migration is finished or that any old local source may be deleted.
+Public GitHub `main` and its Issues and pull requests are the development authority. Treat `docs/CURRENT.md` as the live statement of product direction. Live Blender remains the authority for current node, socket, property, and RNA identity. Do not treat any old local checkout as a second source, and do not delete it from this work.
 
 ## NodeCue boundaries
 
