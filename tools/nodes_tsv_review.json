@@ -1,0 +1,181 @@
+{
+  "_about": [
+    "Reviewed inputs to `tools/gen_nodes_tsv.py`. Everything mechanical comes from",
+    "docs/node-dumps/; this file holds only the decisions a machine cannot make.",
+    "",
+    "APPROVED BY OWNER 2026-09-03 (acceptance gate T-10): the 19 reviewed category",
+    "mappings and the 9 notes below, together with the 56-row removal manifest at",
+    "_experiments/2026-09-01-runtime-baseline/removed-runtime-manifest.md.",
+    "The five-column schema stands; no field_io column is restored."
+  ],
+  "_field_io": [
+    "There is no field_io column and no policy to set. Owner decision 2026-09-02:",
+    "the generator still compares field capability across every version and reports",
+    "the changes in the manifest, but the runtime TSV does not carry it. One question,",
+    "one answer: nodes.tsv finds candidates, versions.md carries the few cross-version",
+    "capability changes worth planning around, and probe_node.py says which sockets of",
+    "this node in this mode on this Blender actually take a field."
+  ],
+  "exclusions": {},
+  "_exclusions_note": "No identifier is excluded. Frames and reroutes stay in: the skill has to place frames, and both appear in a graph read.",
+  "ambiguous_category_choice": {
+    "ShaderNodeMix": {
+      "category": "Utilities/Math",
+      "reason": "Blender lists it under Math, Rotation and Vector; Math is the one that covers every data_type this node offers."
+    },
+    "ShaderNodeMapRange": {
+      "category": "Utilities/Math",
+      "reason": "Listed under Math and Vector; Math covers both float and vector data_type."
+    }
+  },
+  "categories": {
+    "NodeFrame": {
+      "category": "Layout",
+      "reason": "Not in the Add menu - added through the header. Layout is Blender's own name for the frame/reroute group in other editors."
+    },
+    "NodeReroute": {
+      "category": "Layout",
+      "reason": "Same as NodeFrame."
+    },
+    "GeometryNodeGroup": {
+      "category": "Group",
+      "reason": "Added by dropping a node group, not from the Add menu. Group matches the Input/Group submenu that holds NodeGroupInput."
+    },
+    "GeometryNodeSimulationInput": {
+      "category": "Zone/Simulation",
+      "reason": "Zone pair added as one menu item; the paired nodes have no individual menu entry."
+    },
+    "GeometryNodeSimulationOutput": {
+      "category": "Zone/Simulation",
+      "reason": "Paired with GeometryNodeSimulationInput."
+    },
+    "GeometryNodeRepeatInput": {
+      "category": "Zone/Repeat",
+      "reason": "Zone pair added as one menu item."
+    },
+    "GeometryNodeRepeatOutput": {
+      "category": "Zone/Repeat",
+      "reason": "Paired with GeometryNodeRepeatInput."
+    },
+    "GeometryNodeForeachGeometryElementInput": {
+      "category": "Zone/For Each Element",
+      "reason": "Zone pair added as one menu item."
+    },
+    "GeometryNodeForeachGeometryElementOutput": {
+      "category": "Zone/For Each Element",
+      "reason": "Paired with the Foreach input."
+    },
+    "NodeClosureInput": {
+      "category": "Zone/Closure",
+      "reason": "Zone pair added as one menu item; Utilities/Closure holds only NodeEvaluateClosure."
+    },
+    "NodeClosureOutput": {
+      "category": "Zone/Closure",
+      "reason": "Paired with NodeClosureInput."
+    },
+    "GeometryNodeClosureInput": {
+      "category": "Zone/Closure",
+      "reason": "4.5 name of NodeClosureInput; renamed rather than removed in 5.0."
+    },
+    "GeometryNodeClosureOutput": {
+      "category": "Zone/Closure",
+      "reason": "4.5 name of NodeClosureOutput."
+    },
+    "FunctionNodeInputIntVector": {
+      "category": "Input/Constant",
+      "reason": "Registered but absent from every Add menu on all four supported versions; it is a constant input like the rest of that submenu."
+    },
+    "ShaderNodeMixRGB": {
+      "category": "Utilities/Deprecated",
+      "reason": "Legacy node kept for file compatibility; absent from the Add menu on every version."
+    },
+    "ShaderNodeCombineRGB": {
+      "category": "Utilities/Deprecated",
+      "reason": "4.5-only legacy node, absent from the 4.5 Add menu."
+    },
+    "ShaderNodeSeparateRGB": {
+      "category": "Utilities/Deprecated",
+      "reason": "4.5-only legacy node, absent from the 4.5 Add menu."
+    }
+  },
+  "notes": {
+    "GeometryNodeConvexHull": {
+      "note": "Evaluates separately per instance; loose parts and components are hulled together.",
+      "evidence": "_experiments/traps-round2/measure_traps.py, results.json; _experiments/2026-09-01-runtime-baseline/removed-runtime-v0.6/traps.md#5 (4.5.12, 5.1.2, 5.2.1)"
+    },
+    "GeometryNodeSetCurveHandlePositions": {
+      "note": "Writing one handle re-derives the opposite one and can change the handle type, so two chained writes do not give two handles.",
+      "evidence": "_experiments/traps-round2/results.json; _experiments/2026-09-01-runtime-baseline/removed-runtime-v0.6/traps.md#6 (4.5.12, 5.1.2, 5.2.1)"
+    },
+    "GeometryNodeInputMeshEdgeAngle": {
+      "note": "Both outputs are radians and are displayed as radians, unlike the rotation-unit sockets the editor draws in degrees.",
+      "evidence": "_experiments/traps-round2/results.json; _experiments/2026-09-01-runtime-baseline/removed-runtime-v0.6/traps.md#7 (4.5.12, 5.1.2, 5.2.1)"
+    },
+    "GeometryNodeSampleIndex": {
+      "note": "Picks one component before it picks an index, by a fixed Mesh > Point Cloud > Curve priority that no socket or property shows.",
+      "evidence": "_experiments/traps-round2/results.json; _experiments/2026-09-01-runtime-baseline/removed-runtime-v0.6/traps.md#8 (4.5.12, 5.1.2, 5.2.1)"
+    },
+    "GeometryNodeJoinGeometry": {
+      "note": "Drops the volume component when two or more volumes are joined - zero grids out, no warning. Every other component type merges.",
+      "evidence": "_experiments/traps-round2/results.json; _experiments/2026-09-01-runtime-baseline/removed-runtime-v0.6/traps.md#9 (4.5.12, 5.2.1)"
+    },
+    "GeometryNodeBlurAttribute": {
+      "note": "Returns its input unchanged on domains with no adjacency - point-cloud points and face corners - while the field still type-checks.",
+      "evidence": "_experiments/traps-round2/results.json; _experiments/2026-09-01-runtime-baseline/removed-runtime-v0.6/traps.md#10 (measured 5.2.1)"
+    },
+    "GeometryNodeSetMaterial": {
+      "note": "Works on curves and point clouds, but they carry one material per component and no material_index, so Selection is silently ignored there.",
+      "evidence": "_experiments/traps-round2/results.json; _experiments/2026-09-01-runtime-baseline/removed-runtime-v0.6/traps.md#11 (4.5.12, 5.1.2, 5.2.1)"
+    },
+    "GeometryNodeReplaceMaterial": {
+      "note": "Silently does nothing on curves and point clouds; only meshes carry the material_index it rewrites.",
+      "evidence": "_experiments/traps-round2/results.json; _experiments/2026-09-01-runtime-baseline/removed-runtime-v0.6/traps.md#11 (4.5.12, 5.1.2, 5.2.1)"
+    },
+    "GeometryNodeCurveToMesh": {
+      "note": "Marks sharp edges from Vector handles on the profile only - not Free handles, not the rail, and a poly profile creates no sharp_edge attribute at all.",
+      "evidence": "_experiments/traps-round2/results.json; _experiments/2026-09-01-runtime-baseline/removed-runtime-v0.6/traps.md#12 (4.5.12, 5.1.2, 5.2.1)"
+    }
+  },
+  "_notes_screening": [
+    "Screened from traps.md against the plan's admission test, then re-screened",
+    "2026-09-03 against a stricter reading: a note stays only when it is node-specific,",
+    "cannot be obtained by probing the live node, and changes which node you pick.",
+    "",
+    "Removed 2026-09-03:",
+    "GeometryNodeMeshCone origin -> references/diagnostics.md carries the general pivot",
+    "  (compare intent against evaluated bounds and compute the correction). A per-node",
+    "  origin fact is one instance of it, and an evaluated read answers it directly.",
+    "GeometryNodeMeshLine origin -> same reason, same pivot.",
+    "",
+    "Narrowed 2026-09-03:",
+    "GeometryNodeSetCurveHandlePositions -> the 'a typed literal is ignored' half is",
+    "  socket.hide_value, which probe_node.py now reports. The note keeps only the",
+    "  re-derivation behaviour, which no introspection shows.",
+    "",
+    "Rejected earlier, with destination:",
+    "traps.md#1 Cube/Grid/IcoSphere default-value differences -> introspectable from socket defaults.",
+    "traps.md#2 curve reads run on control points -> shared mental model in SKILL.md.",
+    "traps.md#3 no Solidify node -> missing-feature routing in SKILL.md.",
+    "traps.md#4 the answer may be an asset -> reuse.md.",
+    "traps.md#7 radians vs degrees in general -> shared invariant in SKILL.md; only the",
+    "  EdgeAngle exception is node-specific.",
+    "Phase 1 finding: distribute_method decides which density sockets are live -> readable",
+    "  through probe_node.py; fails the 'not obtainable by probing' test.",
+    "Phase 1 finding: a mode property disables sockets on 4.5/5.1 and removes them on 5.2",
+    "  -> references/diagnostics.md, as the 'wired to a present but disabled socket' pivot."
+  ],
+  "_approval": {
+    "gate": "T-10",
+    "state": "approved",
+    "date": "2026-09-03",
+    "by": "owner",
+    "covers": [
+      "19 reviewed category mappings (17 absent-from-menu, 2 ambiguous placement)",
+      "9 nodes.tsv notes",
+      "56 removed v0.6 runtime files and their destinations"
+    ],
+    "not_covered": [
+      "G-TEST-02 - the generator, these decisions and the tests that judge them share one author and still need an independent reviewer."
+    ]
+  }
+}

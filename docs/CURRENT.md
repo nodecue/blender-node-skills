@@ -16,13 +16,21 @@ Living direction for agents. Update this when the user changes mind. Do not trea
 
 ## Current slice
 
-Issue #10 GitHub-primary migration.
+Issue #10, second slice: public validation. Make this repository independently maintainable and testable from committed files.
 
-Target: public `main` is the authoritative product source. The migration is still in progress. Do not declare any old local source retired or deletable.
+This slice adds node-dump evidence, the `nodes.tsv` generator, focused pytest coverage, a static plugin JSON contract test, `requirements-dev.txt`, and `docs/research/github-primary-inventory.md`.
 
-This slice: add self-contained agent governance files so a new agent can cold-start from this repo alone.
+Documented development path for a fresh clone:
 
-Later slices (not this commit): authority inventory; decide which tests and tools belong in public; retire old dual-authority / sync rules in process (without deleting the old tree from here); fresh-clone validation.
+```bash
+pip install -r requirements-dev.txt
+python -m pytest tests -q
+python tools/gen_nodes_tsv.py --check
+```
+
+The inventory names what migrated, what remains historical or private, and what is excluded. Public `main` is not yet declared the sole product authority. Do not retire or delete any old local source from here.
+
+Later slices (not this commit): fresh-clone acceptance on a machine with only this repo; host plugin validation; live read-only Blender check; final authority declaration.
 
 ## Out of scope / do not do
 
@@ -30,13 +38,13 @@ Later slices (not this commit): authority inventory; decide which tests and tool
 - Implement Issue #6 deterministic layout.
 - Ship find_nodes, Jev, or Shader/Compositor runtime.
 - Expand host claims beyond what is already verified.
-- Copy old dual-authority, release-copy, `_release_repos`, or `sync_release_repos` rules into this repo.
-- Add unverified unified test/build/install commands.
-- Edit README, CONTRIBUTING, skill, or plugin files in this slice.
+- Copy old dual-authority, release-copy, or sync-release rules into this repo.
+- Claim Issue #10 complete or that GitHub-primary cutover is done.
+- Migrate retired add-on, sidecar, socket server, gn_mcp_server, experiment trees, full manuals, or private assets.
 
 ## Open
 
-- Which public tests and tools must move into this GitHub-primary repo.
+- Fresh-clone, plugin-host, and live read-only proofs still required before Issue #10 can close.
 - Where manuals, private corpora, and private evidence go (they do not land in public git).
 - How old local sync and dual-authority process is retired after public `main` is actually authoritative.
 
@@ -46,7 +54,7 @@ Later slices (not this commit): authority inventory; decide which tests and tool
 
 ## Acceptance sketch
 
-When the Issue #10 migration slice is done, someone should be able to:
+When the Issue #10 migration is done, someone should be able to:
 
 1. Cold-start an agent from files in this repo only (AGENTS → PRODUCT → CURRENT → HANDOFF → git diff).
 2. Read an authority inventory that says what public git owns vs what still lives elsewhere — without treating old sources as already gone.
