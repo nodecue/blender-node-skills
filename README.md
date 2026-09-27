@@ -9,7 +9,7 @@ The product available now is the shipped **v0.7 Geometry Nodes skill** at [`skil
 
 An agent uses it to build a Geometry Nodes graph you can check, or to explain a graph without changing it.
 
-> **Status.** The v0.7 skill files above are the stable product in this repository. Installation paths, host behavior, and the agent-plugin packaging layer are still evolving. This README does not treat those paths as verified, and it does not promise that a path you use today will stay as it is. Before relying on an install or a host, read the latest README, the [releases](https://github.com/nodecue/blender-node-skills/releases), and the [issues](https://github.com/nodecue/blender-node-skills/issues). Feedback from real use on a real host is welcome.
+> **Status.** The shipped **v0.7 Geometry Nodes skill** is the published stable product boundary. A Codex plugin candidate has completed **local** acceptance in two layers. **A.** A fresh Codex task outside this repository, with the Codex plugin already installed, auto-discovered the `geometry-nodes` skill, auto-obtained the Blender MCP tool, connected to portable Blender 5.1.2, and returned a live read-only read of real version, file state, the active object, and no GN modifier. That path proves plugin install, discovery, MCP entry, and live read-only. **B.** Separate live host tests on the same blender-mcp transport verified Blender 5.1.2 portable and 5.2.2 target identification and isolation, plus minimal GN create, nodes/links/socket readback, evaluated bounds, and viewport evidence. Layer B was run independently; it is not plugin end-to-end mutation or image acceptance. The plugin is **not** merged or released. GitHub install on a new machine or VM, Claude, Pi, and other hosts are unverified. Packaging and install steps may still change. Before relying on an install or a host, read the latest README, the [releases](https://github.com/nodecue/blender-node-skills/releases), and the [issues](https://github.com/nodecue/blender-node-skills/issues). Feedback from real use on a real host is welcome.
 
 ## What the v0.7 skill does
 
@@ -28,7 +28,7 @@ There is no NodeCue-accepted install command that covers Claude Code, Codex, Cur
 
 **Manual path, for any host.** Clone or download this repository and place [`skills/geometry-nodes/`](skills/geometry-nodes/) where that agent installation recognizes skills.
 
-**Convenience route.** This is the existing [skills CLI](https://github.com/vercel-labs/skills) command. NodeCue has not finished acceptance of how it behaves on each host. It does not configure Blender, and it does not install the unfinished plugin described below.
+**Convenience route.** This is the existing [skills CLI](https://github.com/vercel-labs/skills) command. NodeCue has not finished acceptance of how it behaves on each host. It does not configure Blender, and it does not install the Codex plugin candidate described below.
 
 ```bash
 npx skills add nodecue/blender-node-skills
@@ -38,15 +38,22 @@ npx skills add nodecue/blender-node-skills
 
 The skill does not create a Blender connection. It requires an execution channel that already works. That channel must run the shipped Python inside the running Blender and return the result. Python on the host, outside Blender, cannot see the open file.
 
-MCP, or another integration the host already provides, can be that channel. NodeCue has not completed current per-host acceptance of those routes. That includes official and community MCP servers. This page does not rank any of them, and it does not include server setup. Use the documentation for the host and the transport you chose.
+MCP, or another integration the host already provides, can be that channel. This page does not rank transports and does not include server setup. Use the documentation for the host and the transport you chose.
 
-## The agent-plugin layer is unfinished
+**Blender Lab MCP** requires **Blender 5.1 or newer** as its runtime floor. That floor is separate from the v0.7 skill's knowledge coverage of Blender 4.5 LTS and 5.0 in [`versions.md`](skills/geometry-nodes/references/versions.md) and `nodes.tsv`. Skill routing still records those older versions; Lab MCP does not run on them.
 
-Packaging this skill as a NodeCue agent plugin is separate from the skill itself, and that packaging is not finished. Plugin commands are not a verified way to install the v0.7 skill.
+## Codex plugin candidate (local acceptance)
 
-The committed [`.claude-plugin/`](.claude-plugin/) metadata, [`plugin.json`](.claude-plugin/plugin.json) and [`marketplace.json`](.claude-plugin/marketplace.json), is an early Claude packaging surface. It is not proof that a current Claude host accepts the plugin. The commands `/plugin marketplace add nodecue/blender-node-skills` and `/plugin install blender-node-skills@nodecue` belong to that early surface. They are not the recommended install path, and NodeCue has not accepted them as verified. They do not configure Blender.
+Packaging this skill as a NodeCue agent plugin is separate from the shipped v0.7 skill. The Codex plugin candidate has completed **local** acceptance only. It is not merged and not released. Plugin commands are not a general verified way to install the v0.7 skill.
 
-Codex is the next priority for plugin acceptance. Codex plugin support is not complete. Claude compatibility remains for a later validation pass.
+Local Codex evidence, in two layers:
+
+- **A. Fresh Codex plugin task (live read-only).** A Codex task started outside this repository, with the Codex plugin already installed, auto-discovered the `geometry-nodes` skill, auto-obtained the Blender MCP tool, connected to portable Blender **5.1.2**, and returned a live **read-only** read of real version, file state, the active object, and no GN modifier. That path proves plugin install, discovery, MCP entry, and live read-only.
+- **B. Separate blender-mcp transport / live host tests.** Independent acceptance on the same blender-mcp transport verified Blender **5.1.2 portable** and **5.2.2** target identification and isolation, plus minimal GN **create**, nodes/links/socket **readback**, **evaluated bounds**, and **viewport evidence**. Layer B was not completed by the fresh Codex plugin task in A. It is not plugin end-to-end mutation or image acceptance.
+
+Still unverified: GitHub install on a new machine or VM; Claude; Pi; other hosts. Packaging and install steps may still change.
+
+The committed [`.claude-plugin/`](.claude-plugin/) metadata, [`plugin.json`](.claude-plugin/plugin.json) and [`marketplace.json`](.claude-plugin/marketplace.json), is an early Claude packaging surface. It is not proof that a current Claude host accepts the plugin. Those early Claude plugin commands are not a recommended or verified install path. They do not configure Blender. Claude compatibility remains for a later validation pass.
 
 ## First use
 
@@ -61,7 +68,7 @@ This path uses only this public repository.
 ## Scope and accuracy
 
 - **Geometry Nodes only.** Shader Nodes and Compositing Nodes are not shipped.
-- **Versioned evidence is routing guidance.** [`versions.md`](skills/geometry-nodes/references/versions.md) and the `version` column in `nodes.tsv` cover Blender 4.5 LTS, 5.0, 5.1, and 5.2 LTS. They record where candidates exist and what some cross-version differences look like. They are not a guarantee that a graph behaves the same way on every one of those versions.
+- **Versioned evidence is routing guidance.** [`versions.md`](skills/geometry-nodes/references/versions.md) and the `version` column in `nodes.tsv` cover Blender 4.5 LTS, 5.0, 5.1, and 5.2 LTS. They record where candidates exist and what some cross-version differences look like. They are not a guarantee that a graph behaves the same way on every one of those versions. Skill knowledge for 4.5 and 5.0 is separate from Blender Lab MCP, which requires Blender 5.1 or newer.
 - **The running Blender is authoritative** for the current node, socket, property and RNA identity, and for legal values.
 - **Input-reference reconstruction is not shipped.** Automatic visual QA of the evaluated output is not shipped either. [`capture.py`](skills/geometry-nodes/scripts/capture.py) captures the node editor. It does not judge the final evaluated render or viewport.
 - **When a change is requested, frame notes follow the language of the prompt.** Node, socket, and identifier names stay as Blender shows them, so they still match the UI and tutorials.
