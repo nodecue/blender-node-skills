@@ -155,13 +155,13 @@ Everything below is conditional. An ordinary single-version build reads this fil
 | `references/versions.md` | The user names a target version, the plan must hold on more than one, a candidate is unavailable, or a migration is requested |
 | `references/reuse.md` | An existing node group or asset might already answer the request |
 | `references/diagnostics.md` | The graph and readback look right and the evaluated result is still wrong |
-| `scripts/read_graph.py` | Reading a tree: identities, links, interface, output-trunk reachability. Read-only, so it is the Explain-mode reader |
-| `scripts/probe_node.py` | Asking what a node's sockets, properties, legal values and live socket state actually are. It creates temporary data, so Build/Edit only |
-| `scripts/capture.py` | A screenshot of the node editor is wanted for verification or delivery. Reframing the view needs the user's permission first — see below |
+| `scripts/read_graph.py` | Reading a tree: identities, links, layout facts, interface, output-trunk reachability. Read-only Explain reader |
+| `scripts/probe_node.py` | Asking what a node's sockets, properties, legal values and live socket state actually are. Temporary data; Build/Edit only |
+| `scripts/layout_graph.py` | Deterministic scoped layout. `check` is read-only; `apply` moves only caller-authorized nodes |
+| `scripts/capture.py` | Screenshot of the node editor. Reframing needs the user's permission first — see below |
 | `scripts/inspect_assets.py` | Enumerating asset libraries or inspecting one candidate group |
 
-Each script takes one JSON parameter object and returns a JSON result; paths are relative
-to this skill's root.
+Each script takes one JSON object and returns JSON; paths are relative to this skill.
 
 **Run scripts inside Blender through the host's existing Python execution channel.**
 Resolve the installed skill path first. If Blender can read that filesystem path:

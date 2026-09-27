@@ -1,4 +1,4 @@
-"""Contract tests for the four Geometry Nodes runtime scripts.
+"""Contract tests for the Geometry Nodes runtime scripts.
 
 The static half runs anywhere: it holds the scripts to the contract in the
 redesign plan without needing Blender. The integration half runs the real checks
@@ -21,7 +21,13 @@ ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "skills" / "geometry-nodes" / "scripts"
 GOLDEN = ROOT / "tests" / "golden" / "run_skill_runtime_scripts.py"
 
-SCRIPT_NAMES = ["read_graph.py", "capture.py", "probe_node.py", "inspect_assets.py"]
+SCRIPT_NAMES = [
+    "read_graph.py",
+    "capture.py",
+    "probe_node.py",
+    "inspect_assets.py",
+    "layout_graph.py",
+]
 
 
 def _source(name: str) -> str:
@@ -102,6 +108,29 @@ def test_no_absolute_user_paths(name):
 def test_no_broad_orphan_purge(name):
     """A broad purge would take the user's unrelated unused datablocks with it."""
     assert not [c for c in _call_names(name) if c.endswith("orphans_purge")]
+
+
+def test_layout_graph_check_and_apply_are_distinct():
+    src = _source("layout_graph.py")
+    assert '"check"' in src and '"apply"' in src
+    assert "graph_correctness" in src
+    assert "not_evaluated" in src
+    assert "location_absolute" in src
+    assert "protected" in src
+    assert "mutated" in src
+    assert "_rollback_layout" in src
+    assert "_PROTECTED_EPS" in src
+    assert "node.parent" in src
+    calls = _call_names("layout_graph.py")
+    assert not [c for c in calls if c.startswith("bpy.ops")], "layout uses data API, not operators"
+
+
+def test_read_graph_reports_layout_facts():
+    src = _source("read_graph.py")
+    assert '"location"' in src
+    assert '"location_absolute"' in src
+    assert '"width"' in src
+    assert '"height"' in src
 
 
 def test_read_graph_is_read_only():
