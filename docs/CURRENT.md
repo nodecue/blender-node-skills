@@ -12,7 +12,9 @@ Living direction for agents. Update this when the user changes mind. Do not trea
 - Fresh-clone static validation from public `main` passed: `python -m pytest tests -q` (172 passed, 1 skipped without `NODECUE_BLENDER`); `python tools/gen_nodes_tsv.py --check` current, 368 rows; Codex plugin validator passed. Those static checks are distinct from live Blender and from installed-plugin host proof.
 - With `NODECUE_BLENDER` set on that same fresh clone: portable Blender 5.1.2 and target Blender 5.2.2 each ran `tests/test_skill_runtime_scripts.py` with 36 passed. That is Blender runtime proof, not host plugin discovery.
 - Installed-plugin acceptance remains narrower: a genuinely fresh Codex task auto-discovered the skill and Blender MCP entry and completed live read-only against portable Blender 5.1.2. Separate host tests proved mutation/readback/viewport on 5.1.2 and 5.2.2; those were not the same fresh-plugin end-to-end mutation/image run. New machines/VMs, Claude, and Pi are unverified.
-- Issue #6 deterministic layout is the current product slice. find_nodes, Jev, Shader, and Compositor remain deferred.
+- Issue #6 deterministic layout is merged in PR #14; closing the Issue remains a separate action.
+- Issue #18 automated pull-request quality gates is the current product slice. find_nodes, Jev, Shader, and Compositor remain deferred.
+- Keep `nodes.tsv` as the reviewed routing index for now. Only reduce its role after Issue #15 measures that `find_nodes` preserves recall, version routing, and maintainability; do not remove it on anecdotal results.
 - Future work goes Issue → branch/worktree → PR → review → merge. Merge, release, and issue close are separate actions. Jev may only be an optional measured reranking experiment, not a dependency.
 - GitHub Issues are the execution backlog. Do not create `docs/BACKLOG.md`.
 - Large manuals, experiments, private corpora, session transcripts, absolute paths, credentials, `.blend` files, and machine artifacts stay out of the public repo.
@@ -20,16 +22,13 @@ Living direction for agents. Update this when the user changes mind. Do not trea
 
 ## Current slice
 
-Issue #6: deterministic Geometry Nodes layout as a delivery-quality check in the shipped Geometry Nodes skill/runtime.
+Issue #18: add fast, public pull-request quality gates before starting Issue #15.
 
-- One helper, `skills/geometry-nodes/scripts/layout_graph.py`, with read-only `check` and mutating `apply`.
-- Caller supplies explicit authorized node names plus trunk order, dependency-to-consumer pairs, and frame groups. The helper does not infer semantic grouping.
-- Same authorized set, grouping, and trunk order produce identical positions on repeated runs in one Blender version.
-- Geometry trunk is left-to-right; field/control dependencies sit close to their consumers.
-- Functional frames do not overlap; parent-relative writes convert from a stable absolute model so parenting does not drift.
-- Nodes outside authorized scope keep location and parent.
-- Layout/presentation findings stay separate from graph/evaluated-result correctness.
-- Explain may `check` and report; it never `apply`. Build/Edit may move only authorized nodes.
+- Every pull request and push to `main` runs the documented static pytest suite.
+- A separate visible job checks that `nodes.tsv` and its manifest are current.
+- The workflow uses a fresh GitHub-hosted checkout, read-only repository permission, and no credentials.
+- These gates do not claim live Blender, plugin discovery, MCP, VM, mutation, or image acceptance.
+- Expensive paired no-skill/skill VM acceptance belongs to Issue #19, outside the fast PR gate.
 
 Documented development path for a fresh clone:
 
@@ -43,12 +42,10 @@ Those commands cover committed skill, TSV, and plugin-JSON tests. They do not pr
 
 ## Out of scope / do not do
 
-- Infer grouping or invent a universal graph-layout solver.
-- Silently rearrange an arbitrary existing graph.
-- Implement find_nodes, Jev, Shader, or Compositor.
-- Put layout workflow in the plugin.
-- Use screenshots as the mechanical layout acceptance test.
-- Change graph links, labels, or node names as part of layout.
+- Add live Blender, GUI, MCP, VM, screenshot, or agent runs to the fast PR workflow.
+- Implement Issue #15 or #19 in this slice.
+- Remove or deprecate `nodes.tsv` before measured `find_nodes` evidence exists.
+- Implement Jev, Shader, or Compositor.
 - Delete, rename, move, or empty any old local NodeCue directory.
 - Expand host claims beyond what is already verified.
 - Claim new-machine/VM, Claude, Pi, plugin end-to-end mutation, or image acceptance.
@@ -57,6 +54,8 @@ Those commands cover committed skill, TSV, and plugin-JSON tests. They do not pr
 ## Open
 
 - Host plugin discovery on new machines/VMs, Claude, and Pi.
+- Issue #15 measured `find_nodes` baseline after the PR gates land.
+- Issue #19 paired no-skill/skill VM acceptance with refreshed image evidence.
 - Whether later slices add measured reranking (Jev) — optional experiment only.
 - Where manuals, private corpora, and private evidence stay (they do not land in public git).
 - Later archive of the old local checkout, only after the cleanup manifest checks, and only with explicit later authorization.
@@ -69,8 +68,8 @@ None in this slice.
 
 Someone should be able to:
 
-1. Call `layout_graph.py` `check` in Explain without mutating the tree.
-2. Call `apply` with an explicit authorized set and get the same absolute positions twice.
-3. See protected nodes keep parent and readback position.
-4. Get a structured error (no partial move) for missing or out-of-scope names.
-5. Tell presentation findings apart from graph correctness in the result payload.
+1. Open a pull request and see separate `Static tests` and `nodes.tsv consistency` jobs.
+2. See a pytest failure fail only the test gate with the documented command visible.
+3. See a stale generated TSV fail the consistency gate.
+4. Reproduce both commands from a fresh checkout using only `requirements-dev.txt`.
+5. Avoid interpreting green static gates as live Blender, plugin, VM, or image acceptance.
