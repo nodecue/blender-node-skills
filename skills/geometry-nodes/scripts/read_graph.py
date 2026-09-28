@@ -122,6 +122,20 @@ def _socket(sock):
     return rec
 
 
+def _location_absolute(node):
+    """Editor-space origin. Prefer RNA; otherwise walk parent-relative locations."""
+    abs_loc = getattr(node, "location_absolute", None)
+    if abs_loc is not None:
+        return [float(abs_loc[0]), float(abs_loc[1])]
+    x, y = float(node.location[0]), float(node.location[1])
+    parent = node.parent
+    while parent is not None:
+        x += float(parent.location[0])
+        y += float(parent.location[1])
+        parent = parent.parent
+    return [x, y]
+
+
 def _node(node, want_properties=True):
     rec = {
         "name": node.name,
@@ -129,11 +143,18 @@ def _node(node, want_properties=True):
         "label": node.label,
         "structural": node.bl_idname in _STRUCTURAL,
         "parent": node.parent.name if node.parent else None,
+        "location": [float(node.location[0]), float(node.location[1])],
+        "location_absolute": _location_absolute(node),
+        "width": float(getattr(node, "width", 0.0) or 0.0),
+        "height": float(getattr(node, "height", 0.0) or 0.0),
         "mute": node.mute,
         "select": node.select,
         "inputs": [_socket(s) for s in node.inputs],
         "outputs": [_socket(s) for s in node.outputs],
     }
+    dims = getattr(node, "dimensions", None)
+    if dims is not None:
+        rec["dimensions"] = [float(dims[0]), float(dims[1])]
     if want_properties:
         rec["properties"] = _writable_properties(node)
     if node.bl_idname == "GeometryNodeGroup" and node.node_tree:

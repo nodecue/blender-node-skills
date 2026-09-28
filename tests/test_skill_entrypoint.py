@@ -236,6 +236,7 @@ CONDITIONAL = [
     "references/diagnostics.md",
     "scripts/read_graph.py",
     "scripts/probe_node.py",
+    "scripts/layout_graph.py",
     "scripts/capture.py",
     "scripts/inspect_assets.py",
 ]

@@ -1,4 +1,4 @@
-"""Exercise the four Geometry Nodes runtime scripts inside a real Blender.
+"""Exercise the Geometry Nodes runtime scripts inside a real Blender.
 
 Checks the contract the redesign plan puts on them: read-only reading, exactly
 targeted cleanup, structured return through both channels, configured-library-only
@@ -135,6 +135,10 @@ def test_read_graph(tree):
           res["tree"]["used_by"])
 
     by_name = {n["name"]: n for n in res["nodes"]}
+    check("read_graph.reports_location_facts",
+          "location" in by_name["Grid"] and "location_absolute" in by_name["Grid"]
+          and "width" in by_name["Grid"] and "height" in by_name["Grid"],
+          {k: by_name["Grid"].get(k) for k in ("location", "location_absolute", "width", "height")})
     check("read_graph.frame_marked_structural",
           by_name["Frame"]["structural"] is True, by_name.get("Frame"))
     check("read_graph.functional_not_structural",
@@ -442,6 +446,235 @@ def test_inspect_assets():
     return root
 
 
+def _layout_params(extra=None):
+    params = {
+        "op": "apply",
+        "tree": "Fixture",
+        "nodes": [
+            "Group Input", "Grid", "Set Position", "Noise", "Group Output",
+            "Sources", "Deform",
+        ],
+        "trunk": ["Group Input", "Grid", "Set Position", "Group Output"],
+        "dependencies": [{"node": "Noise", "consumer": "Set Position"}],
+        "frames": [
+            {"name": "Sources", "nodes": ["Group Input", "Grid"]},
+            {"name": "Deform", "nodes": ["Set Position", "Noise"]},
+        ],
+    }
+    if extra:
+        params.update(extra)
+    return params
+
+
+def test_layout_graph(tree):
+    gin = tree.nodes.new("NodeGroupInput")
+    gin.name = "Group Input"
+    gout = next(n for n in tree.nodes if n.bl_idname == "NodeGroupOutput")
+    gout.name = "Group Output"
+    sources = tree.nodes.new("NodeFrame")
+    sources.name = "Sources"
+    deform = tree.nodes.new("NodeFrame")
+    deform.name = "Deform"
+    stray = tree.nodes["Off Trunk"]
+    stray.location = (1234.0, -567.0)
+    stray_parent = stray.parent.name if stray.parent else None
+
+    def layout_snap():
+        return {
+            n.name: (
+                n.parent.name if n.parent else None,
+                round(float(n.location[0]), 4),
+                round(float(n.location[1]), 4),
+            )
+            for n in tree.nodes
+        }
+
+    check_before = snapshot(tree)
+    layout_before = layout_snap()
+    checked = call("layout_graph.py", _layout_params({"op": "check"}))
+    check_after = snapshot(tree)
+    layout_after = layout_snap()
+    check("layout_graph.check_ok", checked.get("ok") is True, checked.get("error"))
+    check("layout_graph.check_is_read_only",
+          check_before == check_after and layout_before == layout_after,
+          {"graph": check_before == check_after, "layout": layout_after})
+    check("layout_graph.check_does_not_claim_graph_correctness",
+          checked.get("graph_correctness") == "not_evaluated",
+          checked.get("graph_correctness"))
+    check("layout_graph.check_reports_presentation_findings",
+          isinstance(checked.get("findings"), list) and checked.get("layout_ok") is False,
+          checked.get("findings"))
+    check("layout_graph.check_mutated_flag_false",
+          checked.get("mutated") is False, checked.get("mutated"))
+
+    first = call("layout_graph.py", _layout_params())
+    check("layout_graph.apply_ok", first.get("ok") is True, first.get("error"))
+    check("layout_graph.apply_layout_ok", first.get("layout_ok") is True, first.get("findings"))
+    pos = first["positions"]
+    trunk = ["Group Input", "Grid", "Set Position", "Group Output"]
+    xs = [pos[n]["location_absolute"][0] for n in trunk]
+    check("layout_graph.trunk_left_to_right",
+          all(xs[i] < xs[i + 1] for i in range(len(xs) - 1)), xs)
+    noise_y = pos["Noise"]["location_absolute"][1]
+    set_y = pos["Set Position"]["location_absolute"][1]
+    check("layout_graph.dependency_close_above_consumer",
+          noise_y > set_y
+          and abs(pos["Noise"]["location_absolute"][0] - pos["Set Position"]["location_absolute"][0])
+          < 1.0,
+          {"noise": pos["Noise"]["location_absolute"], "set": pos["Set Position"]["location_absolute"]})
+    check("layout_graph.frame_parenting",
+          pos["Grid"]["parent"] == "Sources" and pos["Noise"]["parent"] == "Deform",
+          {n: pos[n]["parent"] for n in ("Grid", "Noise", "Set Position")})
+
+    src_box = first["targets"]["Sources"]
+    def_box = first["targets"]["Deform"]
+    check("layout_graph.frames_do_not_share_origin",
+          abs(src_box[0] - def_box[0]) > 1.0 or abs(src_box[1] - def_box[1]) > 1.0,
+          {"sources": src_box, "deform": def_box})
+
+    check("layout_graph.protected_node_unmoved",
+          list(stray.location) == [1234.0, -567.0]
+          and (stray.parent.name if stray.parent else None) == stray_parent,
+          {"location": list(stray.location), "parent": stray.parent.name if stray.parent else None})
+
+    keep = tree.nodes.new("NodeFrame")
+    keep.name = "Keep"
+    keep.location = (300.0, 400.0)
+    stray.parent = keep
+    stray.location = (11.0, 22.0)
+    keep_before = (
+        keep.parent.name if keep.parent else None,
+        [float(keep.location[0]), float(keep.location[1])],
+        [float(getattr(keep, "location_absolute", keep.location)[0]),
+         float(getattr(keep, "location_absolute", keep.location)[1])],
+    )
+    child_before = (
+        stray.parent.name if stray.parent else None,
+        [float(stray.location[0]), float(stray.location[1])],
+        [float(getattr(stray, "location_absolute", stray.location)[0]),
+         float(getattr(stray, "location_absolute", stray.location)[1])],
+    )
+    grid_parent_before = tree.nodes["Grid"].parent.name if tree.nodes["Grid"].parent else None
+    guarded = call("layout_graph.py", {
+        "op": "apply",
+        "tree": "Fixture",
+        "nodes": ["Keep", "Grid", "Group Output"],
+        "trunk": ["Grid", "Group Output"],
+        "dependencies": [],
+        "frames": [{"name": "Keep", "nodes": ["Grid"]}],
+    })
+    child_after = (
+        stray.parent.name if stray.parent else None,
+        [float(stray.location[0]), float(stray.location[1])],
+        [float(getattr(stray, "location_absolute", stray.location)[0]),
+         float(getattr(stray, "location_absolute", stray.location)[1])],
+    )
+    keep_after = (
+        keep.parent.name if keep.parent else None,
+        [float(keep.location[0]), float(keep.location[1])],
+        [float(getattr(keep, "location_absolute", keep.location)[0]),
+         float(getattr(keep, "location_absolute", keep.location)[1])],
+    )
+    check("layout_graph.protected_child_in_authorized_frame_rejected",
+          guarded.get("ok") is False and "protected" in (guarded.get("error") or ""),
+          guarded.get("error"))
+    check("layout_graph.protected_child_parent_and_positions_unchanged",
+          child_after == child_before and keep_after == keep_before
+          and (tree.nodes["Grid"].parent.name if tree.nodes["Grid"].parent else None)
+          == grid_parent_before
+          and guarded.get("rolled_back") is True,
+          {"child_before": child_before, "child_after": child_after,
+           "keep_before": keep_before, "keep_after": keep_after,
+           "rolled_back": guarded.get("rolled_back"),
+           "mutated": guarded.get("mutated")})
+
+    second = call("layout_graph.py", _layout_params())
+    check("layout_graph.repeated_apply_idempotent",
+          first["positions"] == second["positions"],
+          {"first": first["positions"], "second": second["positions"]})
+
+    third = call("layout_graph.py", _layout_params())
+    check("layout_graph.frame_parent_no_drift",
+          second["positions"]["Grid"]["location_absolute"]
+          == third["positions"]["Grid"]["location_absolute"]
+          and second["positions"]["Grid"]["parent"] == "Sources",
+          third["positions"]["Grid"])
+
+    before_bad = {n.name: list(n.location) for n in tree.nodes}
+    missing = call("layout_graph.py", _layout_params({"nodes": ["Grid", "Nope"]}))
+    after_bad = {n.name: list(n.location) for n in tree.nodes}
+    check("layout_graph.missing_name_rejected",
+          missing.get("ok") is False and "not in tree" in (missing.get("error") or ""),
+          missing.get("error"))
+    check("layout_graph.missing_name_does_not_mutate",
+          before_bad == after_bad, {"before": before_bad, "after": after_bad})
+
+    out_of_scope = call(
+        "layout_graph.py",
+        _layout_params({"trunk": ["Grid", "Off Trunk"]}),
+    )
+    check("layout_graph.out_of_scope_rejected",
+          out_of_scope.get("ok") is False and "outside authorized" in (out_of_scope.get("error") or ""),
+          out_of_scope.get("error"))
+
+    group = bpy.data.node_groups.new("InnerGroup", "GeometryNodeTree")
+    group.interface.new_socket("Geometry", in_out="OUTPUT", socket_type="NodeSocketGeometry")
+    nested = tree.nodes.new("GeometryNodeGroup")
+    nested.name = "Inner"
+    nested.node_tree = group
+    grouped = call("layout_graph.py", {
+        "op": "apply",
+        "tree": "Fixture",
+        "nodes": ["Inner", "Group Output"],
+        "trunk": ["Inner", "Group Output"],
+        "dependencies": [],
+        "frames": [],
+    })
+    check("layout_graph.group_node_is_a_regular_authorized_member",
+          grouped.get("ok") is True, grouped.get("error"))
+
+    zone_ok = True
+    try:
+        zin = tree.nodes.new("GeometryNodeRepeatInput")
+        zout = tree.nodes.new("GeometryNodeRepeatOutput")
+        zin.name = "Repeat Input"
+        zout.name = "Repeat Output"
+    except Exception as exc:
+        zone_ok = False
+        check("layout_graph.zone_types_unavailable_reported",
+              True, str(exc))
+    if zone_ok:
+        before_zone = {n.name: list(n.location) for n in tree.nodes}
+        split = call("layout_graph.py", {
+            "op": "apply",
+            "tree": "Fixture",
+            "nodes": ["Repeat Input", "Grid"],
+            "trunk": ["Grid"],
+            "dependencies": [],
+            "frames": [],
+        })
+        after_zone = {n.name: list(n.location) for n in tree.nodes}
+        check("layout_graph.split_zone_rejected",
+              split.get("ok") is False and "zone edge" in (split.get("error") or ""),
+              split.get("error"))
+        check("layout_graph.split_zone_does_not_mutate",
+              before_zone == after_zone, None)
+        both = call("layout_graph.py", {
+            "op": "apply",
+            "tree": "Fixture",
+            "nodes": ["Repeat Input", "Repeat Output", "Group Output"],
+            "trunk": ["Repeat Output", "Group Output"],
+            "dependencies": [],
+            "frames": [],
+        })
+        check("layout_graph.complete_zone_pair_accepted",
+              both.get("ok") is True, both.get("error"))
+
+    unknown = call("layout_graph.py", {"op": "teleport", "tree": "Fixture", "nodes": ["Grid"]})
+    check("layout_graph.unknown_op_fails_clearly",
+          unknown.get("ok") is False and unknown.get("operations"), unknown)
+
+
 def main():
     argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
     out_path = argv[0] if argv else os.path.join(ROOT, "runtime-script-checks.json")
@@ -451,6 +684,7 @@ def main():
     test_probe_node()
     test_capture()
     test_inspect_assets()
+    test_layout_graph(tree)
 
     failed = [c for c in CHECKS if not c["pass"]]
     payload = {
