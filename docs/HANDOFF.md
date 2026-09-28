@@ -31,5 +31,6 @@ Overwrite this file on every agent switch. It is not a history log — Git holds
 - Full local suite with Blender 5.2.2 available: 184 passed, 1 explicitly deferred documentation-rule test skipped.
 - `python tools/gen_nodes_tsv.py --check`: current, 368 rows.
 - Workflow YAML parses; workflow contract tests: 2 passed.
+- PR #20 GitHub-hosted checks: `Static tests` passed in 14s; `nodes.tsv consistency` passed in 5s after adding the explicit `requirements-dev.txt` cache dependency path.
 
-**Next action:** Commit, push, and open the Issue #18 PR; verify both GitHub checks run on the hosted runner.
+**Next action:** Review PR #20. Merge and Issue #18 close remain separate actions.
