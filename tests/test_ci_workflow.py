@@ -14,6 +14,7 @@ def test_quality_workflow_exposes_the_two_public_gates():
     assert text.count("persist-credentials: false") == 2
     assert "name: Static tests" in text
     assert "python -m pip install -r requirements-dev.txt" in text
+    assert "cache-dependency-path: requirements-dev.txt" in text
     assert "python -m pytest tests -q" in text
     assert "name: nodes.tsv consistency" in text
     assert "python tools/gen_nodes_tsv.py --check" in text
