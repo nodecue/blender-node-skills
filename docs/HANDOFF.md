@@ -17,8 +17,7 @@ Overwrite this file on every agent switch. It is not a history log — Git holds
 
 **Not done:**
 
-- Live Blender golden execution for Issue #23: direct macOS background Blender is the known SIGSEGV path and was not retried. Run through an already-running Blender MCP/Python channel when available.
-- Commit, push, PR, review, merge, Issue #23 close, or release.
+- PR #24 final review, merge, Issue #23 close, or release.
 - Issue #15 `find_nodes` or Issue #19 VM evaluation.
 
 **Files touched:**
@@ -35,11 +34,12 @@ Overwrite this file on every agent switch. It is not a history log — Git holds
 - Direct background Blender on this macOS host terminates with the known `ARCH_CACHE_LINE_SIZE != Arch_ObtainCacheLineSize()` SIGSEGV. Do not repeat that path; use an already-running Blender MCP/Python channel.
 - Summary findings are intentionally limited to facts already computed by trunk readback. Do not expand this slice into Issue #17's general structured-delivery system.
 
-**Next action:** Review the patch, commit and push, create the Issue #23 PR, and wait for both hosted checks. Live runtime evidence remains separate.
+**Next action:** Push the runtime-evidence update, wait for both hosted checks, then review PR #24. Merge and Issue #23 close remain separate actions.
 
 **Last verified:** 2026-10-01
 
 - Static `read_graph.py` contract tests: 45 passed, 1 live test deselected.
 - Filtered public suite: 181 passed, 1 skipped, 2 known background-Blender cases deselected.
+- Blender 5.2.2 foreground factory-startup runtime: all 36 `read_graph` checks passed. The 54-node summary was 4,727 bytes versus 36,451 bytes in full mode (87.0% smaller). Four unrelated capture checks could not run because factory startup had no Geometry Nodes editor; the complete golden result was 109/113.
 - `python3 tools/gen_nodes_tsv.py --check`: current, 368 rows.
 - `git diff --check`: clean before final documentation update; rerun before commit.
