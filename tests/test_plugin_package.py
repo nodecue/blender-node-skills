@@ -54,6 +54,35 @@ def test_mcp_json_declares_blender_stdio_entry():
     assert blender.get("args") == []
 
 
+def test_readmes_close_the_official_mcp_first_use_loop():
+    for readme in (ROOT / "README.md", ROOT / "README.zh-CN.md"):
+        text = readme.read_text(encoding="utf-8")
+        assert "https://projects.blender.org/lab/blender_mcp" in text
+        install_command = "pip install git+https://projects.blender.org/lab/blender_mcp.git#subdirectory=mcp"
+        assert install_command in text
+        assert "https://lab.blender.org/" in text
+        assert "blender-mcp" in text
+        assert "stdio" in text.lower()
+        assert "bpy.app.version_string" in text
+        assert "bpy.data.filepath" in text
+        assert "active object name" in text or "活动对象名称" in text
+        assert ".mcp.json" in text
+        assert "NODECUE.md" not in text
+        assert "docs/images/comparison-" not in text
+        assert "CC-BY-SA" not in text
+        assert "docs.blender.org/manual" not in text
+
+
+def test_readmes_do_not_keep_the_pre_v07_comparison_claims():
+    for readme in (ROOT / "README.md", ROOT / "README.zh-CN.md"):
+        text = readme.read_text(encoding="utf-8").lower()
+        old_claims = ("4 minutes 17 seconds", "5 minutes 46 seconds", "4 分 17 秒", "5 分 46 秒")
+        for old_claim in old_claims:
+            assert old_claim not in text
+        assert "dated example from a pre-v0.7 skill" not in text
+        assert "v0.7 之前的历史示例" not in text
+
+
 def test_plugin_and_mcp_carry_no_machine_local_paths():
     for path in (PLUGIN, MCP):
         text = path.read_text(encoding="utf-8")

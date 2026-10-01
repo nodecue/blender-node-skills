@@ -1,7 +1,7 @@
 ---
 title: Cross-Version Differences
 description: "What one Blender cannot report about another: renames, experimental gates, deprecations with non-drop-in replacements, the shapes socket changes take, and the bundled-asset capability boundary."
-last_verified: "2026-09-02"
+last_verified: "2026-10-01"
 ---
 
 # Cross-version differences
@@ -87,6 +87,17 @@ and each fails differently:
   stable across the step.
 - **Inputs are appended.** Old identifiers still work, so a copied socket list is
   incomplete rather than wrong — which is why it fails late.
+
+## Blender 5.2 API notes
+
+- **Geometry Nodes modifier inputs.** In Blender 5.2, write a group input through
+  `modifier.properties.inputs.Socket_n.value`, where `Socket_n` is the identifier read
+  from the live node-group interface. The legacy `modifier["Socket_n"] = value` form
+  errors on this version. Inspect the connected Blender's RNA before applying a
+  version-specific modifier write; do not assume this path is portable to other releases.
+- **Capture Attribute.** The Blender 5.2.0 node dump includes a `Selection` input on
+  `GeometryNodeCaptureAttribute`; the 4.5.12, 5.0.1, and 5.1.2 dumps do not. Treat it as
+  a 5.2-era interface addition and read the actual socket from the running version.
 
 ## Field capability
 

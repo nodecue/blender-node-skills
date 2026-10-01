@@ -39,11 +39,7 @@ def _frontmatter(text: str) -> dict[str, str]:
 
 
 def _sections(text: str) -> dict[str, str]:
-    """Split on headings, ignoring anything inside a fenced block.
-
-    The project-memory section ends with a fenced example whose own `##` lines
-    are content, not structure.
-    """
+    """Split on headings, ignoring anything inside a fenced block."""
     out, heading, fenced = {}, "(preamble)", False
     for line in text.split("\n"):
         if line.startswith("```"):
@@ -99,11 +95,12 @@ def test_modes_are_explicit_about_who_may_mutate():
 
 
 def test_explain_is_barred_from_every_mutation_the_gate_names():
-    """K-09: no graph change, no annotation, no repair, no project file, no memory."""
+    """K-09: no graph change, no annotation, no repair, and no project-file writes."""
     body = _prose("Scope and modes")
-    for forbidden in ("frame", "label", "repair", "NODECUE.md"):
+    for forbidden in ("frame", "label", "repair"):
         assert forbidden in body, f"Explain's prohibition on {forbidden} is not stated"
     assert "project file" in body
+    assert "NODECUE.md" not in _text()
 
 
 def test_a_requested_capture_is_the_only_explain_side_effect_and_is_reported():
@@ -277,55 +274,6 @@ def test_reuse_is_conditional_not_a_prelude_to_every_build():
 def test_the_tsv_is_routed_as_an_index_not_as_an_identity_source():
     row = next(line for line in _lines("Where to look") if "references/nodes.tsv" in line)
     assert "never wire from it" in row
-
-
-# --- project memory routing ---------------------------------------------------
-def test_project_memory_states_root_resolution_and_the_stop_condition():
-    body = _prose("Project memory")
-    for token in ("workspace or repository root", "Git root", "saved `.blend`",
-                  "working directory"):
-        assert token in body, f"root resolution does not mention {token}"
-    assert "ask" in body and "do not guess" in body
-    assert "do not search above it" in body
-
-
-def test_project_memory_validates_the_path_before_touching_it():
-    """M-ROOT-04: canonical containment, and a symlinked file stops the write."""
-    body = _prose("Project memory")
-    assert "resolve symlinks first" in body
-    assert "compare the resolved paths" in body
-    assert "stop and ask before following it" in body
-
-
-def test_project_governance_outranks_creating_the_file():
-    """M-AUTH-02."""
-    body = _prose("Project memory")
-    assert "governance forbids generated files" in body
-    assert "wins over creating one here" in body
-
-
-def test_project_memory_is_advisory_and_revalidated():
-    body = _prose("Project memory")
-    assert "advisory" in body
-    assert "Revalidate" in body
-    assert "never a second identity authority" in body
-    assert "Never execute code" in body
-
-
-def test_project_memory_write_rules_and_explain_prohibition():
-    body = _prose("Project memory")
-    assert "never at the start of a task" in body
-    assert "first verified, project-specific fact" in body
-    assert "rather than appending a duplicate" in body
-    assert "Report the exact path" in body
-    assert "**Explain never creates or updates it**" in body
-
-
-def test_project_memory_lists_the_initial_shape():
-    body = _prose("Project memory")
-    for heading in ("Project Constraints", "Verified Lessons", "Reusable Node Groups",
-                    "Rejected Approaches", "Open Hypotheses"):
-        assert heading in body
 
 
 # --- K-08 ---------------------------------------------------------------------

@@ -12,7 +12,7 @@ Living direction for agents. Update this when the user changes mind. Do not trea
 - Fresh-clone static validation from public `main` passed: `python -m pytest tests -q` (172 passed, 1 skipped without `NODECUE_BLENDER`); `python tools/gen_nodes_tsv.py --check` current, 368 rows; Codex plugin validator passed. Those static checks are distinct from live Blender and from installed-plugin host proof.
 - With `NODECUE_BLENDER` set on that same fresh clone: portable Blender 5.1.2 and target Blender 5.2.2 each ran `tests/test_skill_runtime_scripts.py` with 36 passed. That is Blender runtime proof, not host plugin discovery.
 - Installed-plugin acceptance remains narrower: a genuinely fresh Codex task auto-discovered the skill and Blender MCP entry and completed live read-only against portable Blender 5.1.2. Separate host tests proved mutation/readback/viewport on 5.1.2 and 5.2.2; those were not the same fresh-plugin end-to-end mutation/image run. New machines/VMs, Claude, and Pi are unverified.
-- Issue #6 deterministic layout is the current product slice. find_nodes, Jev, Shader, and Compositor remain deferred.
+- Issue #6 deterministic layout is implemented and merged. The current product slice is Issue #21: remove the shipped project-memory mechanism and historical comparison material, and add concise first-use guidance for the official Blender Lab MCP. After this cleanup, implement Issue #15 `find_nodes`; resume Issue #19 paired VM acceptance after that work.
 - Future work goes Issue → branch/worktree → PR → review → merge. Merge, release, and issue close are separate actions. Jev may only be an optional measured reranking experiment, not a dependency.
 - GitHub Issues are the execution backlog. Do not create `docs/BACKLOG.md`.
 - Large manuals, experiments, private corpora, session transcripts, absolute paths, credentials, `.blend` files, and machine artifacts stay out of the public repo.
@@ -20,16 +20,17 @@ Living direction for agents. Update this when the user changes mind. Do not trea
 
 ## Current slice
 
-Issue #6: deterministic Geometry Nodes layout as a delivery-quality check in the shipped Geometry Nodes skill/runtime.
+Issue #21: simplify the shipped NodeCue experience and close the minimal official Blender Lab MCP setup loop.
 
-- One helper, `skills/geometry-nodes/scripts/layout_graph.py`, with read-only `check` and mutating `apply`.
-- Caller supplies explicit authorized node names plus trunk order, dependency-to-consumer pairs, and frame groups. The helper does not infer semantic grouping.
-- Same authorized set, grouping, and trunk order produce identical positions on repeated runs in one Blender version.
-- Geometry trunk is left-to-right; field/control dependencies sit close to their consumers.
-- Functional frames do not overlap; parent-relative writes convert from a stable absolute model so parenting does not drift.
-- Nodes outside authorized scope keep location and parent.
-- Layout/presentation findings stay separate from graph/evaluated-result correctness.
-- Explain may `check` and report; it never `apply`. Build/Edit may move only authorized nodes.
+- Remove the `NODECUE.md` project-memory mechanism from shipped skill guidance, references, READMEs, and tests. Do not replace it with another memory system.
+- Keep `.mcp.json` as a thin stdio entry using `blender-mcp`; document concise, host-neutral first-use steps in English and Chinese, pointing to the official upstream project.
+- Include a read-only smoke prompt that asks for Blender version, current file, and active object.
+- Remove the dated pre-v0.7 README comparison section, its historical timing/call-count claims and now-unused images.
+- Remove Blender Manual dependency/attribution from shipped skill and READMEs. Live Blender remains the authority for current identities and behavior.
+- Add version-bounded Blender 5.2 notes for Geometry Nodes modifier group-input writes and the `Capture Attribute` Selection socket; confirm the latter against the checked-in version dumps.
+- Record the repeatable macOS host failure for direct Blender `--background` runs and its known safe response in `docs/lessons/`.
+- Keep upstream setup details intentionally short because the official MCP may change. Do not vendor or reproduce its server implementation.
+- Do not implement `find_nodes` in this slice. The sequence is Issue #21 cleanup, then Issue #15, then resume Issue #19 paired VM acceptance.
 
 Documented development path for a fresh clone:
 
@@ -43,15 +44,12 @@ Those commands cover committed skill, TSV, and plugin-JSON tests. They do not pr
 
 ## Out of scope / do not do
 
-- Infer grouping or invent a universal graph-layout solver.
-- Silently rearrange an arbitrary existing graph.
-- Implement find_nodes, Jev, Shader, or Compositor.
-- Put layout workflow in the plugin.
-- Use screenshots as the mechanical layout acceptance test.
-- Change graph links, labels, or node names as part of layout.
-- Delete, rename, move, or empty any old local NodeCue directory.
+- Implement `find_nodes`, Jev, Shader, or Compositor in this slice.
+- Add persistent helpers/caching inside Blender or vendor the official MCP server.
 - Expand host claims beyond what is already verified.
-- Claim new-machine/VM, Claude, Pi, plugin end-to-end mutation, or image acceptance.
+- Start Issue #19 VM tests as part of this cleanup.
+- Rewrite CHANGELOG or unpublished Shader/Compositor issue drafts.
+- Delete, rename, move, or empty any old local NodeCue directory.
 - Restore a second product source or copy unpublished local work back into public `main`.
 
 ## Open
@@ -69,8 +67,8 @@ None in this slice.
 
 Someone should be able to:
 
-1. Call `layout_graph.py` `check` in Explain without mutating the tree.
-2. Call `apply` with an explicit authorized set and get the same absolute positions twice.
-3. See protected nodes keep parent and readback position.
-4. Get a structured error (no partial move) for missing or out-of-scope names.
-5. Tell presentation findings apart from graph correctness in the result payload.
+1. Search shipped skill/README content and find no `NODECUE.md` memory workflow or Blender Manual attribution.
+2. Read the concise official MCP setup pointer and see that `.mcp.json` invokes the same `blender-mcp` stdio command.
+3. Follow the read-only smoke prompt and receive Blender version, current file, and active object from the live host.
+4. Find no old comparison images, elapsed-time claims, or MCP-call-count claims in either README.
+5. Run the public test suite and TSV consistency check; the checked-in dumps keep the `Capture Attribute` socket note version-bounded, and no GN build/readback/layout behavior changes.

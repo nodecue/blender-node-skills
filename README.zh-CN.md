@@ -20,7 +20,7 @@ agent 用它搭建一份可以核对的几何节点图，也可以在不改动�
 5. 核对的是从请求推导出来的结果。节点个数只说明图本身。尺寸、位置，或请求里明确要的数量，才是该核对的内容。
 6. 请求要求改图时，保留 Blender 的默认节点名，把解释写在教学 Frame 上。
 
-任务需要时，可以使用 [`inspect_assets.py`](skills/geometry-nodes/scripts/inspect_assets.py) 和项目内的 `NODECUE.md`。它们不能代替对 Blender 的实时读取。
+任务需要时，可以使用 [`inspect_assets.py`](skills/geometry-nodes/scripts/inspect_assets.py)。它不能代替对 Blender 的实时读取。
 
 ## 安装独立 skill
 
@@ -38,7 +38,19 @@ npx skills add nodecue/blender-node-skills
 
 这个 skill 不建立 Blender 连接。它要求一条已经可用的执行通道。这条通道必须在正在运行的 Blender 内部执行随仓库发布的 Python，并把结果返回来。Blender 外面的 host Python 看不到当前打开的文件。
 
-MCP，或者 host 已经提供的其他集成，都可以作为这条通道。本页不给传输方式排序，也不写 server 的安装步骤。请看你所选 host 和传输方式自己的文档。
+这里说明的接入方式是官方 [Blender Lab MCP](https://projects.blender.org/lab/blender_mcp) 的 stdio 通道。按上游命令安装 server：
+
+```bash
+pip install git+https://projects.blender.org/lab/blender_mcp.git#subdirectory=mcp
+```
+
+Blender 扩展需要单独安装：添加 Blender Lab Extensions 仓库（`https://lab.blender.org/`），找到并安装 MCP 扩展，启用后从扩展偏好设置中启动 server。步骤由上游维护，之后可能变化。本仓库的 MCP client 命令是 `blender-mcp`，不带参数，见 [`.mcp.json`](.mcp.json)；确保 host 能从 `PATH` 找到该命令，配置后重启 MCP client。
+
+连接后，使用以下只读冒烟提示词：
+
+> 不要修改任何内容。请返回 `bpy.app.version_string`、当前 `.blend` 文件路径（`bpy.data.filepath`），以及活动对象名称（没有则返回 `none`）。
+
+返回的信息与预期打开的 Blender 窗口一致，才算通道已接通。如果 host 无法返回这些值，请先不要继续操作。
 
 **Blender Lab MCP** 的运行下限是 **Blender 5.1 或更新**。这个下限与 v0.7 skill 在 [`versions.md`](skills/geometry-nodes/references/versions.md) 和 `nodes.tsv` 里对 Blender 4.5 LTS、5.0 的知识覆盖是分开的。skill 路由仍然记录这些更早版本；Lab MCP 不能在它们上面运行。
 
@@ -60,7 +72,7 @@ MCP，或者 host 已经提供的其他集成，都可以作为这条通道。�
 这条路径只使用本公开仓库。
 
 1. 安装或找到独立 skill，目录是 `skills/geometry-nodes/`。
-2. 确认 agent 已经有一条可用的 Blender 执行通道。
+2. 按上面的步骤连接 Blender，并通过只读冒烟检查。
 3. 启用几何节点 skill，从一份测试用 `.blend` 开始。
 4. 提出搭建、修改或解释的请求，然后在 Blender 里查看求值后的结果。节点图看起来整齐，并不等于结果正确。
 5. 失败时，用 [Skill feedback](.github/ISSUE_TEMPLATE/skill-feedback.yml) 模板开 issue。写上提示词、agent 或工具、模型、Blender 版本，以及结果错在哪里。不要放入 API key、凭据、私有资产库路径，以及不能公开的 `.blend` 文件。
@@ -74,30 +86,10 @@ MCP，或者 host 已经提供的其他集成，都可以作为这条通道。�
 - **请求要求改图时，Frame 注释跟随提示词的语言。** 节点、socket 和标识符保持 Blender 显示的原文，以便和界面、教程对照。
 - **结果仍然可能是错的。** 早前的静态检查和运行时回归记录，不等于 Claude、Codex 或任何其他 host 上的验收。本 README 不把那些早前运行写成当前的通过结论。在依赖节点图之前，先查看 Blender 里求值后的输出。
 
-## v0.7 之前的历史示例
-
-下面两张图来自更早的一次会话：Codex app，gpt-5.6，同一句立方体加圆锥的请求，一次不用当时那个 skill，一次使用它，通道是 Blender MCP。它们用来说明 v0.7 之前那一版 skill 的习惯。它们不是 v0.7 的行为验收，不能说明任何一个 host 现在已经被支持，也不是性能基准。
-
-> 在场景中添加一个立方体，2米大小，在立方体的顶部4个顶点处分别添加一个高0.2米，直径0.2米的圆锥。
-
-| 没有当时那个旧 skill（Codex app，gpt-5.6） | 使用当时那个旧 skill（Codex app，gpt-5.6） |
-|---|---|
-| ![历史会话，未使用旧 skill：节点被改名并加上标签，成品里留着 Realize Instances，共 11 个节点](docs/images/comparison-no-skill.png) | ![历史会话，使用了旧 skill：节点保持默认名，四个双语教学 Frame，共 9 个节点](docs/images/comparison-with-skill.png) |
-| 11 个节点，被改名并加上标签，留着多余的 `Realize Instances` | 9 个节点，默认名称，4 个双语 Frame |
-
-那次会话仍然值得看的地方：
-
-- **Blender 默认名称。** `Position`、`Compare`、`Cone` 这类名字仍然能对上界面和教程。`Cube_2m` 这种改名，以及“读取每个顶点的位置”这种标签，会把这层对照切断。
-- **教学 Frame。** 使用当时 skill 的那一列，把解释放在 Frame 上（“02 顶部四点 — Select Z > 0.99”）。另一边的提示词额外写了一句，才要求用 Frame 做解释。这是那次运行的记录，不能证明现在的会话会自动加上 Frame。
-- **尽量晚 Realize。** `Realize Instances` 当时只用来清点四个圆锥，随后被移除。只有后面的操作确实需要实体几何时才 Realize，并且放到该操作允许的最晚时机。
-- **那次会话里，核对多花了工夫。** 记录是：不用 skill 时 4 次 MCP 调用（约 4 分 17 秒），使用 skill 时 7 次 MCP 调用（约 5 分 46 秒）。多出来的是回读和修复。这些数字只描述那一次会话，不是当前基准。
-
-两次都做出了请求里的几何。在那个模型上，看得见的差别是留下来的图：默认名称、教学 Frame、没有留在成品里的临时 Realize，以及在宣称完成之前先做核对。
-
 ## 反馈
 
 请使用 [Skill feedback](.github/ISSUE_TEMPLATE/skill-feedback.yml) 模板。说明你问了什么、用的 agent 和模型、当时的 Blender 版本、执行通道是怎么接上的，以及求值结果实际怎样。只提交可以公开的证据：不要包含 API key、凭据、私有路径，或不能公开的 `.blend` 文件。
 
 ## 许可
 
-MIT。见 [LICENSE](LICENSE)。[Blender 手册](https://docs.blender.org/manual/en/latest/)（CC-BY-SA 4.0）是参考来源。当前身份和行为以正在运行的 Blender 为准。
+MIT。见 [LICENSE](LICENSE)。当前身份和行为以正在运行的 Blender 为准。
