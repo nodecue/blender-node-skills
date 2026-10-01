@@ -38,7 +38,7 @@ npx skills add nodecue/blender-node-skills
 
 The skill does not create a Blender connection. It requires an execution channel that already works. That channel must run the shipped Python inside the running Blender and return the result. Python on the host, outside Blender, cannot see the open file.
 
-The supported setup described here is the official [Blender Lab MCP](https://projects.blender.org/lab/blender_mcp) over stdio. Install its server with the upstream command:
+The minimal setup described here uses the official [Blender Lab MCP](https://projects.blender.org/lab/blender_mcp) over stdio. Install its server with the upstream command:
 
 ```bash
 pip install git+https://projects.blender.org/lab/blender_mcp.git#subdirectory=mcp

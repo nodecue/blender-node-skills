@@ -33,7 +33,7 @@ Overwrite this file on every agent switch. It is not a history log — Git holds
 **Risks / landmines:**
 
 - Upstream setup can change. The README links to the official repository and keeps the server setup short; no server code is vendored.
-- Official upstream checkout read during this task documents `pip install git+https://projects.blender.org/lab/blender_mcp.git#subdirectory=mcp`, a separately installed Blender extension, and starting its server from extension preferences.
+- The official upstream setup uses `pip install git+https://projects.blender.org/lab/blender_mcp.git#subdirectory=mcp`, a separately installed Blender extension, and starting its server from extension preferences.
 - `.mcp.json` remains the NodeCue package entry; host-specific MCP config file locations are not documented here.
 - The modifier-input API/error note was supplied as a confirmed Blender 5.2 fact; repository dumps do not record modifier writes, so it was documented as version-bound and was not independently exercised in this turn.
 

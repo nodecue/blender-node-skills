@@ -2,9 +2,9 @@
 
 ## Symptom
 
-Direct Blender `--background` test runs on this host can exit with status 139 and
-print `ARCH_CACHE_LINE_SIZE != Arch_ObtainCacheLineSize()` from
-`Arch_ValidateAssumptions`.
+Direct Blender `--background` test runs on this host can terminate with `SIGSEGV`
+(reported as status 139 by a shell or return code -11 by a subprocess) and print
+`ARCH_CACHE_LINE_SIZE != Arch_ObtainCacheLineSize()` from `Arch_ValidateAssumptions`.
 
 ## Response
 
