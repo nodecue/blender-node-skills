@@ -2,6 +2,20 @@ English | [简体中文](README.zh-CN.md)
 
 # NodeCue Blender Node Skills
 
+> **Archived (2026-10-02). This project is no longer maintained.**
+>
+> A paired test on 2026-10-01 used Codex (`gpt-5.6-sol`), Blender 5.2.2 and the official Blender Lab MCP, with one run per condition on a 50-check Geometry Nodes task:
+>
+> | | Score | Codex time | Input tokens |
+> | --- | --- | --- | --- |
+> | No skill | 50/50 | 183 s | 456k |
+> | This v0.7 skill | 50/50 | 273 s | 899k |
+> | A 1.6 KB conventions-only skill | 50/50 | 223 s | 708k |
+>
+> A strong agent with the official MCP already built the graph correctly without help. The v0.7 skill's workflow and scripts added turns and context but did not reduce errors. Most errors were recoverable Blender 5.2 API changes, such as setting modifier inputs through `modifier.properties.inputs`. A short conventions-only skill did help readability: Blender node names kept, titled frames, no overlaps. The harder problems — values that are wrong without raising an error, and whether a result *looks* right — are not addressed by this kind of skill.
+>
+> The code stays available for reference. It will not be updated, and issues are closed.
+
 The product available now is the shipped **v0.7 Geometry Nodes skill** at [`skills/geometry-nodes/`](skills/geometry-nodes/). It is [`SKILL.md`](skills/geometry-nodes/SKILL.md), four references, and four scripts:
 
 - References: [`nodes.tsv`](skills/geometry-nodes/references/nodes.tsv), [`versions.md`](skills/geometry-nodes/references/versions.md), [`reuse.md`](skills/geometry-nodes/references/reuse.md), [`diagnostics.md`](skills/geometry-nodes/references/diagnostics.md)
