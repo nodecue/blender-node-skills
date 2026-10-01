@@ -12,8 +12,10 @@ Living direction for agents. Update this when the user changes mind. Do not trea
 - Fresh-clone static validation from public `main` passed: `python -m pytest tests -q` (172 passed, 1 skipped without `NODECUE_BLENDER`); `python tools/gen_nodes_tsv.py --check` current, 368 rows; Codex plugin validator passed. Those static checks are distinct from live Blender and from installed-plugin host proof.
 - With `NODECUE_BLENDER` set on that same fresh clone: portable Blender 5.1.2 and target Blender 5.2.2 each ran `tests/test_skill_runtime_scripts.py` with 36 passed. That is Blender runtime proof, not host plugin discovery.
 - Installed-plugin acceptance remains narrower: a genuinely fresh Codex task auto-discovered the skill and Blender MCP entry and completed live read-only against portable Blender 5.1.2. Separate host tests proved mutation/readback/viewport on 5.1.2 and 5.2.2; those were not the same fresh-plugin end-to-end mutation/image run. New machines/VMs, Claude, and Pi are unverified.
-- Issue #6 deterministic layout is implemented and merged. The current product slice is Issue #21: remove the shipped project-memory mechanism and historical comparison material, and add concise first-use guidance for the official Blender Lab MCP. After this cleanup, implement Issue #15 `find_nodes`; resume Issue #19 paired VM acceptance after that work.
-- Future work goes Issue → branch/worktree → PR → review → merge. Merge, release, and issue close are separate actions. Jev may only be an optional measured reranking experiment, not a dependency.
+- Issue #6 deterministic layout is merged in PR #14; closing the Issue remains a separate action.
+- Issue #18 automated pull-request quality gates is merged in PR #20 and closed. Pull requests run separate `Static tests` and `nodes.tsv consistency` jobs; the active `main` ruleset requires a pull request and both checks, prevents deletion and force-push, and retains administrator bypass for recovery.
+- Keep `nodes.tsv` as the reviewed routing index for now. Only reduce its role after Issue #15 measures that `find_nodes` preserves recall, version routing, and maintainability; do not remove it on anecdotal results.
+- Future work goes Issue → branch/worktree → PR → review → merge. Merge, release, and issue close are separate actions. Jev may only be an optional measured reranking experiment after a deterministic `find_nodes` baseline, not a dependency.
 - GitHub Issues are the execution backlog. Do not create `docs/BACKLOG.md`.
 - Large manuals, experiments, private corpora, session transcripts, absolute paths, credentials, `.blend` files, and machine artifacts stay out of the public repo.
 - The old local checkout is a preserved archive candidate. It is not a second authority. Do not copy changes from it back into public `main`. See `docs/cleanup/old-local-source.md`. This slice does not delete it.
@@ -30,7 +32,7 @@ Issue #21: simplify the shipped NodeCue experience and close the minimal officia
 - Add version-bounded Blender 5.2 notes for Geometry Nodes modifier group-input writes and the `Capture Attribute` Selection socket; confirm the latter against the checked-in version dumps.
 - Record the repeatable macOS host failure for direct Blender `--background` runs and its known safe response in `docs/lessons/`.
 - Keep upstream setup details intentionally short because the official MCP may change. Do not vendor or reproduce its server implementation.
-- Do not implement `find_nodes` in this slice. The sequence is Issue #21 cleanup, then Issue #15, then resume Issue #19 paired VM acceptance.
+- Do not implement `find_nodes` in this slice. After Issue #21, make `read_graph.py` compact and non-duplicating, close Issue #6 after checking its merged acceptance, then implement Issue #15 before resuming Issue #19 paired VM acceptance.
 
 Documented development path for a fresh clone:
 
@@ -46,6 +48,8 @@ Those commands cover committed skill, TSV, and plugin-JSON tests. They do not pr
 
 - Implement `find_nodes`, Jev, Shader, or Compositor in this slice.
 - Add persistent helpers/caching inside Blender or vendor the official MCP server.
+- Add live Blender, GUI, MCP, VM, screenshot, or agent runs to the fast PR workflow.
+- Remove or deprecate `nodes.tsv` before measured `find_nodes` evidence exists.
 - Expand host claims beyond what is already verified.
 - Start Issue #19 VM tests as part of this cleanup.
 - Rewrite CHANGELOG or unpublished Shader/Compositor issue drafts.
@@ -55,6 +59,8 @@ Those commands cover committed skill, TSV, and plugin-JSON tests. They do not pr
 ## Open
 
 - Host plugin discovery on new machines/VMs, Claude, and Pi.
+- Issue #15 measured `find_nodes` baseline after the PR gates land.
+- Issue #19 paired no-skill/skill VM acceptance with refreshed image evidence.
 - Whether later slices add measured reranking (Jev) — optional experiment only.
 - Where manuals, private corpora, and private evidence stay (they do not land in public git).
 - Later archive of the old local checkout, only after the cleanup manifest checks, and only with explicit later authorization.
@@ -71,4 +77,4 @@ Someone should be able to:
 2. Read the concise official MCP setup pointer and see that `.mcp.json` invokes the same `blender-mcp` stdio command.
 3. Follow the read-only smoke prompt and receive Blender version, current file, and active object from the live host.
 4. Find no old comparison images, elapsed-time claims, or MCP-call-count claims in either README.
-5. Run the public test suite and TSV consistency check; the checked-in dumps keep the `Capture Attribute` socket note version-bounded, and no GN build/readback/layout behavior changes.
+5. Open a pull request and see required `Static tests` and `nodes.tsv consistency` jobs while keeping those static gates distinct from live Blender acceptance.
