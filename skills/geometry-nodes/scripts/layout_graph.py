@@ -635,7 +635,7 @@ def run(params=None):
 
 
 def _emit(payload):
-    print(json.dumps(payload, ensure_ascii=False, default=str))
+    print(json.dumps(payload, ensure_ascii=False, default=str, separators=(",", ":")))
     return payload
 
 
@@ -649,4 +649,4 @@ def _argv_params():
 if __name__ == "__main__":
     result = _emit(run(_argv_params()))
 elif "NODECUE_PARAMS" in globals():
-    result = _emit(run(NODECUE_PARAMS))  # noqa: F821
+    result = run(NODECUE_PARAMS)  # noqa: F821  - injected by the host
