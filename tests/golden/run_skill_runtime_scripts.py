@@ -148,9 +148,19 @@ def test_read_graph(tree):
     check("read_graph.summary_is_default", summary.get("detail") == "summary", summary)
     check("read_graph.summary_has_names_not_details",
           "Grid" in summary.get("node_names", [])
-          and "nodes" not in summary and "links" not in summary
-          and "interface" not in summary,
+          and "nodes" not in summary and "links" not in summary,
           summary)
+    iface = summary.get("interface") or []
+    check("read_graph.summary_carries_a_compact_interface",
+          any(i.get("in_out") == "OUTPUT" and i.get("socket_type") == "NodeSocketGeometry"
+              for i in iface)
+          and not any("identifier" in i for i in iface),
+          iface)
+    unknown = call("read_graph.py", {"node_group": "Fixture"})
+    check("read_graph.unknown_parameter_rejected",
+          unknown.get("ok") is False and "node_group" in (unknown.get("error") or "")
+          and "tree" in unknown.get("accepted", []),
+          unknown)
     check("read_graph.summary_has_deterministic_issues",
           any(i.get("code") == "OFF_TRUNK_NODES" for i in summary.get("issues", [])),
           summary.get("issues"))
@@ -302,18 +312,38 @@ def test_probe_node():
           res["cleanup"]["temp_tree"])
 
     rand, vmath, vmath3, bogus = res["probes"]
+    full = call("probe_node.py", {"detail": "full", "nodes": [
+        {"bl_idname": "FunctionNodeRandomValue", "properties": {"data_type": "BOOLEAN"}}]})
+    full_rand = full["probes"][0]
+    check("probe_node.compact_is_default", res.get("detail") == "compact", res.get("detail"))
+    check("probe_node.compact_lists_only_live_sockets",
+          all(s["identifier"] not in rand.get("inactive_inputs", []) for s in rand["inputs"])
+          and rand.get("inactive_inputs", []) == [s["identifier"] for s in full_rand["inputs"]
+                                          if not s["enabled"]],
+          {"compact": [s["identifier"] for s in rand["inputs"]],
+           "inactive": rand.get("inactive_inputs", [])})
+    compact_bytes = len(json.dumps(rand, default=str))
+    full_bytes = len(json.dumps(full_rand, default=str))
+    check("probe_node.compact_is_at_most_60_percent_of_full",
+          compact_bytes <= full_bytes * 0.6,
+          {"compact": compact_bytes, "full": full_bytes})
+    _probe, probe_stdout = call_with_stdout("probe_node.py", {"bl_idname": "GeometryNodeMeshCube"})
+    check("probe_node.runpy_stdout_is_empty", probe_stdout == "", probe_stdout[:200])
+    unknown = call("probe_node.py", {"bl_idname": "GeometryNodeMeshCube", "propertes": {}})
+    check("probe_node.unknown_parameter_rejected",
+          unknown.get("ok") is False and "propertes" in (unknown.get("error") or ""), unknown)
     check("probe_node.property_applied", rand["properties_applied"].get("data_type") == "BOOLEAN",
           rand.get("properties_applied"))
     # 5.2 removes the other variants; 4.5 and 5.1 only disable them. The script
     # has to give the same usable answer on both, which is what active_inputs is.
-    active = rand["active_inputs"]
+    active = [s["identifier"] for s in rand["inputs"]]
     check("probe_node.property_selects_active_sockets",
           "Probability" in active and not any(a.startswith("Min") for a in active),
-          {"active": active, "inactive": rand["inactive_inputs"]})
+          {"active": active, "inactive": rand.get("inactive_inputs", [])})
     check("probe_node.inactive_sockets_still_reported",
-          all(s["identifier"] in active or s["identifier"] in rand["inactive_inputs"]
-              for s in rand["inputs"]),
-          [(s["identifier"], s["enabled"]) for s in rand["inputs"]])
+          all(s["identifier"] in active or s["identifier"] in rand.get("inactive_inputs", [])
+              for s in full_rand["inputs"]),
+          [(s["identifier"], s["enabled"]) for s in full_rand["inputs"]])
     # Vector Math carries three inputs all named Vector, but how many are live is
     # decided by `operation`: two under the default ADD, three under MULTIPLY_ADD.
     check("probe_node.duplicate_identifiers_exposed",
@@ -325,7 +355,7 @@ def test_probe_node():
           vmath3.get("duplicate_input_names"))
     check("probe_node.field_shape_reported",
           any(s.get("display_shape") for s in vmath["inputs"]),
-          [(s["name"], s.get("display_shape")) for s in vmath["inputs"]])
+          [(s["identifier"], s.get("display_shape")) for s in vmath["inputs"]])
     check("probe_node.unregistered_reported",
           bogus.get("registered") is False and bogus.get("ok") is False, bogus)
     check("probe_node.reports_the_shape_vocabulary_it_used",
@@ -336,9 +366,9 @@ def test_probe_node():
           {"reported": res.get("shape_vocabulary"), "build": bpy.app.version_string})
     check("probe_node.socket_raw_facts_reported",
           all("display_shape" in s and "hide_value" in s and "has_default_value" in s
-              for s in rand["inputs"]),
+              for s in full_rand["inputs"]),
           [(s["name"], s.get("display_shape"), s.get("hide_value"), s.get("has_default_value"))
-           for s in rand["inputs"]])
+           for s in full_rand["inputs"]])
 
     rejected = call("probe_node.py", {"bl_idname": "FunctionNodeRandomValue",
                                       "properties": {"data_type": "NOT_A_MODE"}})
@@ -733,6 +763,59 @@ def test_layout_graph(tree):
           unknown.get("ok") is False and unknown.get("operations"), unknown)
 
 
+# --- verify_result ------------------------------------------------------------
+def test_verify_result():
+    tree = bpy.data.node_groups.new("Verify Fixture", "GeometryNodeTree")
+    tree.is_modifier = True
+    tree.interface.new_socket("Geometry", in_out="INPUT", socket_type="NodeSocketGeometry")
+    tree.interface.new_socket("Geometry", in_out="OUTPUT", socket_type="NodeSocketGeometry")
+    gin = tree.nodes.new("NodeGroupInput")
+    gout = tree.nodes.new("NodeGroupOutput")
+    pos = tree.nodes.new("GeometryNodeInputPosition")
+    length = tree.nodes.new("ShaderNodeSeparateXYZ")
+    varying = tree.nodes.new("GeometryNodeStoreNamedAttribute")
+    varying.inputs["Name"].default_value = "varying"
+    flat = tree.nodes.new("GeometryNodeStoreNamedAttribute")
+    flat.inputs["Name"].default_value = "flat"
+    tree.links.new(gin.outputs[0], varying.inputs["Geometry"])
+    tree.links.new(pos.outputs["Position"], length.inputs[0])
+    tree.links.new(length.outputs["Z"], varying.inputs["Value"])
+    tree.links.new(varying.outputs["Geometry"], flat.inputs["Geometry"])
+    tree.links.new(flat.outputs["Geometry"], gout.inputs[0])
+
+    before = datablock_identity()
+    res = call("verify_result.py", {"tree": "Verify Fixture", "samples": ["cube", "monkey"],
+                                    "attributes": ["varying", "flat", "absent"]})
+    after = datablock_identity()
+    codes = {(f["code"], f.get("attribute")) for f in res.get("findings", [])}
+    check("verify_result.samples_evaluated",
+          [e["source"] for e in res.get("evaluations", [])] == ["sample:cube", "sample:monkey"],
+          res.get("evaluations"))
+    check("verify_result.varying_attribute_varies",
+          all(not e["attributes"]["varying"]["constant"] for e in res["evaluations"]),
+          [e["attributes"].get("varying") for e in res["evaluations"]])
+    check("verify_result.constant_zero_attribute_flagged",
+          ("ATTRIBUTE_ALL_ZERO", "flat") in codes, sorted(codes, key=str))
+    check("verify_result.missing_attribute_flagged",
+          ("ATTRIBUTE_MISSING", "absent") in codes and res["ok"] is False,
+          sorted(codes, key=str))
+    check("verify_result.cleanup_restored",
+          res["cleanup"]["counts_restored"] and before == after, res.get("cleanup"))
+    check("verify_result.unused_group_will_not_save",
+          res["persistence"]["survives_save"] is False
+          and ("GROUP_NOT_SAVED", None) in codes,
+          res.get("persistence"))
+    tree.use_fake_user = True
+    kept = call("verify_result.py", {"tree": "Verify Fixture"})
+    check("verify_result.fake_user_survives_save",
+          kept["persistence"]["survives_save"] is True and kept["ok"] is True, kept)
+    unknown = call("verify_result.py", {"node_group": "Verify Fixture"})
+    check("verify_result.unknown_parameter_rejected", unknown.get("ok") is False, unknown)
+    _res, emitted = call_with_stdout("verify_result.py", {"tree": "Verify Fixture"})
+    check("verify_result.runpy_stdout_is_empty", emitted == "", emitted[:200])
+    bpy.data.node_groups.remove(tree)
+
+
 def main():
     argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
     out_path = argv[0] if argv else os.path.join(ROOT, "runtime-script-checks.json")
@@ -743,6 +826,7 @@ def main():
     test_capture()
     test_inspect_assets()
     test_layout_graph(tree)
+    test_verify_result()
 
     failed = [c for c in CHECKS if not c["pass"]]
     payload = {

@@ -28,7 +28,8 @@ Parameters:
     detail       "compact" (default) or "full"
 
 The compact answer is what wiring needs and is sized for an agent's context:
-live sockets only, each with identifier, name, type, display_shape and default;
+live sockets only, each with identifier, type, display_shape and default (and
+name only where it differs from the identifier);
 `hide_value` and `menu_items` appear only when they carry information.
 Disabled sockets are listed by identifier in `inactive_inputs` /
 `inactive_outputs`. Properties carry their value and, for enums, the legal
@@ -145,14 +146,17 @@ def _socket(sock, full=True):
     return rec
 
 
-def _socket_compact(sock):
-    rec = {"identifier": sock.identifier, "name": sock.name, "type": sock.type}
+def _socket_compact(sock, is_output=False):
+    rec = {"identifier": sock.identifier, "type": sock.type}
+    if sock.name != sock.identifier:
+        rec["name"] = sock.name
     shape = getattr(sock, "display_shape", None)
     if shape:
         rec["display_shape"] = shape
     if getattr(sock, "hide_value", False):
         rec["hide_value"] = True
-    if hasattr(sock, "default_value"):
+    # An output's default_value is never read by anything; only inputs carry one.
+    if not is_output and hasattr(sock, "default_value"):
         rec["default_value"] = _jsonable(sock.default_value)
     items = getattr(getattr(sock, "bl_rna", None), "properties", {})
     prop = items.get("default_value") if hasattr(items, "get") else None
@@ -210,9 +214,17 @@ def _probe_one(tree, spec, full=True):
         rec["active_outputs"] = [s.identifier for s in node.outputs if s.enabled]
     else:
         rec["inputs"] = [_socket(s, False) for s in node.inputs if s.enabled]
-        rec["outputs"] = [_socket(s, False) for s in node.outputs if s.enabled]
+        rec["outputs"] = [_socket_compact(s, True) for s in node.outputs if s.enabled]
     rec["inactive_inputs"] = [s.identifier for s in node.inputs if not s.enabled]
     rec["inactive_outputs"] = [s.identifier for s in node.outputs if not s.enabled]
+    if not full:
+        # Empty or repeated fields cost context and say nothing.
+        for key in ("properties_applied", "properties_rejected", "properties",
+                    "inactive_inputs", "inactive_outputs"):
+            if not rec[key]:
+                del rec[key]
+        if rec["label"] == rec["created_as"]:
+            del rec["label"]
     if rejected:
         rec["error"] = (
             "requested properties were not applied, so these sockets are the node's "

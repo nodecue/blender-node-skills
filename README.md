@@ -5,7 +5,7 @@ English | [简体中文](README.zh-CN.md)
 The product available now is the shipped **v0.7 Geometry Nodes skill** at [`skills/geometry-nodes/`](skills/geometry-nodes/). It is [`SKILL.md`](skills/geometry-nodes/SKILL.md), four references, and four scripts:
 
 - References: [`nodes.tsv`](skills/geometry-nodes/references/nodes.tsv), [`versions.md`](skills/geometry-nodes/references/versions.md), [`reuse.md`](skills/geometry-nodes/references/reuse.md), [`diagnostics.md`](skills/geometry-nodes/references/diagnostics.md)
-- Scripts: [`find_nodes.py`](skills/geometry-nodes/scripts/find_nodes.py), [`read_graph.py`](skills/geometry-nodes/scripts/read_graph.py), [`probe_node.py`](skills/geometry-nodes/scripts/probe_node.py), [`capture.py`](skills/geometry-nodes/scripts/capture.py), [`inspect_assets.py`](skills/geometry-nodes/scripts/inspect_assets.py)
+- Scripts: [`find_nodes.py`](skills/geometry-nodes/scripts/find_nodes.py), [`read_graph.py`](skills/geometry-nodes/scripts/read_graph.py), [`probe_node.py`](skills/geometry-nodes/scripts/probe_node.py), [`capture.py`](skills/geometry-nodes/scripts/capture.py), [`inspect_assets.py`](skills/geometry-nodes/scripts/inspect_assets.py), [`verify_result.py`](skills/geometry-nodes/scripts/verify_result.py)
 
 An agent uses it to build a Geometry Nodes graph you can check, or to explain a graph without changing it.
 

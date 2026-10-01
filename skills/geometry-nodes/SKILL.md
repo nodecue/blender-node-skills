@@ -78,13 +78,16 @@ group input disconnected.
    needed), or **Tool** (geometry arrives through the tool context).
 3. Translate the request into representation transitions and the node roles they need:
    what kind of geometry comes in, what it has to become, what drives the change.
-4. Retrieve candidates with `scripts/find_nodes.py`; use `references/nodes.tsv` as the
-   reviewed source and deterministic fallback.
-5. Introspect the candidates in the running Blender before wiring anything.
+4. When unsure which node does a job, ask `scripts/find_nodes.py` with one short intent
+   per entry in `queries`; `references/nodes.tsv` is the reviewed source and fallback.
+   Nodes you already know need no query.
+5. Introspect the candidates in the running Blender before wiring anything, in one
+   batched probe.
 6. Build the smallest slice you can verify on its own, then verify it. Size the slice by
    what you can check, not by a count.
 7. Read the graph back and assert an outcome **derived from the request** — a coordinate,
-   a size, a count the user asked for. "Four instances exist" is a graph fact; "the cones
+   a size, a count the user asked for. Measure values with `scripts/verify_result.py`:
+   an attribute that should vary but is constant or all zero is a failure. "Four instances exist" is a graph fact; "the cones
    span Z 1.0 to 1.2" is the request, and only the second catches a wrong assumption
    about where geometry sits.
 8. Repair from what you observed, then continue.
@@ -129,6 +132,9 @@ Density — not Seed, Rotation, Scale, or overlap. Words like "complete" or
     finding.
 12. **Verify the result, not only the graph.** A correct-looking graph is not a correct
     result.
+13. **A group with no user is not saved.** Removing the last modifier that uses it drops
+    it on save. Keep a user or set `use_fake_user` before saving, and confirm
+    `persistence.survives_save`. Remove test hosts you added unless the request needs one.
 
 **When the node does not exist.** Modifier/editor features may have no equivalent node.
 Establish absence by enumeration, then explain the gap and a suitable substitute.
@@ -147,8 +153,8 @@ Establish absence by enumeration, then explain the gap and a suitable substitute
 
 ## Where to look
 
-Everything below is conditional. An ordinary single-version build reads this file, greps
-`nodes.tsv` for candidates, and introspects — nothing else.
+Everything below is conditional. An ordinary single-version build reads this file,
+probes, builds, and verifies the result — nothing else.
 
 | Open | When |
 |---|---|
@@ -156,18 +162,23 @@ Everything below is conditional. An ordinary single-version build reads this fil
 | `references/versions.md` | The user names a target version, the plan must hold on more than one, a candidate is unavailable, or a migration is requested |
 | `references/reuse.md` | An existing node group or asset might already answer the request |
 | `references/diagnostics.md` | The graph and readback look right and the evaluated result is still wrong |
-| `scripts/read_graph.py` | Read-only tree summary: names, users, trunk and issues. Pass `detail: "full"` only when sockets, properties, links, interface or layout facts are needed |
+| `scripts/read_graph.py` | Read-only tree summary: names, users, interface, trunk and issues. Pass `detail: "full"` only when socket identifiers, properties, links or layout facts are needed |
 | `scripts/find_nodes.py` | Deterministic intent-to-candidate query over `nodes.tsv`; filter by target version, then probe returned identifiers live before wiring |
-| `scripts/probe_node.py` | Asking what a node's sockets, properties, legal values and live socket state actually are. Temporary data; Build/Edit only |
-| `scripts/layout_graph.py` | Deterministic scoped layout. `check` is read-only; `apply` moves only caller-authorized nodes |
+| `scripts/probe_node.py` | Asking what a node's live sockets, properties and legal values are; compact by default, `detail: "full"` for raw socket flags. Temporary data; Build/Edit only |
+| `scripts/verify_result.py` | Measuring what the group outputs: attribute ranges, constants, zeros, missing names, and whether the group survives a save. `samples` creates temporary hosts; Build/Edit only |
+| `scripts/layout_graph.py` | Deterministic scoped layout, and `check` for node and frame overlap before delivery. `check` is read-only; `apply` moves only caller-authorized nodes |
 | `scripts/capture.py` | Screenshot of the node editor. Reframing needs the user's permission first — see below |
 | `scripts/inspect_assets.py` | Enumerating asset libraries or inspecting one candidate group |
 
 Each script takes one JSON object and returns JSON; paths are relative to this skill.
+Unknown parameters are rejected, never ignored. Read the error and retry.
 
 `find_nodes.py` is the exception: it reads the packaged routing index beside it and runs
-in ordinary host Python. It does not connect to Blender. Its candidates still require a
-live `probe_node.py` read before use.
+in ordinary host Python, without Blender. Its candidates still need a live probe:
+
+```bash
+python3 <skill>/scripts/find_nodes.py '{"queries": ["raycast", "weld vertices"], "version": "5.2"}'
+```
 
 **Run the other scripts inside Blender through the host's existing Python execution channel.**
 Resolve the installed skill path first. If Blender can read that filesystem path:
@@ -179,7 +190,9 @@ result = runpy.run_path(
 )["result"]
 ```
 
-Read each script's opening documentation for `params`. Without a shared filesystem,
+Typical `params`: probe `{"nodes": [{"bl_idname": ..., "properties": {...}}]}`; read
+`{"tree": "<group>"}`; verify `{"tree": "<group>", "samples": ["cube", "uv_sphere"],
+"attributes": [...]}`. Read a script's opening documentation only for anything else. Without a shared filesystem,
 send its unmodified source through the channel, execute with `NODECUE_PARAMS` in the
 namespace, and retrieve `result`. Include imports each time: namespaces may not persist.
 Host Python alone cannot inspect the running Blender. Connection discovery and result
