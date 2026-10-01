@@ -2,6 +2,20 @@
 
 # NodeCue Blender Node Skills
 
+> **已归档（2026-10-02），不再维护。**
+>
+> 2026-10-01 做过一次对照测试：Codex（`gpt-5.6-sol`）、Blender 5.2.2 加官方 Blender Lab MCP，题目是一道有 50 项检查的 Geometry Nodes 任务，每组跑 1 次：
+>
+> | | 得分 | Codex 耗时 | input tokens |
+> | --- | --- | --- | --- |
+> | 不用 skill | 50/50 | 183 秒 | 45.6 万 |
+> | 本仓库的完整 skill | 50/50 | 273 秒 | 89.9 万 |
+> | 只写交付规范的 1.6 KB 精简 skill | 50/50 | 223 秒 | 70.8 万 |
+>
+> 强模型配合官方 MCP，不用 skill 就能正确搭出节点图。完整 skill 的流程和脚本增加了对话轮次和上下文，却没有减少出错。这是"教强模型怎么搭"这一思路本身的问题，与具体版本关系不大。出错大多是可以自行恢复的 Blender 5.2 API 变化，例如修改器输入要通过 `modifier.properties.inputs` 设置。只写交付规范的精简 skill 对可读性有帮助：保持 Blender 节点名、分组框有标题、节点不重叠。更难的问题，比如不报错但值是错的、结果"看起来"对不对，这类 skill 解决不了。
+>
+> 代码保留供参考，不再更新，issue 已全部关闭。
+
 现在可以直接使用的，是已经发布的 **v0.7 几何节点 skill**，位置在 [`skills/geometry-nodes/`](skills/geometry-nodes/)。它由 [`SKILL.md`](skills/geometry-nodes/SKILL.md)、四份参考文件和四个脚本组成：
 
 - 参考文件：[`nodes.tsv`](skills/geometry-nodes/references/nodes.tsv)、[`versions.md`](skills/geometry-nodes/references/versions.md)、[`reuse.md`](skills/geometry-nodes/references/reuse.md)、[`diagnostics.md`](skills/geometry-nodes/references/diagnostics.md)
