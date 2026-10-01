@@ -13,7 +13,7 @@ Agents and operators who need to construct or teach Geometry Nodes graphs agains
 ## Core experience
 
 - Decide whether the task is build, edit, or explain, then follow the skill’s judgment loop.
-- Use version routing and live introspection so the graph matches the Blender that is actually open.
+- Use deterministic candidate routing, version filtering, and live introspection so the graph matches the Blender that is actually open.
 - Get graphs that verify, plus teaching structure that names real nodes and sockets.
 
 ## Non-negotiables
@@ -28,7 +28,7 @@ Agents and operators who need to construct or teach Geometry Nodes graphs agains
 - A second copy of skill workflow inside the plugin.
 - A shipped Shader or Compositor skill.
 - Input-reference reconstruction or automatic evaluated-output QA as shipped features.
-- A product that depends on Jev, find_nodes, or any unshipped ranking experiment.
+- A product that depends on Jev or another probabilistic ranking service.
 
 ## Success looks like
 

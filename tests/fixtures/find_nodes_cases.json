@@ -1,0 +1,17 @@
+[
+  {"query": "distribute points on faces", "target": "GeometryNodeDistributePointsOnFaces", "version": "4.5"},
+  {"query": "scatter objects across a mesh surface", "target": "GeometryNodeDistributePointsOnFaces", "relevant": ["GeometryNodeDistributePointsOnFaces", "GeometryNodeInstanceOnPoints", "GeometryNodeMeshToPoints"], "version": "5.2"},
+  {"query": "instance geometry on points", "target": "GeometryNodeInstanceOnPoints", "relevant": ["GeometryNodeInstanceOnPoints", "GeometryNodeGeometryToInstance"], "version": "4.5"},
+  {"query": "convert curve to mesh", "target": "GeometryNodeCurveToMesh", "version": "5.0"},
+  {"query": "raycast against geometry", "target": "GeometryNodeRaycast", "version": "5.1"},
+  {"query": "sample nearest mesh surface", "target": "GeometryNodeSampleNearestSurface", "relevant": ["GeometryNodeSampleNearestSurface", "GeometryNodeSampleUVSurface", "GeometryNodeSampleNearest", "GeometryNodeIndexOfNearest"], "version": "5.2"},
+  {"query": "store named attribute", "target": "GeometryNodeStoreNamedAttribute", "version": "4.5"},
+  {"query": "join geometry", "target": "GeometryNodeJoinGeometry", "version": "5.0"},
+  {"query": "create a cube mesh", "target": "GeometryNodeMeshCube", "version": "5.1"},
+  {"query": "set material", "target": "GeometryNodeSetMaterial", "relevant": ["GeometryNodeSetMaterial", "GeometryNodeSetMaterialIndex", "GeometryNodeInputMaterial", "GeometryNodeInputMaterialIndex"], "version": "4.5"},
+  {"query": "realize instances", "target": "GeometryNodeRealizeInstances", "version": "5.2"},
+  {"query": "capture attribute", "target": "GeometryNodeCaptureAttribute", "version": "5.2"},
+  {"query": "simulation input", "target": "GeometryNodeSimulationInput", "version": "5.0"},
+  {"query": "repeat zone output", "target": "GeometryNodeRepeatOutput", "relevant": ["GeometryNodeRepeatOutput", "GeometryNodeRepeatInput"], "version": "5.1"},
+  {"query": "bevel mesh edges", "target": "GeometryNodeMeshBevel", "version": "5.2"}
+]

@@ -22,6 +22,7 @@ SCRIPTS = ROOT / "skills" / "geometry-nodes" / "scripts"
 GOLDEN = ROOT / "tests" / "golden" / "run_skill_runtime_scripts.py"
 
 SCRIPT_NAMES = [
+    "find_nodes.py",
     "read_graph.py",
     "capture.py",
     "probe_node.py",
@@ -86,7 +87,7 @@ def test_callable_entrypoint(name):
 def test_returns_through_both_channels(name):
     src = _source(name)
     assert "print(json.dumps(" in src, "stdout channel missing"
-    if name == "read_graph.py":
+    if name in {"find_nodes.py", "read_graph.py"}:
         assert "result = run(NODECUE_PARAMS)" in src, "runpy result must not print"
     else:
         assert "result = _emit(" in src, "`result` channel missing"

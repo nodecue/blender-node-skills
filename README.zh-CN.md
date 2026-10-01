@@ -5,7 +5,7 @@
 现在可以直接使用的，是已经发布的 **v0.7 几何节点 skill**，位置在 [`skills/geometry-nodes/`](skills/geometry-nodes/)。它由 [`SKILL.md`](skills/geometry-nodes/SKILL.md)、四份参考文件和四个脚本组成：
 
 - 参考文件：[`nodes.tsv`](skills/geometry-nodes/references/nodes.tsv)、[`versions.md`](skills/geometry-nodes/references/versions.md)、[`reuse.md`](skills/geometry-nodes/references/reuse.md)、[`diagnostics.md`](skills/geometry-nodes/references/diagnostics.md)
-- 脚本：[`read_graph.py`](skills/geometry-nodes/scripts/read_graph.py)、[`probe_node.py`](skills/geometry-nodes/scripts/probe_node.py)、[`capture.py`](skills/geometry-nodes/scripts/capture.py)、[`inspect_assets.py`](skills/geometry-nodes/scripts/inspect_assets.py)
+- 脚本：[`find_nodes.py`](skills/geometry-nodes/scripts/find_nodes.py)、[`read_graph.py`](skills/geometry-nodes/scripts/read_graph.py)、[`probe_node.py`](skills/geometry-nodes/scripts/probe_node.py)、[`capture.py`](skills/geometry-nodes/scripts/capture.py)、[`inspect_assets.py`](skills/geometry-nodes/scripts/inspect_assets.py)
 
 agent 用它搭建一份可以核对的几何节点图，也可以在不改动图的情况下解释一份已有的图。
 
