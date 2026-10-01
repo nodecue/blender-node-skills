@@ -22,13 +22,13 @@ Living direction for agents. Update this when the user changes mind. Do not trea
 
 ## Current slice
 
-Issue #23: make `read_graph.py` compact by default without losing explicit full-detail inspection.
+Issue #15: add a deterministic agent-facing `find_nodes` baseline over the reviewed `nodes.tsv` routing index.
 
-- Default to a summary containing tree identity and users, node names, selection, output trunk, and deterministic graph issues.
-- Keep the existing detailed nodes, sockets, properties, links, interface, scope, and pagination contract behind explicit `detail: "full"`.
-- When called through `runpy` with `NODECUE_PARAMS`, return through `result` without also printing JSON to stdout. Direct CLI execution still prints once.
-- Keep the script read-only and preserve all resolution and trunk-analysis behavior.
-- Do not implement `find_nodes`, Jev, caching, or MCP transport changes in this slice. Issue #15 follows after Issue #23.
+- Accept a short intent query, optional Blender version, and result limit; return a concise, stable candidate list with match reasons.
+- Filter version availability before ranking so a version-specific query never recommends an unavailable node.
+- Commit a fixed intent evaluation set and report recall plus irrelevant-result rate at a fixed cutoff.
+- Direct every result to live `probe_node.py` inspection before wiring; the query never claims socket, property, or legal-value authority.
+- Keep `nodes.tsv` as the reviewed source and deterministic fallback. Do not add Jev or another model dependency in this slice.
 
 Documented development path for a fresh clone:
 
@@ -42,7 +42,7 @@ Those commands cover committed skill, TSV, and plugin-JSON tests. They do not pr
 
 ## Out of scope / do not do
 
-- Implement `find_nodes`, Jev, Shader, or Compositor in this slice.
+- Implement Jev, Shader, or Compositor in this slice.
 - Add persistent helpers/caching inside Blender or vendor the official MCP server.
 - Add live Blender, GUI, MCP, VM, screenshot, or agent runs to the fast PR workflow.
 - Remove or deprecate `nodes.tsv` before measured `find_nodes` evidence exists.
@@ -55,7 +55,6 @@ Those commands cover committed skill, TSV, and plugin-JSON tests. They do not pr
 ## Open
 
 - Host plugin discovery on new machines/VMs, Claude, and Pi.
-- Issue #23 compact `read_graph.py` output without losing explicit full-detail access.
 - Issue #15 measured `find_nodes` baseline after the PR gates land.
 - Issue #19 paired no-skill/skill VM acceptance with refreshed image evidence.
 - Whether later slices add measured reranking (Jev) — optional experiment only.

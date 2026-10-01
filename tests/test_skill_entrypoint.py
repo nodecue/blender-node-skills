@@ -308,9 +308,11 @@ def test_every_path_resolves_in_a_temporary_installed_copy():
 
 def test_the_package_declares_no_runtime_dependency_of_its_own():
     """K-12: nothing to install. The scripts run inside Blender's own Python."""
-    stdlib_and_blender = {"bpy", "json", "sys", "os", "uuid", "ast", "inspect",
-                          "textwrap", "runpy", "math", "re", "pathlib", "typing",
-                          "hashlib"}
+    stdlib_and_blender = {
+        "__future__", "ast", "bpy", "csv", "hashlib", "inspect", "json",
+        "math", "os", "pathlib", "re", "runpy", "sys", "textwrap",
+        "typing", "uuid",
+    }
     for path in SCRIPTS.glob("*.py"):
         # Parse it. A regex over the source reads prose as code - this file's
         # first draft found `from a --python startup script` in a docstring.

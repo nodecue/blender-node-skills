@@ -78,7 +78,8 @@ group input disconnected.
    needed), or **Tool** (geometry arrives through the tool context).
 3. Translate the request into representation transitions and the node roles they need:
    what kind of geometry comes in, what it has to become, what drives the change.
-4. Retrieve candidates by role from `references/nodes.tsv`.
+4. Retrieve candidates with `scripts/find_nodes.py`; use `references/nodes.tsv` as the
+   reviewed source and deterministic fallback.
 5. Introspect the candidates in the running Blender before wiring anything.
 6. Build the smallest slice you can verify on its own, then verify it. Size the slice by
    what you can check, not by a count.
@@ -151,11 +152,12 @@ Everything below is conditional. An ordinary single-version build reads this fil
 
 | Open | When |
 |---|---|
-| `references/nodes.tsv` | Choosing candidate nodes. Search it by role, category or display name; it is a routing index, so never wire from it |
+| `references/nodes.tsv` | Reviewed source and fallback for candidate routing; never wire from it |
 | `references/versions.md` | The user names a target version, the plan must hold on more than one, a candidate is unavailable, or a migration is requested |
 | `references/reuse.md` | An existing node group or asset might already answer the request |
 | `references/diagnostics.md` | The graph and readback look right and the evaluated result is still wrong |
 | `scripts/read_graph.py` | Read-only tree summary: names, users, trunk and issues. Pass `detail: "full"` only when sockets, properties, links, interface or layout facts are needed |
+| `scripts/find_nodes.py` | Deterministic intent-to-candidate query over `nodes.tsv`; filter by target version, then probe returned identifiers live before wiring |
 | `scripts/probe_node.py` | Asking what a node's sockets, properties, legal values and live socket state actually are. Temporary data; Build/Edit only |
 | `scripts/layout_graph.py` | Deterministic scoped layout. `check` is read-only; `apply` moves only caller-authorized nodes |
 | `scripts/capture.py` | Screenshot of the node editor. Reframing needs the user's permission first — see below |
@@ -163,7 +165,11 @@ Everything below is conditional. An ordinary single-version build reads this fil
 
 Each script takes one JSON object and returns JSON; paths are relative to this skill.
 
-**Run scripts inside Blender through the host's existing Python execution channel.**
+`find_nodes.py` is the exception: it reads the packaged routing index beside it and runs
+in ordinary host Python. It does not connect to Blender. Its candidates still require a
+live `probe_node.py` read before use.
+
+**Run the other scripts inside Blender through the host's existing Python execution channel.**
 Resolve the installed skill path first. If Blender can read that filesystem path:
 
 ```python

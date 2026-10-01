@@ -43,7 +43,7 @@ def test_codex_plugin_points_at_committed_skills_and_mcp_entry():
 def test_codex_plugin_does_not_own_skill_workflow():
     """Plugin metadata is install/entry only. Skill knowledge stays in skills/."""
     text = PLUGIN.read_text(encoding="utf-8")
-    for token in ("nodes.tsv", "probe_node.py", "read_graph.py", "versions.md"):
+    for token in ("nodes.tsv", "find_nodes.py", "probe_node.py", "read_graph.py", "versions.md"):
         assert token not in text
 
 

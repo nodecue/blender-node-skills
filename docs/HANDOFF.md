@@ -2,44 +2,45 @@
 
 Overwrite this file on every agent switch. It is not a history log — Git holds history.
 
-**Task:** Issue #23 compact `read_graph.py` output and eliminate duplicate runpy/MCP payloads.
+**Task:** Issue #15 deterministic agent-facing `find_nodes` baseline.
 
 **Done:**
 
-- PR #14 merged and Issue #6 closed after acceptance review.
-- PR #20 and PR #22 merged; Issues #18 and #21 are closed.
+- PR #14, #20, #22, and #24 are merged; Issues #6, #18, #21, and #23 are closed.
 - The active `main` ruleset requires pull requests and both checks, blocks branch deletion and force-push, and retains administrator bypass for recovery.
-- Issue #23 created with the confirmed compact/full and stdout-channel acceptance contract.
-- `read_graph.py` now defaults to `detail: "summary"`, returning tree/users, names, selection, trunk, and deterministic issues without full sockets, properties, links, or interface.
-- Explicit `detail: "full"` preserves the previous detailed/scoped/paginated payload.
-- `NODECUE_PARAMS` runpy invocation returns only through `result`; CLI invocation still prints one JSON document.
-- Static contract tests and Blender golden checks cover summary fields, explicit full mode, runpy silence, one-document CLI output, and a 54-node size/reduction target.
+- Added `scripts/find_nodes.py`: deterministic text ranking over the reviewed `nodes.tsv`, with optional 4.5/5.0/5.1/5.2 filtering and stable tie-breaking.
+- Results remain routing candidates only and explicitly require live `probe_node.py` inspection before wiring.
+- Kept `nodes.tsv` as the reviewed source and fallback; no Jev, embedding, model, network, or Blender dependency was added.
+- Added a committed 15-intent evaluation set and `tools/eval_find_nodes.py` for reproducible recall, top-1, and irrelevant-result metrics.
+- Updated the skill loop and package/readme discovery surfaces. `find_nodes.py` runs in ordinary host Python; Blender-facing scripts still run through the live execution channel.
 
 **Not done:**
 
-- PR #24 final review, merge, Issue #23 close, or release.
-- Issue #15 `find_nodes` or Issue #19 VM evaluation.
+- Commit, push, PR, review, merge, Issue #15 close, or release.
+- Jev experiment or Issue #19 VM evaluation.
 
 **Files touched:**
 
-- `docs/CURRENT.md`, `docs/HANDOFF.md`
+- `README.md`, `README.zh-CN.md`
+- `docs/PRODUCT.md`, `docs/CURRENT.md`, `docs/HANDOFF.md`
 - `skills/geometry-nodes/SKILL.md`
-- `skills/geometry-nodes/references/versions.md`
-- `skills/geometry-nodes/scripts/read_graph.py`
-- `tests/test_skill_runtime_scripts.py`
-- `tests/golden/run_skill_runtime_scripts.py`
+- `skills/geometry-nodes/scripts/find_nodes.py` (new)
+- `tools/eval_find_nodes.py` (new)
+- `tests/fixtures/find_nodes_cases.json` (new)
+- `tests/test_find_nodes.py` (new)
+- `tests/test_plugin_package.py`, `tests/test_skill_entrypoint.py`, `tests/test_skill_runtime_scripts.py`
 
 **Risks / landmines:**
 
-- Direct background Blender on this macOS host terminates with the known `ARCH_CACHE_LINE_SIZE != Arch_ObtainCacheLineSize()` SIGSEGV. Do not repeat that path; use an already-running Blender MCP/Python channel.
-- Summary findings are intentionally limited to facts already computed by trunk readback. Do not expand this slice into Issue #17's general structured-delivery system.
+- The fixed baseline is deliberately small and lexical. Its top-5 irrelevant-result rate is visible rather than hidden; do not claim general semantic retrieval from 15 cases.
+- Aliases are a small deterministic query vocabulary, not node/socket authority. Availability still comes from `nodes.tsv`, and all live identities must be probed in Blender.
+- Jev remains an optional later experiment against this exact baseline and cannot become a hard dependency.
 
-**Next action:** Push the runtime-evidence update, wait for both hosted checks, then review PR #24. Merge and Issue #23 close remain separate actions.
+**Next action:** Review, commit, push, create the Issue #15 PR, and wait for both required hosted checks.
 
 **Last verified:** 2026-10-01
 
-- Static `read_graph.py` contract tests: 45 passed, 1 live test deselected.
-- Filtered public suite: 181 passed, 1 skipped, 2 known background-Blender cases deselected.
-- Blender 5.2.2 foreground factory-startup runtime: all 36 `read_graph` checks passed. The 54-node summary was 4,727 bytes versus 36,451 bytes in full mode (87.0% smaller). Four unrelated capture checks could not run because factory startup had no Geometry Nodes editor; the complete golden result was 109/113.
+- Fixed 15-intent baseline at 5 results: recall 1.0, top-1 accuracy 1.0, irrelevant-result rate 0.6667 using the committed relevant-candidate labels.
+- Filtered public suite: 194 passed, 1 skipped, 2 known background-Blender cases deselected.
 - `python3 tools/gen_nodes_tsv.py --check`: current, 368 rows.
-- `git diff --check`: clean before final documentation update; rerun before commit.
+- `git diff --check`: clean before final handoff update; rerun before commit.
