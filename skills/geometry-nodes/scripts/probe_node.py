@@ -25,6 +25,18 @@ Parameters:
     properties   property assignments for that single node
     nodes        [{"bl_idname": str, "properties": {...}, "label": str}]
     tree_type    default "GeometryNodeTree"
+    detail       "compact" (default) or "full"
+
+The compact answer is what wiring needs and is sized for an agent's context:
+live sockets only, each with identifier, name, type, display_shape and default;
+`hide_value` and `menu_items` appear only when they carry information.
+Disabled sockets are listed by identifier in `inactive_inputs` /
+`inactive_outputs`. Properties carry their value and, for enums, the legal
+items. `detail: "full"` adds every socket (enabled or not) with all raw flags,
+RNA property types, and the `active_*` identifier lists.
+
+Unknown parameters are rejected rather than ignored, so a misspelt key cannot
+silently probe the wrong configuration.
 
 Never uses `bpy.ops.outliner.orphans_purge`: a broad purge would take the user's
 unrelated unused datablocks with it.
@@ -85,13 +97,13 @@ def _counts():
     return {name: len(getattr(bpy.data, name)) for name in _WATCHED}
 
 
-def _properties(node):
+def _properties(node, full=True):
     out = {}
     for prop in node.bl_rna.properties:
         ident = prop.identifier
         if prop.is_readonly or ident.startswith("bl_") or ident in _SKIP_PROPS:
             continue
-        rec = {"rna_type": prop.type}
+        rec = {"rna_type": prop.type} if full else {}
         try:
             rec["value"] = _jsonable(getattr(node, ident))
         except Exception as exc:
@@ -105,7 +117,9 @@ def _properties(node):
     return out
 
 
-def _socket(sock):
+def _socket(sock, full=True):
+    if not full:
+        return _socket_compact(sock)
     rec = {
         "name": sock.name,
         "identifier": sock.identifier,
@@ -131,7 +145,23 @@ def _socket(sock):
     return rec
 
 
-def _probe_one(tree, spec):
+def _socket_compact(sock):
+    rec = {"identifier": sock.identifier, "name": sock.name, "type": sock.type}
+    shape = getattr(sock, "display_shape", None)
+    if shape:
+        rec["display_shape"] = shape
+    if getattr(sock, "hide_value", False):
+        rec["hide_value"] = True
+    if hasattr(sock, "default_value"):
+        rec["default_value"] = _jsonable(sock.default_value)
+    items = getattr(getattr(sock, "bl_rna", None), "properties", {})
+    prop = items.get("default_value") if hasattr(items, "get") else None
+    if prop is not None and prop.type == "ENUM":
+        rec["menu_items"] = [i.identifier for i in prop.enum_items]
+    return rec
+
+
+def _probe_one(tree, spec, full=True):
     bl_idname = spec.get("bl_idname")
     if not bl_idname:
         return {"ok": False, "error": "spec has no bl_idname"}
@@ -167,16 +197,22 @@ def _probe_one(tree, spec):
         "properties_applied": applied,
         "properties_rejected": rejected,
         # Read after the writes, never before: the properties decide the sockets.
-        "properties": _properties(node),
-        "inputs": [_socket(s) for s in node.inputs],
-        "outputs": [_socket(s) for s in node.outputs],
-        # A mode/type property removes the other variants outright on 5.2, but on
-        # 4.5 and 5.1 it only disables them: they stay in node.inputs, keep their
-        # names, and wiring to one silently does nothing. Wire from these.
-        "active_inputs": [s.identifier for s in node.inputs if s.enabled],
-        "active_outputs": [s.identifier for s in node.outputs if s.enabled],
-        "inactive_inputs": [s.identifier for s in node.inputs if not s.enabled],
+        "properties": _properties(node, full),
     }
+    # A mode/type property removes the other variants outright on 5.2, but on
+    # 4.5 and 5.1 it only disables them: they stay in node.inputs, keep their
+    # names, and wiring to one silently does nothing. Compact lists only the
+    # live sockets; the disabled ones are named so their absence is explicit.
+    if full:
+        rec["inputs"] = [_socket(s) for s in node.inputs]
+        rec["outputs"] = [_socket(s) for s in node.outputs]
+        rec["active_inputs"] = [s.identifier for s in node.inputs if s.enabled]
+        rec["active_outputs"] = [s.identifier for s in node.outputs if s.enabled]
+    else:
+        rec["inputs"] = [_socket(s, False) for s in node.inputs if s.enabled]
+        rec["outputs"] = [_socket(s, False) for s in node.outputs if s.enabled]
+    rec["inactive_inputs"] = [s.identifier for s in node.inputs if not s.enabled]
+    rec["inactive_outputs"] = [s.identifier for s in node.outputs if not s.enabled]
     if rejected:
         rec["error"] = (
             "requested properties were not applied, so these sockets are the node's "
@@ -193,8 +229,19 @@ def _probe_one(tree, spec):
     return rec
 
 
+_PARAMS = {"bl_idname", "properties", "nodes", "tree_type", "detail"}
+
+
 def run(params=None):
     params = params or {}
+    unknown = sorted(set(params) - _PARAMS)
+    if unknown:
+        return {"ok": False, "error": f"unknown parameter(s) {unknown}",
+                "accepted": sorted(_PARAMS)}
+    detail = params.get("detail", "compact")
+    if detail not in {"compact", "full"}:
+        return {"ok": False, "error": "detail must be 'compact' or 'full'"}
+    full = detail == "full"
     specs = params.get("nodes")
     if not specs:
         if not params.get("bl_idname"):
@@ -233,7 +280,7 @@ def run(params=None):
     probes, failed = [], 0
     try:
         for spec in specs:
-            rec = _probe_one(tree, spec)
+            rec = _probe_one(tree, spec, full)
             failed += 0 if rec.get("ok") else 1
             probes.append(rec)
     finally:
@@ -251,6 +298,7 @@ def run(params=None):
         "blender": bpy.app.version_string,
         "blender_version": list(bpy.app.version),
         "shape_vocabulary": vocabulary,
+        "detail": detail,
         "probes": probes,
         "probes_failed": failed,
         "cleanup": {
@@ -264,7 +312,7 @@ def run(params=None):
 
 
 def _emit(payload):
-    print(json.dumps(payload, ensure_ascii=False, default=str))
+    print(json.dumps(payload, ensure_ascii=False, default=str, separators=(",", ":")))
     return payload
 
 
@@ -278,4 +326,6 @@ def _argv_params():
 if __name__ == "__main__":
     result = _emit(run(_argv_params()))
 elif "NODECUE_PARAMS" in globals():
-    result = _emit(run(NODECUE_PARAMS))  # noqa: F821  - injected by the host
+    # The host reads `result`; printing it as well would hand the caller the same
+    # payload twice.
+    result = run(NODECUE_PARAMS)  # noqa: F821  - injected by the host

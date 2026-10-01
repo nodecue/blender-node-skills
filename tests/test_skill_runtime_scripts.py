@@ -28,6 +28,7 @@ SCRIPT_NAMES = [
     "probe_node.py",
     "inspect_assets.py",
     "layout_graph.py",
+    "verify_result.py",
 ]
 
 
@@ -87,10 +88,10 @@ def test_callable_entrypoint(name):
 def test_returns_through_both_channels(name):
     src = _source(name)
     assert "print(json.dumps(" in src, "stdout channel missing"
-    if name in {"find_nodes.py", "read_graph.py"}:
-        assert "result = run(NODECUE_PARAMS)" in src, "runpy result must not print"
-    else:
-        assert "result = _emit(" in src, "`result` channel missing"
+    # The host reads `result`. Printing the same payload as well doubles what
+    # lands in the caller's context, so only the CLI channel prints.
+    assert "result = run(NODECUE_PARAMS)" in src, "runpy result must not print"
+    assert "_emit(run(NODECUE_PARAMS))" not in src, "runpy channel prints its payload"
     assert "NODECUE_PARAMS" in src, "host-injected parameter channel missing"
     assert '__name__ == "__main__"' in src, "CLI channel missing"
 
@@ -163,6 +164,30 @@ def test_read_graph_is_read_only():
         if isinstance(t, ast.Attribute)
     ]
     assert not targets, "read_graph.py must not assign to any attribute"
+
+
+def test_probe_node_is_compact_by_default_and_keeps_full_mode():
+    src = _source("probe_node.py")
+    assert 'params.get("detail", "compact")' in src
+    assert "detail must be 'compact' or 'full'" in src
+    assert '"inactive_inputs"' in src and '"inactive_outputs"' in src
+
+
+@pytest.mark.parametrize("name", ["probe_node.py", "read_graph.py", "verify_result.py"])
+def test_unknown_parameters_are_rejected_not_ignored(name):
+    """An ignored misspelt key silently answers a different question."""
+    src = _source(name)
+    assert "_PARAMS" in src and "unknown parameter(s)" in src
+
+
+def test_verify_result_reports_values_persistence_and_cleans_up():
+    src = _source("verify_result.py")
+    for token in ("ATTRIBUTE_CONSTANT_EVERYWHERE", "ATTRIBUTE_ALL_ZERO",
+                  "ATTRIBUTE_MISSING", "GROUP_NOT_SAVED", "use_fake_user",
+                  "counts_restored", "evaluated_geometry"):
+        assert token in src, token
+    calls = _call_names("verify_result.py")
+    assert not [c for c in calls if c.startswith("bpy.ops")], "data API, not operators"
 
 
 def test_probe_node_cleans_up_what_it_creates():

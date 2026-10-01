@@ -236,6 +236,7 @@ CONDITIONAL = [
     "scripts/layout_graph.py",
     "scripts/capture.py",
     "scripts/inspect_assets.py",
+    "scripts/verify_result.py",
 ]
 
 
@@ -309,7 +310,7 @@ def test_every_path_resolves_in_a_temporary_installed_copy():
 def test_the_package_declares_no_runtime_dependency_of_its_own():
     """K-12: nothing to install. The scripts run inside Blender's own Python."""
     stdlib_and_blender = {
-        "__future__", "ast", "bpy", "csv", "hashlib", "inspect", "json",
+        "__future__", "ast", "bmesh", "bpy", "csv", "hashlib", "inspect", "json",
         "math", "os", "pathlib", "re", "runpy", "sys", "textwrap",
         "typing", "uuid",
     }

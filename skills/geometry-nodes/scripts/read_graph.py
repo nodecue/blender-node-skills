@@ -1,8 +1,9 @@
 """Read a Geometry Nodes tree. Read-only — safe in Explain mode.
 
-Returns a compact graph summary by default. Pass ``detail: "full"`` for node
-socket identifiers, writable properties, links, the group interface, and the
-existing scoped/paginated inspection payload. Both modes report whether a
+Returns a compact graph summary by default: users, node names, the output trunk,
+issues, and the group interface (direction, name, socket type, subtype and
+default). Pass ``detail: "full"`` only for node socket identifiers, writable
+properties, links, layout facts, and the scoped/paginated inspection payload. Both modes report whether a
 geometry trunk actually reaches the active Group Output. The script makes no
 repair decisions and writes nothing.
 
@@ -33,6 +34,9 @@ Parameters (all optional):
 Scoping and `limit` never drop a link silently. Links that cross the scope
 boundary come back marked `boundary`, and the result carries `scope.truncated`
 plus `scope.next_cursor` so a caller knows there is more and where to resume.
+
+Unknown parameters are rejected with the accepted list rather than ignored: an
+ignored ``node_group`` would silently fall back to resolving some other tree.
 
 The result always carries `ok`. On failure it carries `error` and, where it can,
 `candidates` so the caller can ask a narrower question rather than guess.
@@ -182,6 +186,23 @@ def _interface(tree):
             rec["socket_type"] = item.socket_type
             if hasattr(item, "default_value"):
                 rec["default_value"] = _jsonable(item.default_value)
+        items.append(rec)
+    return items
+
+
+def _interface_summary(tree):
+    """The group's contract in one line per socket; panels by name only."""
+    items = []
+    for item in tree.interface.items_tree:
+        if item.item_type != "SOCKET":
+            items.append({"panel": item.name})
+            continue
+        rec = {"in_out": item.in_out, "name": item.name, "socket_type": item.socket_type}
+        subtype = getattr(item, "subtype", None)
+        if subtype and subtype != "NONE":
+            rec["subtype"] = subtype
+        if hasattr(item, "default_value"):
+            rec["default_value"] = _jsonable(item.default_value)
         items.append(rec)
     return items
 
@@ -388,8 +409,24 @@ def _graph_issues(trunk):
     return issues
 
 
+_PARAMS = {"detail", "tree", "object", "modifier", "scope"}
+_SCOPE_PARAMS = {"nodes", "selected_only", "limit", "cursor", "links", "interface", "properties"}
+
+
 def run(params=None):
     params = params or {}
+    unknown = sorted(set(params) - _PARAMS)
+    unknown_scope = sorted(set(params.get("scope") or {}) - _SCOPE_PARAMS)
+    if unknown or unknown_scope:
+        return {
+            "ok": False,
+            "blender": bpy.app.version_string,
+            "error": "unknown parameter(s) "
+                     + str(unknown + [f"scope.{k}" for k in unknown_scope]),
+            "accepted": sorted(_PARAMS),
+            "accepted_scope": sorted(_SCOPE_PARAMS),
+            "hint": "name a node group with `tree`",
+        }
     detail = params.get("detail", "summary")
     if detail not in {"summary", "full"}:
         return {
@@ -494,6 +531,7 @@ def run(params=None):
     }
     if detail == "summary":
         payload["node_names"] = [n.name for n in ordered]
+        payload["interface"] = _interface_summary(tree)
         payload["issues"] = _graph_issues(trunk)
         return payload
 
@@ -514,7 +552,7 @@ def run(params=None):
 
 
 def _emit(payload):
-    print(json.dumps(payload, ensure_ascii=False, default=str))
+    print(json.dumps(payload, ensure_ascii=False, default=str, separators=(",", ":")))
     return payload
 
 
