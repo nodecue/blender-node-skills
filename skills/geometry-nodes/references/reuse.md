@@ -106,11 +106,3 @@ Say which one you did and what came in with it.
 Read the group node's sockets back from the running Blender before wiring anything. The
 interface you get is the one in this version's file — not the one in any table, including
 one you read a moment ago from a different version.
-
-## Recording what you learned
-
-When a reused group turns out to have a verified project-specific meaning — what it is
-for in this project, an external dependency it needs, an interface subtlety that cost you
-a repair — that belongs in the project's `NODECUE.md`, with the Blender version and the
-group identity that make it checkable. Not the interface itself: that is read live every
-time.

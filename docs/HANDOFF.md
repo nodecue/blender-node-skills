@@ -2,35 +2,51 @@
 
 Overwrite this file on every agent switch. It is not a history log — Git holds history.
 
-**Task:** Issue #18 automated pull-request quality gates.
+**Task:** Review and merge PR #22 for Issue #21 after integrating the new pull-request quality gates.
 
 **Done:**
 
-- PR #14 merged as `ece4b3a`; Issue #6 remains open because Issue close is separate.
-- `.github/workflows/quality.yml` adds separate `Static tests` and `nodes.tsv consistency` jobs for pull requests and pushes to `main`.
-- Workflow permissions are read-only and it contains no live-host, release, secret, or VM behavior.
-- `tests/test_ci_workflow.py` holds the workflow to the public command and boundary contract.
-- `docs/CURRENT.md` records that `nodes.tsv` stays until Issue #15 provides measured replacement evidence.
+- PR #14 merged; Issue #6 remains open because closing it is a separate action.
+- PR #20 merged and Issue #18 closed. Its workflow adds separate read-only `Static tests` and `nodes.tsv consistency` jobs; contract tests keep those gates scoped to public static checks.
+- The active `main` ruleset requires pull requests and both checks, blocks branch deletion and force-push, and retains administrator bypass for recovery.
+- Removed the `NODECUE.md` project-memory workflow from the shipped Geometry Nodes entrypoint, reuse reference, and both READMEs.
+- Removed the pre-v0.7 comparison section and historical call/time claims from both READMEs; removed its two image assets.
+- Added concise bilingual setup for the official Blender Lab MCP server/extension and a read-only smoke prompt for version, current file, and active object.
+- Kept `.mcp.json` as the existing `blender-mcp` command with no arguments.
+- Removed Blender Manual attribution from both READMEs.
+- Added Blender 5.2 modifier-input and Capture Attribute Selection notes to `references/versions.md`; the Capture Attribute version boundary is checked against the repository's live dumps.
+- Added a concise host-specific background-Blender failure lesson with the safe fallback.
+- Created PR #22 and integrated the latest `main` while preserving the CI facts and Issue #21 direction.
 
 **Not done:**
 
-- Commit, push, PR, review, merge, or Issue #18 close.
-- Live Blender/plugin/VM/image acceptance; that belongs to Issue #19.
-- Issue #15 `find_nodes` implementation.
-- Issue #6 close or any release.
+- PR #22 hosted checks, review, merge, Issue #21 close, or release.
+- Issue #6 close.
+- `read_graph.py` compaction, Issue #15 `find_nodes`, or Issue #19 VM evaluation.
 
 **Files touched:**
 
-- `.github/workflows/quality.yml` (new)
-- `tests/test_ci_workflow.py` (new)
-- `docs/CURRENT.md`
-- `docs/HANDOFF.md`
+- `.github/workflows/quality.yml`, `tests/test_ci_workflow.py` (from merged PR #20)
+- `docs/CURRENT.md`, `docs/HANDOFF.md`
+- `README.md`, `README.zh-CN.md`
+- `skills/geometry-nodes/SKILL.md`
+- `skills/geometry-nodes/references/reuse.md`
+- `skills/geometry-nodes/references/versions.md`
+- `docs/lessons/headless-blender-macos.md`
+- `tests/test_skill_entrypoint.py`, `tests/test_skill_references.py`, `tests/test_plugin_package.py`
+- Removed `docs/images/comparison-no-skill.png` and `docs/images/comparison-with-skill.png`
 
-**Last verified:** 2026-09-28
+**Risks / landmines:**
 
-- Full local suite with Blender 5.2.2 available: 184 passed, 1 explicitly deferred documentation-rule test skipped.
-- `python tools/gen_nodes_tsv.py --check`: current, 368 rows.
-- Workflow YAML parses; workflow contract tests: 2 passed.
-- PR #20 GitHub-hosted checks: `Static tests` passed in 14s; `nodes.tsv consistency` passed in 5s after adding the explicit `requirements-dev.txt` cache dependency path.
+- Upstream MCP setup can change. The README links to the official repository and keeps the server setup short; no server code is vendored.
+- The modifier-input API/error note was supplied as a confirmed Blender 5.2 fact; repository dumps do not record modifier writes, so it was documented as version-bound and was not independently exercised in this turn.
+- Direct background Blender on this macOS host terminates with the known `ARCH_CACHE_LINE_SIZE != Arch_ObtainCacheLineSize()` SIGSEGV. Do not repeat that path; use an already-running Blender MCP/Python channel.
 
-**Next action:** Review PR #20. Merge and Issue #18 close remain separate actions.
+**Next action:** Commit and push the resolved merge, wait for both hosted checks, then review PR #22. Merge and Issue #21 close remain separate actions.
+
+**Last verified:** 2026-10-01
+
+- PR #20 hosted checks passed before merge: `Static tests` and `nodes.tsv consistency`.
+- Issue #21 filtered suite before integrating `main`: 178 passed, 1 skipped, 2 known background-Blender cases deselected.
+- `python3 tools/gen_nodes_tsv.py --check`: current, 368 rows.
+- Rerun static checks and `git diff --check` after conflict resolution.

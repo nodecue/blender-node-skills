@@ -20,6 +20,7 @@ REUSE = REFS / "reuse.md"
 DIAGNOSTICS = REFS / "diagnostics.md"
 TSV = REFS / "nodes.tsv"
 SKILL = ROOT / "skills" / "geometry-nodes" / "SKILL.md"
+NODE_DUMPS = ROOT / "docs" / "node-dumps"
 
 SHIPPED = [VERSIONS, REUSE, DIAGNOSTICS]
 
@@ -41,7 +42,31 @@ def _tsv_identifiers() -> set[str]:
     return {line.split("\t")[0] for line in lines}
 
 
+def _capture_attribute_inputs(dump_name: str) -> set[str]:
+    dump = json.loads((NODE_DUMPS / dump_name).read_text(encoding="utf-8"))
+    node = dump["nodes"]["GeometryNodeCaptureAttribute"]
+    return {socket[0] for socket in node["in"]}
+
+
 # --- shared -------------------------------------------------------------------
+def test_versions_documents_blender_52_modifier_group_input_path():
+    body = _body(VERSIONS)
+    assert "In Blender 5.2" in body
+    assert "modifier.properties.inputs.Socket_n.value" in body
+    assert '`modifier["Socket_n"] = value`' in body
+    assert "errors on this version" in body
+    assert "do not assume this path is portable to other releases" in body
+
+
+def test_capture_attribute_selection_input_is_version_bounded_by_dumps():
+    assert "Selection" not in _capture_attribute_inputs("gn-4.5.12.json")
+    assert "Selection" not in _capture_attribute_inputs("gn-5.0.1.json")
+    assert "Selection" not in _capture_attribute_inputs("gn-5.1.2.json")
+    assert "Selection" in _capture_attribute_inputs("gn-5.2.0.json")
+    body = _body(VERSIONS)
+    assert "5.2.0" in body and "GeometryNodeCaptureAttribute" in body
+
+
 @pytest.mark.parametrize("path", SHIPPED, ids=lambda p: p.name)
 def test_reference_exists_and_is_utf8(path):
     assert path.is_file()
@@ -97,12 +122,13 @@ def test_references_do_not_restate_each_other():
 
 
 # --- R-VERSION-* --------------------------------------------------------------
-# Sections where naming a node identifier is the point: a rename, a gate, or a
-# deprecation with a replacement. Anywhere else, naming one restates nodes.tsv.
+# Sections where naming a node identifier is the point: a rename, a gate, a
+# deprecation, or a version-specific interface change. Elsewhere, that restates nodes.tsv.
 _VERSION_SECTIONS_THAT_MAY_NAME_NODES = (
     "Renamed, not removed",
     "Experimental gates",
     "Deprecated, with a replacement that is not a drop-in",
+    "Blender 5.2 API notes",
 )
 
 
@@ -219,11 +245,10 @@ def test_reuse_covers_presenting_candidates_and_link_vs_append():
     assert "Link" in body and "Append" in body
 
 
-def test_reuse_points_at_project_memory_without_duplicating_its_rules():
+def test_reuse_does_not_reintroduce_removed_project_memory():
     body = _body(REUSE)
-    assert "NODECUE.md" in body
-    memory = body.split("Recording what you learned", 1)[1]
-    assert len(memory) < 600, "project-memory rules belong to SKILL.md, not here"
+    assert "NODECUE.md" not in body
+    assert "Recording what you learned" not in body
 
 
 def test_reuse_routes_to_the_script_not_to_a_host():
