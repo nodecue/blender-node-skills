@@ -86,7 +86,10 @@ def test_callable_entrypoint(name):
 def test_returns_through_both_channels(name):
     src = _source(name)
     assert "print(json.dumps(" in src, "stdout channel missing"
-    assert "result = _emit(" in src, "`result` channel missing"
+    if name == "read_graph.py":
+        assert "result = run(NODECUE_PARAMS)" in src, "runpy result must not print"
+    else:
+        assert "result = _emit(" in src, "`result` channel missing"
     assert "NODECUE_PARAMS" in src, "host-injected parameter channel missing"
     assert '__name__ == "__main__"' in src, "CLI channel missing"
 
@@ -131,6 +134,16 @@ def test_read_graph_reports_layout_facts():
     assert '"location_absolute"' in src
     assert '"width"' in src
     assert '"height"' in src
+
+
+def test_read_graph_defaults_to_compact_summary_and_keeps_full_mode():
+    src = _source("read_graph.py")
+    assert 'params.get("detail", "summary")' in src
+    assert 'detail == "summary"' in src
+    assert 'payload["node_names"]' in src
+    assert 'payload["issues"]' in src
+    assert 'payload["nodes"]' in src
+    assert 'detail must be \'summary\' or \'full\'' in src
 
 
 def test_read_graph_is_read_only():

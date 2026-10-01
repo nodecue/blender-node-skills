@@ -155,7 +155,7 @@ Everything below is conditional. An ordinary single-version build reads this fil
 | `references/versions.md` | The user names a target version, the plan must hold on more than one, a candidate is unavailable, or a migration is requested |
 | `references/reuse.md` | An existing node group or asset might already answer the request |
 | `references/diagnostics.md` | The graph and readback look right and the evaluated result is still wrong |
-| `scripts/read_graph.py` | Reading a tree: identities, links, layout facts, interface, output-trunk reachability. Read-only Explain reader |
+| `scripts/read_graph.py` | Read-only tree summary: names, users, trunk and issues. Pass `detail: "full"` only when sockets, properties, links, interface or layout facts are needed |
 | `scripts/probe_node.py` | Asking what a node's sockets, properties, legal values and live socket state actually are. Temporary data; Build/Edit only |
 | `scripts/layout_graph.py` | Deterministic scoped layout. `check` is read-only; `apply` moves only caller-authorized nodes |
 | `scripts/capture.py` | Screenshot of the node editor. Reframing needs the user's permission first — see below |

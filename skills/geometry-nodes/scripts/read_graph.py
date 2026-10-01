@@ -1,9 +1,10 @@
 """Read a Geometry Nodes tree. Read-only — safe in Explain mode.
 
-Returns the running Blender's answer for node identities, socket identifiers,
-writable properties, links, the group interface, and whether a geometry trunk
-actually reaches the active Group Output. It makes no repair decisions and
-writes nothing.
+Returns a compact graph summary by default. Pass ``detail: "full"`` for node
+socket identifiers, writable properties, links, the group interface, and the
+existing scoped/paginated inspection payload. Both modes report whether a
+geometry trunk actually reaches the active Group Output. The script makes no
+repair decisions and writes nothing.
 
 Three ways to invoke the same file, none of which re-author its body:
 
@@ -19,6 +20,7 @@ Three ways to invoke the same file, none of which re-author its body:
     runpy.run_path(SCRIPT)["run"]({"tree": "Geometry Nodes"})
 
 Parameters (all optional):
+    detail          "summary" (default) or "full"
     tree            node group name to read; skips resolution entirely, and is
                     rejected if it names something that is not a GeometryNodeTree
     object          object whose NODES modifier holds the tree
@@ -34,6 +36,10 @@ plus `scope.next_cursor` so a caller knows there is more and where to resume.
 
 The result always carries `ok`. On failure it carries `error` and, where it can,
 `candidates` so the caller can ask a narrower question rather than guess.
+
+Direct CLI execution prints one JSON document. Host/runpy execution with
+``NODECUE_PARAMS`` returns through ``result`` without printing the same payload
+again.
 """
 
 import json
@@ -362,8 +368,35 @@ def _link_record(link, in_scope):
     return rec
 
 
+def _graph_issues(trunk):
+    """Deterministic graph findings already supported by trunk readback."""
+    if not trunk.get("reachable"):
+        return [{
+            "code": "OUTPUT_NOT_REACHABLE",
+            "severity": "error",
+            "message": trunk.get("reason") or "geometry does not reach Group Output",
+        }]
+    issues = []
+    off_trunk = trunk.get("off_trunk_nodes") or []
+    if off_trunk:
+        issues.append({
+            "code": "OFF_TRUNK_NODES",
+            "severity": "warning",
+            "nodes": off_trunk,
+            "message": "functional nodes do not contribute to the active geometry output",
+        })
+    return issues
+
+
 def run(params=None):
     params = params or {}
+    detail = params.get("detail", "summary")
+    if detail not in {"summary", "full"}:
+        return {
+            "ok": False,
+            "blender": bpy.app.version_string,
+            "error": "detail must be 'summary' or 'full'",
+        }
     scope = params.get("scope") or {}
     vocabulary = shape_vocabulary()
 
@@ -425,8 +458,10 @@ def run(params=None):
         if m.type == "NODES" and m.node_group is tree
     ]
 
+    trunk = _trunk(tree)
     payload = {
         "ok": True,
+        "detail": detail,
         "blender": bpy.app.version_string,
         "blender_version": list(bpy.app.version),
         "shape_vocabulary": vocabulary,
@@ -445,7 +480,6 @@ def run(params=None):
                            if n.select and n.bl_idname not in _STRUCTURAL],
         "selected_structural": [n.name for n in tree.nodes
                                 if n.select and n.bl_idname in _STRUCTURAL],
-        "nodes": [_node(n, scope.get("properties", True)) for n in ordered],
         "scope_missing_nodes": missing,
         "scope": {
             "scoped": scoped,
@@ -456,8 +490,14 @@ def run(params=None):
             "truncated": truncated,
             "next_cursor": next_cursor,
         },
-        "output_trunk": _trunk(tree),
+        "output_trunk": trunk,
     }
+    if detail == "summary":
+        payload["node_names"] = [n.name for n in ordered]
+        payload["issues"] = _graph_issues(trunk)
+        return payload
+
+    payload["nodes"] = [_node(n, scope.get("properties", True)) for n in ordered]
     if scope.get("links", True):
         if scoped or truncated:
             # Only links that touch the scope, with the crossing ones marked.
@@ -488,4 +528,4 @@ def _argv_params():
 if __name__ == "__main__":
     result = _emit(run(_argv_params()))
 elif "NODECUE_PARAMS" in globals():
-    result = _emit(run(NODECUE_PARAMS))  # noqa: F821  - injected by the host
+    result = run(NODECUE_PARAMS)  # noqa: F821  - injected by the host
