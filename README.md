@@ -9,10 +9,10 @@ English | [简体中文](README.zh-CN.md)
 > | | Score | Codex time | Input tokens |
 > | --- | --- | --- | --- |
 > | No skill | 50/50 | 183 s | 456k |
-> | This v0.7 skill | 50/50 | 273 s | 899k |
+> | This repository's full skill | 50/50 | 273 s | 899k |
 > | A 1.6 KB conventions-only skill | 50/50 | 223 s | 708k |
 >
-> A strong agent with the official MCP already built the graph correctly without help. The v0.7 skill's workflow and scripts added turns and context but did not reduce errors. Most errors were recoverable Blender 5.2 API changes, such as setting modifier inputs through `modifier.properties.inputs`. A short conventions-only skill did help readability: Blender node names kept, titled frames, no overlaps. The harder problems — values that are wrong without raising an error, and whether a result *looks* right — are not addressed by this kind of skill.
+> A strong agent with the official MCP already built the graph correctly without help. The full skill's workflow and scripts added turns and context but did not reduce errors; this comes from the approach of teaching a strong model how to build, not from a particular version. Most errors were recoverable Blender 5.2 API changes, such as setting modifier inputs through `modifier.properties.inputs`. A short conventions-only skill did help readability: Blender node names kept, titled frames, no overlaps. The harder problems — values that are wrong without raising an error, and whether a result *looks* right — are not addressed by this kind of skill.
 >
 > The code stays available for reference. It will not be updated, and issues are closed.
 
