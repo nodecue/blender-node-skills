@@ -7,3 +7,8 @@ npm-debug.log*
 dist/
 *.tgz
 tmp/
+
+# Local agent guidance and internal project records
+/AGENTS.md
+/docs/*
+!/docs/node-dumps/
