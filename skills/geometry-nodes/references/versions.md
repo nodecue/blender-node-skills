@@ -107,10 +107,11 @@ or general family assertions: display shape transitions in draw layers do not
 prove functional capability changes, and identical shapes do not prove identical
 behavior.
 
-For the connected Blender, `scripts/probe_node.py` and `scripts/read_graph.py`
-report live socket state (`display_shape`, `hide_value`, `has_default_value`,
-`type`). When a task depends on field evaluation, verify the specific node mode,
-connections, and evaluated results against the running Blender.
+For the connected Blender, `scripts/probe_node.py` and the explicit
+`detail: "full"` mode of `scripts/read_graph.py` report live socket state
+(`display_shape`, `hide_value`, `has_default_value`, `type`). When a task depends
+on field evaluation, verify the specific node mode, connections, and evaluated
+results against the running Blender.
 
 ## Bundled assets: a capability boundary
 

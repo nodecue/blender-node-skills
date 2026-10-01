@@ -12,7 +12,7 @@ Living direction for agents. Update this when the user changes mind. Do not trea
 - Fresh-clone static validation from public `main` passed: `python -m pytest tests -q` (172 passed, 1 skipped without `NODECUE_BLENDER`); `python tools/gen_nodes_tsv.py --check` current, 368 rows; Codex plugin validator passed. Those static checks are distinct from live Blender and from installed-plugin host proof.
 - With `NODECUE_BLENDER` set on that same fresh clone: portable Blender 5.1.2 and target Blender 5.2.2 each ran `tests/test_skill_runtime_scripts.py` with 36 passed. That is Blender runtime proof, not host plugin discovery.
 - Installed-plugin acceptance remains narrower: a genuinely fresh Codex task auto-discovered the skill and Blender MCP entry and completed live read-only against portable Blender 5.1.2. Separate host tests proved mutation/readback/viewport on 5.1.2 and 5.2.2; those were not the same fresh-plugin end-to-end mutation/image run. New machines/VMs, Claude, and Pi are unverified.
-- Issue #6 deterministic layout is merged in PR #14; closing the Issue remains a separate action.
+- Issue #6 deterministic layout is merged in PR #14 and closed after acceptance review.
 - Issue #18 automated pull-request quality gates is merged in PR #20 and closed. Pull requests run separate `Static tests` and `nodes.tsv consistency` jobs; the active `main` ruleset requires a pull request and both checks, prevents deletion and force-push, and retains administrator bypass for recovery.
 - Keep `nodes.tsv` as the reviewed routing index for now. Only reduce its role after Issue #15 measures that `find_nodes` preserves recall, version routing, and maintainability; do not remove it on anecdotal results.
 - Future work goes Issue → branch/worktree → PR → review → merge. Merge, release, and issue close are separate actions. Jev may only be an optional measured reranking experiment after a deterministic `find_nodes` baseline, not a dependency.
@@ -22,17 +22,13 @@ Living direction for agents. Update this when the user changes mind. Do not trea
 
 ## Current slice
 
-Issue #21: simplify the shipped NodeCue experience and close the minimal official Blender Lab MCP setup loop.
+Issue #23: make `read_graph.py` compact by default without losing explicit full-detail inspection.
 
-- Remove the `NODECUE.md` project-memory mechanism from shipped skill guidance, references, READMEs, and tests. Do not replace it with another memory system.
-- Keep `.mcp.json` as a thin stdio entry using `blender-mcp`; document concise, host-neutral first-use steps in English and Chinese, pointing to the official upstream project.
-- Include a read-only smoke prompt that asks for Blender version, current file, and active object.
-- Remove the dated pre-v0.7 README comparison section, its historical timing/call-count claims and now-unused images.
-- Remove Blender Manual dependency/attribution from shipped skill and READMEs. Live Blender remains the authority for current identities and behavior.
-- Add version-bounded Blender 5.2 notes for Geometry Nodes modifier group-input writes and the `Capture Attribute` Selection socket; confirm the latter against the checked-in version dumps.
-- Record the repeatable macOS host failure for direct Blender `--background` runs and its known safe response in `docs/lessons/`.
-- Keep upstream setup details intentionally short because the official MCP may change. Do not vendor or reproduce its server implementation.
-- Do not implement `find_nodes` in this slice. After Issue #21, make `read_graph.py` compact and non-duplicating, close Issue #6 after checking its merged acceptance, then implement Issue #15 before resuming Issue #19 paired VM acceptance.
+- Default to a summary containing tree identity and users, node names, selection, output trunk, and deterministic graph issues.
+- Keep the existing detailed nodes, sockets, properties, links, interface, scope, and pagination contract behind explicit `detail: "full"`.
+- When called through `runpy` with `NODECUE_PARAMS`, return through `result` without also printing JSON to stdout. Direct CLI execution still prints once.
+- Keep the script read-only and preserve all resolution and trunk-analysis behavior.
+- Do not implement `find_nodes`, Jev, caching, or MCP transport changes in this slice. Issue #15 follows after Issue #23.
 
 Documented development path for a fresh clone:
 
@@ -59,6 +55,7 @@ Those commands cover committed skill, TSV, and plugin-JSON tests. They do not pr
 ## Open
 
 - Host plugin discovery on new machines/VMs, Claude, and Pi.
+- Issue #23 compact `read_graph.py` output without losing explicit full-detail access.
 - Issue #15 measured `find_nodes` baseline after the PR gates land.
 - Issue #19 paired no-skill/skill VM acceptance with refreshed image evidence.
 - Whether later slices add measured reranking (Jev) — optional experiment only.

@@ -12,7 +12,9 @@ Exit code is 0 only when every check passes. The JSON holds every check with its
 observed value, so a failure names itself.
 """
 
+import contextlib
 import hashlib
+import io
 import json
 import os
 import runpy
@@ -36,6 +38,26 @@ def call(script, params):
     path = os.path.join(SCRIPTS, script)
     globs = runpy.run_path(path, init_globals={"NODECUE_PARAMS": params})
     return globs["result"]
+
+
+def call_with_stdout(script, params):
+    stream = io.StringIO()
+    with contextlib.redirect_stdout(stream):
+        result = call(script, params)
+    return result, stream.getvalue()
+
+
+def call_cli(script, params):
+    path = os.path.join(SCRIPTS, script)
+    previous_argv = sys.argv[:]
+    stream = io.StringIO()
+    try:
+        sys.argv = [path, "--", json.dumps(params)]
+        with contextlib.redirect_stdout(stream):
+            runpy.run_path(path, run_name="__main__")
+    finally:
+        sys.argv = previous_argv
+    return stream.getvalue()
 
 
 def build_fixture():
@@ -119,10 +141,27 @@ def snapshot(tree):
 # --- read_graph ---------------------------------------------------------------
 def test_read_graph(tree):
     before = snapshot(tree)
-    res = call("read_graph.py", {"tree": "Fixture"})
+    summary, emitted = call_with_stdout("read_graph.py", {"tree": "Fixture"})
+    res = call("read_graph.py", {"tree": "Fixture", "detail": "full"})
     after = snapshot(tree)
 
+    check("read_graph.summary_is_default", summary.get("detail") == "summary", summary)
+    check("read_graph.summary_has_names_not_details",
+          "Grid" in summary.get("node_names", [])
+          and "nodes" not in summary and "links" not in summary
+          and "interface" not in summary,
+          summary)
+    check("read_graph.summary_has_deterministic_issues",
+          any(i.get("code") == "OFF_TRUNK_NODES" for i in summary.get("issues", [])),
+          summary.get("issues"))
+    check("read_graph.runpy_stdout_is_empty", emitted == "", emitted)
+    cli_output = call_cli("read_graph.py", {"tree": "Fixture"})
+    cli_lines = [line for line in cli_output.splitlines() if line.strip()]
+    check("read_graph.cli_emits_one_json_document",
+          len(cli_lines) == 1 and json.loads(cli_lines[0]).get("detail") == "summary",
+          cli_lines)
     check("read_graph.ok", res.get("ok"), res.get("error"))
+    check("read_graph.full_is_explicit", res.get("detail") == "full", res.get("detail"))
     check("read_graph.no_mutation", before == after, {"before": before, "after": after})
     check("read_graph.resolved_by_explicit",
           res.get("resolved_by") == "explicit `tree` parameter", res.get("resolved_by"))
@@ -173,7 +212,8 @@ def test_read_graph(tree):
           and "Noise" not in trunk.get("off_trunk_nodes", []),
           trunk)
 
-    scoped = call("read_graph.py", {"tree": "Fixture", "scope": {"nodes": ["Grid", "Nope"]}})
+    scoped = call("read_graph.py", {"tree": "Fixture", "detail": "full",
+                                    "scope": {"nodes": ["Grid", "Nope"]}})
     check("read_graph.scope_filters", [n["name"] for n in scoped["nodes"]] == ["Grid"],
           [n["name"] for n in scoped["nodes"]])
     check("read_graph.scope_reports_missing", scoped["scope_missing_nodes"] == ["Nope"],
@@ -186,13 +226,14 @@ def test_read_graph(tree):
           scoped["boundary_links"] == sum(1 for l in scoped["links"] if "boundary" in l),
           scoped["boundary_links"])
 
-    page = call("read_graph.py", {"tree": "Fixture", "scope": {"limit": 2}})
+    page = call("read_graph.py", {"tree": "Fixture", "detail": "full",
+                                  "scope": {"limit": 2}})
     check("read_graph.limit_bounds_the_result", len(page["nodes"]) == 2, len(page["nodes"]))
     check("read_graph.truncation_is_explicit",
           page["scope"]["truncated"] is True and page["scope"]["next_cursor"],
           page["scope"])
-    rest = call("read_graph.py",
-                {"tree": "Fixture", "scope": {"cursor": page["scope"]["next_cursor"]}})
+    rest = call("read_graph.py", {"tree": "Fixture", "detail": "full",
+                                  "scope": {"cursor": page["scope"]["next_cursor"]}})
     seen = [n["name"] for n in page["nodes"]] + [n["name"] for n in rest["nodes"]]
     check("read_graph.cursor_resumes_without_gap_or_repeat",
           sorted(seen) == sorted(n.name for n in tree.nodes), seen)
@@ -220,6 +261,23 @@ def test_read_graph(tree):
     missing = call("read_graph.py", {"tree": "Does Not Exist"})
     check("read_graph.missing_tree_fails_clearly",
           missing.get("ok") is False and missing.get("candidates"), missing)
+
+    added = []
+    for index in range(54 - len(tree.nodes)):
+        node = tree.nodes.new("ShaderNodeValue")
+        node.name = f"Summary Size {index:02d}"
+        added.append(node)
+    large_summary = call("read_graph.py", {"tree": "Fixture"})
+    large_full = call("read_graph.py", {"tree": "Fixture", "detail": "full"})
+    summary_bytes = len(json.dumps(large_summary, ensure_ascii=False).encode("utf-8"))
+    full_bytes = len(json.dumps(large_full, ensure_ascii=False).encode("utf-8"))
+    check("read_graph.summary_54_nodes_under_20kb", summary_bytes <= 20_000,
+          {"summary_bytes": summary_bytes, "full_bytes": full_bytes})
+    check("read_graph.summary_54_nodes_reduces_at_least_80_percent",
+          summary_bytes <= full_bytes * 0.2,
+          {"summary_bytes": summary_bytes, "full_bytes": full_bytes})
+    for node in added:
+        tree.nodes.remove(node)
 
 
 # --- probe_node ---------------------------------------------------------------
