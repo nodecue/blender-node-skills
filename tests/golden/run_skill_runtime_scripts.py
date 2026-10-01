@@ -1,12 +1,12 @@
 """Exercise the Geometry Nodes runtime scripts inside a real Blender.
 
-Checks the contract the redesign plan puts on them: read-only reading, exactly
+Checks the contract the skill puts on them: read-only reading, exactly
 targeted cleanup, structured return through both channels, configured-library-only
 discovery, and a clear failure result when the thing asked for does not exist.
 
 Run:
-    conda run -n blender blender -b --factory-startup \
-        --python tests/golden/run_skill_runtime_scripts.py -- /tmp/out.json
+    blender -b --factory-startup \
+        --python tests/golden/run_skill_runtime_scripts.py -- out.json
 
 Exit code is 0 only when every check passes. The JSON holds every check with its
 observed value, so a failure names itself.

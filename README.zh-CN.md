@@ -2,10 +2,10 @@
 
 # NodeCue Blender Node Skills
 
-现在可以直接使用的，是已经发布的 **v0.7 几何节点 skill**，位置在 [`skills/geometry-nodes/`](skills/geometry-nodes/)。它由 [`SKILL.md`](skills/geometry-nodes/SKILL.md)、四份参考文件和四个脚本组成：
+现在可以直接使用的，是已经发布的 **v0.7 几何节点 skill**，位置在 [`skills/geometry-nodes/`](skills/geometry-nodes/)。它由 [`SKILL.md`](skills/geometry-nodes/SKILL.md)、四份参考文件和七个脚本组成：
 
 - 参考文件：[`nodes.tsv`](skills/geometry-nodes/references/nodes.tsv)、[`versions.md`](skills/geometry-nodes/references/versions.md)、[`reuse.md`](skills/geometry-nodes/references/reuse.md)、[`diagnostics.md`](skills/geometry-nodes/references/diagnostics.md)
-- 脚本：[`find_nodes.py`](skills/geometry-nodes/scripts/find_nodes.py)、[`read_graph.py`](skills/geometry-nodes/scripts/read_graph.py)、[`probe_node.py`](skills/geometry-nodes/scripts/probe_node.py)、[`capture.py`](skills/geometry-nodes/scripts/capture.py)、[`inspect_assets.py`](skills/geometry-nodes/scripts/inspect_assets.py)、[`verify_result.py`](skills/geometry-nodes/scripts/verify_result.py)
+- 脚本：[`find_nodes.py`](skills/geometry-nodes/scripts/find_nodes.py)、[`read_graph.py`](skills/geometry-nodes/scripts/read_graph.py)、[`probe_node.py`](skills/geometry-nodes/scripts/probe_node.py)、[`layout_graph.py`](skills/geometry-nodes/scripts/layout_graph.py)、[`capture.py`](skills/geometry-nodes/scripts/capture.py)、[`inspect_assets.py`](skills/geometry-nodes/scripts/inspect_assets.py)、[`verify_result.py`](skills/geometry-nodes/scripts/verify_result.py)
 
 agent 用它搭建一份可以核对的几何节点图，也可以在不改动图的情况下解释一份已有的图。
 
@@ -89,6 +89,10 @@ Blender 扩展需要单独安装：添加 Blender Lab Extensions 仓库（`https
 ## 反馈
 
 请使用 [Skill feedback](.github/ISSUE_TEMPLATE/skill-feedback.yml) 模板。说明你问了什么、用的 agent 和模型、当时的 Blender 版本、执行通道是怎么接上的，以及求值结果实际怎样。只提交可以公开的证据：不要包含 API key、凭据、私有路径，或不能公开的 `.blend` 文件。
+
+## 参与贡献
+
+仓库结构、需要跑的检查以及如何重新生成 `nodes.tsv`，见 [CONTRIBUTING.md](CONTRIBUTING.md)。改动记录见 [CHANGELOG.md](CHANGELOG.md)。
 
 ## 许可
 

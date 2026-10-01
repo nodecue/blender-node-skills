@@ -14,10 +14,9 @@ last drawn frame, and the node editor is usually too short to be readable.
 **`bpy.ops.wm.redraw_timer()` segfaults Blender.** Measured twice on 5.2.1: once
 from Python running inside a Blender application timer, which is how an MCP-style
 host executes submitted code, and once from a `--python` startup script. Both
-crash in `redraw_timer_exec`; stack in
-`_experiments/2026-09-01-runtime-baseline/raw/blender-5.2.1-redraw_timer-crash.txt`.
-So this script never forces a redraw. It tags areas and splits the work into
-stages, and Blender's own event loop does the redrawing in between:
+crash in `redraw_timer_exec`. So this script never forces a redraw. It tags
+areas and splits the work into stages, and Blender's own event loop does the
+redrawing in between:
 
     capture.py {"stage": "prepare", "tree": "My Tree"}   # returns; Blender redraws
     capture.py {"stage": "capture", "output": "/abs/path/graph.png"}

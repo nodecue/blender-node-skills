@@ -2,10 +2,10 @@ English | [简体中文](README.zh-CN.md)
 
 # NodeCue Blender Node Skills
 
-The product available now is the shipped **v0.7 Geometry Nodes skill** at [`skills/geometry-nodes/`](skills/geometry-nodes/). It is [`SKILL.md`](skills/geometry-nodes/SKILL.md), four references, and four scripts:
+The product available now is the shipped **v0.7 Geometry Nodes skill** at [`skills/geometry-nodes/`](skills/geometry-nodes/). It is [`SKILL.md`](skills/geometry-nodes/SKILL.md), four references, and seven scripts:
 
 - References: [`nodes.tsv`](skills/geometry-nodes/references/nodes.tsv), [`versions.md`](skills/geometry-nodes/references/versions.md), [`reuse.md`](skills/geometry-nodes/references/reuse.md), [`diagnostics.md`](skills/geometry-nodes/references/diagnostics.md)
-- Scripts: [`find_nodes.py`](skills/geometry-nodes/scripts/find_nodes.py), [`read_graph.py`](skills/geometry-nodes/scripts/read_graph.py), [`probe_node.py`](skills/geometry-nodes/scripts/probe_node.py), [`capture.py`](skills/geometry-nodes/scripts/capture.py), [`inspect_assets.py`](skills/geometry-nodes/scripts/inspect_assets.py), [`verify_result.py`](skills/geometry-nodes/scripts/verify_result.py)
+- Scripts: [`find_nodes.py`](skills/geometry-nodes/scripts/find_nodes.py), [`read_graph.py`](skills/geometry-nodes/scripts/read_graph.py), [`probe_node.py`](skills/geometry-nodes/scripts/probe_node.py), [`layout_graph.py`](skills/geometry-nodes/scripts/layout_graph.py), [`capture.py`](skills/geometry-nodes/scripts/capture.py), [`inspect_assets.py`](skills/geometry-nodes/scripts/inspect_assets.py), [`verify_result.py`](skills/geometry-nodes/scripts/verify_result.py)
 
 An agent uses it to build a Geometry Nodes graph you can check, or to explain a graph without changing it.
 
@@ -89,6 +89,10 @@ This path uses only this public repository.
 ## Feedback
 
 Use the [Skill feedback](.github/ISSUE_TEMPLATE/skill-feedback.yml) template. Say what you asked, which agent and model you used, which Blender version was running, how the execution channel was provided, and what the evaluated result did. Send sanitized evidence only: no API keys, credentials, private paths, or `.blend` files you cannot publish.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the repository layout, the checks to run, and how to regenerate `nodes.tsv`. Changes are listed in [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 

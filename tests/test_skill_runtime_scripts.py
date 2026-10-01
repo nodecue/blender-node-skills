@@ -1,7 +1,7 @@
 """Contract tests for the Geometry Nodes runtime scripts.
 
-The static half runs anywhere: it holds the scripts to the contract in the
-redesign plan without needing Blender. The integration half runs the real checks
+The static half runs anywhere: it holds the scripts to the contract
+the skill relies on without needing Blender. The integration half runs the real checks
 inside Blender and is skipped when no Blender is available.
 """
 
@@ -199,8 +199,8 @@ def test_probe_node_cleans_up_what_it_creates():
 
 def test_capture_never_forces_a_redraw():
     """wm.redraw_timer segfaults Blender, from a timer-driven host and from a
-    --python startup script alike. Measured twice on 5.2.1; evidence in
-    _experiments/2026-09-01-runtime-baseline/raw/blender-5.2.1-redraw_timer-crash.txt.
+    --python startup script alike. Measured twice on 5.2.1; both crash in
+    redraw_timer_exec.
 
     The staged prepare/capture/restore API exists so Blender's own event loop
     does the redrawing. Calling the operator would take Blender down with it.

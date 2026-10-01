@@ -2,13 +2,19 @@
 __pycache__/
 *.pyc
 .pytest_cache/
-node_modules/
-npm-debug.log*
-dist/
-*.tgz
+.venv/
 tmp/
 
-# Local agent guidance and internal project records
+# Local agent guidance and internal project records. Listed by name so new
+# public docs under docs/ are not silently ignored.
 /AGENTS.md
-/docs/*
-!/docs/node-dumps/
+/CLAUDE.md
+/.local/
+/docs/CURRENT.md
+/docs/HANDOFF.md
+/docs/PRODUCT.md
+/docs/learnings.md
+/docs/cleanup/
+/docs/decisions/
+/docs/lessons/
+/docs/research/

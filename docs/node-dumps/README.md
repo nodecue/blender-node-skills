@@ -29,6 +29,12 @@ these files, which is the part no single install can report about itself.
 | `gn-5.1.2.json` | 5.1.2 | 333 | `blender_vers/stable/blender-5.1.2-…` |
 | `gn-5.2.0.json` | 5.2.0 LTS | 360 | `/Applications/Blender.app` |
 
+The `tsv-evidence-*.json` files come from `tools/dump_tsv_evidence.py` and add
+the two facts the identity dumps lack: field socket display shapes and the Add
+menu each node lives in. Two of them were taken on a later patch release than
+the matching identity dump (4.5.13 against 4.5.12, 5.2.1 against 5.2.0). The
+node sets agree; `nodes-tsv-manifest.md` records both versions per source.
+
 The chain is unbroken: **297 → 321 → 333 → 360**. Historical adjacent-version
 counts (dump-diff markdown is not shipped in this repository):
 
@@ -173,9 +179,9 @@ The 4.5.12 and 5.1.2 dumps were both reproduced byte-for-byte from the versions
 root on 2026-08-08, including the 4.5.12 one originally taken from
 `/Applications/Blender 4.5.app`.
 
-## Agreement with DEC-010
+## Agreement with the manual 4.5 → 5.2 audit
 
-The 4.5.12 → 5.2.0 comparison reproduces DEC-010's manual audit exactly: 45 socket
+The 4.5.12 → 5.2.0 comparison reproduces the earlier manual socket audit exactly: 45 socket
 differences, and the same 45 node types — set equality, not just a matching
 count.
 

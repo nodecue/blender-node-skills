@@ -1,22 +1,51 @@
 # Contributing
 
-Public GitHub `main` is the product and development source. Branch from current public `main`. Work follows Issue → branch or worktree → pull request → review → merge.
+Thanks for helping. Bug reports from real use are as valuable as code: if the skill built or explained a graph wrongly, open an issue with the [Skill feedback](.github/ISSUE_TEMPLATE/skill-feedback.yml) template.
 
-## Where a change belongs
+## Repository layout
 
-Skill behavior and guidance live under `skills/`. Plugin metadata, hooks, commands, README files, this guide, tests, tools, and other public files live in the same repository and the same pull-request path.
+| Path | What it is |
+|---|---|
+| `skills/geometry-nodes/` | The shipped skill: `SKILL.md`, `references/`, and the `scripts/` that run inside Blender |
+| `.claude-plugin/`, `.codex-plugin/`, `.mcp.json` | Plugin metadata for Claude Code and Codex, and the `blender-mcp` stdio entry |
+| `tests/` | Static tests that run anywhere; `tests/golden/` runs the skill scripts inside a real Blender |
+| `tools/` | Maintainer tools: dump node identities from Blender, generate `nodes.tsv`, evaluate `find_nodes` |
+| `docs/node-dumps/` | Per-version node dumps that `nodes.tsv` is generated from. Evidence, not shipped |
+| `.github/` | CI quality gates, issue and pull request templates |
 
-Open an issue before a larger change. The pull request links that issue and states the behavior or guidance that changes, the files in scope, the checks that were run, the evidence a reviewer can read, and the checks that were not run. Blender evidence names the Blender version. Host evidence names the host and the install or session that was exercised.
+## Set up and run the checks
 
-## Evidence
+Python 3.11 or newer.
 
-- Static checks cover text, links, tests, TSV generation, and plugin JSON. They do not prove live host discovery or live Blender behavior.
-- Blender evidence covers the named version and the observed behavior.
-- Host evidence covers the named host and the installation or session that was exercised. The current plugin acceptance target is Codex first. Claim support for a host after that host has been exercised.
-- Owner acceptance is a separate decision from the checks above.
+```bash
+python -m pip install -r requirements-dev.txt
+python -m pytest tests -q                 # what CI runs
+python tools/gen_nodes_tsv.py --check     # nodes.tsv and its manifest are up to date
+python tools/eval_find_nodes.py           # find_nodes recall/accuracy, when you touch routing
+```
 
-## What to leave out
+The runtime-script integration test runs only when a Blender executable is found: set `NODECUE_BLENDER` to its path, or put `blender` on `PATH`. To run the Blender-side checks directly:
 
-Leave credentials, private corpora, machine-local absolute paths, and unrelated experiments out of issues, pull requests, and evidence.
+```bash
+blender -b --factory-startup --python tests/golden/run_skill_runtime_scripts.py -- out.json
+```
 
-A local commit, a public merge, closing an issue, a push, and a release are separate actions. Merge does not close the issue. Release still needs explicit authorization. This guide does not authorize a push or a release.
+## Changing the node index
+
+`skills/geometry-nodes/references/nodes.tsv` and `docs/node-dumps/nodes-tsv-manifest.md` are generated. Do not edit them by hand. Edit the reviewed metadata in `tools/nodes_tsv_review.json` (or add a dump with `tools/introspect_nodes.py`, see [`docs/node-dumps/README.md`](docs/node-dumps/README.md)), then run:
+
+```bash
+python tools/gen_nodes_tsv.py
+```
+
+## Pull requests
+
+- Branch from `main`. Open an issue first for a larger change.
+- Keep `SKILL.md` short: it is loaded into the agent's context every time. Put conditional detail in `references/`.
+- Add a line under **Unreleased** in [`CHANGELOG.md`](CHANGELOG.md) for any user-visible change.
+- Say what you verified and where: static checks only, which Blender version, which agent host. Static checks do not prove live Blender or host behavior, so name what was not run.
+- Leave out credentials, private asset libraries, machine-local absolute paths, and `.blend` files you cannot publish.
+
+## Releases
+
+A maintainer moves **Unreleased** to a version heading, bumps `version` in `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, and `.codex-plugin/plugin.json` together, and tags the commit `vX.Y.Z`.

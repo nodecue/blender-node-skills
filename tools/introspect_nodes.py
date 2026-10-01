@@ -3,7 +3,7 @@
 Node identity -- socket names, identifiers, types and RNA classes, tooltips,
 writable RNA properties and their enum values -- is read from a running Blender
 rather than maintained by hand. One dump per Blender version feeds
-``tools/diff_node_dumps.py``, which computes the cross-version differences that
+``tools/gen_nodes_tsv.py``, which derives the cross-version differences that
 cannot be introspected from a single install.
 
 Run inside Blender. ``--factory-startup`` is required: user add-ons register
